@@ -1,3 +1,8 @@
-<app-header></app-header>
+<!-- Header shown only when showLayout is true -->
+<app-header *ngIf="showLayout"></app-header>
+
+<!-- main routing outlet (always present) -->
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+
+<!-- Footer shown only when showLayout is true -->
+<app-footer *ngIf="showLayout"></app-footer>
