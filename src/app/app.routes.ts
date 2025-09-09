@@ -8,7 +8,7 @@ export const routes: Routes = [
     {path : "home", component : HomeComponent},
 
     //Registration
-    {path: "", children :[
-        {path : "", component : UserSignInComponent}
+        {path: "", children :[
+            // {path : "", component : UserSignInComponent}
     ]}
 ];
