@@ -1,0 +1,48 @@
+<div class="onboarding-root">
+  <!-- Subtitle -->
+  <div class="top-subtitle">
+    {{ steps[currentStep].subtitle }}
+  </div>
+
+  <div class="main-area">
+    <!-- Left side -->
+    <div class="left-col">
+      <h1 class="brand">Tiffino</h1>
+    </div>
+
+    <!-- Center image -->
+    <div class="center-col">
+      <div class="circle-bg">
+        <img [src]="steps[currentStep].image" alt="onboarding image" />
+      </div>
+      <button class="next-btn" (click)="nextStep()">Next</button>
+    </div>
+
+    <!-- Right side options -->
+    <div class="right-col">
+      <div class="options">
+        <button
+          class="option-pill"
+          [class.active]="currentStep === 0"
+          (click)="goToStep(0)"
+        >
+          Discover Diverse Cuisines
+        </button>
+        <button
+          class="option-pill"
+          [class.active]="currentStep === 1"
+          (click)="goToStep(1)"
+        >
+          Flexible Meal Plans
+        </button>
+        <button
+          class="option-pill"
+          [class.active]="currentStep === 2"
+          (click)="goToStep(2)"
+        >
+          Track Your Order Live
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
