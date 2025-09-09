@@ -8,7 +8,7 @@
 }
 
 .container {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
   padding: 0 0px;
 }
@@ -36,6 +36,8 @@
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
+  cursor: pointer;
+
 }
 .nav-link:hover { opacity: 1; }
 
