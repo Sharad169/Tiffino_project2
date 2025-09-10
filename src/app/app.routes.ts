@@ -6,12 +6,12 @@ import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.componen
 
 export const routes: Routes = [
   // Default route → Welcome screen
-  { path: '', component: WelcomeScreenComponent },
+  { path: 'welcome', component: WelcomeScreenComponent },
 
   { path: 'home', component: HomeComponent },
 
   // Login / Registration
-  { path: 'login', component: UserSignInComponent },
+  { path: '', component: UserSignInComponent },
 
   // Onboarding screen
   { path: 'onboarding', component: OnboardingComponent },
