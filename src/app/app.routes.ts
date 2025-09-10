@@ -7,10 +7,10 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
 
   // Default route → Welcome screen
-  { path: '', component: WelcomeScreenComponent },
+  { path: 'welcome', component: WelcomeScreenComponent },
 
   // Registration
-  { path: 'login', component: UserSignInComponent },
+  { path: '', component: UserSignInComponent },
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
