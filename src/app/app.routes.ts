@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { UserSignInComponent } from './registration/user-sign-in/user-sign-in.component';
 import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
+import { NorthComponent } from './north/north.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -11,6 +12,9 @@ export const routes: Routes = [
 
   // Registration
   { path: '', component: UserSignInComponent },
+
+  //North
+  { path: 'north', component: NorthComponent },
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
