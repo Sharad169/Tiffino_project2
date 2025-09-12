@@ -3,12 +3,22 @@ import { HomeComponent } from './home/home.component';
 import { UserSignInComponent } from './registration/user-sign-in/user-sign-in.component';
 import { OnboardingComponent } from './onboarding/onboarding.component';
 import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
+import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
+import { VerificationCodeComponent } from './verification-code/verification-code.component';
 
 export const routes: Routes = [
+
+  // Default page
+  { path: '', component: ExploreSubpageComponent },
   // Default route → Welcome screen
   { path: 'welcome', component: WelcomeScreenComponent },
 
+
+  // Home page
   { path: 'home', component: HomeComponent },
+
+  // Verification / OTP page
+  { path: 'verification-code', component: VerificationCodeComponent },
 
   // Login / Registration
   { path: '', component: UserSignInComponent },
@@ -16,45 +26,9 @@ export const routes: Routes = [
   // Onboarding screen
   { path: 'onboarding', component: OnboardingComponent },
 
+  // Welcome screen
+  { path: 'welcome', component: WelcomeScreenComponent },
+
   // Redirect unknown paths
   { path: '**', redirectTo: '' },
 ];
-
-// import { Routes } from '@angular/router';
-// import { HomeComponent } from './home/home.component';
-// import { UserSignInComponent } from './registration/user-sign-in/user-sign-in.component';
-// import { OnboardingComponent } from './onboarding/onboarding.component';
-// import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
-
-// export const routes: Routes = [
-//   // Default route → choose either Onboarding or WelcomeScreen
-//   { path: '', component: WelcomeScreenComponent },
-
-//   { path: 'home', component: HomeComponent },
-
-//   // Registration / Login
-//   { path: 'login', component: UserSignInComponent },
-
-//   // Optional: Onboarding route
-//   { path: 'onboarding', component: OnboardingComponent },
-
-//   // Redirect unknown paths to default
-//   { path: '**', redirectTo: '' },
-// ];
-
-// import { Routes } from '@angular/router';
-// import { HomeComponent } from './home/home.component';
-// import { UserSignInComponent } from './registration/user-sign-in/user-sign-in.component';
-// import { OnboardingComponent } from './onboarding/onboarding.component';
-// import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
-
-// export const routes: Routes = [
-//   { path: '', component: OnboardingComponent },
-//   { path: 'home', component: HomeComponent },
-
-//   { path: '', component: WelcomeScreenComponent },
-
-//   { path: 'login', component: UserSignInComponent },
-
-//   { path: '**', redirectTo: '' },
-// ];
