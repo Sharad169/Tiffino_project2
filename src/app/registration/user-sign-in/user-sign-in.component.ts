@@ -74,6 +74,7 @@ export class UserSignInComponent {
 
    this.api.signup(payload).subscribe({
       next: (res) => {
+         sessionStorage.setItem('emailForOtp', payload.email);
         console.log('Signup successful:', res);
         this.route.navigate(['/verification-code']);
       },

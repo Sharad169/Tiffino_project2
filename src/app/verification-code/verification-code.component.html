@@ -1,24 +1,6 @@
-<div class="verification-wrapper">
-  <div class="verification-container">
-    <!-- Left form card -->
-    <div class="form-section">
-      <h2>Verify OTP</h2>
-      <p>Enter your OTP</p>
-
-      <form>
-        <label for="otp">OTP</label>
-        <input type="text" id="otp" name="otp" placeholder="Enter OTP" />
-
-        <button type="submit">Submit</button>
-      </form>
-
-      <a href="#" class="resend-link">Get the OTP again.</a>
-    </div>
-
-    <!-- Right blurred image section -->
-    <div class="image-section">
-      <div class="blurred-bg"></div>
-      <div class="overlay-text">Let’s Get Started !</div>
-    </div>
-  </div>
-</div>
+<h3>Verify OTP</h3>
+<p>OTP sent to: {{ email }}</p>
+<form [formGroup]="otpForm" (ngSubmit)="verifyOtp()">
+  <input type="text" placeholder="Enter OTP" formControlName="otp" />
+  <button type="submit">Verify</button>
+</form>

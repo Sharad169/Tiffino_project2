@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome-screen',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
   templateUrl: './welcome-screen.component.html',
   styleUrls: ['./welcome-screen.component.css'],
 })
-export class WelcomeScreenComponent {}
+export class WelcomeScreenComponent {
+    constructor(private router: Router) {}
+
+  goToWelcome() {
+    this.router.navigate(['/home']);
+  }
+}

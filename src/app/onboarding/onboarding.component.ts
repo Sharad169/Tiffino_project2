@@ -30,7 +30,7 @@ export class OnboardingComponent {
     if (this.currentStep < this.steps.length - 1) {
       this.currentStep++;
     } else {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/welcome']);
     }
   }
 
