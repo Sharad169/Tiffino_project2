@@ -18,7 +18,7 @@ export const routes: Routes = [
 
   // Default page
 
-  { path: '', component: ExploreSubpageComponent },
+  { path: 'ex', component: ExploreSubpageComponent },
  
   // Default route → Welcome screen
 

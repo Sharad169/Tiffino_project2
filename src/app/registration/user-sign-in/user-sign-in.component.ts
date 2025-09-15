@@ -15,8 +15,16 @@ import { CommonModule } from '@angular/common';
 export class UserSignInComponent {
    signupForm!: FormGroup;
     submitted = false;
+  loginForm!: FormGroup;
+  hide= true
+  otpSent = false;
+  message = '';
 
-  constructor(private fb: FormBuilder, private api : AuthService, private route: Router) {}
+  constructor(private fb: FormBuilder, private api : AuthService, private route: Router) {
+
+   
+
+  }
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
@@ -60,23 +68,25 @@ export class UserSignInComponent {
     //   }
     // });
 
-      this.api.signup(payload, { responseType: 'text' as 'json' }).subscribe({
-  next: () => {
-    // console.log(res);
-    
-    console.log("Signup successful");
-    this.route.navigate(['/home']);
-  },
-  error: (err) => {
-    console.error("Signup failed", err);
-  }
-});
+   this.api.signup(payload).subscribe({
+      next: (res) => {
+        console.log('Signup successful:', res);
+        this.route.navigate(['/home']);
+      },
+      error: (err) => {
+        console.error('Signup error:', err);
+      }
+    });
+
 
   }
 
-  onSendOtp(): void {
-    console.log('Send OTP clicked', this.signupForm.get('email')?.value);
-  }
+ 
+
+
+
+
+
 
 
 
