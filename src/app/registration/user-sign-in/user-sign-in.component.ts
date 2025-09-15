@@ -15,8 +15,16 @@ import { CommonModule } from '@angular/common';
 export class UserSignInComponent {
    signupForm!: FormGroup;
     submitted = false;
+  hide= true
+  otpSent = false;
+  message = '';
+    loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private api : AuthService, private route: Router) {}
+  constructor(private fb: FormBuilder, private api : AuthService, private route: Router) {
+
+   
+
+  }
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
@@ -25,6 +33,10 @@ export class UserSignInComponent {
       dateOfBirth: ['', Validators.required],
       phone: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]]
       // otp: ['', Validators.required]
+    });
+
+      this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]]
     });
   }
 
@@ -60,26 +72,73 @@ export class UserSignInComponent {
     //   }
     // });
 
-      this.api.signup(payload, { responseType: 'text' as 'json' }).subscribe({
-  next: () => {
-    // console.log(res);
-    
-    console.log("Signup successful");
-    this.route.navigate(['/home']);
-  },
-  error: (err) => {
-    console.error("Signup failed", err);
-  }
-});
+   this.api.signup(payload).subscribe({
+      next: (res) => {
+         sessionStorage.setItem('emailForOtp', payload.email);
+        console.log('Signup successful:', res);
+        this.route.navigate(['/verification-code']);
+      },
+      error: (err) => {
+        console.error('Signup error:', err);
+      }
+    });
 
-  }
 
-  onSendOtp(): void {
-    console.log('Send OTP clicked', this.signupForm.get('email')?.value);
   }
 
 
+  sendOtp() {
+    if (this.loginForm.get('email')?.invalid) return;
 
+    const email = this.loginForm.get('email')?.value;
 
+    this.api.sendOtp(email).subscribe({
+      next: (res) => {
+        console.log('OTP Sent:', res);
+        this.otpSent = true;
 
+        // add OTP control dynamically
+        if (!this.loginForm.get('otp')) {
+          this.loginForm.addControl('otp', this.fb.control('', Validators.required));
+        }
+      },
+      error: (err) => {
+        console.error('Error sending OTP', err);
+      }
+    });
+  }
+
+ 
+
+  
+  verifyOtp() {
+    if (this.loginForm.invalid) return;
+
+    const payload = {
+      email: this.loginForm.get('email')?.value,
+      otp: this.loginForm.get('otp')?.value
+    };
+
+    this.api.verifyOtp(payload).subscribe({
+      next: (res) => {
+        console.log('OTP Verified:', res);
+        this.route.navigate(['/home']);
+        
+      },
+      error: (err) => {
+        console.error('Error verifying OTP', err);
+      }
+    });
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
