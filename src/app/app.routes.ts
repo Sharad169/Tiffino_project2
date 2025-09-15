@@ -7,8 +7,12 @@ import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpa
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
 
 export const routes: Routes = [
+
   // Default page
   { path: '', component: ExploreSubpageComponent },
+  // Default route → Welcome screen
+  { path: 'welcome', component: WelcomeScreenComponent },
+
 
   // Home page
   { path: 'home', component: HomeComponent },
@@ -17,7 +21,7 @@ export const routes: Routes = [
   { path: 'verification-code', component: VerificationCodeComponent },
 
   // Login / Registration
-  { path: 'login', component: UserSignInComponent },
+  { path: '', component: UserSignInComponent },
 
   // Onboarding screen
   { path: 'onboarding', component: OnboardingComponent },
