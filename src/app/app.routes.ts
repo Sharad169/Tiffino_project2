@@ -14,7 +14,7 @@ export const routes: Routes = [
   { path: 'welcome', component: WelcomeScreenComponent },
 
   // Registration
-  { path: 'login', component: UserSignInComponent },
+  { path: '', component: UserSignInComponent },
 
   //North
   { path: 'north', component: NorthComponent },
@@ -26,7 +26,7 @@ export const routes: Routes = [
   { path: 'punjabi', component: PunjabiComponent },
 
   //Gujrati
-  { path: '', component: GujratiComponent },
+  { path: 'gujrati', component: GujratiComponent },
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
