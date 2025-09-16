@@ -83,7 +83,7 @@
 }
 
 .registration-section .login-form-wrapper {
-  flex: 0.4;
+  width: 570px;
   padding: 40px;
   background-color: var(--form-bg-color);
   border-radius: 20px 0 0 20px;
@@ -109,7 +109,7 @@
 }
 
 .form-header h2 {
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 600;
   color: #121212;
 }
@@ -148,6 +148,8 @@
 }
 
 .btn {
+  height: 62px;
+  width: 177px;
   padding: 10px 20px;
   border: 1px solid var(--button-border-color);
   border-radius: 25px;
@@ -169,8 +171,8 @@
 
 /* ===== LINKS ===== */
 .signup-link-wrapper {
-  margin-top: 15px;
-  font-size: 0.85rem;
+  margin-top: 26px;
+  font-size: 20px;
   color: rgba(175, 175, 175, 1);
 }
 
@@ -209,8 +211,8 @@
 }
 
 .side-panel h1 {
-  color: #ffffff;
-  font-size: 2.2rem;
+  color: rgba(255, 255, 255, 1);
+  font-size: 48px;
   font-weight: 700;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
   line-height: 1.2;
