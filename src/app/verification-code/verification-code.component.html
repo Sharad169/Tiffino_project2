@@ -1,6 +1,21 @@
-<h3>Verify OTP</h3>
-<p>OTP sent to: {{ email }}</p>
-<form [formGroup]="otpForm" (ngSubmit)="verifyOtp()">
-  <input type="text" placeholder="Enter OTP" formControlName="otp" />
-  <button type="submit">Verify</button>
-</form>
+<div class="verification-wrapper">
+  <div class="verification-container">
+
+    <!-- Left form section -->
+    <div class="form-section">
+      <h3>Verify OTP</h3>
+      <p>OTP sent to: {{ email }}</p>
+      <form [formGroup]="otpForm" (ngSubmit)="verifyOtp()">
+        <input type="text" placeholder="Enter OTP" formControlName="otp" />
+        <button type="submit">Verify</button>
+      </form>
+      <a href="#" class="resend-link">Get the OTP again.</a>
+    </div>
+
+    <!-- Right blurred glass section -->
+    <div class="image-section">
+      <div class="overlay-text">Let’s Get Started !</div>
+    </div>
+
+  </div>
+</div>
