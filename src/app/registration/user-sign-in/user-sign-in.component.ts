@@ -76,7 +76,7 @@ export class UserSignInComponent {
       next: (res) => {
          sessionStorage.setItem('emailForOtp', payload.email);
         console.log('Signup successful:', res);
-        this.route.navigate(['/verification-code']);
+        // this.route.navigate(['/verification-code']);
       },
       error: (err) => {
         console.error('Signup error:', err);
@@ -131,7 +131,6 @@ export class UserSignInComponent {
     });
   }
 }
-
 
 
 
