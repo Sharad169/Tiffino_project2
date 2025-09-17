@@ -1,0 +1,154 @@
+.cuisine-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px 0;
+
+  /* 🔹 Hide scrollbar but keep scrolling */
+  scrollbar-width: none;        /* Firefox */
+}
+
+.cuisine-scroll::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari, Edge */
+}
+.cuisine-title {
+  margin-top: 40px;  /* adjust space as needed */
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+
+.cuisine-scroll button {
+  flex: 0 0 auto;
+  height: 61px;
+  min-width: 173px;
+  padding: 8px 20px;
+  border-radius: 25px;
+  border: 1px solid #0d4900;
+  background: white;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.cuisine-scroll button:hover {
+  background-color: #0d4900;
+  color: white;
+}
+
+/* card */
+.cards-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;   /* Firefox */
+}
+.cards-scroll::-webkit-scrollbar {
+  display: none;           /* Chrome, Safari, Edge */
+}
+
+/* card */
+.food-card {
+  flex: 0 0 300px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-right: 12px;  /* spacing between cards */
+  scroll-snap-align: start;
+}
+
+/* keep left edge tight */
+.food-card:first-child {
+  margin-left: 50px;
+}
+
+/* add right spacing */
+.food-card:last-child {
+  margin-right: 20px; /* 👈 adjust this value as per design */
+}
+
+/* image */
+.card-image {
+  width: 383px;
+  height: 271px;
+  overflow: hidden;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* body */
+.card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  color: #111;
+}
+
+/* rating */
+.rating {
+  display: flex;
+  justify-content: center;
+  margin: 6px 0;
+}
+.star {
+  font-size: 14px;
+  color: #ffb400;
+}
+
+/* description */
+.card-desc {
+  font-size: 13px;
+  color: #555;
+  margin: 6px 0;
+  text-align: center;
+  flex: 1;
+}
+
+/* footer */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.price {
+  font-weight: 700;
+  color: #000;
+}
+.add-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #0d4900;
+  background: #fff;
+  color: #0d4900;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s ease-in-out;
+}
+.add-btn:hover {
+  background: #0d4900;
+  color: #fff;
+}
+
+
