@@ -29,7 +29,8 @@
   padding: 10px 50px 50px 50px;  
 }
 
-.form-section h2 {
+.form-section h2,
+.form-section h3 {
   font-size: 25px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -89,6 +90,7 @@ button:hover {
 /* Right blur glass section */
 .image-section {
   flex: 1; 
+  min-height: 300px; 
   position: relative;
   display: flex;
   justify-content: center;
@@ -96,9 +98,9 @@ button:hover {
   overflow: hidden;
 
   /* Glass effect */
-  background: rgba(255, 255, 255, 0.15);   
-  backdrop-filter: blur(10px);            
-  -webkit-backdrop-filter: blur(10px);    
+  background: rgba(255, 255, 255, 0.2);   
+  backdrop-filter: blur(15px);            
+  -webkit-backdrop-filter: blur(15px);    
   border-left: 2px solid rgba(255, 255, 255, 0.2); 
 }
 
@@ -110,5 +112,49 @@ button:hover {
   font-weight: bold;
   color: white;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-  
+}
+
+/* ✅ Responsive styles */
+@media (max-width: 768px) {
+  .verification-container {
+    flex-direction: column; 
+    width: 95%;
+    height: auto;
+  }
+
+  .form-section {
+    width: 100%;
+    padding: 30px 20px;
+    border-radius: 20px 20px 0 0; 
+  }
+
+  .image-section {
+    width: 100%;
+    min-height: 250px; 
+    border-left: none;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0 0 20px 20px; 
+  }
+
+  .overlay-text {
+    font-size: 22px; 
+    text-align: center;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-section h2,
+  .form-section h3 {
+    font-size: 20px;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  button {
+    width: 100%;
+  }
 }
