@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -8,6 +8,18 @@ import { Component } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+
+userName: string | null = null;
+
+  ngOnInit(): void {
+    this.userName = sessionStorage.getItem('name');
+
+    // Optional: Log it to the console to verify
+    if (this.userName) {
+      console.log('User name:', this.userName);
+  }
+
+}
 
 }
