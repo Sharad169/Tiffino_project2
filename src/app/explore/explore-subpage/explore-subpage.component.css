@@ -1,17 +1,40 @@
+/* Cuisine scroll bar */
 .cuisine-scroll {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   overflow-x: auto;
   white-space: nowrap;
-  padding: 10px 0;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
 
   /* 🔹 Hide scrollbar but keep scrolling */
   scrollbar-width: none;        /* Firefox */
 }
-
 .cuisine-scroll::-webkit-scrollbar {
-  display: none;                /* Chrome, Safari, Edge */
+  display: none;                /* Chrome, Safari */
 }
+
+/* 🔹 Option buttons (used in HTML as .cuisine-option) */
+.cuisine-option {
+  width: 173px;
+  height: 61px;
+  gap: 50px;
+  padding: 8px 20px;
+  border: 1px solid #0d4900;
+  border-radius: 20px;
+  background: #fff;
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 14px;
+}
+.cuisine-option:hover {
+  background: #0d4900;
+  color: #fff;
+}
+
 .cuisine-title {
   margin-top: 40px;  /* adjust space as needed */
   margin-bottom: 15px;
@@ -19,26 +42,48 @@
   font-weight: 700;
 }
 
-
-.cuisine-scroll button {
-  flex: 0 0 auto;
-  height: 61px;
-  min-width: 173px;
-  padding: 8px 20px;
-  border-radius: 25px;
-  border: 1px solid #0d4900;
-  background: white;
-  color: #000;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+.cards-wrapper {
+  position: relative;
 }
 
-.cuisine-scroll button:hover {
-  background-color: #0d4900;
+.scroll-btn {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #ccbbb7, #d8d8d8);
   color: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease-in-out;
 }
+
+.scroll-btn.right {
+  right: 10px;
+}
+
+/* Hover effects */
+.scroll-btn:hover {
+  transform: translateY(-50%) scale(1.15) rotate(10deg);
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  box-shadow: 0 10px 25px rgba(255, 87, 34, 0.6);
+}
+
+/* Click (active) effect */
+.scroll-btn:active {
+  transform: translateY(-50%) scale(0.95);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
 
 /* card */
 .cards-scroll {
@@ -150,5 +195,3 @@
   background: #0d4900;
   color: #fff;
 }
-
-

@@ -1,104 +1,179 @@
 <app-header></app-header>
 
+<!-- Cuisine scroll bar -->
+<div class="cuisine-scroll">
+  <button class="cuisine-option" (click)="scrollToSection('north')">North Indian</button>
+  <button class="cuisine-option" (click)="scrollToSection('south')">South Indian</button>
+  <button class="cuisine-option" (click)="scrollToSection('punjabi')">Punjabi</button>
+  <button class="cuisine-option" (click)="scrollToSection('gujarati')">Gujarati</button>
+  <button class="cuisine-option" (click)="scrollToSection('rajasthani')">Rajasthani</button>
+  <button class="cuisine-option" (click)="scrollToSection('maharashtrian')">Maharashtrian</button>
+  <button class="cuisine-option" (click)="scrollToSection('bengali')">Bengali</button>
+  <button class="cuisine-option" (click)="scrollToSection('kashmiri')">Kashmiri</button>
+  <button class="cuisine-option" (click)="scrollToSection('Hyderabad')">Hyderabad</button>
+  <button class="cuisine-option" (click)="scrollToSection('Goan')">Goan</button>
+</div>
+
 <div class="explore-container">
 
   <!-- North Indian Section -->
-  <h2 class="cuisine-title">North Indian:</h2>
-  <div class="cards-scroll">
-    <div class="food-card" *ngFor="let item of northIndianProducts">
-      <div class="card-image">
-        <img [src]="item.image" [alt]="item.title" />
-      </div>
-      <div class="card-body">
-        <h3 class="card-title">{{ item.title }}</h3>
-
-        <!-- rating stars -->
-        <div class="rating">
-          <ng-container *ngFor="let s of [1,2,3,4,5]; let i = index">
-            <svg class="star" viewBox="0 0 24 24" width="14" height="14"
-              [attr.fill]="i < (item.rating ?? 0) ? '#f1c40f' : 'none'"
-              stroke="#f1c40f" stroke-width="1">
-              <path
-                d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.782
-                   1.402 8.168L12 18.896 4.664 23.16l1.402-8.168L.132 9.21l8.2-1.192z" />
-            </svg>
-          </ng-container>
+  <h2 class="cuisine-title" id="north">North Indian:</h2>
+  <div class="cards-wrapper">
+    <div class="cards-scroll" #northScroll>
+      <div class="food-card" *ngFor="let item of northIndianProducts">
+        <div class="card-image">
+          <img [src]="item.image" [alt]="item.title" />
         </div>
-
-        <p class="card-desc">{{ item.description }}</p>
-
-        <div class="card-footer">
-          <div class="price">Rs {{ item.price }}</div>
-          <button class="add-btn" (click)="addToCart(item)">Add to Cart</button>
+        <div class="card-body">
+          <h3 class="card-title">{{ item.title }}</h3>
+          <!-- rating stars -->
+          <div class="rating">
+            <ng-container *ngFor="let s of [1,2,3,4,5]; let i = index">
+              <svg class="star" viewBox="0 0 24 24" width="14" height="14"
+                [attr.fill]="i < (item.rating ?? 0) ? '#f1c40f' : 'none'"
+                stroke="#f1c40f" stroke-width="1">
+                <path
+                  d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.782
+                     1.402 8.168L12 18.896 4.664 23.16l1.402-8.168L.132 9.21l8.2-1.192z" />
+              </svg>
+            </ng-container>
+          </div>
+          <p class="card-desc">{{ item.description }}</p>
+          <div class="card-footer">
+            <div class="price">Rs {{ item.price }}</div>
+            <button class="add-btn" (click)="addToCart(item)">Add to Cart</button>
+          </div>
         </div>
       </div>
     </div>
+    <!-- Arrow button -->
+    <button class="scroll-btn right" (click)="scrollRight(northScroll)">&#8594;</button>
   </div>
 
   <!-- South Indian Section -->
-  <h2 class="cuisine-title">South Indian:</h2>
-  <div class="cards-scroll">
-    <div class="food-card" *ngFor="let item of southIndianProducts">
-      <div class="card-image">
-        <img [src]="item.image" [alt]="item.title" />
-      </div>
-      <div class="card-body">
-        <h3 class="card-title">{{ item.title }}</h3>
-
-        <!-- rating stars -->
-        <div class="rating">
-          <ng-container *ngFor="let s of [1,2,3,4,5]; let i = index">
-            <svg class="star" viewBox="0 0 24 24" width="14" height="14"
-              [attr.fill]="i < (item.rating ?? 0) ? '#f1c40f' : 'none'"
-              stroke="#f1c40f" stroke-width="1">
-              <path
-                d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.782
-                   1.402 8.168L12 18.896 4.664 23.16l1.402-8.168L.132 9.21l8.2-1.192z" />
-            </svg>
-          </ng-container>
+  <h2 class="cuisine-title" id="south">South Indian:</h2>
+  <div class="cards-wrapper">
+    <div class="cards-scroll" #southScroll>
+      <div class="food-card" *ngFor="let item of southIndianProducts">
+        <div class="card-image">
+          <img [src]="item.image" [alt]="item.title" />
         </div>
-
-        <p class="card-desc">{{ item.description }}</p>
-
-        <div class="card-footer">
-          <div class="price">Rs {{ item.price }}</div>
-          <button class="add-btn" (click)="addToCart(item)">Add to Cart</button>
+        <div class="card-body">
+          <h3 class="card-title">{{ item.title }}</h3>
+          <div class="rating">
+            <ng-container *ngFor="let s of [1,2,3,4,5]; let i = index">
+              <svg class="star" viewBox="0 0 24 24" width="14" height="14"
+                [attr.fill]="i < (item.rating ?? 0) ? '#f1c40f' : 'none'"
+                stroke="#f1c40f" stroke-width="1">
+                <path
+                  d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.782
+                     1.402 8.168L12 18.896 4.664 23.16l1.402-8.168L.132 9.21l8.2-1.192z" />
+              </svg>
+            </ng-container>
+          </div>
+          <p class="card-desc">{{ item.description }}</p>
+          <div class="card-footer">
+            <div class="price">Rs {{ item.price }}</div>
+            <button class="add-btn" (click)="addToCart(item)">Add to Cart</button>
+          </div>
         </div>
       </div>
     </div>
+    <button class="scroll-btn right" (click)="scrollRight(southScroll)">&#8594;</button>
   </div>
 
-    <!-- Punjabi Section -->
-  <h2 class="cuisine-title">Punjabi:</h2>
-  <div class="cards-scroll">
-    <div class="food-card" *ngFor="let item of punjabiProducts">
-      <div class="card-image">
-        <img [src]="item.image" [alt]="item.title" />
-      </div>
-      <div class="card-body">
-        <h3 class="card-title">{{ item.title }}</h3>
-
-        <!-- rating stars -->
-        <div class="rating">
-          <ng-container *ngFor="let s of [1,2,3,4,5]; let i = index">
-            <svg class="star" viewBox="0 0 24 24" width="14" height="14"
-              [attr.fill]="i < (item.rating ?? 0) ? '#f1c40f' : 'none'"
-              stroke="#f1c40f" stroke-width="1">
-              <path
-                d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.782
-                   1.402 8.168L12 18.896 4.664 23.16l1.402-8.168L.132 9.21l8.2-1.192z" />
-            </svg>
-          </ng-container>
+  <!-- Punjabi Section -->
+  <h2 class="cuisine-title" id="punjabi">Punjabi:</h2>
+  <div class="cards-wrapper">
+    <div class="cards-scroll" #punjabiScroll>
+      <div class="food-card" *ngFor="let item of punjabiProducts">
+        <div class="card-image">
+          <img [src]="item.image" [alt]="item.title" />
         </div>
-
-        <p class="card-desc">{{ item.description }}</p>
-
-        <div class="card-footer">
-          <div class="price">Rs {{ item.price }}</div>
-          <button class="add-btn" (click)="addToCart(item)">Add to Cart</button>
+        <div class="card-body">
+          <h3 class="card-title">{{ item.title }}</h3>
+          <div class="rating">
+            <ng-container *ngFor="let s of [1,2,3,4,5]; let i = index">
+              <svg class="star" viewBox="0 0 24 24" width="14" height="14"
+                [attr.fill]="i < (item.rating ?? 0) ? '#f1c40f' : 'none'"
+                stroke="#f1c40f" stroke-width="1">
+                <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.782
+                         1.402 8.168L12 18.896 4.664 23.16l1.402-8.168L.132 9.21l8.2-1.192z" />
+              </svg>
+            </ng-container>
+          </div>
+          <p class="card-desc">{{ item.description }}</p>
+          <div class="card-footer">
+            <div class="price">Rs {{ item.price }}</div>
+            <button class="add-btn" (click)="addToCart(item)">Add to Cart</button>
+          </div>
         </div>
       </div>
     </div>
+    <button class="scroll-btn right" (click)="scrollRight(punjabiScroll)">&#8594;</button>
+  </div>
+
+  <!-- Gujarati Section -->
+  <h2 class="cuisine-title" id="gujarati">Gujarati:</h2>
+  <div class="cards-wrapper">
+    <div class="cards-scroll" #gujaratiScroll>
+      <div class="food-card" *ngFor="let item of GujaratiProducts">
+        <div class="card-image">
+          <img [src]="item.image" [alt]="item.title" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">{{ item.title }}</h3>
+          <div class="rating">
+            <ng-container *ngFor="let s of [1,2,3,4,5]; let i = index">
+              <svg class="star" viewBox="0 0 24 24" width="14" height="14"
+                [attr.fill]="i < (item.rating ?? 0) ? '#f1c40f' : 'none'"
+                stroke="#f1c40f" stroke-width="1">
+                <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.782
+                         1.402 8.168L12 18.896 4.664 23.16l1.402-8.168L.132 9.21l8.2-1.192z" />
+              </svg>
+            </ng-container>
+          </div>
+          <p class="card-desc">{{ item.description }}</p>
+          <div class="card-footer">
+            <div class="price">Rs {{ item.price }}</div>
+            <button class="add-btn" (click)="addToCart(item)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="scroll-btn right" (click)="scrollRight(gujaratiScroll)">&#8594;</button>
+  </div>
+
+  <!-- Rajasthani Section -->
+  <h2 class="cuisine-title" id="rajasthani">Rajasthani:</h2>
+  <div class="cards-wrapper">
+    <div class="cards-scroll" #rajasthaniScroll>
+      <div class="food-card" *ngFor="let item of RajasthaniProducts">
+        <div class="card-image">
+          <img [src]="item.image" [alt]="item.title" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">{{ item.title }}</h3>
+          <div class="rating">
+            <ng-container *ngFor="let s of [1,2,3,4,5]; let i = index">
+              <svg class="star" viewBox="0 0 24 24" width="14" height="14"
+                [attr.fill]="i < (item.rating ?? 0) ? '#f1c40f' : 'none'"
+                stroke="#f1c40f" stroke-width="1">
+                <path
+                  d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.782
+                     1.402 8.168L12 18.896 4.664 23.16l1.402-8.168L.132 9.21l8.2-1.192z" />
+              </svg>
+            </ng-container>
+          </div>
+          <p class="card-desc">{{ item.description }}</p>
+          <div class="card-footer">
+            <div class="price">Rs {{ item.price }}</div>
+            <button class="add-btn" (click)="addToCart(item)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="scroll-btn right" (click)="scrollRight(rajasthaniScroll)">&#8594;</button>
   </div>
 
 </div>
