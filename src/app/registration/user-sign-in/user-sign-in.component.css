@@ -13,11 +13,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
+  min-width: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -34,7 +34,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 1024px;
+  height: 700px;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,6 +45,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  height: 700px;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -56,8 +57,8 @@
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  height: 939px;
-  width: 1278px;
+  height: 650px;
+  width: 978px;
   align-items: stretch;
   margin: 40px auto;
 }
@@ -69,10 +70,9 @@
 }
 
 .login-section .login-form-wrapper {
-  width: 570px;
+  width: 430px;
   padding: 40px;
   background-color: var(--form-bg-color);
-  border-radius: 20px 0 0 20px;
 }
 
 /* ===== REGISTRATION SPECIFIC ===== */
@@ -83,22 +83,21 @@
 }
 
 .registration-section .login-form-wrapper {
-  width: 570px;
+  width: 430px;
   padding: 40px;
   background-color: var(--form-bg-color);
-  border-radius: 20px 0 0 20px;
 }
 
 /* ===== FORM HEADERS ===== */
 .login-form-wrapper h2 {
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 600;
-  margin: 134px 0 24px;
+  margin: 50px 0 24px;
   color: var(--text-color-primary);
 }
 
 .login-form-wrapper p {
-  font-size: 20px;
+  font-size: 15px;
   color: rgba(175, 175, 175, 1);
   margin-bottom: 24px;
 }
@@ -109,7 +108,7 @@
 }
 
 .form-header h2 {
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 600;
   color: #121212;
 }
@@ -120,17 +119,17 @@
 }
 
 .form-group label {
-  font-size: 20px;
+  font-size: 15px;
   color: var(--text-color-secondary);
   font-weight: 400;
 }
 
 .form-group input {
-  height: 51px;
+  height: 40px;
   width: 100%;
   padding: 5px 5px;
   border-radius: 25px;
-  font-size: 0.85rem;
+  font-size: 12px;
   background-color: #e6ffe6;
   border: 1px solid var(--text-color-secondary);
   outline: none;
@@ -148,12 +147,12 @@
 }
 
 .btn {
-  height: 62px;
-  width: 177px;
+  height: 45px;
+  width: 140px;
   padding: 10px 20px;
   border: 1px solid var(--button-border-color);
   border-radius: 25px;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
@@ -172,7 +171,7 @@
 /* ===== LINKS ===== */
 .signup-link-wrapper {
   margin-top: 26px;
-  font-size: 20px;
+  font-size: 15px;
   color: rgba(175, 175, 175, 1);
 }
 
@@ -193,7 +192,6 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  border-radius: 0 20px 20px 0;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
 }
@@ -206,13 +204,12 @@
   background-size: cover;
   background-position: center;
   filter: blur(var(--blur-strength));
-  border-radius: 0 20px 20px 0;
   z-index: -1;
 }
 
 .side-panel h1 {
   color: rgba(255, 255, 255, 1);
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 700;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
   line-height: 1.2;

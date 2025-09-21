@@ -34,6 +34,12 @@ export class AppComponent {
   // Customize the routes for which header/footer should be hidden.
   private shouldHideLayout(url: string): boolean {
     // Hide header/footer for onboarding or verification-code pages
-    return url === '/' || url === '' || url.startsWith('/onboarding') || url.startsWith('/verification-code');
+    return (
+      url === '/' ||
+      url === '' ||
+      url.startsWith('/onboarding') ||
+      url.startsWith('/verification-code') ||
+      url.startsWith('/welcome')
+    );
   }
 }

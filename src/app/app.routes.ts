@@ -12,48 +12,47 @@ import { NorthComponent } from './north/north.component';
 import { SouthComponent } from './south/south.component';
 import { PunjabiComponent } from './punjabi/punjabi.component';
 import { GujratiComponent } from './gujrati/gujrati.component';
+import { RajsthaniComponent } from './rajsthani/rajsthani.component';
 
 import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
 
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
- 
-export const routes: Routes = [
 
+export const routes: Routes = [
   // Default page
 
   { path: 'ex', component: ExploreSubpageComponent },
- 
+
   // Default route → Welcome screen
 
   { path: 'welcome', component: WelcomeScreenComponent },
- 
+
   // Home page
 
   { path: 'home', component: HomeComponent },
- 
+
   // Verification / OTP page
 
   { path: 'verification-otp', component: VerificationCodeComponent },
- 
+
   // Login / Registration
 
-  { path: '', component: UserSignInComponent },
- 
+  { path: 'login', component: UserSignInComponent },
+
   // North page
 
   { path: 'north', component: NorthComponent },
- 
+
   // Onboarding screen
 
   { path: 'onboarding', component: OnboardingComponent },
- 
+
   // Welcome screen (explicit route)
 
   { path: 'welcome', component: WelcomeScreenComponent },
- 
+
   // Redirect unknown paths
 
-<<<<<<< HEAD
   //South
   { path: 'south', component: SouthComponent },
 
@@ -63,11 +62,9 @@ export const routes: Routes = [
   //Gujrati
   { path: 'gujrati', component: GujratiComponent },
 
+  //Rajsthani
+  { path: 'rajsthani', component: RajsthaniComponent },
+
   // Optional: redirect unknown paths to Welcome
-=======
->>>>>>> origin/main
   { path: '**', redirectTo: '' },
-
 ];
-
- 
