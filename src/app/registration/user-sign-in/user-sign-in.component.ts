@@ -13,12 +13,12 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./user-sign-in.component.css'],
 })
 export class UserSignInComponent {
-   signupForm!: FormGroup;
-    submitted = false;
-  hide= true
+  signupForm!: FormGroup;
+  submitted = false;
+  hide = true
   otpSent = false;
   message = '';
-    loginForm!: FormGroup;
+  loginForm!: FormGroup;
 
   constructor(private fb: FormBuilder, private api : AuthService, private route: Router) {
 
@@ -62,19 +62,10 @@ export class UserSignInComponent {
       "dateOfBirth": formValue.dateOfBirth   // map dateOfBirth correctly
     };
 
-    // this.api.signup(payload, { responseType: 'text' as 'json' }).subscribe({
-    //   next: (res) => {
-    //     console.log('Signup successful:', res);
-    //     this.route.navigate(['/home']);
-    //   },
-    //   error: (err) => {
-    //     console.error('Signup error:', err);
-    //   }
-    // });
-
    this.api.signup(payload).subscribe({
       next: (res) => {
          sessionStorage.setItem('emailForOtp', payload.email);
+         sessionStorage.setItem('name', payload.name);
         console.log('Signup successful:', res);
         // this.route.navigate(['/verification-code']);
       },

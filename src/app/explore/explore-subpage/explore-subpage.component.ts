@@ -81,7 +81,7 @@ export class ExploreSubpageComponent implements OnInit {
     // ---------------- SOUTH INDIAN ----------------
     {
       title: 'Masala Dosa',
-      image: '../assets/south indian/Masala Dosa.jpg',
+      image: '../assets/South Indian/Masala Dosa.jpg',
       price: 300,
       description:
         'Crispy rice dosa filled with spiced potato masala served with chutney & sambhar.',
@@ -90,7 +90,7 @@ export class ExploreSubpageComponent implements OnInit {
     },
     {
       title: 'Masala Idli',
-      image: '../assets/south indian/Masala Idli.jpg',
+      image: '../assets/South Indian/Masala Idli.png',
       price: 200,
       description:
         'Soft & spiced mini idlis tossed in flavorful masala served with chutney.',
@@ -99,56 +99,240 @@ export class ExploreSubpageComponent implements OnInit {
     },
     {
       title: 'Rice and Khichdi',
-      image: '../assets/south indian/Rice and Khichdi.jpg',
+      image: '../assets/South Indian/Rice and Khichdi.png',
       price: 150,
       description:
         'Comforting mix of rice and dal, lightly spiced & served with papad.',
       cuisine: 'South Indian',
       rating: 4,
     },
+    {
+      title: 'Uttapam',
+      image: '../assets/South Indian/Uttapam.jpg',
+      price: 170,
+      description: 'Thick pancake topped with onions, tomatoes, and chilies.',
+      cuisine: 'South Indian',
+      rating: 5,
+    },
+    {
+      title: 'Upma',
+      image: '../assets/South Indian/Upma.jpg',
+      price: 250,
+      description: 'Savory porridge made from semolina, cooked with spices.',
+      cuisine: 'South Indian',
+      rating: 4,
+    },
+    {
+      title: 'Bisi Bele Bath',
+      image: '../assets/South Indian/Bisi Bele Bath.jpg',
+      price: 170,
+      description:
+        'Karnataka-style rice dish with lentils, tamarind, and spices.',
+      cuisine: 'South Indian',
+      rating: 3,
+    },
+    {
+      title: 'Hyderabadi Biryani',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 190,
+      description:
+        'Aromatic rice and meat dish with strong Mughlai-South Indian flavors',
+      cuisine: 'South Indian',
+      rating: 5,
+    },
 
     // ---------------- PUNJABI ----------------
-{
-  title: 'Amritsari Kulcha',
-  image: '../assets/punjabi/Amritsari Kulcha.jpg',
-  price: 180,
-  description: 'Stuffed kulcha baked in tandoor, served with chole & chutney.',
-  cuisine: 'Punjabi',
-  rating: 5,
-},
-{
-  title: 'Chole Bhature',
-  image: '../assets/punjabi/Chole Bhature.jpg',
-  price: 220,
-  description: 'Spicy chickpeas curry with fluffy deep-fried bhature.',
-  cuisine: 'Punjabi',
-  rating: 4,
-},
-{
-  title: 'Sarson da Saag & Makki di Roti',
-  image: '../assets/punjabi/Sarson da Saag.jpg',
-  price: 250,
-  description: 'Classic winter Punjabi dish with mustard greens and corn flatbread.',
-  cuisine: 'Punjabi',
-  rating: 5,
-},
-{
-  title: 'Butter Chicken',
-  image: '../assets/punjabi/Butter Chicken.jpg',
-  price: 320,
-  description: 'Juicy chicken cooked in creamy tomato-butter gravy.',
-  cuisine: 'Punjabi',
-  rating: 5,
-},
-{
-  title: 'Punjabi Thali',
-  image: '../assets/punjabi/Punjabi Thali.jpg',
-  price: 400,
-  description: 'Assorted Punjabi delicacies served with roti, rice, and sweets.',
-  cuisine: 'Punjabi',
-  rating: 4,
-},
+    {
+      title: 'Amritsari Kulcha',
+      image: '../assets/Panjabi/Amritsari Kulcha.jpg',
+      price: 180,
+      description: 'Stuffed kulcha baked in tandoor, served with chole & chutney.',
+      cuisine: 'Punjabi',
+      rating: 5,
+    },
+    {
+      title: 'Chole Bhature',
+      image: '../assets/Panjabi/Chole Bhature.jpg',
+      price: 220,
+      description: 'Spicy chickpeas curry with fluffy deep-fried bhature.',
+      cuisine: 'Punjabi',
+      rating: 4,
+    },
+    {
+      title: ' Makki di Roti',
+      image: '../assets/Panjabi/Makke ki roti.png',
+      price: 250,
+      description:
+        'Classic winter Punjabi dish with mustard greens and corn flatbread.',
+      cuisine: 'Punjabi',
+      rating: 5,
+    },
+    {
+      title: 'Butter Chicken',
+      image: '../assets/Panjabi/Butter Chicken.jpg',
+      price: 320,
+      description: 'Juicy chicken cooked in creamy tomato-butter gravy.',
+      cuisine: 'Punjabi',
+      rating: 5,
+    },
+    {
+      title: 'Rajma',
+      image: '../assets/Panjabi/Rajma.jpg',
+      price: 400,
+      description: 'Red kidney bean curry in a thick tomato-onion gravy.',
+      cuisine: 'Punjabi',
+      rating: 4,
+    },
+    {
+      title: 'Sarson da Saag',
+      image: '../assets/Panjabi/Sarson da Saag.jpg',
+      price: 400,
+      description: 'Mustard greens curry, winter specialty of Punjab.',
+      cuisine: 'Punjabi',
+      rating: 4,
+    },
+    {
+      title: 'Tandoori Roti',
+      image: '../assets/Panjabi/Tandoori Roti.jpg',
+      price: 300,
+      description: 'Whole wheat roti cooked in a clay oven for smoky flavor.',
+      cuisine: 'Punjabi',
+      rating: 3,
+    },
+    {
+      title: 'Lassi',
+      image: '../assets/Panjabi/Lassi.jpg',
+      price: 100,
+      description: 'Refreshing yogurt-based drink, sweet or salty, often topped with malai.',
+      cuisine: 'Punjabi',
+      rating: 5,
+    },
 
+    // ---------------- Gujarati ----------------
+    {
+      title: 'Masala Dosa',
+      image: '../assets/South Indian/Masala Dosa.jpg',
+      price: 300,
+      description:
+        'Crispy rice dosa filled with spiced potato masala served with chutney & sambhar.',
+      cuisine: 'Gujarati',
+      rating: 4,
+    },
+    {
+      title: 'Masala Idli',
+      image: '../assets/South Indian/Masala Idli.png',
+      price: 200,
+      description:
+        'Soft & spiced mini idlis tossed in flavorful masala served with chutney.',
+      cuisine: 'Gujarati',
+      rating: 3,
+    },
+    {
+      title: 'Rice and Khichdi',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 150,
+      description:
+        'Comforting mix of rice and dal, lightly spiced & served with papad.',
+      cuisine: 'Gujarati',
+      rating: 4,
+    },
+    {
+      title: 'Uttapam',
+      image: '../assets/South Indian/Uttapam.jpg',
+      price: 170,
+      description: 'Thick pancake topped with onions, tomatoes, and chilies.',
+      cuisine: 'Gujarati',
+      rating: 5,
+    },
+    {
+      title: 'Upma',
+      image: '../assets/South Indian/Upma.jpg',
+      price: 250,
+      description: 'Savory porridge made from semolina, cooked with spices.',
+      cuisine: 'Gujarati',
+      rating: 4,
+    },
+    {
+      title: 'Bisi Bele Bath',
+      image: '../assets/South Indian/Bisi Bele Bath.jpg',
+      price: 170,
+      description:
+        'Karnataka-style rice dish with lentils, tamarind, and spices.',
+      cuisine: 'Gujarati',
+      rating: 3,
+    },
+    {
+      title: 'Hyderabadi Biryani',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 190,
+      description:
+        'Aromatic rice and meat dish with strong Mughlai-South Indian flavors',
+      cuisine: 'Gujarati',
+      rating: 5,
+    },
+
+    // ---------------- Rajasthani ----------------
+    {
+      title: 'Masala Dosa',
+      image: '../assets/South Indian/Masala Dosa.jpg',
+      price: 300,
+      description:
+        'Crispy rice dosa filled with spiced potato masala served with chutney & sambhar.',
+      cuisine: 'Rajasthani',
+      rating: 4,
+    },
+    {
+      title: 'Masala Idli',
+      image: '../assets/South Indian/Masala Idli.png',
+      price: 200,
+      description:
+        'Soft & spiced mini idlis tossed in flavorful masala served with chutney.',
+      cuisine: 'Rajasthani',
+      rating: 3,
+    },
+    {
+      title: 'Rice and Khichdi',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 150,
+      description:
+        'Comforting mix of rice and dal, lightly spiced & served with papad.',
+      cuisine: 'Rajasthani',
+      rating: 4,
+    },
+    {
+      title: 'Uttapam',
+      image: '../assets/South Indian/Uttapam.jpg',
+      price: 170,
+      description: 'Thick pancake topped with onions, tomatoes, and chilies.',
+      cuisine: 'Rajasthani',
+      rating: 5,
+    },
+    {
+      title: 'Upma',
+      image: '../assets/South Indian/Upma.jpg',
+      price: 250,
+      description: 'Savory porridge made from semolina, cooked with spices.',
+      cuisine: 'Rajasthani',
+      rating: 4,
+    },
+    {
+      title: 'Bisi Bele Bath',
+      image: '../assets/South Indian/Bisi Bele Bath.jpg',
+      price: 170,
+      description:
+        'Karnataka-style rice dish with lentils, tamarind, and spices.',
+      cuisine: 'Rajasthani',
+      rating: 3,
+    },
+    {
+      title: 'Hyderabadi Biryani',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 190,
+      description:
+        'Aromatic rice and meat dish with strong Mughlai-South Indian flavors',
+      cuisine: 'Rajasthani',
+      rating: 5,
+    },
   ];
 
   cart: Product[] = [];
@@ -164,15 +348,35 @@ export class ExploreSubpageComponent implements OnInit {
   get southIndianProducts(): Product[] {
     return this.products.filter((p) => p.cuisine === 'South Indian');
   }
-  get punjabiProducts(): Product[] {
-  return this.products.filter((p) => p.cuisine === 'Punjabi');
-}
 
+  get punjabiProducts(): Product[] {
+    return this.products.filter((p) => p.cuisine === 'Punjabi');
+  }
+
+  get GujaratiProducts(): Product[] {
+    return this.products.filter((p) => p.cuisine === 'Gujarati');
+  }
+
+    get RajasthaniProducts(): Product[] {
+    return this.products.filter((p) => p.cuisine === 'Rajasthani');
+  }
 
   addToCart(item: Product) {
     this.cart.push(item);
     alert(`${item.title} added to cart`);
   }
 
-  
+
+  // 🔹 Scroll right for horizontal card scroll
+  scrollRight(container: HTMLElement) {
+    container.scrollBy({ left: 300, behavior: 'smooth' });
+  }
+
+  // 🔹 Smooth scroll to section by ID
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }
