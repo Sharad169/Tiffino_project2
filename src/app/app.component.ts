@@ -34,6 +34,16 @@ export class AppComponent {
    * Add all "no-header-footer" pages here.
    */
   private shouldHideLayout(url: string): boolean {
+
+    // Hide header/footer for onboarding or verification-code pages
+    return (
+      url === '/' ||
+      url === '' ||
+      url.startsWith('/onboarding') ||
+      url.startsWith('/verification-code') ||
+      url.startsWith('/welcome')
+    );
+
     const hiddenRoutes = [
       '/',                   // homepage (if you don’t want header/footer there)
       '/onboarding',
@@ -44,5 +54,6 @@ export class AppComponent {
 
     // Check exact match OR startsWith for nested routes
     return hiddenRoutes.some(route => url === route || url.startsWith(route));
+
   }
 }
