@@ -13,31 +13,15 @@
         <a routerLink="/subscription" class="nav-link">Subscription Plan</a>
       </nav>
 
-      <!--<div class="profile">
-        <div class="avatar">
-          <img src="assets/avatar.png" alt="user avatar" />
-        </div>
-
-        <div class="profile-name">profile Name</div>
-      </div>-->
-
-        <div class="profile-name">{{userName}}</div>
-      </div>
-
+      <!-- Profile -->
+      <div class="profile-name">{{ userName }}</div>
     </div>
+    <!-- end of top-row -->
 
     <!-- BOTTOM ROW: location | search + filter -->
     <div class="bottom-row">
       <div class="location" aria-hidden="false">
-        <!-- location icon -->
-        <svg
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-          focusable="false"
-        >
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
           <path
             d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.866-3.134-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"
             fill="currentColor"
@@ -50,7 +34,6 @@
         <div class="search-pill">
           <input type="text" placeholder="Search" aria-label="search" />
           <button class="chev" type="button" aria-hidden="true">
-            <!-- chevron -->
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path
                 d="M7 10l5 5 5-5"
@@ -64,14 +47,7 @@
         </div>
 
         <button class="filter-btn" type="button" aria-label="filter">
-          <!-- filter icon -->
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path
               d="M4 6h16M10 12h4M6 18h12"
               stroke="currentColor"
@@ -84,5 +60,7 @@
         </button>
       </div>
     </div>
+    <!-- end of bottom-row -->
   </div>
+  <!-- end of container -->
 </header>

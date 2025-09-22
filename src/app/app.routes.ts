@@ -13,6 +13,7 @@ import { SouthComponent } from './south/south.component';
 import { PunjabiComponent } from './punjabi/punjabi.component';
 import { GujratiComponent } from './gujrati/gujrati.component';
 import { RajsthaniComponent } from './rajsthani/rajsthani.component';
+import { MaharashtrianComponent } from './maharashtrian/maharashtrian.component';
 
 import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
 
@@ -33,12 +34,9 @@ export const routes: Routes = [
 
   // Verification / OTP page
 
-
   { path: 'verification-otp', component: VerificationCodeComponent },
 
-
   { path: '', component: VerificationCodeComponent },
- 
 
   // Login / Registration
 
@@ -69,6 +67,9 @@ export const routes: Routes = [
 
   //Rajsthani
   { path: 'rajsthani', component: RajsthaniComponent },
+
+  //Maharashtrian
+  { path: 'maharashtrian', component: MaharashtrianComponent },
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
