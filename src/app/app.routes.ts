@@ -33,7 +33,12 @@ export const routes: Routes = [
 
   // Verification / OTP page
 
+
   { path: 'verification-otp', component: VerificationCodeComponent },
+
+
+  { path: '', component: VerificationCodeComponent },
+ 
 
   // Login / Registration
 

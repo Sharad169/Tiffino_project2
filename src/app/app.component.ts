@@ -15,24 +15,26 @@ import { FooterComponent } from './footer/footer.component';
 })
 export class AppComponent {
   title = 'Tiffino';
-  showLayout = true; // true => header/footer visible
+  showLayout = true;
 
   constructor(private router: Router) {
-    // Set initial visibility based on current URL (handles page reload)
-    const initialUrl = this.router.url || '/';
-    this.showLayout = !this.shouldHideLayout(initialUrl);
+    // Handle refresh + first load
+    this.showLayout = !this.shouldHideLayout(this.router.url || '/');
 
-    // Update visibility on navigation end
+    // Handle route changes
     this.router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
       .subscribe((navEnd: NavigationEnd) => {
-        const currentUrl = navEnd.urlAfterRedirects || navEnd.url;
-        this.showLayout = !this.shouldHideLayout(currentUrl);
+        this.showLayout = !this.shouldHideLayout(navEnd.urlAfterRedirects || navEnd.url);
       });
   }
 
-  // Customize the routes for which header/footer should be hidden.
+  /**
+   * Decide which routes should NOT display header/footer.
+   * Add all "no-header-footer" pages here.
+   */
   private shouldHideLayout(url: string): boolean {
+
     // Hide header/footer for onboarding or verification-code pages
     return (
       url === '/' ||
@@ -41,5 +43,17 @@ export class AppComponent {
       url.startsWith('/verification-code') ||
       url.startsWith('/welcome')
     );
+
+    const hiddenRoutes = [
+      '/',                   // homepage (if you don’t want header/footer there)
+      '/onboarding',
+      '/verification-code',
+      '/login',
+      '/register'
+    ];
+
+    // Check exact match OR startsWith for nested routes
+    return hiddenRoutes.some(route => url === route || url.startsWith(route));
+
   }
 }
