@@ -16,6 +16,9 @@ import { RajsthaniComponent } from './rajsthani/rajsthani.component';
 import { MaharashtrianComponent } from './maharashtrian/maharashtrian.component';
 import { BengaliComponent } from './bengali/bengali.component';
 import { KashmiriComponent } from './kashmiri/kashmiri.component';
+import { HydrabadiComponent } from './hydrabadi/hydrabadi.component';
+import { GoanComponent } from './goan/goan.component';
+
 import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
 
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
@@ -77,6 +80,12 @@ export const routes: Routes = [
 
   //Kashmiri
   { path: 'kashmiri', component: KashmiriComponent },
+
+  //Hydrabadi
+  { path: 'hydrabadi', component: HydrabadiComponent },
+
+  //Goan
+  { path: 'goan', component: GoanComponent },
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
