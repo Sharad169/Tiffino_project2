@@ -1,0 +1,1045 @@
+<app-header></app-header>
+
+<!-- Cuisine scroll bar -->
+<div class="cuisine-scroll">
+  <button 
+    class="cuisine-option" 
+    *ngFor="let cuisine of cuisines"
+    [routerLink]="cuisine.route">
+    {{ cuisine.name }}
+  </button>
+</div>
+
+<!-- Italian section -->
+<div class="menu-section">
+  <h2>Italian:</h2>
+
+  <div class="menu-carousel">
+
+    <!-- Scrollable Cards -->
+    <div class="menu-cards" #scrollContainer>
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="../assets/international-menu/Margherita Pizza.png" alt="Margherita Pizza" />
+        <h3>Margherita Pizza</h3>
+        <p>Fresh tomato, mozzarella, and basil on a crispy crust. Simple, colorful, and authentic.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- card 4 -->
+        <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 5 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 6 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 7 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 8 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="arrow right" (click)="scrollRight()">&#10095;</button>
+  </div>
+</div>
+
+
+<!-- Chinese section -->
+<div class="menu-section">
+  <h2>Chinese:</h2>
+
+  <div class="menu-carousel">
+    
+
+    <!-- Scrollable Cards -->
+    <div class="menu-cards" #scrollContainer>
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="assets/images/margherita.jpg" alt="Margherita Pizza" />
+        <h3>Margherita Pizza</h3>
+        <p>Fresh tomato, mozzarella, and basil on a crispy crust. Simple, colorful, and authentic.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- card 4 -->
+        <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 5 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 6 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 7 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 8 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="arrow right" (click)="scrollRight()">&#10095;</button>
+  </div>
+</div>
+
+<!-- Thai serction -->
+<div class="menu-section">
+  <h2>Thai:</h2>
+
+  <div class="menu-carousel">
+
+
+    <!-- Scrollable Cards -->
+    <div class="menu-cards" #scrollContainer>
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="assets/images/margherita.jpg" alt="Margherita Pizza" />
+        <h3>Margherita Pizza</h3>
+        <p>Fresh tomato, mozzarella, and basil on a crispy crust. Simple, colorful, and authentic.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- card 4 -->
+        <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 5 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 6 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 7 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 8 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="arrow right" (click)="scrollRight()">&#10095;</button>
+  </div>
+</div>
+
+<!-- Japanese section -->
+<div class="menu-section">
+  <h2>Japanese:</h2>
+
+  <div class="menu-carousel">
+
+
+    <!-- Scrollable Cards -->
+    <div class="menu-cards" #scrollContainer>
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="assets/images/margherita.jpg" alt="Margherita Pizza" />
+        <h3>Margherita Pizza</h3>
+        <p>Fresh tomato, mozzarella, and basil on a crispy crust. Simple, colorful, and authentic.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- card 4 -->
+        <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 5 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 6 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 7 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 8 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="arrow right" (click)="scrollRight()">&#10095;</button>
+  </div>
+</div>
+
+<!-- Korean serction -->
+<div class="menu-section">
+  <h2>Korean:</h2>
+
+  <div class="menu-carousel">
+
+
+    <!-- Margherita Pizza section -->
+    <div class="menu-cards" #scrollContainer>
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="assets/images/margherita.jpg" alt="Margherita Pizza" />
+        <h3>Margherita Pizza</h3>
+        <p>Fresh tomato, mozzarella, and basil on a crispy crust. Simple, colorful, and authentic.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- card 4 -->
+        <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 5 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 6 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 7 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 8 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="arrow right" (click)="scrollRight()">&#10095;</button>
+  </div>
+</div>
+
+
+<!-- Middle Eastern serction -->
+<div class="menu-section">
+  <h2>Middle Eastern:</h2>
+
+  <div class="menu-carousel">
+
+
+    <!--Margherita Pizza section -->
+    <div class="menu-cards" #scrollContainer>
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="assets/images/margherita.jpg" alt="Margherita Pizza" />
+        <h3>Margherita Pizza</h3>
+        <p>Fresh tomato, mozzarella, and basil on a crispy crust. Simple, colorful, and authentic.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- card 4 -->
+        <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 5 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 6 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 7 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 8 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="arrow right" (click)="scrollRight()">&#10095;</button>
+  </div>
+</div>
+
+<!-- Mexican serction -->
+<div class="menu-section">
+  <h2>Mexican:</h2>
+
+  <div class="menu-carousel">
+
+
+    <!-- Scrollable Cards -->
+    <div class="menu-cards" #scrollContainer>
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="assets/images/margherita.jpg" alt="Margherita Pizza" />
+        <h3>Margherita Pizza</h3>
+        <p>Fresh tomato, mozzarella, and basil on a crispy crust. Simple, colorful, and authentic.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- card 4 -->
+        <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 5 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 6 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 7 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 8 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="arrow right" (click)="scrollRight()">&#10095;</button>
+  </div>
+</div>
+
+<!-- Korean serction -->
+<div class="menu-section">
+  <h2>Korean:</h2>
+
+  <div class="menu-carousel">
+
+
+    <!-- American Cards -->
+    <div class="menu-cards" #scrollContainer>
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="assets/images/margherita.jpg" alt="American" />
+        <h3>American</h3>
+        <p>Fresh tomato, mozzarella, and basil on a crispy crust. Simple, colorful, and authentic.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- card 4 -->
+        <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 5 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 6 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 7 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 8 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="arrow right" (click)="scrollRight()">&#10095;</button>
+  </div>
+</div>
+
+<!-- French serction -->
+<div class="menu-section">
+  <h2>French:</h2>
+
+  <div class="menu-carousel">
+
+
+    <!-- French Cards -->
+    <div class="menu-cards" #scrollContainer>
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="assets/images/margherita.jpg" alt="French" />
+        <h3>French</h3>
+        <p>Fresh tomato, mozzarella, and basil on a crispy crust. Simple, colorful, and authentic.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- card 4 -->
+        <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 5 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 6 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 7 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 8 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="arrow right" (click)="scrollRight()">&#10095;</button>
+  </div>
+</div>
+
+<!-- Mediterranean serction -->
+<div class="menu-section">
+  <h2>Mediterranean:</h2>
+
+  <div class="menu-carousel">
+
+
+    <!-- Scrollable Cards -->
+    <div class="menu-cards" #scrollContainer>
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="assets/images/margherita.jpg" alt="Margherita Pizza" />
+        <h3>Margherita Pizza</h3>
+        <p>Fresh tomato, mozzarella, and basil on a crispy crust. Simple, colorful, and authentic.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- card 4 -->
+        <div class="card">
+        <img src="assets/images/spaghetti.jpg" alt="Spaghetti Carbonara" />
+        <h3>Spaghetti Carbonara</h3>
+        <p>Creamy pasta with eggs, cheese, and pancetta. Rich, classic Roman flavor.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 5 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 6 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    <!-- Card 7 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+     <!-- Card 8 -->
+      <div class="card">
+        <img src="assets/images/fettuccine.jpg" alt="Fettuccine Alfredo" />
+        <h3>Fettuccine Alfredo</h3>
+        <p>Pasta tossed in butter and Parmesan cream. Smooth, creamy indulgence.</p>
+        <div class="price-rating">
+          <span class="price">Rs 500</span>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="arrow right" (click)="scrollRight()">&#10095;</button>
+  </div>
+</div>
+
+
+<app-footer></app-footer>
