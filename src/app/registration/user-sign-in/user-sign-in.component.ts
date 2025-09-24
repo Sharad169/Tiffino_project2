@@ -64,10 +64,12 @@ export class UserSignInComponent {
 
    this.api.signup(payload).subscribe({
       next: (res) => {
+        
          sessionStorage.setItem('emailForOtp', payload.email);
          sessionStorage.setItem('name', payload.name);
+         
         console.log('Signup successful:', res);
-        // this.route.navigate(['/verification-code']);
+        this.route.navigate(['/verification-otp']);
       },
       error: (err) => {
         console.error('Signup error:', err);
@@ -94,6 +96,7 @@ export class UserSignInComponent {
         }
       },
       error: (err) => {
+        alert('Invalid Email. Please try again.');
         console.error('Error sending OTP', err);
       }
     });
@@ -117,9 +120,14 @@ export class UserSignInComponent {
         
       },
       error: (err) => {
+        // alert('Invalid mail. Please try again.');
         console.error('Error verifying OTP', err);
       }
     });
+  }
+
+  showLogin() {
+    this.hide = !this.hide;
   }
 }
 

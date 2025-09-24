@@ -5,10 +5,10 @@
   top: 0;
   left: 0;
   width: 900px;
-  height: 700px;
+  height: 800px;
   background-image: url("/assets/image2.png"); /* ✅ Correct Path */
   background-repeat: no-repeat;
-  margin-left: 400px;
+     margin-left: 780px;
   background-position: right;
   background-size: contain;
 }

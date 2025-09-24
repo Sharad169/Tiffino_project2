@@ -18,6 +18,10 @@ export class AppComponent {
   showLayout = true;
 
   constructor(private router: Router) {
+
+
+
+
     // Handle refresh + first load
     this.showLayout = !this.shouldHideLayout(this.router.url || '/');
 
@@ -34,26 +38,23 @@ export class AppComponent {
    * Add all "no-header-footer" pages here.
    */
   private shouldHideLayout(url: string): boolean {
-
-    // Hide header/footer for onboarding or verification-code pages
-    return (
-      url === '/' ||
-      url === '' ||
-      url.startsWith('/onboarding') ||
-      url.startsWith('/verification-code') ||
-      url.startsWith('/welcome')
-    );
-
+    // Hide header/footer for onboarding, verification-code, welcome, or verify-otp pages
     const hiddenRoutes = [
       '/',                   // homepage (if you don’t want header/footer there)
       '/onboarding',
       '/verification-code',
       '/login',
-      '/register'
+      '/register',
+      '/welcome',
+      '/verify-otp'
     ];
 
     // Check exact match OR startsWith for nested routes
-    return hiddenRoutes.some(route => url === route || url.startsWith(route));
-
+    return (
+      url === '' ||
+      hiddenRoutes.some(route => url === route || url.startsWith(route))
+    );
   }
+
+  
 }
