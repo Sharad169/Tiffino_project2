@@ -4,11 +4,11 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 1000px;
-  height: 850px;
+  width: 900px;
+  height: 700px;
   background-image: url("/assets/image2.png"); /* ✅ Correct Path */
   background-repeat: no-repeat;
-  margin-left: 500px;
+  margin-left: 400px;
   background-position: right;
   background-size: contain;
 }
@@ -23,11 +23,10 @@
   position: absolute;
   width: 521px;
   height: 135px;
-  top: 260px;
-  left: 79px;
+  top: 160px;
   text-align: right;
   align-items: right;
-  font-size: 90px;
+  font-size: 70px;
   font-weight: 600;
   line-height: 100%;
   color: rgba(0, 0, 0, 1);
@@ -37,9 +36,9 @@
   position: absolute;
   width: 450px;
   height: 135px;
-  top: 400px;
-  left: 250px;
-  font-size: 90px;
+  top: 260px;
+  left: 230px;
+  font-size: 70px;
   font-weight: 600;
   line-height: 100%;
   color: rgba(0, 0, 0, 1);
@@ -49,9 +48,9 @@
   position: absolute;
   width: 558px;
   height: 72px;
-  top: 540px;
-  left: 150px;
-  font-size: 24px;
+  top: 380px;
+  left: 170px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 100%;
   color: rgba(0, 0, 0, 1);
@@ -59,12 +58,12 @@
 
 .start-button {
   position: absolute;
-  width: 238px;
-  height: 73px;
-  top: 700px;
-  left: 150px;
+  width: 150px;
+  height: 50px;
+  top: 530px;
+  left: 180px;
   background-color: rgba(56, 99, 65, 1);
-  border-radius: 30px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
