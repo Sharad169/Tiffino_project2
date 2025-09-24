@@ -12,14 +12,14 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  grid-template-columns: repeat(4, 1fr); 
   gap: 24px;
 }
 
 .card {
   background: #fff;
   border-radius: 12px;
-  border: 2px solid #e2f1e9; /* light green border */
+  border: 2px solid #e2f1e9; 
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   overflow: hidden;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s;
@@ -28,7 +28,7 @@
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  border-color: #16a34a; /* green border highlight */
+  border-color: #16a34a; 
 }
 
 .card img {
@@ -59,7 +59,7 @@
 }
 
 .star.filled {
-  color: #fbbf24; /* golden star */
+  color: #fbbf24; 
 }
 
 .card-body p {
