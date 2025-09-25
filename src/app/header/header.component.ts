@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-
-userName: string | null = null;
+  userName: string | null = null;
 
   ngOnInit(): void {
     this.userName = sessionStorage.getItem('name');
@@ -18,8 +16,6 @@ userName: string | null = null;
     // Optional: Log it to the console to verify
     if (this.userName) {
       console.log('User name:', this.userName);
+    }
   }
-
-}
-
 }

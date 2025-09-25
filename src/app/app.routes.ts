@@ -13,6 +13,11 @@ import { SouthComponent } from './south/south.component';
 import { PunjabiComponent } from './punjabi/punjabi.component';
 import { GujratiComponent } from './gujrati/gujrati.component';
 import { RajsthaniComponent } from './rajsthani/rajsthani.component';
+import { MaharashtrianComponent } from './maharashtrian/maharashtrian.component';
+import { BengaliComponent } from './bengali/bengali.component';
+import { KashmiriComponent } from './kashmiri/kashmiri.component';
+import { HydrabadiComponent } from './hydrabadi/hydrabadi.component';
+import { GoaComponent } from './goa/goa.component';
 
 import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
 
@@ -33,12 +38,9 @@ export const routes: Routes = [
 
   // Verification / OTP page
 
-
   { path: 'verification-otp', component: VerificationCodeComponent },
 
-
   { path: '', component: VerificationCodeComponent },
- 
 
   // Login / Registration
 
@@ -69,6 +71,21 @@ export const routes: Routes = [
 
   //Rajsthani
   { path: 'rajsthani', component: RajsthaniComponent },
+
+  //Maharashtrian
+  { path: 'maharashtrian', component: MaharashtrianComponent },
+
+  //Bengali
+  { path: 'bengali', component: BengaliComponent },
+
+  //Kashmiri
+  { path: 'kashmiri', component: KashmiriComponent },
+
+  //Hydrabadi
+  { path: 'hydrabadi', component: HydrabadiComponent },
+
+  //Goan
+  { path: 'goa', component: GoaComponent },
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
