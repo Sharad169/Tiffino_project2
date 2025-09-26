@@ -72,4 +72,5 @@ export const routes: Routes = [
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
+  
 ];

@@ -393,4 +393,13 @@
   .divider {
     display: none; /* ✅ hide dividers on mobile */
   }
+
+
+.cuisine-container{
+  display: flex;
+    gap: 14px;
+}
+
+
+  
 }
