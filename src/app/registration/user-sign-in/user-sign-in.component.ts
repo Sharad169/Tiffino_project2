@@ -10,6 +10,7 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { log } from 'console';
 
 @Component({
   selector: 'app-user-sign-in',
@@ -89,12 +90,13 @@ export class UserSignInComponent {
   sendOtp() {
     if (this.loginForm.get('email')?.invalid) return;
 
-    const email = this.loginForm.get('email')?.value;
+  const email = this.loginForm.get('email')?.value;
 
-    this.api.sendOtp(email).subscribe({
-      next: (res) => {
-        console.log('OTP Sent:', res);
-        this.otpSent = true;
+  this.api.sendOtp(email).subscribe({
+    next: (res) => {
+      console.log('API Response:', res); // Log the response to be sure
+      console.log(res.token); // Log the token specifically
+      
 
         // add OTP control dynamically
         if (!this.loginForm.get('otp')) {
@@ -131,7 +133,12 @@ export class UserSignInComponent {
     });
   }
 
+
   showLogin() {
     this.hide = !this.hide;
   }
+
+  home() { 
+    
+     }
 }
