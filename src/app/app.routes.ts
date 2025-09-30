@@ -19,6 +19,10 @@ import { KashmiriComponent } from './kashmiri/kashmiri.component';
 import { HydrabadiComponent } from './hydrabadi/hydrabadi.component';
 import { GoaComponent } from './goa/goa.component';
 
+import { ChineseMaunComponent } from './chinese-maun/chinese-maun.component';
+
+import { InternationalMenuComponent } from './international-menu/international-menu.component';
+
 import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
 
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
@@ -86,6 +90,14 @@ export const routes: Routes = [
 
   //Goan
   { path: 'goa', component: GoaComponent },
+
+  //Chinese Maun
+{ path: 'chinese-maun', component: ChineseMaunComponent },
+
+  //international-menu
+{ path: 'international-menu', component: InternationalMenuComponent },
+
+
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
