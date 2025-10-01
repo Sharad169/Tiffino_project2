@@ -28,6 +28,7 @@ import { InternationalMenuComponent } from './international-menu/international-m
 import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
 
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
+import { CuisineDetailComponent } from './cuisine-detail/cuisine-detail.component';
 
 import { DescriptionComponent } from './description/description.component';
 
@@ -76,6 +77,8 @@ export const routes: Routes = [
 
   //South
   { path: 'south', component: SouthComponent },
+
+  { path: 'cuisine-detail/:id', component: CuisineDetailComponent },
 
   //Punjabi
   { path: 'punjabi', component: PunjabiComponent },
