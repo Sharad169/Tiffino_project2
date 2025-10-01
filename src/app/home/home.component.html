@@ -81,19 +81,21 @@
 
 <!-- Regional Cuisines-->
 <!-- Regional -->
-<section class="cuisines-section">
-  <h2 class="section-title">Regional Cuisines:</h2>
-  <div class="row cuisine-scroller">
-    <div class="cuisine-container" style="display:flex; gap:14px;">
-      <div class="col cuisine-card" *ngFor="let item of regionalCuisines">
-        <img [src]="item.imageUrl" [alt]="item.name">
-        <div class="cuisine-name">{{ item.name }}</div>
-        <div class="cuisine-category">{{ item.category }}</div>
-        <div class="cuisine-desc">{{ item.description }}</div>
-      </div>
-    </div>
+<div class="row">
+  <h2 class="section-title">Regional Cuisines:</h2> 
+  <div 
+    class="col-md-3 col-sm-6 cuisine-card" 
+    *ngFor="let item of regionalCuisines" 
+    (click)="goToCuisine(item.cuisineId)">
+    
+    <img [src]="item.imageUrl" [alt]="item.name" class="img-fluid">
+    <div class="cuisine-name">{{ item.name }}</div>
+    <div class="cuisine-category">{{ item.category }}</div>
+    <div class="cuisine-desc">{{ item.description }}</div>
   </div>
-</section>
+</div>
+
+
 
 <!-- International -->
 <section class="cuisines-section">

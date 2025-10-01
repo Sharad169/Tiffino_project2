@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit  {
   internationalCuisines: any[] = [];
   specialCuisines: any[] = [];
 
-constructor(public api :AuthService) { }
+constructor(public api :AuthService, public router : Router) { }
 
 
 
@@ -45,5 +46,9 @@ constructor(public api :AuthService) { }
       this.specialCuisines = this.cuisines.filter(c => c.category === 'Special');
     });
   }
+
+ goToCuisine(id: number) {
+  this.router.navigate(['/cuisine-detail', id]); // cuisineId pass karenge
+}
 
 }

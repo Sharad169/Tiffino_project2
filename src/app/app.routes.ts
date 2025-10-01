@@ -17,6 +17,7 @@ import { RajsthaniComponent } from './rajsthani/rajsthani.component';
 import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
 
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
+import { CuisineDetailComponent } from './cuisine-detail/cuisine-detail.component';
 
 export const routes: Routes = [
   // Default page
@@ -60,6 +61,8 @@ export const routes: Routes = [
 
   //South
   { path: 'south', component: SouthComponent },
+
+  { path: 'cuisine-detail/:id', component: CuisineDetailComponent },
 
   //Punjabi
   { path: 'punjabi', component: PunjabiComponent },
