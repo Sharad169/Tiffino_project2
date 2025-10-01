@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/*------ card wrapper ------*/
+:host {
+  display: block;
+}
+
+.wrapper {
+  font-family: "Poppins", sans-serif;
+  color: #111;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 100px 0 90px 80px;
+}
+
+/* GRID layout */
+.cards-container {
+  display: grid;
+  gap: 36px;
+  grid-template-columns: 1fr;
+  align-items: start;
+  margin: 0 80px;
+}
+
+@media (min-width: 600px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ------ CARD ------ */
+.card {
+  background: #fff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 500px;
+  margin-top: 56px;
+  margin-bottom: 56px;
+  padding: 24px 20px;
+  /* ✅ soft diffused box shadow */
+  box-shadow: 0px 8px 20px rgba(64, 152, 83, 0.6),
+    0px 4px 8px rgba(64, 152, 83, 0.6);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.18),
+    0px 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* ------ IMAGE ------ */
+.card-img {
+  position: absolute;
+  top: -90px; /* how much it floats above */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 338px;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ------ BODY ------ */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 220px; /* offset for image */
+  width: 100%;
+  flex: 1; /* allows card-body to grow */
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+}
+.card-text {
+  margin: 0 0 16px;
+  height: 50px;
+  font-size: 14.7px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  line-height: 1.5;
+  text-align: center;
+
+  flex-shrink: 0; /* prevent shrinking */
+}
+
+.rating .stars {
+  font-size: 30px;
+  color: #efd896; /* golden */
+  margin-bottom: 30px;
+}
+
+.price-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 8px; /* optional spacing from rating */
+}
+
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  color: #111;
+}
+
+.add-btn {
+  width: 193px;
+  height: 51px;
+  border-radius: 30px;
+  border: 2.5px solid #111;
+  background: transparent;
+  color: #111;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease,
+    transform 0.12s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-btn:hover {
+  background: #111;
+  color: #fff;
+}
