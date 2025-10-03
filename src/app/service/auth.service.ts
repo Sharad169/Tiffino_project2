@@ -39,6 +39,12 @@ export class AuthService {
     return this.http.get(`${this.baseUrl1}`, { headers });
   }
 
+  getmealbycaterogy(category: string){
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get(`http://localhost:8082/api/cuisines/category/${category}/with-meals`, { headers });
+  }
+
   
 
  
