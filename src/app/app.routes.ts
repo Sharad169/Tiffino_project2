@@ -18,6 +18,7 @@ import { BengaliComponent } from './bengali/bengali.component';
 import { KashmiriComponent } from './kashmiri/kashmiri.component';
 import { HydrabadiComponent } from './hydrabadi/hydrabadi.component';
 import { GoaComponent } from './goa/goa.component';
+import { RecommendationComponent } from './recommendation/recommendation.component';
 
 
 import { ChineseMaunComponent } from './chinese-maun/chinese-maun.component';
@@ -99,6 +100,10 @@ export const routes: Routes = [
 
   //Goan
   { path: 'goa', component: GoaComponent },
+
+
+  //Recommendation
+  { path: 'recommendation', component: RecommendationComponent },
 
   //Chinese Maun
 { path: 'chinese-maun', component: ChineseMaunComponent },
