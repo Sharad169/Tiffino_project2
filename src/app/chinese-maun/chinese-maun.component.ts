@@ -6,7 +6,7 @@ import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-chinese-maun',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent],
+  imports: [CommonModule, ],
   templateUrl: './chinese-maun.component.html',
   styleUrl: './chinese-maun.component.css'
 })

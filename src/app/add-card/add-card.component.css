@@ -1,0 +1,51 @@
+/* Donation + Cancellation Unified Section */
+.donation-cancel-section {
+  margin: 30px;
+}
+
+.donation-cancel-box {
+  background: #f3f8f3;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.donation-info h3 {
+  margin: 0 0 10px;
+  color: #1a1a1a;
+}
+
+.donation-info p {
+  margin: 0;
+  color: #555;
+}
+
+.donation-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.donate-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #000;
+  color: white;
+  cursor: pointer;
+}
+
+.cancel-info h3 {
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.cancel-info p {
+  margin: 0;
+  color: #444;
+  line-height: 1.5;
+}

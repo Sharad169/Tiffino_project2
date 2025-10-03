@@ -1,0 +1,66 @@
+<div class="description-page">
+  <!-- Dish Image -->
+  <div class="dish-image">
+    <img [src]="dish.imageUrl" alt="{{dish.name}}">
+  </div>
+
+  <!-- Dish Info -->
+  <div class="dish-info">
+    <h2>{{ dish.name }}</h2>
+    <p>{{ dish.description }}</p>
+
+    <!-- Quantity Selector + Add Button -->
+    <div class="action-row">
+      <div class="quantity-selector">
+        <button (click)="decreaseQuantity()">-</button>
+        <span>{{ quantity }}</span>
+        <button (click)="increaseQuantity()">+</button>
+      </div>
+      <button class="add-btn">ADD</button>
+    </div>
+  </div>
+
+  <!-- Ratings Section -->
+  <div class="ratings-section">
+    <div class="rating-bars">
+      <div class="rating-row" *ngFor="let star of [5,4,3,2,1]">
+        <span>{{ star }}</span>
+        <div class="bar">
+          <div class="fill" [style.width.%]="getStarPercentage(star)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="average-rating">
+      <div class="rating-number">4.0</div>
+      <div class="stars">
+        <span *ngFor="let s of [1,2,3,4,5]">
+          <i class="star" [class.filled]="s <= 4">★</i>
+        </span>
+      </div>
+    </div>
+
+    <div class="average-rating">
+      <div class="rating-number">4.8</div>
+      <div class="stars">
+        <span *ngFor="let s of [1,2,3,4,5]">
+          <i class="star" [class.filled]="s <= dish.rating">★</i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Customer Reviews -->
+  <div class="reviews">
+    <div class="review-card" *ngFor="let review of reviews">
+      <div class="avatar"></div>
+      <div class="stars small">
+        <span *ngFor="let s of [1,2,3,4,5]">
+          <i class="star filled">★</i>
+        </span>
+      </div>
+      <div class="review-text">"{{ review.text }}"</div>
+      <div class="reviewer-name">{{ review.name }}</div>
+    </div>
+  </div>
+</div>

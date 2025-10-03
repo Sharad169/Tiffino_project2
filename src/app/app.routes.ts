@@ -19,6 +19,7 @@ import { KashmiriComponent } from './kashmiri/kashmiri.component';
 import { HydrabadiComponent } from './hydrabadi/hydrabadi.component';
 import { GoaComponent } from './goa/goa.component';
 
+
 import { ChineseMaunComponent } from './chinese-maun/chinese-maun.component';
 
 import { InternationalMenuComponent } from './international-menu/international-menu.component';
@@ -26,6 +27,14 @@ import { InternationalMenuComponent } from './international-menu/international-m
 import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
 
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
+
+import { DescriptionComponent } from './description/description.component';
+
+import { AddCardComponent } from './add-card/add-card.component';
+
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+
+
 
 export const routes: Routes = [
   // Default page
@@ -97,7 +106,14 @@ export const routes: Routes = [
   //international-menu
 { path: 'international-menu', component: InternationalMenuComponent },
 
+  //description
+{ path: 'description', component: DescriptionComponent },
 
+  //Add-card
+{ path: 'add-card', component: AddCardComponent },
+
+  //checkout page 
+{ path: 'checkout-page', component: CheckoutPageComponent },
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
