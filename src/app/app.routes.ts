@@ -22,6 +22,10 @@ import { RecommendationComponent } from './recommendation/recommendation.compone
 import { ProfileComponent } from './profile/profile.component';
 import { RatingComponent } from './rating/rating.component';
 
+import { ChineseMaunComponent } from './chinese-maun/chinese-maun.component';
+
+import { InternationalMenuComponent } from './international-menu/international-menu.component';
+
 import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
 
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
@@ -92,6 +96,21 @@ export const routes: Routes = [
 
   //Recommendation
   { path: 'recommendation', component: RecommendationComponent },
+
+  //Chinese Maun
+  { path: 'chinese-maun', component: ChineseMaunComponent },
+
+  //international-menu
+  { path: 'international-menu', component: InternationalMenuComponent },
+
+  //description
+  { path: 'description', component: DescriptionComponent },
+
+  //Add-card
+  { path: 'add-card', component: AddCardComponent },
+
+  //checkout page
+  { path: 'checkout-page', component: CheckoutPageComponent },
 
   //Profile
   { path: 'profile', component: ProfileComponent },
