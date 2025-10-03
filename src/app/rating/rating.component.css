@@ -1,0 +1,251 @@
+.reviews-container {
+  font-family: "Poppins", sans-serif;
+}
+
+.rating-review-box {
+  display: flex;
+  margin: 100px 80px 100px 80px;
+}
+
+/* Average Rating Box */
+.average-rating {
+  width: 514px; /* your desired width */
+  height: 479px; /* your desired height */
+  background: #fff;
+  margin-right: 34px;
+  padding-left: 32px;
+  border: 1px solid rgba(162, 161, 161, 1);
+  border-radius: 15px;
+  flex: none; /* prevent flex from overriding */
+}
+
+.submit-reviews {
+  width: 732px;
+  height: 582px;
+  background: #fff;
+  padding-left: 18px;
+  border: 1px solid rgba(162, 161, 161, 1);
+  border-radius: 15px;
+  flex: none;
+}
+
+.average-rating h4 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 27px;
+}
+
+.rating-score {
+  display: flex;
+  align-items: center;
+  margin-bottom: 45px;
+}
+
+.rating-value {
+  font-size: 24px;
+  font-weight: 400;
+  margin-right: 22px;
+}
+
+.stars {
+  font-size: 32px;
+  font-weight: 600;
+  color: rgba(239, 216, 150, 1);
+}
+
+/* Progress bars */
+.rating-progress {
+  margin-top: 15px;
+  margin-right: 32px;
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.progress {
+  flex: 1;
+  height: 14.6px;
+  background: #eee;
+  overflow: hidden;
+}
+
+.progress-no {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.progress-bar {
+  height: 100%;
+  background: rgba(56, 99, 65, 1);
+  border-radius: 6px;
+  margin-left: 47px;
+  margin-right: 30px;
+}
+
+/* Submit Reviews */
+.submit-reviews form {
+  display: flex;
+  flex-direction: column;
+}
+.submit-reviews h4 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 26px;
+  margin-bottom: 26px;
+}
+.rating-label {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+}
+.rating-input {
+  font-size: 32px;
+  font-weight: 600;
+  color: rgba(239, 216, 150, 1);
+}
+.input-row {
+  display: flex;
+  gap: 16px; /* Space between the two inputs */
+}
+
+.input-row .input-field {
+  flex: 1; /* Equal width for inputs */
+  display: flex;
+  flex-direction: column; /* Label above input */
+}
+
+.input-field label {
+  margin-bottom: 6px;
+  margin-top: 11px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.input-field input {
+  padding: 8px;
+  border: 1px solid rgba(162, 161, 161, 1);
+  border-radius: 20px;
+  font-size: 14px;
+  width: 340px;
+  height: 52px;
+}
+
+.input-field textarea {
+  padding: 8px;
+  border: 1px solid rgba(162, 161, 161, 1);
+  border-radius: 20px;
+  font-size: 14px;
+  width: 695px;
+  height: 147px;
+}
+
+/* Textarea spacing */
+.submit-reviews textarea {
+  margin-top: 6px;
+}
+
+button {
+  width: 102px;
+  height: 40px;
+  padding: 8px;
+  border: none;
+  margin-top: 35px;
+  background: rgba(56, 99, 65, 1);
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.customer-reviews {
+  margin: 0 80px;
+}
+
+.customer-reviews h4 {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 24px 0 44px 0;
+}
+
+.review-card {
+  display: flex; /* left bar + content */
+  height: 231px;
+  background: #fff;
+  border: 1px solid rgba(162, 161, 161, 1);
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 24px;
+}
+
+.review-bar {
+  width: 81px;
+  height: 78px;
+  background-color: rgba(217, 217, 217, 1);
+  border-radius: 50%;
+  margin: 5px 35px 0 15px;
+}
+
+.review-content {
+  flex: 1; /* take remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.profile-icon {
+  font-size: 40px;
+  color: #ccc;
+  flex-shrink: 0;
+}
+
+.user-info {
+  flex: 1;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info h5 {
+  margin: 10px 0 5px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.review-stars {
+  font-size: 28px;
+  font-weight: 600;
+  color: rgba(239, 216, 150, 1);
+}
+
+.date {
+  font-size: 16px;
+  color: rgba(121, 121, 121, 1);
+}
+
+.review-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 20px;
+  color: rgba(31, 31, 31, 1);
+}
+
+.review-actions i {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.review-text {
+  font-size: 16px;
+  color: rgba(121, 121, 121, 1);
+  margin-left: 7px;
+}
