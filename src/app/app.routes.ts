@@ -19,6 +19,8 @@ import { KashmiriComponent } from './kashmiri/kashmiri.component';
 import { HydrabadiComponent } from './hydrabadi/hydrabadi.component';
 import { GoaComponent } from './goa/goa.component';
 import { RecommendationComponent } from './recommendation/recommendation.component';
+import { ProfileComponent } from './profile/profile.component';
+import { RatingComponent } from './rating/rating.component';
 
 import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
 
@@ -90,6 +92,12 @@ export const routes: Routes = [
 
   //Recommendation
   { path: 'recommendation', component: RecommendationComponent },
+
+  //Profile
+  { path: 'profile', component: ProfileComponent },
+
+  //Rating
+  { path: 'rating', component: RatingComponent },
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
