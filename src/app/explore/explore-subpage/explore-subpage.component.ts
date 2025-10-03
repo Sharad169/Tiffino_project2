@@ -333,6 +333,321 @@ export class ExploreSubpageComponent implements OnInit {
       cuisine: 'Rajasthani',
       rating: 5,
     },
+
+    // ---------------- Maharashtrian ----------------
+    {
+      title: 'Masala Dosa',
+      image: '../assets/South Indian/Masala Dosa.jpg',
+      price: 300,
+      description:
+        'Crispy rice dosa filled with spiced potato masala served with chutney & sambhar.',
+      cuisine: 'Maharashtrian',
+      rating: 4,
+    },
+    {
+      title: 'Masala Idli',
+      image: '../assets/South Indian/Masala Idli.png',
+      price: 200,
+      description:
+        'Soft & spiced mini idlis tossed in flavorful masala served with chutney.',
+      cuisine: 'Maharashtrian',
+      rating: 3,
+    },
+    {
+      title: 'Rice and Khichdi',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 150,
+      description:
+        'Comforting mix of rice and dal, lightly spiced & served with papad.',
+      cuisine: 'Maharashtrian',
+      rating: 4,
+    },
+    {
+      title: 'Uttapam',
+      image: '../assets/South Indian/Uttapam.jpg',
+      price: 170,
+      description: 'Thick pancake topped with onions, tomatoes, and chilies.',
+      cuisine: 'Maharashtrian',
+      rating: 5,
+    },
+    {
+      title: 'Upma',
+      image: '../assets/South Indian/Upma.jpg',
+      price: 250,
+      description: 'Savory porridge made from semolina, cooked with spices.',
+      cuisine: 'Maharashtrian',
+      rating: 4,
+    },
+    {
+      title: 'Bisi Bele Bath',
+      image: '../assets/South Indian/Bisi Bele Bath.jpg',
+      price: 170,
+      description:
+        'Karnataka-style rice dish with lentils, tamarind, and spices.',
+      cuisine: 'Maharashtrian',
+      rating: 3,
+    },
+    {
+      title: 'Hyderabadi Biryani',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 190,
+      description:
+        'Aromatic rice and meat dish with strong Mughlai-South Indian flavors',
+      cuisine: 'Maharashtrian',
+      rating: 5,
+    },
+
+    // ---------------- Bengali----------------
+    {
+      title: 'Masala Dosa',
+      image: '../assets/South Indian/Masala Dosa.jpg',
+      price: 300,
+      description:
+        'Crispy rice dosa filled with spiced potato masala served with chutney & sambhar.',
+      cuisine: 'Bengali',
+      rating: 4,
+    },
+    {
+      title: 'Masala Idli',
+      image: '../assets/South Indian/Masala Idli.png',
+      price: 200,
+      description:
+        'Soft & spiced mini idlis tossed in flavorful masala served with chutney.',
+      cuisine: 'Bengali',
+      rating: 3,
+    },
+    {
+      title: 'Rice and Khichdi',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 150,
+      description:
+        'Comforting mix of rice and dal, lightly spiced & served with papad.',
+      cuisine: 'Bengali',
+      rating: 4,
+    },
+    {
+      title: 'Uttapam',
+      image: '../assets/South Indian/Uttapam.jpg',
+      price: 170,
+      description: 'Thick pancake topped with onions, tomatoes, and chilies.',
+      cuisine: 'Bengali',
+      rating: 5,
+    },
+    {
+      title: 'Upma',
+      image: '../assets/South Indian/Upma.jpg',
+      price: 250,
+      description: 'Savory porridge made from semolina, cooked with spices.',
+      cuisine: 'Bengali',
+      rating: 4,
+    },
+    {
+      title: 'Bisi Bele Bath',
+      image: '../assets/South Indian/Bisi Bele Bath.jpg',
+      price: 170,
+      description:
+        'Karnataka-style rice dish with lentils, tamarind, and spices.',
+      cuisine: 'Bengali',
+      rating: 3,
+    },
+    {
+      title: 'Hyderabadi Biryani',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 190,
+      description:
+        'Aromatic rice and meat dish with strong Mughlai-South Indian flavors',
+      cuisine: 'Bengali',
+      rating: 5,
+    },
+
+    // ---------------- Kashmiri----------------
+    {
+      title: 'Masala Dosa',
+      image: '../assets/South Indian/Masala Dosa.jpg',
+      price: 300,
+      description:
+        'Crispy rice dosa filled with spiced potato masala served with chutney & sambhar.',
+      cuisine: 'Kashmiri',
+      rating: 4,
+    },
+    {
+      title: 'Masala Idli',
+      image: '../assets/South Indian/Masala Idli.png',
+      price: 200,
+      description:
+        'Soft & spiced mini idlis tossed in flavorful masala served with chutney.',
+      cuisine: 'Kashmiri',
+      rating: 3,
+    },
+    {
+      title: 'Rice and Khichdi',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 150,
+      description:
+        'Comforting mix of rice and dal, lightly spiced & served with papad.',
+      cuisine: 'Kashmiri',
+      rating: 4,
+    },
+    {
+      title: 'Uttapam',
+      image: '../assets/South Indian/Uttapam.jpg',
+      price: 170,
+      description: 'Thick pancake topped with onions, tomatoes, and chilies.',
+      cuisine: 'Kashmiri',
+      rating: 5,
+    },
+    {
+      title: 'Upma',
+      image: '../assets/South Indian/Upma.jpg',
+      price: 250,
+      description: 'Savory porridge made from semolina, cooked with spices.',
+      cuisine: 'Kashmiri',
+      rating: 4,
+    },
+    {
+      title: 'Bisi Bele Bath',
+      image: '../assets/South Indian/Bisi Bele Bath.jpg',
+      price: 170,
+      description:
+        'Karnataka-style rice dish with lentils, tamarind, and spices.',
+      cuisine: 'Kashmiri',
+      rating: 3,
+    },
+    {
+      title: 'Hyderabadi Biryani',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 190,
+      description:
+        'Aromatic rice and meat dish with strong Mughlai-South Indian flavors',
+      cuisine: 'Kashmiri',
+      rating: 5,
+    },
+
+     // ---------------- Hyderabad----------------
+    {
+      title: 'Masala Dosa',
+      image: '../assets/South Indian/Masala Dosa.jpg',
+      price: 300,
+      description:
+        'Crispy rice dosa filled with spiced potato masala served with chutney & sambhar.',
+      cuisine: 'Hyderabad',
+      rating: 4,
+    },
+    {
+      title: 'Masala Idli',
+      image: '../assets/South Indian/Masala Idli.png',
+      price: 200,
+      description:
+        'Soft & spiced mini idlis tossed in flavorful masala served with chutney.',
+      cuisine: 'Hyderabad',
+      rating: 3,
+    },
+    {
+      title: 'Rice and Khichdi',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 150,
+      description:
+        'Comforting mix of rice and dal, lightly spiced & served with papad.',
+      cuisine: 'Hyderabad',
+      rating: 4,
+    },
+    {
+      title: 'Uttapam',
+      image: '../assets/South Indian/Uttapam.jpg',
+      price: 170,
+      description: 'Thick pancake topped with onions, tomatoes, and chilies.',
+      cuisine: 'Hyderabad',
+      rating: 5,
+    },
+    {
+      title: 'Upma',
+      image: '../assets/South Indian/Upma.jpg',
+      price: 250,
+      description: 'Savory porridge made from semolina, cooked with spices.',
+      cuisine: 'Hyderabad',
+      rating: 4,
+    },
+    {
+      title: 'Bisi Bele Bath',
+      image: '../assets/South Indian/Bisi Bele Bath.jpg',
+      price: 170,
+      description:
+        'Karnataka-style rice dish with lentils, tamarind, and spices.',
+      cuisine: 'Hyderabad',
+      rating: 3,
+    },
+    {
+      title: 'Hyderabadi Biryani',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 190,
+      description:
+        'Aromatic rice and meat dish with strong Mughlai-South Indian flavors',
+      cuisine: 'Hyderabad',
+      rating: 5,
+    },
+
+    // ---------------- Goan----------------
+    {
+      title: 'Masala Dosa',
+      image: '../assets/South Indian/Masala Dosa.jpg',
+      price: 300,
+      description:
+        'Crispy rice dosa filled with spiced potato masala served with chutney & sambhar.',
+      cuisine: 'Goan',
+      rating: 4,
+    },
+    {
+      title: 'Masala Idli',
+      image: '../assets/South Indian/Masala Idli.png',
+      price: 200,
+      description:
+        'Soft & spiced mini idlis tossed in flavorful masala served with chutney.',
+      cuisine: 'Goan',
+      rating: 3,
+    },
+    {
+      title: 'Rice and Khichdi',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 150,
+      description:
+        'Comforting mix of rice and dal, lightly spiced & served with papad.',
+      cuisine: 'Goan',
+      rating: 4,
+    },
+    {
+      title: 'Uttapam',
+      image: '../assets/South Indian/Uttapam.jpg',
+      price: 170,
+      description: 'Thick pancake topped with onions, tomatoes, and chilies.',
+      cuisine: 'Goan',
+      rating: 5,
+    },
+    {
+      title: 'Upma',
+      image: '../assets/South Indian/Upma.jpg',
+      price: 250,
+      description: 'Savory porridge made from semolina, cooked with spices.',
+      cuisine: 'Goan',
+      rating: 4,
+    },
+    {
+      title: 'Bisi Bele Bath',
+      image: '../assets/South Indian/Bisi Bele Bath.jpg',
+      price: 170,
+      description:
+        'Karnataka-style rice dish with lentils, tamarind, and spices.',
+      cuisine: 'Goan',
+      rating: 3,
+    },
+    {
+      title: 'Hyderabadi Biryani',
+      image: '../assets/South Indian/Rice and Khichdi.png',
+      price: 190,
+      description:
+        'Aromatic rice and meat dish with strong Mughlai-South Indian flavors',
+      cuisine: 'Goan',
+      rating: 5,
+    },
   ];
 
   cart: Product[] = [];
@@ -360,6 +675,26 @@ export class ExploreSubpageComponent implements OnInit {
     get RajasthaniProducts(): Product[] {
     return this.products.filter((p) => p.cuisine === 'Rajasthani');
   }
+
+      get MaharashtrianProducts(): Product[] {
+    return this.products.filter((p) => p.cuisine === 'Maharashtrian');
+  }
+
+        get BengaliProducts(): Product[] {
+    return this.products.filter((p) => p.cuisine === 'Bengali');
+  }
+
+          get KashmiriProducts(): Product[] {
+    return this.products.filter((p) => p.cuisine === 'Kashmiri');
+  }
+            get HyderabadProducts(): Product[] {
+    return this.products.filter((p) => p.cuisine === 'Hyderabad');
+  }
+          get GoanProducts(): Product[] {
+    return this.products.filter((p) => p.cuisine === 'Goan');
+  }
+  
+
 
   addToCart(item: Product) {
     this.cart.push(item);

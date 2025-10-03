@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { RouterLink, RouterModule } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
@@ -9,38 +15,43 @@ import { log } from 'console';
 @Component({
   selector: 'app-user-sign-in',
   standalone: true,
-  imports: [RouterModule, RouterLink, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [
+    RouterModule,
+    // RouterLink,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+  ],
   templateUrl: './user-sign-in.component.html',
   styleUrls: ['./user-sign-in.component.css'],
 })
 export class UserSignInComponent {
   signupForm!: FormGroup;
   submitted = false;
-  hide = true
+  hide = true;
   otpSent = false;
   message = '';
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private api : AuthService, private route: Router) {
-
-   
-
-  }
+  constructor(
+    private fb: FormBuilder,
+    private api: AuthService,
+    private route: Router
+  ) {}
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       dateOfBirth: ['', Validators.required],
-      phone: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]]
+      phone: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
       // otp: ['', Validators.required]
     });
 
-      this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]]
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
     });
   }
-
 
   get f() {
     return this.signupForm.controls;
@@ -57,13 +68,13 @@ export class UserSignInComponent {
     const formValue = this.signupForm.value;
 
     const payload = {
-      "name": formValue.name,
-      "email": formValue.email,
-      "phone": formValue.phone,
-      "dateOfBirth": formValue.dateOfBirth   // map dateOfBirth correctly
+      name: formValue.name,
+      email: formValue.email,
+      phone: formValue.phone,
+      dateOfBirth: formValue.dateOfBirth, // map dateOfBirth correctly
     };
 
-   this.api.signup(payload).subscribe({
+    this.api.signup(payload).subscribe({
       next: (res) => {
 
         console.log(res);
@@ -82,10 +93,8 @@ export class UserSignInComponent {
       },
       error: (err) => {
         console.error('Signup error:', err);
-      }
+      },
     });
-
-
   }
 
 
@@ -172,13 +181,3 @@ verifyOtp() {
     
      }
 }
-
-
-
-
-
-
-
-
-
-

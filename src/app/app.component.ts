@@ -29,7 +29,9 @@ export class AppComponent {
     this.router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
       .subscribe((navEnd: NavigationEnd) => {
-        this.showLayout = !this.shouldHideLayout(navEnd.urlAfterRedirects || navEnd.url);
+        this.showLayout = !this.shouldHideLayout(
+          navEnd.urlAfterRedirects || navEnd.url
+        );
       });
   }
 
@@ -38,23 +40,26 @@ export class AppComponent {
    * Add all "no-header-footer" pages here.
    */
   private shouldHideLayout(url: string): boolean {
-    // Hide header/footer for onboarding, verification-code, welcome, or verify-otp pages
+
+    // Hide header/footer for onboarding or verification-code pages
+    return (
+      url === '/' ||
+      url === '' ||
+      url.startsWith('/onboarding') ||
+      url.startsWith('/verification-code') ||
+      url.startsWith('/welcome')
+    );
+
     const hiddenRoutes = [
-      '/',                   // homepage (if you don’t want header/footer there)
+      '/', // homepage (if you don’t want header/footer there)
       '/onboarding',
       '/verification-code',
       '/login',
-      '/register',
-      '/welcome',
-      '/verify-otp'
+      '/register'
     ];
 
     // Check exact match OR startsWith for nested routes
-    return (
-      url === '' ||
-      hiddenRoutes.some(route => url === route || url.startsWith(route))
-    );
-  }
+    return hiddenRoutes.some(route => url === route || url.startsWith(route));
 
-  
+  }
 }

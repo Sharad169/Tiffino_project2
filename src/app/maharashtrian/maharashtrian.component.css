@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/*------ card ------*/
+:host {
+  display: block;
+}
+
+.wrapper {
+  font-family: "Poppins", sans-serif;
+  color: #111;
+}
+
+/* Title */
+.section-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 100px 0 56px 80px;
+}
+
+/* GRID */
+.cards-container {
+  display: grid;
+  gap: 36px;
+  grid-template-columns: 1fr;
+  align-items: start;
+  margin: 0 80px;
+}
+
+@media (min-width: 600px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1400px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* CARD */
+.card {
+  background: #fff;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 546px;
+  width: 402.7px;
+  min-height: 550px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 20px rgba(64, 152, 83, 0.6);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.12), 0 6px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* IMAGE */
+.card-img {
+  width: 379;
+  height: 271px;
+  padding: 12px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  background: #f6f6f6;
+}
+
+/* BODY */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* TITLE + RATING stacked vertically */
+.card-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: #111;
+  line-height: 1.15;
+}
+
+/* Rating stars (hollow) */
+.rating .stars {
+  font-size: 28px;
+  font-weight: 600;
+  color: rgba(239, 216, 150, 1);
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.card-text {
+  margin: 8px 0 16px;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+/* price + button */
+.price-cart {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 22px;
+  color: #111;
+}
+
+.add-btn {
+  margin-left: auto;
+  width: 138.53px;
+  height: 52.55px;
+  padding: 13px 16px;
+  border-radius: 30px;
+  border: 3.5px solid rgba(56, 99, 65, 1);
+  background: transparent;
+  color: rgba(0, 0, 0, 1);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease,
+    transform 0.12s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* small screen tweaks */
+@media (max-width: 480px) {
+  .card {
+    min-height: 360px;
+  }
+
+  .card-img {
+    height: 150px;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  .rating .stars {
+    font-size: 14px;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .center-nav {
+    display: none;
+  }
+
+  .bottom-row {
+    align-items: stretch;
+  }
+
+  .search-block {
+    width: 100%;
+  }
+}
