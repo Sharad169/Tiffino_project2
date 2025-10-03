@@ -23,7 +23,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { RatingComponent } from './rating/rating.component';
 
 import { ChineseMaunComponent } from './chinese-maun/chinese-maun.component';
-
+import { DescriptionComponent } from './description/description.component';
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+import { AddCardComponent } from './add-card/add-card.component';
 import { InternationalMenuComponent } from './international-menu/international-menu.component';
 
 import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
