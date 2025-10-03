@@ -1,13 +1,9 @@
 import { Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-
 import { UserSignInComponent } from './registration/user-sign-in/user-sign-in.component';
-
 import { OnboardingComponent } from './onboarding/onboarding.component';
-
 import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
-
 import { NorthComponent } from './north/north.component';
 import { SouthComponent } from './south/south.component';
 import { PunjabiComponent } from './punjabi/punjabi.component';
@@ -19,18 +15,19 @@ import { KashmiriComponent } from './kashmiri/kashmiri.component';
 import { HydrabadiComponent } from './hydrabadi/hydrabadi.component';
 import { GoaComponent } from './goa/goa.component';
 import { RecommendationComponent } from './recommendation/recommendation.component';
-import { ProfileComponent } from './profile/profile.component';
-import { RatingComponent } from './rating/rating.component';
 
 import { ChineseMaunComponent } from './chinese-maun/chinese-maun.component';
-import { DescriptionComponent } from './description/description.component';
-import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
-import { AddCardComponent } from './add-card/add-card.component';
+
 import { InternationalMenuComponent } from './international-menu/international-menu.component';
 
 import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
-
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
+
+import { DescriptionComponent } from './description/description.component';
+
+import { AddCardComponent } from './add-card/add-card.component';
+
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 
 export const routes: Routes = [
   // Default page
@@ -113,12 +110,6 @@ export const routes: Routes = [
 
   //checkout page
   { path: 'checkout-page', component: CheckoutPageComponent },
-
-  //Profile
-  { path: 'profile', component: ProfileComponent },
-
-  //Rating
-  { path: 'rating', component: RatingComponent },
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
