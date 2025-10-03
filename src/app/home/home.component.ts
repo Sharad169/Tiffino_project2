@@ -51,4 +51,8 @@ constructor(public api :AuthService, public router : Router) { }
   this.router.navigate(['/cuisine-detail', id]); // cuisineId pass karenge
 }
 
+goToCategoryPage(category: string) {
+  this.router.navigate(['/category', category]); // cuisineId pass karenge  
+}
+
 }

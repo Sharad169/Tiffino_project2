@@ -18,6 +18,7 @@ import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpa
 
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
 import { CuisineDetailComponent } from './cuisine-detail/cuisine-detail.component';
+import { CategoryComponent } from './category/category.component';
 
 export const routes: Routes = [
   // Default page
@@ -63,6 +64,8 @@ export const routes: Routes = [
   { path: 'south', component: SouthComponent },
 
   { path: 'cuisine-detail/:id', component: CuisineDetailComponent },
+
+  { path: 'category/:category', component: CategoryComponent },
 
   //Punjabi
   { path: 'punjabi', component: PunjabiComponent },
