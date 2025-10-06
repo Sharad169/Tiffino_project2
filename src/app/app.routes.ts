@@ -58,7 +58,7 @@ export const routes: Routes = [
 
   // Login / Registration
 
-  { path: 'login', component: UserSignInComponent },
+  { path: '', component: UserSignInComponent },
 
   // North page
 

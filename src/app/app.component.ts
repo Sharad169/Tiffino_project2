@@ -18,6 +18,10 @@ export class AppComponent {
   showLayout = true;
 
   constructor(private router: Router) {
+
+
+
+
     // Handle refresh + first load
     this.showLayout = !this.shouldHideLayout(this.router.url || '/');
 
@@ -57,4 +61,6 @@ export class AppComponent {
     // Check exact match OR startsWith for nested routes
     return hiddenRoutes.some((route) => url === route || url.startsWith(route));
   }
+
+  
 }

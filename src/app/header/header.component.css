@@ -24,7 +24,7 @@
   display: grid;
   grid-template-columns: 180px 1fr 180px;
   align-items: center;
-  margin-bottom: 61px;
+  /* margin-bottom: 61px; */
 }
 
 .logo img {
@@ -71,9 +71,7 @@
   height: 100%;
   object-fit: cover;
 }
-.profile-name {
-  font-size: 14px;
-}*/
+
 
 /* BOTTOM ROW */
 .bottom-row {
@@ -83,12 +81,19 @@
   gap: 12px;
 }
 
+.profile-name {
+      font-size: 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
 /* location row */
 .location {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 36px;
+  font-size: 20px;
   font-weight: 500;
 }
 .location svg {
@@ -122,7 +127,7 @@
   outline: none;
   width: 100%;
   background: transparent;
-  font-size: 36px;
+  font-size: 20px;
   font-weight: 500;
   color: #111;
   margin-left: 14px;
@@ -148,15 +153,15 @@
 .filter-btn {
   display: flex;
   align-items: center;
-  height: 70px;
-  width: 185px;
+  height: 52px;
+  width: 110px;
   gap: 10px;
   background: #fff;
   color: rgba(0, 0, 0, 1);
   border: none;
   border-radius: 20px;
   padding: 10px 14px;
-  font-size: 24px;
+  font-size: 19px;
   font-weight: 500;
   cursor: pointer;
 }
