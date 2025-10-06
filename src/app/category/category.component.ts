@@ -11,24 +11,24 @@ import { AuthService } from '../service/auth.service';
 })
 export class CategoryComponent implements OnInit {
 
-  cuisineData:any =[];
+  regionalCuisines:any =[];
 
-categories: string[] = ['Regional', 'International', 'Special'];
+
   constructor(public api : AuthService) { }
 
 
 
   ngOnInit(): void {
-   this.categories.forEach(category => {
-      this.getByCategory(category);
-    });
+    this.getByCategory('Regional');
+   
   }
 
 
   getByCategory(category: string){
+    debugger
     this.api.getmealbycaterogy(category).subscribe((res)=>{
-      this.cuisineData=res;
-      console.log(this.cuisineData);
+      this.regionalCuisines=res;
+      console.log(this.regionalCuisines);
       
     });
   }

@@ -87,16 +87,25 @@
     class="col-md-3 col-sm-6 cuisine-card" 
     *ngFor="let item of regionalCuisines" 
     (click)="goToCuisine(item.cuisineId)">
-     <button (click)="goToCategoryPage(item.category)">explore</button>
+     
     
     <img [src]="item.imageUrl" [alt]="item.name" class="img-fluid">
     <div class="cuisine-name">{{ item.name }}</div>
     <div class="cuisine-category">{{ item.category }}</div>
     <div class="cuisine-desc">{{ item.description }}</div>
+
+    
+     
    
   </div>
+  <button 
+  class="explore-btn" 
+  (click)="goToCategoryPage(regionalCuisines[0].category)">Explore</button>
+   
+
   
 </div>
+
 
 
 
@@ -188,9 +197,7 @@
   </div>
 
   <!-- Explore Button -->
-  <div class="explore-btn-container">
-    <button class="explore-btn">Explore</button>
-  </div>
+  
 </div>
 <br>
  <!-- Choose Tiffino section -->
