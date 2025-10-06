@@ -10,6 +10,7 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { log } from 'console';
 
 @Component({
   selector: 'app-user-sign-in',
@@ -57,6 +58,7 @@ export class UserSignInComponent {
   }
 
   onSubmit(): void {
+    debugger
     this.submitted = true;
 
     if (this.signupForm.invalid) {
@@ -75,10 +77,20 @@ export class UserSignInComponent {
 
     this.api.signup(payload).subscribe({
       next: (res) => {
-        sessionStorage.setItem('emailForOtp', payload.email);
-        sessionStorage.setItem('name', payload.name);
+
+        console.log(res);
+        
+
+        const jwtToken = (res as any).token; // Adjust based on actual response structure
+        if (jwtToken) {
+          sessionStorage.setItem('token', jwtToken);
+        }
+        
+         sessionStorage.setItem('emailForOtp', payload.email);
+         sessionStorage.setItem('name', payload.name);
+         
         console.log('Signup successful:', res);
-        // this.route.navigate(['/verification-code']);
+        this.route.navigate(['/verification-otp']);
       },
       error: (err) => {
         console.error('Signup error:', err);
@@ -86,15 +98,14 @@ export class UserSignInComponent {
     });
   }
 
-  sendOtp() {
-    if (this.loginForm.get('email')?.invalid) return;
 
+  sendOtp(): void {
     const email = this.loginForm.get('email')?.value;
 
     this.api.sendOtp(email).subscribe({
       next: (res) => {
-        console.log('OTP Sent:', res);
-        this.otpSent = true;
+        console.log('API Response:', res); // Log the response to be sure
+        console.log(res.token); // Log the token specifically
 
         // add OTP control dynamically
         if (!this.loginForm.get('otp')) {
@@ -103,16 +114,30 @@ export class UserSignInComponent {
             this.fb.control('', Validators.required)
           );
         }
+
+        // Store the token from the response
+        if (res.token) {
+          localStorage.setItem('accessToken', res.token); 
+        }
+        
+        // Store other data from the response for later use if needed
+        if (res.role) {
+          localStorage.setItem('userRole', res.role);
+        }
+        if (res.status) {
+          localStorage.setItem('userStatus', res.status);
+        }
+        
+        this.otpSent = true;
       },
       error: (err) => {
+        alert('Invalid Email. Please try again.');
         console.error('Error sending OTP', err);
       },
     });
   }
 
-  verifyOtp() {
-    if (this.loginForm.invalid) return;
-
+  verifyOtp(): void {
     const payload = {
       email: this.loginForm.get('email')?.value,
       otp: this.loginForm.get('otp')?.value,
@@ -120,12 +145,26 @@ export class UserSignInComponent {
 
     this.api.verifyOtp(payload).subscribe({
       next: (res) => {
+        const jwtToken = (res as any).token; // Adjust based on actual response structure
+        if (jwtToken) {
+          sessionStorage.setItem('token', jwtToken);
+        }
         console.log('OTP Verified:', res);
         this.route.navigate(['/home']);
       },
       error: (err) => {
+        // alert('Invalid mail. Please try again.');
         console.error('Error verifying OTP', err);
       },
     });
   }
+
+
+  showLogin() {
+    this.hide = !this.hide;
+  }
+
+  home() { 
+    
+     }
 }
