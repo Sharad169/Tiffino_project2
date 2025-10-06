@@ -1,51 +1,528 @@
-/* Donation + Cancellation Unified Section */
-.donation-cancel-section {
-  margin: 30px;
-}
-
-.donation-cancel-box {
-  background: #f3f8f3;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+/* Layout Wrapper */
+.shopping-bag-wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: nowrap;
+  padding: 0 10px;
 }
 
-.donation-info h3 {
-  margin: 0 0 10px;
-  color: #1a1a1a;
+/* Shopping Bag */
+.shopping-bag {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #eee;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  flex: 2;
 }
 
-.donation-info p {
-  margin: 0;
-  color: #555;
-}
-
-.donation-action {
+/* Header */
+.bag-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-.donate-btn {
-  padding: 8px 14px;
+.clear-btn {
+  background-color: #2e5939;
+  color: #fff;
   border: none;
+  padding: 10px 16px;
   border-radius: 6px;
-  background: #000;
-  color: white;
   cursor: pointer;
 }
 
-.cancel-info h3 {
-  margin-bottom: 10px;
-  color: #1a1a1a;
+/* Table header */
+.bag-table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: 10px 20px;
+  color: #555;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
 }
 
-.cancel-info p {
+/* Cart Item */
+.cart-item {
+  display: flex;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  gap: 20px;
+}
+
+.cart-item-left {
+  flex-shrink: 0;
+}
+
+.cart-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-right {
+  flex: 1;
+}
+
+.cart-item-right h3 {
   margin: 0;
+  font-weight: 700;
+}
+
+.cart-item-right p {
+  color: #555;
+  margin: 6px 0 10px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.stars {
+  color: #e0b000;
+  margin-bottom: 10px;
+}
+
+/* Price, Quantity, Total sections */
+.price-section,
+.quantity-section,
+.total-section {
+  margin-bottom: 8px;
+}
+
+.price-section label,
+.quantity-section label,
+.total-section label {
+  display: block;
+  font-weight: 600;
   color: #444;
-  line-height: 1.5;
+  font-size: 14px;
+}
+
+.price {
+  font-weight: 600;
+  color: #000;
+  margin-top: 4px;
+}
+
+.quantity {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8f8f8;
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin-top: 4px;
+}
+
+.quantity button {
+  border: none;
+  background: #ddd;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.quantity span {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.total-price {
+  font-weight: 700;
+  color: #2e5939;
+  margin-top: 4px;
+}
+
+/* Sidebar (unchanged) */
+/* Sidebar */
+.shopping-bag-sidebar {
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  width: 320px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Coupon Code Card */
+.shopping-bag-sidebar .coupon {
+  background: #fafafa;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #eee;
+}
+
+.shopping-bag-sidebar .coupon h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.shopping-bag-sidebar .coupon p {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.shopping-bag-sidebar input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 13px;
+}
+
+.shopping-bag-sidebar .coupon button {
+  background: #000;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Deliver Section */
+.shopping-bag-sidebar .deliver {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #eee;
+  position: relative;
+}
+
+.shopping-bag-sidebar .deliver h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.shopping-bag-sidebar .deliver p {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.shopping-bag-sidebar .deliver button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Cart Total Section */
+.shopping-bag-sidebar .cart-total {
+  background: #fdf5ea;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #f0d9b5;
+  font-size: 14px;
+}
+
+.shopping-bag-sidebar .cart-total p {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  color: #444;
+}
+
+.shopping-bag-sidebar .cart-total hr {
+  border: none;
+  border-top: 1px solid #e0cba3;
+  margin: 10px 0;
+}
+
+.shopping-bag-sidebar .cart-total .checkout {
+  background: #000;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+/* Cancel Policy Section */
+.shopping-bag-sidebar .cancel-policy {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #eee;
+}
+
+.shopping-bag-sidebar .cancel-policy h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.shopping-bag-sidebar .cancel-policy p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.shopping-bag-sidebar .cancel-policy .cancel {
+  background: #000;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Scroll Container */
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+/* Food Card */
+.food-card {
+  flex: 0 0 400px;
+  height: 200px;
+  display: flex;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.food-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Food Image */
+.food-img {
+  width: 220px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px 0 0 16px;
+}
+
+/* Food Details */
+.food-details {
+  flex: 1;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.food-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.food-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.stars {
+  color: #e0b000;
+  font-size: 14px;
+}
+
+.food-desc {
+  font-size: 13px;
+  color: #555;
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+/* Price + Add Button */
+.food-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.food-price {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.add-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.add-btn:hover {
+  background: #2e5939;
+}
+/* Donation + Cancellation Card */
+.donation-container {
+  max-width: 9000px;      
+  margin: 40px auto;     
+  padding: 0 20px;       
+}
+
+.donation-card {
+  background: #f8fafb;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Top green banner */
+.donation-banner {
+  background: #2e5939;
+  color: #fff;
+  padding: 24px 20px 60px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  position: relative;
+}
+
+.donation-banner::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: #fff;
+  border-top-left-radius: 50% 20px;
+  border-top-right-radius: 50% 20px;
+}
+
+.donation-heading {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.donation-subtext {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #f2f2f2;
+}
+
+/* Middle white section */
+.donation-content {
+  background: #fff;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.donation-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+}
+
+.donation-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.donation-amount {
+  background: #fff;
+  border: 1.5px solid #2e5939;
+  color: #2e5939;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.donation-add {
+  background: #fff;
+  border: 1.5px solid #2e5939;
+  color: #2e5939;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.donation-add:hover,
+.donation-amount:hover {
+  background: #2e5939;
+  color: #fff;
+  transition: 0.3s;
+}
+
+/* Cancellation Policy Section */
+.cancellation-section {
+  background: #f0f4f5;
+  padding: 20px 24px;
+  border-top: 1px solid #e3e7e8;
+}
+
+.cancellation-section h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.cancellation-section p {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.6;
+  margin: 0;
 }
