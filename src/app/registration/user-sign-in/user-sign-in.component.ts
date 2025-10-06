@@ -58,6 +58,7 @@ export class UserSignInComponent {
   }
 
   onSubmit(): void {
+    debugger
     this.submitted = true;
 
     if (this.signupForm.invalid) {
@@ -144,6 +145,10 @@ export class UserSignInComponent {
 
     this.api.verifyOtp(payload).subscribe({
       next: (res) => {
+        const jwtToken = (res as any).token; // Adjust based on actual response structure
+        if (jwtToken) {
+          sessionStorage.setItem('token', jwtToken);
+        }
         console.log('OTP Verified:', res);
         this.route.navigate(['/home']);
       },
