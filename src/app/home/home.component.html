@@ -87,12 +87,17 @@
     class="col-md-3 col-sm-6 cuisine-card" 
     *ngFor="let item of regionalCuisines" 
     (click)="goToCuisine(item.cuisineId)">
+<<<<<<< HEAD
      
+=======
+     <button (click)="goToCategoryPage(item.category)">explore</button>
+>>>>>>> f937839ae328cf3c3e378bb3e0433a48b53dd6d1
     
     <img [src]="item.imageUrl" [alt]="item.name" class="img-fluid">
     <div class="cuisine-name">{{ item.name }}</div>
     <div class="cuisine-category">{{ item.category }}</div>
     <div class="cuisine-desc">{{ item.description }}</div>
+<<<<<<< HEAD
 
     
      
@@ -109,6 +114,15 @@
 
 
 
+=======
+   
+  </div>
+  
+</div>
+
+
+
+>>>>>>> f937839ae328cf3c3e378bb3e0433a48b53dd6d1
 <!-- International -->
 <section class="cuisines-section">
   <h2 class="section-title">International Cuisines:</h2>

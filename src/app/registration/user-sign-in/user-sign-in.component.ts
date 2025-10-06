@@ -76,8 +76,18 @@ export class UserSignInComponent {
 
     this.api.signup(payload).subscribe({
       next: (res) => {
-        sessionStorage.setItem('emailForOtp', payload.email);
-        sessionStorage.setItem('name', payload.name);
+
+        console.log(res);
+        
+
+        const jwtToken = (res as any).token; // Adjust based on actual response structure
+        if (jwtToken) {
+          sessionStorage.setItem('token', jwtToken);
+        }
+        
+         sessionStorage.setItem('emailForOtp', payload.email);
+         sessionStorage.setItem('name', payload.name);
+         
         console.log('Signup successful:', res);
         this.route.navigate(['/verification-otp']);
       },
@@ -87,16 +97,14 @@ export class UserSignInComponent {
     });
   }
 
-  sendOtp() {
-    if (this.loginForm.get('email')?.invalid) return;
 
-  const email = this.loginForm.get('email')?.value;
+  sendOtp(): void {
+    const email = this.loginForm.get('email')?.value;
 
-  this.api.sendOtp(email).subscribe({
-    next: (res) => {
-      console.log('API Response:', res); // Log the response to be sure
-      console.log(res.token); // Log the token specifically
-      
+    this.api.sendOtp(email).subscribe({
+      next: (res) => {
+        console.log('API Response:', res); // Log the response to be sure
+        console.log(res.token); // Log the token specifically
 
         // add OTP control dynamically
         if (!this.loginForm.get('otp')) {
@@ -105,6 +113,21 @@ export class UserSignInComponent {
             this.fb.control('', Validators.required)
           );
         }
+
+        // Store the token from the response
+        if (res.token) {
+          localStorage.setItem('accessToken', res.token); 
+        }
+        
+        // Store other data from the response for later use if needed
+        if (res.role) {
+          localStorage.setItem('userRole', res.role);
+        }
+        if (res.status) {
+          localStorage.setItem('userStatus', res.status);
+        }
+        
+        this.otpSent = true;
       },
       error: (err) => {
         alert('Invalid Email. Please try again.');
@@ -113,9 +136,7 @@ export class UserSignInComponent {
     });
   }
 
-  verifyOtp() {
-    if (this.loginForm.invalid) return;
-
+  verifyOtp(): void {
     const payload = {
       email: this.loginForm.get('email')?.value,
       otp: this.loginForm.get('otp')?.value,

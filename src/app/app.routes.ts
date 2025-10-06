@@ -56,7 +56,9 @@ export const routes: Routes = [
 
   { path: 'verification-otp', component: VerificationCodeComponent },
 
-  { path: '', component: VerificationCodeComponent },
+
+  // { path: '', component: VerificationCodeComponent },
+ 
 
   // Login / Registration
 
