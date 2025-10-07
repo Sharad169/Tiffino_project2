@@ -150,6 +150,7 @@ export class UserSignInComponent {
           sessionStorage.setItem('token', jwtToken);
         }
         console.log('OTP Verified:', res);
+          sessionStorage.setItem('userId', res.userId);
         this.route.navigate(['/home']);
       },
       error: (err) => {
