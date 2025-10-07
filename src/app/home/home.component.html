@@ -80,143 +80,65 @@
 <br>
 
 <!-- Regional Cuisines-->
-<section class="cuisines-section">
-  <h2 class="section-title">Regional Cuisines:</h2>
+<!-- Regional -->
+<div class="row">
+  <h2 class="section-title">Regional Cuisines:</h2> 
+  <div 
+    class="col-md-3 col-sm-6 cuisine-card" 
+    *ngFor="let item of regionalCuisines" 
+    (click)="goToCuisine(item.cuisineId)">
+     
+    
+    <img [src]="item.imageUrl" [alt]="item.name" class="img-fluid">
+    <div class="cuisine-name">{{ item.name }}</div>
+    <div class="cuisine-category">{{ item.category }}</div>
+    <div class="cuisine-desc">{{ item.description }}</div>
 
-  <!-- Scroller Container -->
-  <div class="cuisine-scroller">
-    <div class="cuisine-card">
-      <img src="../assets/food north.jpg" alt="North Indian">
-      <div class="cuisine-name">North Indian</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/food south.jpg" alt="South Indian">
-      <div class="cuisine-name">South Indian</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/f panjabi.png" alt="Punjabi">
-      <div class="cuisine-name">Punjabi</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/f Mexican.jpg" alt="Mexican">
-      <div class="cuisine-name">Mexican</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/F gujarati.png" alt="Gujarati">
-      <div class="cuisine-name">Gujarati</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/f Continental.jpg" alt="Continental">
-      <div class="cuisine-name">Continental</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/Italian.jpg" alt="Italian">
-      <div class="cuisine-name">Italian</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/f Mexican.jpg" alt="Chinese">
-      <div class="cuisine-name">Chinese</div>
-    </div>
-    <div class="center-container">
-      <button class="export-btn">Export Now</button>
-   </div>
-
+    
+     
+   
   </div>
-</section>
+  <button 
+  class="explore-btn" 
+  (click)="goToCategoryPage(regionalCuisines[0].category)">Explore</button>
+   
 
-<br>
+  
+</div>
 
-<!-- International Cuisines  -->
+
+
+
+<!-- International -->
 <section class="cuisines-section">
   <h2 class="section-title">International Cuisines:</h2>
-
-  <!-- Scroller Container -->
-  <div class="cuisine-scroller">
-    <div class="cuisine-card">
-      <img src="../assets/International Cuisines/Italian.png" alt="North Indian">
-      <div class="cuisine-name">Italian</div>
+  <div class="row cuisine-scroller">
+    <div class="cuisine-container" style="display:flex; gap:14px;">
+      <div class="col cuisine-card" *ngFor="let item of internationalCuisines">
+        <img [src]="item.imageUrl" [alt]="item.name">
+        <div class="cuisine-name">{{ item.name }}</div>
+        <div class="cuisine-category">{{ item.category }}</div>
+        <div class="cuisine-desc">{{ item.description }}</div>
+      </div>
     </div>
-    <div class="cuisine-card">
-      <img src="../assets/International Cuisines/Chinese.png" alt="South Indian">
-      <div class="cuisine-name">Chinese</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/International Cuisines/Thai.png" alt="Punjabi">
-      <div class="cuisine-name">Thai</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/International Cuisines/Korean.png" alt="Korean">
-      <div class="cuisine-name">Korean</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/International Cuisines/French.jpg" alt="French">
-      <div class="cuisine-name">French</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/International Cuisines/Greek.jpg" alt="Greek">
-      <div class="cuisine-name">Greek</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/International Cuisines/Spanish.jpg" alt="Spanish">
-      <div class="cuisine-name">Spanish</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/International Cuisines/American.jpg" alt="American">
-      <div class="cuisine-name">American</div>
-    </div>
-    <div class="center-container">
-      <button class="export-btn">Export Now</button>
-   </div>
-
   </div>
 </section>
-<br>
 
-<!-- Special Cuisines -->
- <section class="cuisines-section">
+<!-- Special -->
+<section class="cuisines-section">
   <h2 class="section-title">Special Cuisines:</h2>
-
-  <!-- Scroller Container -->
-  <div class="cuisine-scroller">
-    <div class="cuisine-card">
-      <img src="../assets/Special Cuisines/Special Cuisines.jpg" alt=" Street Food">
-      <div class="cuisine-name"> Street Food</div>
+  <div class="row cuisine-scroller">
+    <div class="cuisine-container" style="display:flex; gap:14px;">
+      <div class="col cuisine-card" *ngFor="let item of specialCuisines">
+        <img [src]="item.imageUrl" [alt]="item.name">
+        <div class="cuisine-name">{{ item.name }}</div>
+        <div class="cuisine-category">{{ item.category }}</div>
+        <div class="cuisine-desc">{{ item.description }}</div>
+      </div>
     </div>
-    <div class="cuisine-card">
-      <img src="../assets/food south.jpg" alt="South Indian">
-      <div class="cuisine-name">South Indian</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/Special Cuisines/Biryani Specials.jpg" alt="Biryani Specials">
-      <div class="cuisine-name">Biryani Specials</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/Special Cuisines/Vegan Cuisine.jpg" alt="Vegan Cuisine">
-      <div class="cuisine-name">Vegan Cuisine</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/F gujarati.png" alt="Gujarati">
-      <div class="cuisine-name">Gujarati</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/f Continental.jpg" alt="Continental">
-      <div class="cuisine-name">Continental</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/Italian.jpg" alt="Italian">
-      <div class="cuisine-name">Italian</div>
-    </div>
-    <div class="cuisine-card">
-      <img src="../assets/f Mexican.jpg" alt="Chinese">
-      <div class="cuisine-name">Chinese</div>
-    </div>
-    <div class="center-container">
-      <button class="export-btn">Export Now</button>
-   </div>
-
   </div>
 </section>
-<br>
+
 <!-- Recommendation -->
  <div class="recommendation-section">
   <h2 class="section-title">Recommendation</h2>
@@ -275,9 +197,7 @@
   </div>
 
   <!-- Explore Button -->
-  <div class="explore-btn-container">
-    <button class="explore-btn">Explore</button>
-  </div>
+  
 </div>
 <br>
  <!-- Choose Tiffino section -->

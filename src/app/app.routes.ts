@@ -25,6 +25,8 @@ import { InternationalMenuComponent } from './international-menu/international-m
 
 import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
+import { CuisineDetailComponent } from './cuisine-detail/cuisine-detail.component';
+import { CategoryComponent } from './category/category.component';
 
 import { DescriptionComponent } from './description/description.component';
 
@@ -49,11 +51,13 @@ export const routes: Routes = [
 
   { path: 'verification-otp', component: VerificationCodeComponent },
 
-  { path: '', component: VerificationCodeComponent },
+
+  // { path: '', component: VerificationCodeComponent },
+ 
 
   // Login / Registration
 
-  { path: 'login', component: UserSignInComponent },
+  { path: '', component: UserSignInComponent },
 
   // North page
 
@@ -71,6 +75,10 @@ export const routes: Routes = [
 
   //South
   { path: 'south', component: SouthComponent },
+
+  { path: 'cuisine-detail/:id', component: CuisineDetailComponent },
+
+  { path: 'category/:category', component: CategoryComponent },
 
   //Punjabi
   { path: 'punjabi', component: PunjabiComponent },
@@ -128,4 +136,5 @@ export const routes: Routes = [
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
+  
 ];

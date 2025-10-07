@@ -1,0 +1,14 @@
+<h2>{{ cuisineName }}</h2>
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let meal of meals">
+    <div class="card">
+      <img [src]="meal.imageUrl" class="card-img-top" [alt]="meal.name">
+      <div class="card-body">
+        <h5>{{ meal.name }}</h5>
+        <p>{{ meal.description }}</p>
+        <p><b>Price:</b> ₹{{ meal.price }}</p>
+      </div>
+    </div>
+  </div>
+</div>
