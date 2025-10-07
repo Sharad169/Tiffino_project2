@@ -360,7 +360,7 @@
 }
 
 input:checked + .slider {
-  background-color: #4caf50;
+  background-color: rgba(56, 99, 65, 1);
 }
 
 input:checked + .slider:before {

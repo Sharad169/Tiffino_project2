@@ -17,7 +17,8 @@ import { GoaComponent } from './goa/goa.component';
 import { RecommendationComponent } from './recommendation/recommendation.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RatingComponent } from './rating/rating.component';
-
+import { TrackingpageComponent } from './trackingpage/trackingpage.component';
+import { ItemdeliveredComponent } from './itemdelivered/itemdelivered.component';
 import { ChineseMaunComponent } from './chinese-maun/chinese-maun.component';
 
 import { InternationalMenuComponent } from './international-menu/international-menu.component';
@@ -103,6 +104,12 @@ export const routes: Routes = [
 
   //Rating
   { path: 'rating', component: RatingComponent },
+
+  //Tracking
+  { path: 'tracking', component: TrackingpageComponent },
+
+  //Itemdelivered
+  { path: 'itemdelivered', component: ItemdeliveredComponent },
 
   //Chinese Maun
   { path: 'chinese-maun', component: ChineseMaunComponent },

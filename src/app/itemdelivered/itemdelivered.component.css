@@ -1,0 +1,459 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.order-container {
+  background: #fff;
+  margin: 100px 80px 0 80px;
+}
+
+/* Top Summary Bar */
+.order-summary-bar {
+  width: 1280px;
+  height: 87px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; /* vertically center all items */
+  border: 2px solid #000;
+  background: #fff;
+}
+
+.order-summary-bar > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.order-summary-bar p {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  margin: 0;
+}
+
+.order-summary-bar h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 4px; /* small gap below p */
+}
+
+/* Order Status */
+.order-status {
+  text-align: center;
+}
+
+.order-status h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+.order-status span {
+  color: rgba(56, 99, 65, 1);
+}
+
+.order-status .estimated {
+  font-size: 16px;
+  color: rgba(124, 124, 124, 1);
+}
+
+/* Progress Track */
+.progress-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 32px 0 100px 0;
+  width: 100%;
+  max-width: 1300px;
+}
+
+.progress-line {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  z-index: 0;
+}
+
+/* green active progress portion */
+.progress-line::before {
+  content: "";
+  position: absolute;
+  height: 8px;
+  left: 0;
+  top: 0;
+  width: 60%; /* covers first 3 steps */
+  background-color: rgba(56, 99, 65, 1);
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.progress-step {
+  position: relative;
+  text-align: center;
+  width: 20%;
+  z-index: 2;
+}
+
+.circle {
+  width: 45px;
+  height: 45px;
+  background-color: #bfbfbf;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+
+.completed .circle {
+  background-color: #3a6b46;
+}
+
+.progress-step p {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  color: rgba(0, 0, 0, 1);
+}
+
+.progress-step span {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+}
+
+/* Layout */
+.main-content {
+  display: flex;
+}
+
+/* LEFT */
+.left-section {
+  width: 648px;
+  margin-right: 96px;
+}
+
+/* Confirm Header */
+.confirm-header {
+  display: flex;
+  align-items: center;
+}
+
+.confirm-header i {
+  width: 60px;
+  height: 60px;
+  font-size: 40px;
+  color: rgba(56, 99, 65, 1);
+  border: 6px solid rgba(56, 99, 65, 1);
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  margin-right: 39px;
+}
+
+.confirm-header h4 {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(124, 124, 124, 1);
+}
+
+.confirm-header p {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 6px;
+}
+
+/* Map + Confirm */
+.map-confirm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 28px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+  margin-top: 40px;
+}
+
+.map-confirm img {
+  width: 260px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply; /* makes the white part of the image transparent-like */
+}
+
+.order-confirmed {
+  max-width: 500px;
+  margin-left: 40px;
+}
+
+.order-confirmed h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.order-confirmed p {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 1.6;
+}
+
+/* Delivery Partner */
+.delivery-partner {
+  border: 3px solid rgba(180, 180, 180, 1);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delivery-partner i {
+  width: 60px;
+  height: 50px;
+  font-size: 25px;
+  color: rgba(230, 32, 32, 1);
+  border: 4px solid rgba(230, 32, 32, 1);
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  margin-top: -60px;
+  margin-right: 24px;
+}
+
+.delivery-partner h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+  margin: 24px 0 27px 24px;
+}
+
+.delivery-partner p {
+  font-size: 16px;
+  color: rgba(124, 124, 124, 1);
+  margin: 0 0 34px 24px;
+}
+
+/* Customer & Billing (single border) */
+.customer-billing {
+  display: flex;
+  border: 3px solid rgba(180, 180, 180, 1);
+  border-radius: 10px;
+  margin-top: 11px;
+  margin-bottom: 16px;
+}
+
+.left-column {
+  flex: 1;
+  min-width: 300px;
+  margin-left: 48px;
+}
+
+.right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 324x;
+}
+
+.customer-billing h4 {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.customer-billing p {
+  font-size: 16px;
+  color: rgba(124, 124, 124, 1);
+}
+
+.customer-billing p strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: -15px; /* small gap below */
+}
+
+.billing {
+  margin-top: 70px;
+  margin-bottom: 32px;
+}
+
+.right-column p {
+  font-size: 16px;
+  color: rgba(124, 124, 124, 1);
+}
+
+.right-column p strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: -15px; /* small gap below */
+}
+
+.payment p {
+  margin-bottom: 20px;
+}
+/* Help */
+.help {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.help span {
+  color: rgba(56, 99, 65, 1);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* RIGHT */
+
+.order-summary {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 75px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.order-summary h3 {
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.order-item {
+  display: flex;
+  border-radius: 20px;
+  border: 1px solid rgba(220, 220, 220, 1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18); /* <-- darker & softer spread */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.order-item img {
+  width: 130px;
+  height: 158px;
+  border-radius: 20px;
+  padding: 9px;
+  object-fit: cover;
+}
+
+.item-info h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+.item-info p {
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+/* Boxes */
+
+.border-boxes {
+  position: relative;
+  margin-top: 48px;
+  overflow: hidden; /* keeps the background layer inside */
+}
+
+.border-boxes::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* top: 0; right: 0; bottom: 0; left: 0 */
+  background-image: url("/assets/delivered.png");
+  background-size: 70% 135%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.2; /* transparency only for image */
+  z-index: 0; /* stay behind the content */
+}
+
+.border-boxes .box {
+  position: relative;
+  z-index: 1; /* text stays above background */
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+}
+
+.border-boxes .last-box {
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* Price details */
+.price-details p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+}
+
+.price-details .with-border.discount {
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.price-details .with-border.tax {
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.total {
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .customer-billing {
+    flex-direction: column;
+  }
+
+  .right-column {
+    flex-direction: column;
+  }
+}
