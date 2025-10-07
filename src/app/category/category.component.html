@@ -1,0 +1,20 @@
+<div class="row">
+  <h2 class="section-title">Meals:</h2>
+
+  <!-- Outer loop: cuisines -->
+  <ng-container *ngFor="let cuisine of regionalCuisines">
+    
+    <!-- Inner loop: meals inside each cuisine -->
+    <div class="col-md-3 col-sm-6 meal-card" *ngFor="let meal of cuisine.meals">
+      <div class="card">
+        <img [src]="meal.imageUrl" [alt]="meal.name" class="card-img-top">
+        <div class="card-body">
+          <h5 class="meal-name">{{ meal.name }}</h5>
+          <p class="meal-desc">{{ meal.description }}</p>
+          <p><b>Price:</b> ₹{{ meal.price }}</p>
+        </div>
+      </div>
+    </div>
+
+  </ng-container>
+</div>
