@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-cuisine-detail',
@@ -13,12 +14,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CuisineDetailComponent implements OnInit {
   cuisineId!: number;
-  meals: any[] = [];
+ 
   cuisineName: string = '';
+
+  
+  userId: number = Number(sessionStorage.getItem('userId')); 
+  meals: any[] = [];
   
 
  constructor(
-    private route: ActivatedRoute,    private http: HttpClient  ) {}
+    private route: ActivatedRoute, public api : AuthService,    private http: HttpClient , public router : Router ) {}
 
 ngOnInit(): void {
   this.cuisineId = Number(this.route.snapshot.paramMap.get('id'));
@@ -51,6 +56,30 @@ ngOnInit(): void {
       this.cuisineName = 'Cuisine';
     });
 }
+
+addToCart(meal: any) {
+  console.log('Meal passed:', meal); // check karo kya aa raha hai
+
+  const itemToAdd = {
+    mealId: meal.mealId,
+    price: meal.price,
+    quantity: 1
+  };
+  console.log('Payload:', itemToAdd);
+
+  this.api.addToCart(this.userId, itemToAdd).subscribe({
+    next: (res) => {
+      console.log('Item added:', res);
+      this.router.navigate(['/meals']);
+    },
+    error: (err) => console.error('Error adding to cart:', err)
+  });
+}
+
+
+
+
+
 
 
 
