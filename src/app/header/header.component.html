@@ -7,7 +7,7 @@
       </div>
 
       <nav class="center-nav" aria-label="Main navigation">
-        <a routerLink="/" class="nav-link">Home</a>
+        <a routerLink="/" class="nav-link" (click)="goToProfile()">Home</a>
         <a routerLink="/setting" class="nav-link">Setting</a>
         <a routerLink="/login" class="nav-link">Login</a>
         <a routerLink="/subscription" class="nav-link">Subscription Plan</a>
@@ -23,8 +23,10 @@
       </div>
       -->
 
-      <!-- Only user name -->
-      <div class="profile-name">{{ userName }}</div>
+      <!-- Only user name --><div class="profile-name" (click)="goToProfile()">
+    {{ userName || 'Profile' }}
+  </div>
+      
     </div>
     <!-- end of top-row -->
 

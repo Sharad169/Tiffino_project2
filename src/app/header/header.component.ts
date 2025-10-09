@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   userName: string | null = null;
+   userId!: number;
+
+  constructor(private router: Router) {}  
 
   ngOnInit(): void {
-    this.userName = sessionStorage.getItem('name');
+     const id = sessionStorage.getItem('userId');
+    const name = sessionStorage.getItem('userName');
 
-    // Optional: Log it to the console to verify
-    if (this.userName) {
-      console.log('User name:', this.userName);
+    if (id) this.userId = +id;       // string → number
+    if (name) this.userName = name;
+  }
+
+  goToProfile() {
+    if (this.userId) {
+      this.router.navigate(['/profile', this.userId]);
+    } else {
+      console.warn('⚠️ User ID not found in sessionStorage!');
     }
   }
+  
+
+
 }
