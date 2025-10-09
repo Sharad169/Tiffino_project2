@@ -40,6 +40,7 @@ constructor(public api :AuthService, public router : Router) { }
       console.log(res);
       this.cuisines = res as any[];
 
+
       // category wise filter
       this.regionalCuisines = this.cuisines.filter(c => c.category === 'Regional');
       this.internationalCuisines = this.cuisines.filter(c => c.category === 'International');

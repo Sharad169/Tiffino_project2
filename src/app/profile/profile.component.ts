@@ -26,6 +26,7 @@ export class ProfileComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.getUserDetails(+id);
+      sessionStorage.setItem('userName', this.userData.name);
     }
   }
 

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   userName: string | null = null;
    userId!: number;
+   name: string | null = sessionStorage.getItem('userName');
 
   constructor(private router: Router) {}  
 
