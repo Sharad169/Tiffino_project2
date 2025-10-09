@@ -35,25 +35,16 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <ul>
-        <li>
-          <i class="fas fa-angle-right sidebar-arrow"></i> Account Settings
-        </li>
-        <li><i class="fas fa-angle-right sidebar-arrow"></i> Order History</li>
-        <li><i class="fas fa-angle-right sidebar-arrow"></i> Payment Method</li>
-        <li><i class="fas fa-angle-right sidebar-arrow"></i> Addresses</li>
-        <li><i class="fas fa-angle-right sidebar-arrow"></i> Help Center</li>
-        <li>
-          <i class="fas fa-angle-right sidebar-arrow"></i> Promocodes & Offers
-        </li>
-        <li>
-          <i class="fas fa-angle-right sidebar-arrow"></i> Meal Plan
-          Subscription
-        </li>
-        <li><i class="fas fa-angle-right sidebar-arrow"></i> Invite Friends</li>
-        <li><i class="fas fa-angle-right sidebar-arrow"></i> Privacy</li>
-        <li><i class="fas fa-angle-right sidebar-arrow"></i> Logout</li>
-        <li><i class="fas fa-angle-right sidebar-arrow"></i> Delete Account</li>
-      </ul>
+  <li *ngFor="let item of sideBarItems">
+    <p 
+      (click)="selectTab(item)" 
+      [ngStyle]="{'color': selectedTabName === item ? '#386341' : 'black'}"
+    >
+      <i class="fas fa-angle-right sidebar-arrow"></i> {{ item }}
+    </p>
+  </li>
+</ul>
+
 
       <!-- Two empty boxes -->
       <div class="empty-boxes">
@@ -66,8 +57,8 @@
     <div class="profile-details">
       <div class="user-info">
         <img src="/assets/aaditya.jpg" alt="User" class="user-avatar" />
-        <h3>Aditya Dhanraj</h3>
-        <p class="email">aditya&#64;gmail.com</p>
+        <h3>{{userData.name}}</h3>
+        <p class="email">{{userData.email}}</p>
       </div>
 
       <!-- Account Form -->
@@ -76,27 +67,27 @@
         <p class="desc">View and Change your account Prefrence</p>
 
         <div class="form-row">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Enter your name" />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Enter your email" />
-          </div>
-        </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Enter your name" [(ngModel)]="userData.name" readonly />
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="Enter your email" [(ngModel)]="userData.email" readonly/>
+  </div>
+</div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="text">Text</label>
-            <input type="text" id="text" placeholder="Enter text" />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone No.</label>
-            <input type="tel" id="phone" placeholder="Enter phone number" />
-          </div>
-        </div>
-      </div>
+<div class="form-row">
+  <div class="form-group">
+    <label for="text">Date of Birth</label>
+    <input type="date" id="dob" [(ngModel)]="userData.dateOfBirth" readonly/>
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone No.</label>
+    <input type="tel" id="phone" placeholder="Enter phone number" [(ngModel)]="userData.phone" readonly />
+  </div>
+</div>
+
 
       <!--    Notification   -->
 
