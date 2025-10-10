@@ -25,7 +25,7 @@ export class CategoryComponent implements OnInit {
 
 
   getByCategory(category: string){
-    debugger
+    // debugger
     this.api.getmealbycaterogy(category).subscribe((res)=>{
       this.regionalCuisines=res;
       console.log(this.regionalCuisines);

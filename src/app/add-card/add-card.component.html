@@ -2,6 +2,7 @@
 
   <!-- Shopping Bag + Sidebar Wrapper -->
   <div class="shopping-bag-wrapper">
+
     <!-- Left Side: Shopping Bag -->
     <div class="shopping-bag">
       <div class="bag-header">
@@ -9,7 +10,7 @@
           <h2>Shopping Bag</h2>
           <p>{{ cartItems.length }} items in your Cart</p>
         </div>
-        <button class="clear-btn">Clear Cart</button>
+        <button class="clear-btn" (click)="clearCart()">Clear Cart</button>
       </div>
 
       <!-- Table Header -->
@@ -62,9 +63,14 @@
 
     <!-- Right Side: Sidebar -->
     <div class="shopping-bag-sidebar">
+
       <div class="coupon">
         <h4>Coupon Code</h4>
-        <input type="text" placeholder="Coupon Code" [(ngModel)]="couponCode" />
+        <input
+          type="text"
+          placeholder="Coupon Code"
+          [(ngModel)]="couponCode"
+        />
         <button (click)="applyCoupon()">Apply</button>
       </div>
 
@@ -82,7 +88,7 @@
         <p>Discount <span>Rs {{ discount }}</span></p>
         <hr />
         <p>Total <span>Rs {{ getCartTotal() - discount }}</span></p>
-        <button class="checkout">Checkout</button>
+        <button class="checkout" (click)="checkout()">Checkout</button>
       </div>
 
       <div class="cancel-policy">
@@ -91,66 +97,68 @@
           Save big on your meals with exclusive coupons—apply your code at
           checkout and enjoy instant discounts on your favorite dishes.
         </p>
-        <button class="cancel">Cancel</button>
+        <button class="cancel" (click)="cancelOrder()">Cancel</button>
       </div>
     </div>
   </div>
 
   <!-- Recommended or Add More Section -->
-<div class="recommended-section">
-  <h2>Recommended for You</h2>
+  <div class="recommended-section">
+    <h2>Recommended for You</h2>
 
-  <div class="scroll-container">
-    <div class="food-card" *ngFor="let food of recommendedItems">
-      <img [src]="food.image" alt="{{ food.title }}" class="food-img" />
-      <div class="food-details">
-        <div class="food-header">
-          <h3>{{ food.title }}</h3>
-          <div class="stars">
-            <span *ngFor="let s of [1,2,3,4,5]">☆</span>
+    <div class="scroll-container">
+      <div class="food-card" *ngFor="let food of recommendedItems">
+        <img [src]="food.image" alt="{{ food.title }}" class="food-img" />
+        <div class="food-details">
+          <div class="food-header">
+            <h3>{{ food.title }}</h3>
+            <div class="stars">
+              <span *ngFor="let s of [1,2,3,4,5]">☆</span>
+            </div>
+          </div>
+
+          <p class="food-desc">{{ food.description }}</p>
+
+          <div class="food-footer">
+            <p class="food-price">Rs {{ food.price }}</p>
+            <button class="add-btn" (click)="addRecommendedToCart(food)">+ Add</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <p class="food-desc">{{ food.description }}</p>
+  <!-- Donate + Cancellation Section -->
+  <div class="donation-container">
+    <div class="donation-card">
+      <div class="donation-banner">
+        <p class="donation-heading">Let’s Serve a brighter future</p>
+        <p class="donation-subtext">
+          Through nutritious meals, you can<br />
+          empower young minds for greatness.
+        </p>
+      </div>
 
-        <div class="food-footer">
-          <p class="food-price">Rs {{ food.price }}</p>
-          <button class="add-btn">+ Add</button>
+      <div class="donation-content">
+        <h3>Donate to feeding India</h3>
+        <div class="donation-actions">
+          <button class="donation-amount">Rs 4</button>
+          <button class="donation-add" (click)="addRecommendedToCart({ title: 'Donate', description: 'Feeding India Donation', price: 4, image: 'assets/images/donation.jpg' })">
+            Add to Cart
+          </button>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<!-- Donate + Cancellation Section -->
-<div class="donation-container">
-  <div class="donation-card">
-    <div class="donation-banner">
-      <p class="donation-heading">Let’s Serve a brighter future</p>
-      <p class="donation-subtext">
-        Through nutritious meals, you can<br />
-        empower young minds for greatness.
-      </p>
-    </div>
-
-    <div class="donation-content">
-      <h3>Donate to feeding India</h3>
-      <div class="donation-actions">
-        <button class="donation-amount">Rs 4</button>
-        <button class="donation-add">Add to Cart</button>
+      <div class="cancellation-section">
+        <h4>CANCELLATION POLICY</h4>
+        <p>
+          Orders can be canceled within 10 minutes of placing for a full refund.
+          Subscription plans can be paused or canceled anytime before the next
+          billing cycle. Refunds, if applicable, will be processed within 5–7
+          business days.
+        </p>
       </div>
     </div>
-
-    <div class="cancellation-section">
-      <h4>CANCELLATION POLICY</h4>
-      <p>
-        Orders can be canceled within 10 minutes of placing for a full refund.
-        Subscription plans can be paused or canceled anytime before the next
-        billing cycle. Refunds, if applicable, will be processed within 5–7
-        business days.
-      </p>
-    </div>
   </div>
-</div>
 
 </div>

@@ -12,6 +12,8 @@ export class AuthService {
 
     private baseUrl1= "http://localhost:8082/api/cuisines/all"
 
+    private Url = 'http://localhost:8083/api/cart';
+
   constructor(private http :HttpClient) { }
 
   
@@ -43,6 +45,18 @@ export class AuthService {
     const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(`http://localhost:8082/api/cuisines/category/${category}/with-meals`, { headers });
+  }
+
+   getCartByUserId(userId: number) {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get(`${this.Url}/${userId}`, { headers });
+  }
+
+  addToCart(userId: number, item: any) {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+ return this.http.post(`${this.Url}/${userId}/add`, item, { headers });
   }
 
   

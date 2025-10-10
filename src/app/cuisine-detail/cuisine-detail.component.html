@@ -8,6 +8,7 @@
         <h5>{{ meal.name }}</h5>
         <p>{{ meal.description }}</p>
         <p><b>Price:</b> ₹{{ meal.price }}</p>
+        <button (click)="addToCart(meal)">add to card</button>
       </div>
     </div>
   </div>
