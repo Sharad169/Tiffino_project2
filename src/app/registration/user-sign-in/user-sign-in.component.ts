@@ -32,6 +32,7 @@ export class UserSignInComponent {
   otpSent = false;
   message = '';
   loginForm!: FormGroup;
+  userEmail: any;
 
   constructor(
     private fb: FormBuilder,
@@ -48,8 +49,9 @@ export class UserSignInComponent {
       // otp: ['', Validators.required]
     });
 
+    const storedEmail = sessionStorage.getItem('emailForOtp') || '';
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: [storedEmail, [Validators.required, Validators.email]],
     });
   }
 
@@ -86,8 +88,9 @@ export class UserSignInComponent {
           sessionStorage.setItem('token', jwtToken);
         }
         
-         sessionStorage.setItem('emailForOtp', payload.email);
+        this.userEmail =  sessionStorage.setItem('emailForOtp', payload.email);
          sessionStorage.setItem('name', payload.name);
+
          
         console.log('Signup successful:', res);
         this.route.navigate(['/verification-otp']);
