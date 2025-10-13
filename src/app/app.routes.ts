@@ -123,7 +123,8 @@ export const routes: Routes = [
   //description
   { path: 'description', component: DescriptionComponent },
 
-  //Add-card
+//Add-card
+{ path: 'add-card', component: AddCardComponent },
 
   //checkout page
   { path: 'checkout-page', component: CheckoutPageComponent },
