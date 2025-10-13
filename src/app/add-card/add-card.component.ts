@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../service/auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-add-card',
@@ -12,11 +12,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class AddCardComponent implements OnInit {
 
-  userId: number = Number(sessionStorage.getItem('userId'));
   cartItems: any[] = [];
   recommendedItems: any[] = [];
 
-  // sidebar data
   couponCode: string = '';
   discount: number = 0;
   deliveryAddress = {
@@ -32,18 +30,13 @@ export class AddCardComponent implements OnInit {
     this.loadRecommendedItems();
   }
 
-  // get user cart from backend
+  // ===== Load cart from localStorage =====
   loadCart() {
-    this.api.getCartByUserId(this.userId).subscribe({
-      next: (cart: any) => {
-        this.cartItems = cart.items || [];
-        console.log('Cart items:', this.cartItems);
-      },
-      error: (err) => console.error('Error fetching cart:', err)
-    });
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    this.cartItems = Array.isArray(cart) ? cart : [];
   }
 
-  // recommended static items (can be dynamic from API)
+  // ===== Recommended static items =====
   loadRecommendedItems() {
     this.recommendedItems = [
       {
@@ -61,51 +54,32 @@ export class AddCardComponent implements OnInit {
     ];
   }
 
-  // quantity controls
+  // ===== Quantity Controls =====
   increaseQty(item: any) {
     item.quantity++;
-    this.updateCartTotal();
+    this.syncCart();
   }
 
   decreaseQty(item: any) {
     if (item.quantity > 1) {
       item.quantity--;
-      this.updateCartTotal();
+      this.syncCart();
     }
   }
 
+  // ===== Remove a single item =====
+  removeItem(item: any) {
+    this.cartItems = this.cartItems.filter(i => i !== item);
+    this.syncCart();
+  }
+
+  // ===== Clear entire cart =====
   clearCart() {
     this.cartItems = [];
-    this.updateCartTotal();
+    this.syncCart();
   }
 
-  getCartTotal(): number {
-    return this.cartItems.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
-    );
-  }
-
-  updateCartTotal() {
-    // optional: sync with backend
-    this.discount = this.calculateDiscount();
-  }
-
-  applyCoupon() {
-    if (this.couponCode.trim().toLowerCase() === 'save50') {
-      this.discount = 50;
-      alert('Coupon applied! You saved Rs 50');
-    } else {
-      this.discount = 0;
-      alert('Invalid coupon code');
-    }
-  }
-
-  calculateDiscount(): number {
-    // simple example logic
-    return this.discount;
-  }
-
+  // ===== Add from Recommended Section =====
   addRecommendedToCart(food: any) {
     const existing = this.cartItems.find(item => item.name === food.title);
     if (existing) {
@@ -119,15 +93,51 @@ export class AddCardComponent implements OnInit {
         image: food.image
       });
     }
+    this.syncCart();
+  }
+
+  // ===== Sync cart to localStorage =====
+  syncCart() {
+    localStorage.setItem('cart', JSON.stringify(this.cartItems));
     this.updateCartTotal();
   }
 
-  checkout() {
-    alert('Checkout successful! Total: Rs ' + (this.getCartTotal() - this.discount));
+  // ===== Cart Total =====
+  getCartTotal(): number {
+    return this.cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
   }
 
+  updateCartTotal() {
+    this.discount = this.calculateDiscount();
+  }
+
+  // ===== Coupon Code =====
+  applyCoupon() {
+    if (this.couponCode.trim().toLowerCase() === 'save50') {
+      this.discount = 50;
+      alert('Coupon applied! You saved ₹50');
+    } else {
+      this.discount = 0;
+      alert('Invalid coupon code');
+    }
+    this.updateCartTotal();
+  }
+
+  calculateDiscount(): number {
+    return this.discount;
+  }
+
+  // ===== Checkout =====
+  checkout() {
+    alert('Checkout successful! Total: ₹' + (this.getCartTotal() - this.discount));
+    this.clearCart();
+  }
+
+  // ===== Cancel Order =====
   cancelOrder() {
     alert('Order cancelled successfully.');
   }
-
 }

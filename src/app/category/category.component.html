@@ -1,20 +1,22 @@
-<div class="row">
-  <h2 class="section-title">Meals:</h2>
+<div class="cuisine-options">
+  <button class="cuisine-btn" *ngFor="let option of cuisineOptions" (click)="filterCuisine(option)">
+    {{ option }}
+  </button>
+</div>
 
-  <!-- Outer loop: cuisines -->
-  <ng-container *ngFor="let cuisine of regionalCuisines">
-    
-    <!-- Inner loop: meals inside each cuisine -->
-    <div class="col-md-3 col-sm-6 meal-card" *ngFor="let meal of cuisine.meals">
-      <div class="card">
-        <img [src]="meal.imageUrl" [alt]="meal.name" class="card-img-top">
-        <div class="card-body">
-          <h5 class="meal-name">{{ meal.name }}</h5>
-          <p class="meal-desc">{{ meal.description }}</p>
-          <p><b>Price:</b> ₹{{ meal.price }}</p>
-        </div>
+<!-- Existing cuisine sections -->
+<div *ngFor="let cuisine of cuisines" class="cuisine-section">
+  <h2 class="cuisine-title">{{ cuisine.name }}</h2>
+
+  <div class="meal-row">
+    <div *ngFor="let meal of cuisine.meals" class="meal-card">
+      <img [src]="meal.imageUrl" alt="{{ meal.name }}" class="meal-image" />
+      <div class="meal-info">
+        <h3 class="meal-name">{{ meal.name }}</h3>
+        <p class="meal-desc">{{ meal.description }}</p>
+        <p class="meal-price">Rs {{ meal.price }}</p>
+        <button class="order-btn" (click)="addToCart(meal)">Add to Cart</button>
       </div>
     </div>
-
-  </ng-container>
+  </div>
 </div>
