@@ -109,7 +109,7 @@ export const routes: Routes = [
   { path: 'recommendation', component: RecommendationComponent },
 
   //Profile
-  { path: 'profile', component: ProfileComponent },
+ { path: 'profile/:id', component: ProfileComponent },
 
   //Rating
   { path: 'rating', component: RatingComponent },
