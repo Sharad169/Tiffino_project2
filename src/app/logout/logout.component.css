@@ -399,3 +399,105 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(26px);
 }
+
+/* ===== Logout Popup Overlay ===== */
+/* ===== Logout Popup Overlay ===== */
+.logout-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.logout-popup.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ===== Popup Box ===== */
+.popup-box {
+  width: 563px;
+  height: 270px;
+  background: rgba(56, 99, 65, 1);
+  border-radius: 28px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: translateY(-60px);
+  overflow: hidden; /* keep border clean */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+/* Black sidebar line inside popup */
+.popup-sidebar {
+  width: 4px;
+
+  height: 100%;
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
+}
+
+/* ===== Popup Content ===== */
+.popup-content {
+  padding: 35px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  width: 100%;
+  height: 32px;
+}
+
+.popup-content h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 12px;
+}
+
+.popup-content p {
+  width: 515px;
+  height: 20px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+/* ===== Popup Actions - Text Only Buttons ===== */
+.popup-actions {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  gap: 40px; /* space between Yes and No */
+  margin-top: -15px;
+  margin-bottom: 40px;
+  margin-left: 180px;
+  margin-right: 180px;
+}
+
+.yes-btn,
+.no-btn {
+  background: transparent; /* no background */
+  border: none; /* no border */
+  border-radius: 0; /* remove rounded edges */
+  color: #fff; /* white text */
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.yes-btn:hover,
+.no-btn:hover {
+  color: #e6e6e6; /* subtle color change on hover */
+}

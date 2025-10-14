@@ -19,6 +19,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { RatingComponent } from './rating/rating.component';
 import { TrackingpageComponent } from './trackingpage/trackingpage.component';
 import { ItemdeliveredComponent } from './itemdelivered/itemdelivered.component';
+import { CoupenpageComponent } from './coupenpage/coupenpage.component';
+import { OrderhistoryComponent } from './orderhistory/orderhistory.component';
+import { AddresspageComponent } from './addresspage/addresspage.component';
+import { HelpcenterComponent } from './helpcenter/helpcenter.component';
+import { LogoutComponent } from './logout/logout.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+
 import { ChineseMaunComponent } from './chinese-maun/chinese-maun.component';
 
 import { InternationalMenuComponent } from './international-menu/international-menu.component';
@@ -33,6 +40,7 @@ import { DescriptionComponent } from './description/description.component';
 import { AddCardComponent } from './add-card/add-card.component';
 
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+import { Deleteaccount1Component } from './deleteaccount1/deleteaccount1.component';
 
 export const routes: Routes = [
   // Default page
@@ -51,13 +59,11 @@ export const routes: Routes = [
 
   { path: 'verification-otp', component: VerificationCodeComponent },
 
-
   // { path: '', component: VerificationCodeComponent },
- 
 
   // Login / Registration
 
-  { path: '', component: UserSignInComponent },
+  { path: 'login', component: UserSignInComponent },
 
   // North page
 
@@ -119,6 +125,27 @@ export const routes: Routes = [
   //Itemdelivered
   { path: 'itemdelivered', component: ItemdeliveredComponent },
 
+  //Coupenpage
+  { path: 'coupenpage', component: CoupenpageComponent },
+
+  //Orderhistory
+  { path: 'orderhistory', component: OrderhistoryComponent },
+
+  //Addresspage
+  { path: 'addresspage', component: AddresspageComponent },
+
+  //HelpCenter
+  { path: 'helpcenter', component: HelpcenterComponent },
+
+  //Logout
+  { path: 'logout', component: LogoutComponent },
+
+  //Privacy
+  { path: 'privacy', component: PrivacyComponent },
+
+  //Deleteaccount1
+  { path: 'deleteaccount1', component: Deleteaccount1Component },
+
   //Chinese Maun
   { path: 'chinese-maun', component: ChineseMaunComponent },
 
@@ -136,5 +163,4 @@ export const routes: Routes = [
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
-  
 ];

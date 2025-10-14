@@ -1,0 +1,116 @@
+<div class="profile-container">
+  <div class="top-row">
+    <p class="greeting">Good Morning, Aditya</p>
+    <div class="top-actions">
+      <!-- Large outer box -->
+      <div class="help-large-box">
+        <!-- Small inner box with ? -->
+        <div class="help-small-box">?</div>
+      </div>
+
+      <!-- Wallet Money Button -->
+      <button class="wallet-btn">Wallet Money</button>
+
+      <i class="fas fa-bell notify"></i>
+      <img src="/assets/aaditya.jpg" alt="user" class="profile-pic" />
+    </div>
+  </div>
+
+  <div class="middle-row">
+    <span class="location">
+      <i class="fas fa-map-marker-alt"></i> Pune, Maharashtra
+    </span>
+    <div class="search-box">
+      <input type="text" placeholder="Search" />
+      <button class="menu-btn">☰</button>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
+      <i class="fa-solid fa-angle-left"></i> Back to Profile
+    </div>
+  </div>
+
+  <div class="profile">
+    <p>Profile</p>
+  </div>
+
+  <!-- Main Section -->
+  <div class="profile-section">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Account Settings
+        </li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Order History</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Payment Method</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Addresses</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Help Center</li>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Promocodes & Offers
+        </li>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Meal Plan
+          Subscription
+        </li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Invite Friends</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Privacy</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Logout</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Delete Account</li>
+      </ul>
+
+      <!-- Two empty boxes -->
+      <div class="empty-boxes">
+        <div class="empty-card"></div>
+        <div class="empty-card"></div>
+      </div>
+    </div>
+
+    <!-----   Address + Orders  ----->
+
+    <div class="address-page">
+      <div class="orders-section">
+        <div class="orders-header">
+          <h3>Privacy</h3>
+        </div>
+
+        <div class="privacy-policy-container">
+          <p class="privacy-policy-intro">
+            Here's the same Privacy Policy, updated with the name Shidori
+            instead of Tiffino – written in clean paragraph form for your
+            website or app:
+          </p>
+
+          <div class="privacy-policy-box">
+            <h4 class="policy-title">Privacy Policy</h4>
+            <p class="policy-text">
+              At Shidori, we respect your privacy and are committed to
+              protecting your personal information. This Privacy Policy explains
+              how we collect, use, and safeguard your data when you use our
+              mobile application or website. By using Shidori, you agree to the
+              practices described in this policy.<br />
+
+              We collect personal details such as your name, contact number,
+              email address, and delivery location when you register or place an
+              order. To process payments securely, we may collect
+              transaction-related information like UPI IDs or card details,
+              which are handled through trusted third-party gateways. We also
+              gather non-personal data such as device details, location (only
+              with permission), and app usage statistics to improve our services
+              and user experience.<br />
+
+              Shidori uses your information primarily to process orders, ensure
+              timely delivery, and personalize meal recommendations based on
+              your preferences. It also helps us send updates, notifications,
+              and offers relevant to your interests. We may share limited
+              information with delivery partners, payment providers, or customer
+              support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

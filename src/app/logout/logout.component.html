@@ -22,10 +22,10 @@
       <button class="menu-btn">☰</button>
     </div>
   </div>
-
   <div class="bottom-row">
-    <i class="fa-solid fa-angle-left back-icon"></i>
-    <span class="back-link">Back</span>
+    <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
+      <i class="fa-solid fa-angle-left"></i> Back to Profile
+    </div>
   </div>
 
   <div class="profile">
@@ -72,22 +72,14 @@
           Subscription
         </li>
         <li><i class="fas fa-angle-right sidebar-arrow"></i> Invite Friends</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Privacy</li>
+        <!-- 🔘 Logout with popup trigger -->
         <li
-          [routerLink]="['/privacy']"
-          routerLinkActive="active"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-angle-right sidebar-arrow"></i> Privacy
-        </li>
-
-        <li
-          [routerLink]="['/logout']"
-          routerLinkActive="active"
-          style="cursor: pointer"
+          class="logout-btn"
+          onclick="document.querySelector('.logout-popup').classList.add('show')"
         >
           <i class="fas fa-angle-right sidebar-arrow"></i> Logout
         </li>
-
         <li><i class="fas fa-angle-right sidebar-arrow"></i> Delete Account</li>
       </ul>
 
@@ -95,6 +87,29 @@
       <div class="empty-boxes">
         <div class="empty-card"></div>
         <div class="empty-card"></div>
+      </div>
+    </div>
+    <!-- 🔘 Logout Confirmation Popup -->
+    <div class="logout-popup">
+      <div class="popup-box">
+        <!-- Black vertical sidebar line -->
+        <div class="popup-sidebar"></div>
+
+        <!-- Popup Text and Buttons -->
+        <div class="popup-content">
+          <h3>Logout?</h3>
+          <p>Are you sure? You wanted to logout?</p>
+
+          <div class="popup-actions">
+            <button
+              class="yes-btn"
+              onclick="document.querySelector('.logout-popup').classList.remove('show')"
+            >
+              Yes
+            </button>
+            <button class="no-btn">No</button>
+          </div>
+        </div>
       </div>
     </div>
 

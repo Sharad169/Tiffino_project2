@@ -1,0 +1,152 @@
+<div class="profile-container">
+  <div class="top-row">
+    <p class="greeting">Good Morning, Aditya</p>
+    <div class="top-actions">
+      <!-- Large outer box -->
+      <div class="help-large-box">
+        <!-- Small inner box with ? -->
+        <div class="help-small-box">?</div>
+      </div>
+
+      <!-- Wallet Money Button -->
+      <button class="wallet-btn">Wallet Money</button>
+
+      <i class="fas fa-bell notify"></i>
+      <img src="/assets/aaditya.jpg" alt="user" class="profile-pic" />
+    </div>
+  </div>
+
+  <div class="middle-row">
+    <span class="location">
+      <i class="fas fa-map-marker-alt"></i> Pune, Maharashtra
+    </span>
+    <div class="search-box">
+      <input type="text" placeholder="Search" />
+      <button class="menu-btn">☰</button>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
+      <i class="fa-solid fa-angle-left"></i> Back to Profile
+    </div>
+  </div>
+
+  <div class="profile">
+    <p>Profile</p>
+  </div>
+
+  <!-- Main Section -->
+  <div class="profile-section">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Account Settings
+        </li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Order History</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Payment Method</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Addresses</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Help Center</li>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Promocodes & Offers
+        </li>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Meal Plan
+          Subscription
+        </li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Invite Friends</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Privacy</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Logout</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Delete Account</li>
+      </ul>
+
+      <!-- Two empty boxes -->
+      <div class="empty-boxes">
+        <div class="empty-card"></div>
+        <div class="empty-card"></div>
+      </div>
+    </div>
+
+    <!-----   Address + Orders + FAQs Section   ----->
+
+    <div class="address-page">
+      <div class="orders-section">
+        <div class="faq-section">
+          <h3>Delete Account</h3>
+
+          <div class="faq-list">
+            <div
+              class="faq-item question-row"
+              style="
+                cursor: default;
+                background-color: #f9f9f9;
+                font-weight: 600;
+              "
+            >
+              <span>Why did you decided to delete the account ?</span>
+            </div>
+
+            <label class="faq-item">
+              <span>I don’t use the app anymore</span>
+              <input type="radio" name="reason" onclick="hideOtherField()" />
+              <span class="custom-radio"></span>
+            </label>
+            <label class="faq-item">
+              <span>I’m not satisfied with the food quality or taste</span>
+              <input type="radio" name="reason" onclick="hideOtherField()" />
+              <span class="custom-radio"></span>
+            </label>
+            <label class="faq-item">
+              <span>I faced issues with delivery or timing</span>
+              <input type="radio" name="reason" onclick="hideOtherField()" />
+              <span class="custom-radio"></span>
+            </label>
+            <label class="faq-item">
+              <span>Prices are too high or offers are not attractive</span>
+              <input type="radio" name="reason" onclick="hideOtherField()" />
+              <span class="custom-radio"></span>
+            </label>
+            <label class="faq-item">
+              <span>The app is slow, buggy, or difficult to use</span>
+              <input type="radio" name="reason" onclick="hideOtherField()" />
+              <span class="custom-radio"></span>
+            </label>
+            <label class="faq-item">
+              <span>Customer support didn’t resolve my issue</span>
+              <input type="radio" name="reason" onclick="hideOtherField()" />
+              <span class="custom-radio"></span>
+            </label>
+            <label class="faq-item">
+              <span>I’m worried about my privacy or personal data</span>
+              <input type="radio" name="reason" onclick="hideOtherField()" />
+              <span class="custom-radio"></span>
+            </label>
+            <label class="faq-item">
+              <span>I prefer another food delivery app</span>
+              <input type="radio" name="reason" onclick="hideOtherField()" />
+              <span class="custom-radio"></span>
+            </label>
+            <label class="faq-item">
+              <span>I have duplicate or multiple accounts</span>
+              <input type="radio" name="reason" onclick="hideOtherField()" />
+              <span class="custom-radio"></span>
+            </label>
+
+            <label class="faq-item">
+              <span>Other</span>
+              <input
+                type="radio"
+                name="reason"
+                id="other-radio"
+                onclick="showOtherField()"
+                checked
+              />
+              <span class="custom-radio"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

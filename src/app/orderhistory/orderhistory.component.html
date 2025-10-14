@@ -1,0 +1,143 @@
+<div class="profile-container">
+  <div class="top-row">
+    <p class="greeting">Good Morning, Aditya</p>
+    <div class="top-actions">
+      <!-- Large outer box -->
+      <div class="help-large-box">
+        <!-- Small inner box with ? -->
+        <div class="help-small-box">?</div>
+      </div>
+      <button class="wallet-btn">Wallet Money</button>
+      <i class="fas fa-bell notify"></i>
+      <img src="/assets/aaditya.jpg" alt="user" class="profile-pic" />
+    </div>
+  </div>
+
+  <div class="middle-row">
+    <span class="location">
+      <i class="fas fa-map-marker-alt"></i> Pune, Maharashtra
+    </span>
+    <div class="search-box">
+      <input type="text" placeholder="Search" />
+      <button class="menu-btn">☰</button>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
+      <i class="fa-solid fa-angle-left"></i> Back to Profile
+    </div>
+  </div>
+
+  <div class="profile">
+    <p>Profile</p>
+  </div>
+
+  <!-- Main Section -->
+  <div class="profile-section">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Account Settings
+        </li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Order History</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Payment Method</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Addresses</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Help Center</li>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Promocodes & Offers
+        </li>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Meal Plan
+          Subscription
+        </li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Invite Friends</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Privacy</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Logout</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Delete Account</li>
+      </ul>
+
+      <!-- Two empty boxes -->
+      <div class="empty-boxes">
+        <div class="empty-card"></div>
+        <div class="empty-card"></div>
+      </div>
+    </div>
+
+    <!-----     Order card     ----->
+    <div class="order-card">
+      <div class="order-header">
+        <h4>ORDER #1234</h4>
+        <p>23 FEB 2025, 08:28 PM</p>
+      </div>
+
+      <div class="order-item">
+        <div class="item-img"></div>
+        <div class="item-details">
+          <h5>Veg Biryani</h5>
+          <p>veg biryani with curd.............</p>
+          <span class="price">Rs 300</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="order-item">
+        <div class="item-img"></div>
+        <div class="item-details">
+          <h5>Baklava</h5>
+          <p>Dessert with pista and..........</p>
+          <span class="price">Rs 300</span>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="order-footer">
+        <div class="footer-left">
+          <p>X2 Items</p>
+          <h4>Rs 600</h4>
+        </div>
+        <button class="status-btn">COMPLETED</button>
+      </div>
+    </div>
+    <!-----     Order card     ----->
+    <div class="order-card">
+      <div class="order-header">
+        <h4>ORDER #1234</h4>
+        <p>23 FEB 2025, 08:28 PM</p>
+      </div>
+
+      <div class="order-item">
+        <div class="item-img"></div>
+        <div class="item-details">
+          <h5>Veg Biryani</h5>
+          <p>veg biryani with curd.............</p>
+          <span class="price">Rs 300</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="order-item">
+        <div class="item-img"></div>
+        <div class="item-details">
+          <h5>Baklava</h5>
+          <p>Dessert with pista and..........</p>
+          <span class="price">Rs 300</span>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="order-footer">
+        <div class="footer-left">
+          <p>X2 Items</p>
+          <h4>Rs 600</h4>
+        </div>
+        <button class="status-btn reject">REJECT</button>
+      </div>
+    </div>
+  </div>
+</div>

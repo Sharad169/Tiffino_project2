@@ -371,10 +371,30 @@
 }
 
 /* Boxes */
-
 .border-boxes {
   margin-top: 48px;
+  position: relative; /* necessary for absolute positioning of the background */
 }
+
+/* Centered background image */
+.border-boxes::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* center the image */
+  width: 100px; /* adjust size as needed */
+  height: 100px; /* adjust size as needed */
+  background-image: url("/assets/delivered.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.1; /* make image transparent */
+  pointer-events: none; /* ensures clicks go through the image */
+  z-index: 0;
+}
+
+/* Keep your text above the image */
 .border-boxes .box {
   display: flex;
   justify-content: space-between;
@@ -382,6 +402,8 @@
   font-size: 12px;
   font-weight: 500;
   color: rgba(0, 0, 0, 1);
+  position: relative;
+  z-index: 1; /* text stays above the background image */
 }
 
 .border-boxes .last-box {

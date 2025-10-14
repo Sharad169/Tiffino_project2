@@ -71,7 +71,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 32px 0 100px 0;
+  margin: 32px 0 60px 0;
   width: 100%;
   max-width: 1300px;
 }
@@ -82,22 +82,9 @@
   left: 0;
   width: 100%;
   height: 8px;
-  background-color: #d3d3d3;
-  border-radius: 10px;
-  z-index: 0;
-}
-
-/* green active progress portion */
-.progress-line::before {
-  content: "";
-  position: absolute;
-  height: 8px;
-  left: 0;
-  top: 0;
-  width: 60%; /* covers first 3 steps */
   background-color: rgba(56, 99, 65, 1);
   border-radius: 10px;
-  z-index: 1;
+  z-index: 0;
 }
 
 .progress-step {
@@ -110,7 +97,7 @@
 .circle {
   width: 45px;
   height: 45px;
-  background-color: #bfbfbf;
+  background-color: rgba(56, 99, 65, 1);
   border-radius: 50%;
   margin: 0 auto 12px;
   display: flex;
@@ -118,10 +105,6 @@
   justify-content: center;
   color: white;
   font-size: 18px;
-}
-
-.completed .circle {
-  background-color: #3a6b46;
 }
 
 .progress-step p {
@@ -139,88 +122,6 @@
   color: rgba(0, 0, 0, 1);
 }
 
-/* Layout */
-.main-content {
-  display: flex;
-}
-
-/* LEFT */
-.left-section {
-  width: 648px;
-  margin-right: 96px;
-}
-
-/* Confirm Header */
-.confirm-header {
-  display: flex;
-  align-items: center;
-}
-
-.confirm-header i {
-  width: 60px;
-  height: 60px;
-  font-size: 40px;
-  color: rgba(56, 99, 65, 1);
-  border: 6px solid rgba(56, 99, 65, 1);
-  border-radius: 50%;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  margin-right: 39px;
-}
-
-.confirm-header h4 {
-  font-size: 16px;
-  font-weight: 500;
-  color: rgba(124, 124, 124, 1);
-}
-
-.confirm-header p {
-  font-size: 24px;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 1);
-  margin-top: 6px;
-}
-
-/* Map + Confirm */
-.map-confirm {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #fff;
-  border-radius: 12px;
-  padding: 24px 28px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
-  margin-top: 40px;
-}
-
-.map-confirm img {
-  width: 260px;
-  height: auto;
-  object-fit: contain;
-  mix-blend-mode: multiply; /* makes the white part of the image transparent-like */
-}
-
-.order-confirmed {
-  max-width: 500px;
-  margin-left: 40px;
-}
-
-.order-confirmed h4 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #000;
-  margin-bottom: 12px;
-}
-
-.order-confirmed p {
-  font-size: 15px;
-  color: rgba(0, 0, 0, 0.7);
-  line-height: 1.6;
-}
-
 /* Delivery Partner */
 .delivery-partner {
   border: 3px solid rgba(180, 180, 180, 1);
@@ -228,11 +129,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 15px;
 }
 
 .delivery-partner i {
-  width: 60px;
-  height: 50px;
+  width: 75px;
+  height: 64px;
   font-size: 25px;
   color: rgba(230, 32, 32, 1);
   border: 4px solid rgba(230, 32, 32, 1);
@@ -242,8 +144,8 @@
   align-items: center;
   justify-content: center;
   background: #fff;
-  margin-top: -60px;
-  margin-right: 24px;
+  margin-top: -30px;
+  margin-right: 44px;
 }
 
 .delivery-partner h4 {
@@ -256,6 +158,50 @@
 .delivery-partner p {
   font-size: 16px;
   color: rgba(124, 124, 124, 1);
+  margin: 0 0px 60px 24px;
+}
+
+/* Layout */
+.main-content {
+  display: flex;
+}
+
+/* LEFT */
+.left-section {
+  width: 648px;
+  margin-right: 96px;
+}
+
+/* Map + Confirm */
+.map-confirm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 48px;
+}
+
+.map-confirm img {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  margin-left: 55px;
+}
+.order-confirmed {
+  background-color: rgba(56, 99, 65, 1);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin-top: -70px;
+}
+
+.map-confirm h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  margin: 30px 0 12px 24px;
+}
+
+.map-confirm p {
+  font-size: 16px;
+  color: rgba(255, 254, 254, 1);
   margin: 0 0 34px 24px;
 }
 
@@ -264,8 +210,11 @@
   display: flex;
   border: 3px solid rgba(180, 180, 180, 1);
   border-radius: 10px;
-  margin-top: 11px;
+  margin-top: -20px;
   margin-bottom: 16px;
+  position: relative; /* required for z-index to work */
+  z-index: 1; /* higher than previous section */
+  background-color: #ffffff;
 }
 
 .left-column {
@@ -341,8 +290,8 @@
   background: #fff;
   border-radius: 12px;
   padding: 20px;
-  margin-top: 75px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 70px;
 }
 
 .order-summary h3 {

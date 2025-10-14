@@ -1,0 +1,111 @@
+/* Container grid */
+.coupon-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  margin: 100px 80px 0 80px;
+  gap: 50px 10px; /* 16px row gap, 24px column gap */
+}
+
+/* Card styling */
+.coupon-card {
+  width: 416px; /* Fixed width */
+  height: 600px; /* Total card height */
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background: #fff;
+  transition: transform 0.2s ease-in-out;
+  position: relative;
+}
+
+.coupon-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Colored top bar */
+.color-bar {
+  width: 416px;
+  height: 322px;
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center; /* vertical center */
+  font-size: 36px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* Wrap header and body */
+.card-content {
+  width: 416px; /* Fixed width */
+  height: 302px; /* Remaining height */
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* stronger shadow */
+  box-sizing: border-box;
+  padding-left: 24px;
+  margin-top: -30px; /* Slight overlap on color-bar for better effect */
+  position: relative; /* Needed for shadow */
+}
+
+/* Header inside content */
+.card-header {
+  display: flex;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 600;
+  font-size: 24px;
+  margin-top: 55px;
+  margin-bottom: 24px;
+  position: relative; /* make tag absolute inside this */
+}
+
+.tag {
+  position: absolute; /* absolute positioning */
+  top: -110%; /* adjust relative to header */
+  right: 24px; /* distance from right edge of header */
+  transform: translateY(-50%);
+  width: 54px;
+  height: 60px;
+  background: black;
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
+
+  display: flex; /* use flexbox */
+  justify-content: center; /* horizontal center */
+  align-items: center; /* vertical center */
+  text-align: center; /* for multiple lines if any */
+  padding: 0; /* remove padding for perfect centering */
+}
+
+/* Body inside content */
+
+.card-body p {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+}
+
+.expiry p {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 44px;
+  margin-bottom: 10px;
+}
+
+.expiry a {
+  font-size: 20px;
+  font-weight: 500;
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.expiry a:hover {
+  text-decoration: underline;
+}
