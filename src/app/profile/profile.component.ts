@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router'; // ✅ import this
@@ -36,64 +35,63 @@ export class ProfileComponent implements OnInit {
 <<<<<<< HEAD
   ngOnInit(): void {}
 }*/
-=======
-  sideBarItems = [
-    'Account Settings',
-    'Order History',
-    'Payment Method',
-    'Addresses',
-    'Help Center',
-    'Promocodes & Offers',
-    'Meal Plan Subscription',
-    'Invite Friends',
-    'Privacy',
-    'Logout',
-    'Delete Account'
-  ];
 
-  constructor(
-    private userService: UserService,
-    private route: ActivatedRoute,
-    @Inject(PLATFORM_ID) private platformId: Object  // ✅ Detects Browser
-  ) {}
+//   sideBarItems = [
+//     'Account Settings',
+//     'Order History',
+//     'Payment Method',
+//     'Addresses',
+//     'Help Center',
+//     'Promocodes & Offers',
+//     'Meal Plan Subscription',
+//     'Invite Friends',
+//     'Privacy',
+//     'Logout',
+//     'Delete Account'
+//   ];
 
-  ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.getUserDetails(+id);
-    }
-  }
+//   constructor(
+//     private userService: UserService,
+//     private route: ActivatedRoute,
+//     @Inject(PLATFORM_ID) private platformId: Object  // ✅ Detects Browser
+//   ) {}
 
-  getUserDetails(id: number) {
-    this.userService.getUserById(id).subscribe({
-      next: (data) => {
-        console.log('User data:', data);
-        this.userData = data;
+//   ngOnInit(): void {
+//     const id = this.route.snapshot.paramMap.get('id');
+//     if (id) {
+//       this.getUserDetails(+id);
+//     }
+//   }
 
-        // ✅ Use sessionStorage only in browser environment
-        if (isPlatformBrowser(this.platformId) && this.userData?.name) {
-          sessionStorage.setItem('userName', this.userData.name);
-        }
-      },
-      error: (err) => {
-        console.error('Error fetching user:', err);
-      }
-    });
-  }
+//   getUserDetails(id: number) {
+//     this.userService.getUserById(id).subscribe({
+//       next: (data) => {
+//         console.log('User data:', data);
+//         this.userData = data;
 
-  bindFiled() {
-    if (!this.userData) return;
-    this.userData = {
-      name: this.userData.name,
-      email: this.userData.email,
-      phone: this.userData.phone,
-      dateOfBirth: this.userData.dateOfBirth,
-    };
-  }
+//         // ✅ Use sessionStorage only in browser environment
+//         if (isPlatformBrowser(this.platformId) && this.userData?.name) {
+//           sessionStorage.setItem('userName', this.userData.name);
+//         }
+//       },
+//       error: (err) => {
+//         console.error('Error fetching user:', err);
+//       }
+//     });
+//   }
 
-  selectTab(tabName: string) {
-    console.log('Selected Tab:', tabName);
-    this.selectedTabName = tabName;
-  }
-}
->>>>>>> origin/feature/login-page
+//   bindFiled() {
+//     if (!this.userData) return;
+//     this.userData = {
+//       name: this.userData.name,
+//       email: this.userData.email,
+//       phone: this.userData.phone,
+//       dateOfBirth: this.userData.dateOfBirth,
+//     };
+//   }
+
+//   selectTab(tabName: string) {
+//     console.log('Selected Tab:', tabName);
+//     this.selectedTabName = tabName;
+//   }
+// }

@@ -1,6 +1,6 @@
 <div class="profile-container">
   <div class="top-row">
-    <p class="greeting">Good Morning, {{userData.name}}</p>
+    <p class="greeting">Good Morning, {{ userData.name }}</p>
     <div class="top-actions">
       <!-- Large outer box -->
       <div class="help-large-box">
@@ -37,7 +37,6 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <ul>
-<<<<<<< HEAD
         <li>
           <i class="fas fa-angle-right sidebar-arrow"></i> Account Settings
         </li>
@@ -91,8 +90,8 @@
 
         <li><i class="fas fa-angle-right sidebar-arrow"></i> Delete Account</li>
       </ul>
-=======
-  <li *ngFor="let item of sideBarItems">
+
+      <!-- <li *ngFor="let item of sideBarItems">
     <p 
       (click)="selectTab(item)" 
       [ngStyle]="{'color': selectedTabName === item ? '#386341' : 'black'}"
@@ -100,9 +99,7 @@
       <i class="fas fa-angle-right sidebar-arrow"></i> {{ item }}
     </p>
   </li>
-</ul>
-
->>>>>>> origin/feature/login-page
+</ul> -->
 
       <!-- Two empty boxes -->
       <div class="empty-boxes">
@@ -115,8 +112,8 @@
     <div class="profile-details">
       <div class="user-info">
         <img src="/assets/aaditya.jpg" alt="User" class="user-avatar" />
-        <h3>{{userData.name}}</h3>
-        <p class="email">{{userData.email}}</p>
+        <h3>{{ userData.name }}</h3>
+        <p class="email">{{ userData.email }}</p>
       </div>
 
       <!-- Account Form -->
@@ -125,83 +122,108 @@
         <p class="desc">View and Change your account Prefrence</p>
 
         <div class="form-row">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" id="name" placeholder="Enter your name" [(ngModel)]="userData.name" readonly />
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" id="email" placeholder="Enter your email" [(ngModel)]="userData.email" readonly/>
-  </div>
-</div>
-
-<div class="form-row">
-  <div class="form-group">
-    <label for="text">Date of Birth</label>
-    <input type="date" id="dob" [(ngModel)]="userData.dateOfBirth" readonly/>
-  </div>
-  <div class="form-group">
-    <label for="phone">Phone No.</label>
-    <input type="tel" id="phone" placeholder="Enter phone number" [(ngModel)]="userData.phone" readonly />
-  </div>
-</div>
-
-
-      <!--    Notification   -->
-
-      <div class="notifications">
-        <div class="content">
-          <!--  <h4>Notifications</h4>
-          <p class="desc">View and change your notification settings</p>  -->
-
-          <div class="notification-item">
-            <p>
-              <strong>Notifications</strong><br />View and change your
-              notification settings
-            </p>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter your name"
+              [(ngModel)]="userData.name"
+              readonly
+            />
           </div>
-
-          <div class="notification-item">
-            <p>
-              <strong>Push Notification</strong><br />Enable push notification
-            </p>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-
-          <div class="notification-item">
-            <p>
-              <strong>Email Notification</strong><br />Enable email notification
-            </p>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-
-          <div class="notification-item">
-            <p>
-              <strong>Inapp Notification</strong><br />Enable inapp notification
-            </p>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              [(ngModel)]="userData.email"
+              readonly
+            />
           </div>
         </div>
-      </div>
 
-      <!-- FontAwesome Free CDN -->
-      <script
-        src="https://kit.fontawesome.com/a076d05399.js"
-        crossorigin="anonymous"
-      ></script>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="text">Date of Birth</label>
+            <input
+              type="date"
+              id="dob"
+              [(ngModel)]="userData.dateOfBirth"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone No.</label>
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Enter phone number"
+              [(ngModel)]="userData.phone"
+              readonly
+            />
+          </div>
+        </div>
+
+        <!--    Notification   -->
+
+        <div class="notifications">
+          <div class="content">
+            <!--  <h4>Notifications</h4>
+          <p class="desc">View and change your notification settings</p>  -->
+
+            <div class="notification-item">
+              <p>
+                <strong>Notifications</strong><br />View and change your
+                notification settings
+              </p>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+            <div class="notification-item">
+              <p>
+                <strong>Push Notification</strong><br />Enable push notification
+              </p>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+            <div class="notification-item">
+              <p>
+                <strong>Email Notification</strong><br />Enable email
+                notification
+              </p>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+            <div class="notification-item">
+              <p>
+                <strong>Inapp Notification</strong><br />Enable inapp
+                notification
+              </p>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- FontAwesome Free CDN -->
+        <script
+          src="https://kit.fontawesome.com/a076d05399.js"
+          crossorigin="anonymous"
+        ></script>
+      </div>
     </div>
   </div>
 </div>
