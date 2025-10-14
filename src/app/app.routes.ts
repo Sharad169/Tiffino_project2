@@ -86,6 +86,8 @@ export const routes: Routes = [
 
   { path: 'category/:category', component: CategoryComponent },
 
+  { path: 'meals', component: AddCardComponent },
+
   //Punjabi
   { path: 'punjabi', component: PunjabiComponent },
 
@@ -114,7 +116,7 @@ export const routes: Routes = [
   { path: 'recommendation', component: RecommendationComponent },
 
   //Profile
-  { path: 'profile', component: ProfileComponent },
+ { path: 'profile/:id', component: ProfileComponent },
 
   //Rating
   { path: 'rating', component: RatingComponent },
@@ -156,7 +158,6 @@ export const routes: Routes = [
   { path: 'description', component: DescriptionComponent },
 
   //Add-card
-  { path: 'add-card', component: AddCardComponent },
 
   //checkout page
   { path: 'checkout-page', component: CheckoutPageComponent },
