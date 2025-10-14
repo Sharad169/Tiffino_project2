@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent],
+  imports: [CommonModule, ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -39,6 +39,7 @@ constructor(public api :AuthService, public router : Router) { }
     this.api.homeData().subscribe((res) => {
       console.log(res);
       this.cuisines = res as any[];
+
 
       // category wise filter
       this.regionalCuisines = this.cuisines.filter(c => c.category === 'Regional');

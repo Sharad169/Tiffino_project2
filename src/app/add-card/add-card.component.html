@@ -23,40 +23,41 @@
 
       <!-- Cart Items -->
       <div class="cart-items">
-        <div class="cart-item" *ngFor="let item of cartItems">
-          <!-- Left Image -->
-          <div class="cart-item-left">
-            <img [src]="item.image" alt="{{item.name}}" class="cart-img" />
-          </div>
-
-          <!-- Right Details -->
-          <div class="cart-item-right">
-            <h3>{{ item.name }}</h3>
-            <p>{{ item.description }}</p>
-
-            <div class="stars">
-              <span *ngFor="let star of [1,2,3,4,5]">☆</span>
-            </div>
-
-            <div class="price-section">
-              <label>Price</label>
-              <p class="price">Rs {{ item.price }}</p>
-            </div>
-
-            <div class="quantity-section">
-              <label>Quality</label>
-              <div class="quantity">
-                <button (click)="decreaseQty(item)">-</button>
-                <span>{{ item.quantity }}</span>
-                <button (click)="increaseQty(item)">+</button>
+        <div class="cart-row" *ngFor="let item of cartItems">
+          
+          <!-- Product -->
+          <div class="cart-col product">
+            <div class="product-info">
+              <img [src]="item.image" alt="{{ item.name }}" class="cart-img" />
+              <div>
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.description }}</p>
+                <div class="stars">
+                  <span *ngFor="let star of [1,2,3,4,5]">☆</span>
+                </div>
               </div>
             </div>
+          </div>
 
-            <div class="total-section">
-              <label>Total Price</label>
-              <p class="total-price">Rs {{ item.price * item.quantity }}</p>
+          <!-- Price -->
+          <div class="cart-col price">
+            <p>Rs {{ item.price }}</p>
+          </div>
+
+          <!-- Quantity -->
+          <div class="cart-col quantity">
+            <div class="quantity-control">
+              <button (click)="decreaseQty(item)">-</button>
+              <span>{{ item.quantity }}</span>
+              <button (click)="increaseQty(item)">+</button>
             </div>
           </div>
+
+          <!-- Total Price -->
+          <div class="cart-col total">
+            <p>Rs {{ item.price * item.quantity }}</p>
+          </div>
+
         </div>
       </div>
     </div>
@@ -113,7 +114,7 @@
           <div class="food-header">
             <h3>{{ food.title }}</h3>
             <div class="stars">
-              <span *ngFor="let s of [1,2,3,4,5]">☆</span>
+              <span *ngFor="let s of [1,2,3,4,]">☆</span>
             </div>
           </div>
 

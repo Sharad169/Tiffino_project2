@@ -110,7 +110,7 @@ export const routes: Routes = [
   { path: 'recommendation', component: RecommendationComponent },
 
   //Profile
-  { path: 'profile', component: ProfileComponent },
+ { path: 'profile/:id', component: ProfileComponent },
 
   //Rating
   { path: 'rating', component: RatingComponent },
@@ -124,8 +124,8 @@ export const routes: Routes = [
   //description
   { path: 'description', component: DescriptionComponent },
 
-  //Add-card
-   { path: 'add-card', component: AddCardComponent },
+//Add-card
+{ path: 'add-card', component: AddCardComponent },
 
   //checkout page
   { path: 'checkout-page', component: CheckoutPageComponent },
