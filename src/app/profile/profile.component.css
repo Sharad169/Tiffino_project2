@@ -270,7 +270,9 @@
 
 /* Account Form */
 .account-form {
-  margin-left: 24px;
+  /* REMOVED: margin-left: 24px; */
+  padding-left: 24px;
+  padding-right: 24px;
   margin-bottom: 21px;
 }
 
@@ -327,11 +329,16 @@
 /* Notifications container with border only */
 
 .notifications {
+  /* This margin pushes the box 24px left and right, spanning the parent's padding */
+  margin: 20px -24px 0 -24px;
   border-top: 1px solid rgba(0, 0, 0, 1);
+  /* The rest of the original styles... */
 }
 .notifications .content {
-  margin-left: 24px;
+  /* REMOVED: margin-left: 24px; */
   margin-top: 34px;
+  padding-left: 24px; /* Push content back in */
+  padding-right: 24px; /* Maintain alignment on the right */
 }
 .notification-item {
   display: flex;

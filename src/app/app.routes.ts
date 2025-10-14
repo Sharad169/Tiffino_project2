@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-
 import { HomeComponent } from './home/home.component';
-import { UserSignInComponent } from './registration/user-sign-in/user-sign-in.component';
 import { OnboardingComponent } from './onboarding/onboarding.component';
+
+import { UserSignInComponent } from './registration/user-sign-in/user-sign-in.component';
 import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
 import { NorthComponent } from './north/north.component';
 import { SouthComponent } from './south/south.component';
@@ -17,13 +17,14 @@ import { GoaComponent } from './goa/goa.component';
 import { RecommendationComponent } from './recommendation/recommendation.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RatingComponent } from './rating/rating.component';
-import { TrackingpageComponent } from './trackingpage/trackingpage.component';
-import { ItemdeliveredComponent } from './itemdelivered/itemdelivered.component';
-import { CoupenpageComponent } from './coupenpage/coupenpage.component';
 import { OrderhistoryComponent } from './orderhistory/orderhistory.component';
+import { ItemdeliveredComponent } from './itemdelivered/itemdelivered.component';
+import { TrackingpageComponent } from './trackingpage/trackingpage.component';
 import { AddresspageComponent } from './addresspage/addresspage.component';
+import { CoupenpageComponent } from './coupenpage/coupenpage.component';
 import { HelpcenterComponent } from './helpcenter/helpcenter.component';
 import { LogoutComponent } from './logout/logout.component';
+import { Deleteaccount1Component } from './deleteaccount1/deleteaccount1.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 
 import { ChineseMaunComponent } from './chinese-maun/chinese-maun.component';
@@ -40,7 +41,6 @@ import { DescriptionComponent } from './description/description.component';
 import { AddCardComponent } from './add-card/add-card.component';
 
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
-import { Deleteaccount1Component } from './deleteaccount1/deleteaccount1.component';
 
 export const routes: Routes = [
   // Default page
@@ -116,19 +116,10 @@ export const routes: Routes = [
   { path: 'recommendation', component: RecommendationComponent },
 
   //Profile
- { path: 'profile/:id', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent },
 
   //Rating
   { path: 'rating', component: RatingComponent },
-
-  //Tracking
-  { path: 'tracking', component: TrackingpageComponent },
-
-  //Itemdelivered
-  { path: 'itemdelivered', component: ItemdeliveredComponent },
-
-  //Coupenpage
-  { path: 'coupenpage', component: CoupenpageComponent },
 
   //Orderhistory
   { path: 'orderhistory', component: OrderhistoryComponent },
@@ -136,7 +127,10 @@ export const routes: Routes = [
   //Addresspage
   { path: 'addresspage', component: AddresspageComponent },
 
-  //HelpCenter
+  //Coupenpage
+  { path: 'coupenpage', component: CoupenpageComponent },
+
+  //Helpcenter
   { path: 'helpcenter', component: HelpcenterComponent },
 
   //Logout
@@ -147,6 +141,12 @@ export const routes: Routes = [
 
   //Deleteaccount1
   { path: 'deleteaccount1', component: Deleteaccount1Component },
+
+  //Itemdeleverd
+  { path: 'itemdelivered', component: ItemdeliveredComponent },
+
+  //Tracking
+  { path: 'trackingpage', component: TrackingpageComponent },
 
   //Chinese Maun
   { path: 'chinese-maun', component: ChineseMaunComponent },
