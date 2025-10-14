@@ -59,8 +59,8 @@
 }
 
 .cart-img {
-  width: 90px;
-  height: 90px;
+  width: 120px;
+  height: 170px;
   border-radius: 12px;
   object-fit: cover;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -88,38 +88,55 @@
 }
 
 /* Price, Quantity, Total sections */
-.price-section,
-.quantity-section,
-.total-section {
-  margin-bottom: 8px;
+/* Table-style layout for cart items */
+.cart-items {
+  display: flex;
+  flex-direction: column;
 }
 
-.price-section label,
-.quantity-section label,
-.total-section label {
-  display: block;
+.cart-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-row:last-child {
+  border-bottom: none;
+}
+
+/* Product section */
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.product-info h3 {
+  margin: 0;
+  font-size: 15px;
   font-weight: 600;
-  color: #444;
-  font-size: 14px;
 }
 
-.price {
-  font-weight: 600;
-  color: #000;
-  margin-top: 4px;
+.product-info p {
+  font-size: 13px;
+  color: #555;
+  margin: 4px 0;
+  line-height: 1.3;
 }
 
-.quantity {
+/* Quantity buttons */
+.quantity-control {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   background: #f8f8f8;
   padding: 6px 10px;
   border-radius: 8px;
-  margin-top: 4px;
 }
 
-.quantity button {
+.quantity-control button {
   border: none;
   background: #ddd;
   padding: 4px 10px;
@@ -128,16 +145,22 @@
   font-weight: 600;
 }
 
-.quantity span {
+.quantity-control span {
   min-width: 20px;
   text-align: center;
   font-weight: 600;
 }
 
-.total-price {
-  font-weight: 700;
+/* Columns */
+.cart-col p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+.cart-col.total p {
   color: #2e5939;
-  margin-top: 4px;
+  font-weight: 700;
 }
 
 /* Sidebar (unchanged) */
@@ -341,7 +364,7 @@
 /* Food Image */
 .food-img {
   width: 220px;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
   border-radius: 16px 0 0 16px;
 }
