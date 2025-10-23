@@ -25,7 +25,19 @@ import { CoupenpageComponent } from './coupenpage/coupenpage.component';
 import { HelpcenterComponent } from './helpcenter/helpcenter.component';
 import { LogoutComponent } from './logout/logout.component';
 import { Deleteaccount1Component } from './deleteaccount1/deleteaccount1.component';
+import { Deleteaccount2Component } from './deleteaccount2/deleteaccount2.component';
 import { PrivacyComponent } from './privacy/privacy.component';
+import { PromocodeComponent } from './promocode/promocode.component';
+import { Itemdelevered2Component } from './itemdelevered2/itemdelevered2.component';
+import { WalletpageComponent } from './walletpage/walletpage.component';
+import { InvitefriendComponent } from './invitefriend/invitefriend.component';
+import { SubscriptionplanComponent } from './subscriptionplan/subscriptionplan.component';
+import { SubsplanresumeComponent } from './subsplanresume/subsplanresume.component';
+import { GetplanComponent } from './getplan/getplan.component';
+import { SubscriptionpageComponent } from './subscriptionpage/subscriptionpage.component';
+import { FinalpageComponent } from './finalpage/finalpage.component';
+
+import { DietarypreferenceComponent } from './dietarypreference/dietarypreference.component';
 
 import { ChineseMaunComponent } from './chinese-maun/chinese-maun.component';
 
@@ -109,7 +121,7 @@ export const routes: Routes = [
   //Hydrabadi
   { path: 'hydrabadi', component: HydrabadiComponent },
 
-  //Goan
+  //Goa
   { path: 'goa', component: GoaComponent },
 
   //Recommendation
@@ -142,11 +154,44 @@ export const routes: Routes = [
   //Deleteaccount1
   { path: 'deleteaccount1', component: Deleteaccount1Component },
 
+  //Deleteaccount2
+  { path: 'deleteaccount2', component: Deleteaccount2Component },
+
   //Itemdeleverd
   { path: 'itemdelivered', component: ItemdeliveredComponent },
 
+  //Itemdelevered
+  { path: 'itemdelevered2', component: Itemdelevered2Component },
+
   //Tracking
   { path: 'trackingpage', component: TrackingpageComponent },
+
+  //Promocode
+  { path: 'promocode', component: PromocodeComponent },
+
+  //Walletpage
+  { path: 'walletpage', component: WalletpageComponent },
+
+  //Invitefriend
+  { path: 'invitefriend', component: InvitefriendComponent },
+
+  //Subscriptionplan
+  { path: 'subscriptionplan', component: SubscriptionplanComponent },
+
+  //Subsplanresume
+  { path: 'subsplanresume', component: SubsplanresumeComponent },
+
+  //Getplan
+  { path: 'getplan', component: GetplanComponent },
+
+  //Subscriptionpage
+  { path: 'subscriptionpage', component: SubscriptionpageComponent },
+
+  //Dietarypreference
+  { path: 'dietarypreference', component: DietarypreferenceComponent },
+
+  //Finalpage
+  { path: 'finalpage', component: FinalpageComponent },
 
   //Chinese Maun
   { path: 'chinese-maun', component: ChineseMaunComponent },

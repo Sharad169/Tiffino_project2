@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* --- PLANS AREA --- */
+.plans-area {
+  width: calc(100% - 160px); /* ✅ 80px left + 80px right */
+  margin: 64px 80px 80px 80px; /* ✅ equal spacing on both sides */
+  max-width: none; /* ✅ allow it to expand full width */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px 24px; /* 30px vertical gap, 50px horizontal gap */
+  box-sizing: border-box;
+  background: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Title */
+.plans-area h2 {
+  width: 502px;
+  height: 54px;
+  grid-column: 1 / -1;
+  font-size: 35px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 20px;
+  text-align: left;
+  margin: 40px 0 20px 10px;
+}
+
+/* --- INDIVIDUAL PLAN BOXES --- */
+.plan-box {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  height: auto;
+
+  box-sizing: border-box;
+  border: 3.5px solid rgba(56, 99, 65, 1);
+}
+
+/* Headings inside boxes */
+.plan-box h3 {
+  width: 88px;
+  height: 36px;
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  margin: 0 0 10px 0;
+}
+
+/* Paragraphs */
+.plan-box p {
+  width: 580px;
+  height: 90px;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: -8px;
+  margin-right: -15px;
+  margin-bottom: 16px;
+  margin-left: 2px;
+  color: rgba(0, 0, 0, 1);
+}
+
+/* Buttons */
+.start-btn {
+  margin-top: 10px;
+  width: 100px;
+  height: 43px;
+  border: none;
+  border-radius: 20px;
+  background: rgba(11, 11, 11, 1);
+  color: rgba(255, 253, 253, 1);
+  cursor: pointer;
+  border-radius: 20px;
+}
+.start-btn black {
+  width: 37px;
+  height: 23px;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 253, 253, 1);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+  .plans-area {
+    grid-template-columns: 1fr; /* stack boxes on smaller screens */
+    width: calc(100% - 80px); /* still keep side gaps */
+  }
+
+  .plans-area h2 {
+    margin-left: 40px;
+  }
+}

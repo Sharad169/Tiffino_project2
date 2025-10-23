@@ -1,0 +1,335 @@
+/* Import Poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* General Container */
+.profile-container {
+  font-family: "Poppins", sans-serif;
+  margin: 0 80px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+/* --- TOP/MIDDLE/BOTTOM ROW STYLES (Kept for completeness) --- */
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px 0 8px 250px;
+}
+
+.greeting {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wallet-btn {
+  height: 51px;
+  width: 171px;
+  background: #386341;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.notify {
+  height: 48px;
+  width: 47px;
+  font-size: 20px;
+  color: #fff;
+  background: #386341;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile-pic {
+  height: 48px;
+  width: 47px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.middle-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.location {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #386341;
+}
+
+.search-box {
+  height: 47px;
+  width: 510px;
+  display: flex;
+  gap: 6px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid #aaa;
+  font-size: 14px;
+}
+
+.menu-btn {
+  height: 47px;
+  width: 47px;
+  border: 2px solid #aaa;
+  background: #f9f9f9;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.help-large-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 47px;
+  width: 47px;
+  top: 409px;
+  left: 1013px;
+  border: 2px solid rgba(162, 161, 161, 1);
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  padding: 5px;
+  transition: background 0.2s;
+}
+
+.help-small-box {
+  height: 18px;
+  width: 18px;
+  top: 3px;
+  left: 3px;
+  border: 2px solid rgba(145, 145, 145, 1);
+  border-radius: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(145, 145, 145, 1);
+  background-color: #fff;
+  transition: background 0.2s, color 0.2s;
+}
+
+.bottom-row {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-link {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+}
+
+.profile p {
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.profile-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  width: 399px;
+  height: 1020px;
+  min-width: 399px;
+  max-width: 399px;
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding: 52px;
+  box-sizing: border-box;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 36px;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sidebar li:hover {
+  color: rgba(56, 99, 65, 1);
+  background: #f1f1f1;
+}
+
+.sidebar-arrow {
+  font-size: 25px;
+  color: rgba(31, 31, 31, 1);
+}
+
+/* ---------------------- Main Content ---------------------- */
+.address-page {
+  flex-grow: 1;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 850px;
+}
+
+/* ---------------------- Promo Codes ---------------------- */
+.promocode-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-bottom: 20px;
+}
+
+.promocode-card {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  min-height: 120px;
+  position: relative;
+  margin-left: 30px;
+  gap: 90px; /* space between image and text */
+}
+
+.promocode-details {
+  flex-grow: 1; /* fill the remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px 25px;
+  margin-left: -10px;
+}
+.promocode-description {
+  width: 550px;
+  height: 48px;
+  color: rgba(0, 0, 0, 1);
+  font-size: 16px;
+  font-weight: 400;
+  margin: 19px 0px 14px 0px;
+}
+
+.promocode-image-container {
+  width: 179px;
+  min-width: 179px;
+  height: 166px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: #fff;
+  position: relative;
+}
+
+.promocode-img {
+  max-width: 90%;
+  max-height: 180px;
+  object-fit: contain;
+}
+
+/* Dashed line between image and details */
+.promocode-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  margin-left: 80px; /* right at the edge of the image container */
+  width: 2px;
+  height: 100%;
+  border-left: 2px dashed rgba(0, 0, 0, 1);
+  z-index: 1;
+}
+
+/* Top circular cut-out */
+.promocode-card::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 132px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+  z-index: 2;
+}
+
+/* Bottom circular cut-out */
+/* Vertical line adjustment */
+.promocode-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 150px; /* move it a bit to the right (was 140px) */
+  width: 1px; /* solid 1px width */
+  height: 100%;
+  background-color: 1px solid rgba(0, 0, 0, 1); /* solid black */
+  z-index: 1;
+}
+
+.promocode-expiry {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  margin: 0;
+}
+
+/* ---------------------- Responsive ---------------------- */
+@media screen and (max-width: 1024px) {
+  .profile-container {
+    margin: 0 20px;
+  }
+  .profile-section {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    min-width: unset;
+  }
+}

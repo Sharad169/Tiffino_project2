@@ -1,0 +1,105 @@
+<div class="profile-container">
+  <div class="top-row">
+    <p class="greeting">Good Morning, Aditya</p>
+    <div class="top-actions">
+      <div class="help-large-box">
+        <div class="help-small-box">?</div>
+      </div>
+      <button class="wallet-btn">Wallet Money</button>
+      <i class="fas fa-bell notify"></i>
+      <img src="/assets/aaditya.jpg" alt="user" class="profile-pic" />
+    </div>
+  </div>
+
+  <div class="middle-row">
+    <span class="location">
+      <i class="fas fa-map-marker-alt"></i> Pune, Maharashtra
+    </span>
+    <div class="search-box">
+      <input type="text" placeholder="Search" />
+      <button class="menu-btn">☰</button>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
+      <i class="fa-solid fa-angle-left"></i> Back to Profile
+    </div>
+  </div>
+
+  <div class="profile">
+    <p>Profile</p>
+  </div>
+
+  <!-- Main Section -->
+  <div class="profile-section">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Account Settings
+        </li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Order History</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Payment Method</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Addresses</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Help Center</li>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Promocodes & Offers
+        </li>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Meal Plan
+          Subscription
+        </li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Invite Friends</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Privacy</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Logout</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Delete Account</li>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Your Subscription
+          Plan
+        </li>
+      </ul>
+    </div>
+
+    <!-- SUBSCRIPTION PLANS -->
+    <div class="plans-area">
+      <h2>Pick your subscription Plan:</h2>
+
+      <div class="plan-box">
+        <h3>Weekly</h3>
+        <p>
+          Subscribe for a week of nutritious, chef-prepared meals tailored to
+          your taste and delivered right on time, every day.
+        </p>
+        <button class="start-btn black">Start</button>
+      </div>
+
+      <div class="plan-box">
+        <h3>Biweekly</h3>
+        <p>
+          Enjoy 14 days of delicious, home-style meals delivered fresh every day
+          – perfect balance of taste and convenience.
+        </p>
+        <button class="start-btn black">Start</button>
+      </div>
+
+      <div class="plan-box active-plan">
+        <h3>Quarterly</h3>
+        <p>
+          Subscribe quarterly and enjoy 90 days of chef-crafted, hygienic, and
+          personalized meals at your doorstep.
+        </p>
+        <button class="start-btn black">Start</button>
+      </div>
+
+      <div class="plan-box monthly">
+        <h3>Monthly</h3>
+        <p>
+          Make meal-time hassle-free for a month long! Freshly cooked
+          dishes,delivered every day to keep you happy, full, and stress-free.
+        </p>
+        <button class="start-btn black bottom-align">Start</button>
+      </div>
+    </div>
+  </div>
+</div>

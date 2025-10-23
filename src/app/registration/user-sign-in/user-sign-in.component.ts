@@ -60,7 +60,7 @@ export class UserSignInComponent {
   }
 
   onSubmit(): void {
-    debugger
+    debugger;
     this.submitted = true;
 
     if (this.signupForm.invalid) {
@@ -79,19 +79,16 @@ export class UserSignInComponent {
 
     this.api.signup(payload).subscribe({
       next: (res) => {
-
         console.log(res);
-        
 
         const jwtToken = (res as any).token; // Adjust based on actual response structure
         if (jwtToken) {
           sessionStorage.setItem('token', jwtToken);
         }
-        
-        this.userEmail =  sessionStorage.setItem('emailForOtp', payload.email);
-         sessionStorage.setItem('name', payload.name);
 
-         
+        this.userEmail = sessionStorage.setItem('emailForOtp', payload.email);
+        sessionStorage.setItem('name', payload.name);
+
         console.log('Signup successful:', res);
         this.route.navigate(['/verification-otp']);
       },
@@ -100,7 +97,6 @@ export class UserSignInComponent {
       },
     });
   }
-
 
   sendOtp(): void {
     const email = this.loginForm.get('email')?.value;
@@ -120,9 +116,9 @@ export class UserSignInComponent {
 
         // Store the token from the response
         if (res.token) {
-          localStorage.setItem('accessToken', res.token); 
+          localStorage.setItem('accessToken', res.token);
         }
-        
+
         // Store other data from the response for later use if needed
         if (res.role) {
           localStorage.setItem('userRole', res.role);
@@ -130,7 +126,7 @@ export class UserSignInComponent {
         if (res.status) {
           localStorage.setItem('userStatus', res.status);
         }
-        
+
         this.otpSent = true;
       },
       error: (err) => {
@@ -153,7 +149,7 @@ export class UserSignInComponent {
           sessionStorage.setItem('token', jwtToken);
         }
         console.log('OTP Verified:', res);
-          sessionStorage.setItem('userId', res.userId);
+        sessionStorage.setItem('userId', res.userId);
         this.route.navigate(['/home']);
       },
       error: (err) => {
@@ -163,12 +159,9 @@ export class UserSignInComponent {
     });
   }
 
-
   showLogin() {
     this.hide = !this.hide;
   }
 
-  home() { 
-    
-     }
+  home() {}
 }

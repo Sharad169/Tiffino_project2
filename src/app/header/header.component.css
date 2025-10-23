@@ -20,11 +20,13 @@
   margin-left: 90px;
 }
 
-/* TOP ROW */
+/* TOP ROW - CORRECTED GRID LAYOUT */
 .top-row {
   display: grid;
-  grid-template-columns: 180px 1fr 200px;
+  /* Logo (auto width) | All Nav Links (flexible space) | User Identity (auto width) */
+  grid-template-columns: auto 1fr auto;
   align-items: center;
+  gap: 30px; /* Space between the logo, nav, and profile */
 }
 
 .logo img {
@@ -33,13 +35,14 @@
   margin-top: 10px;
 }
 
-/* CENTER NAV LINKS */
+/* CENTER NAV LINKS - CORRECTED FLEX LAYOUT */
 .center-nav {
   display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: 100px;
-  margin-left: 75px;
+  /* Pushes all links to the left side of the large 1fr column */
+  justify-content: flex-start;
+  align-items: center;
+  gap: 100px; /* Spacing between the links */
+  margin-left: 30px; /* Space off the logo */
 }
 
 .nav-link {
@@ -48,8 +51,10 @@
   font-size: 22px;
   font-weight: 500;
   cursor: pointer;
-  margin-top: 20px;
+  /* Removed margin-top: 20px for better vertical alignment */
   transition: opacity 0.3s ease;
+  /* Removed all extra margins */
+  margin: 0;
 }
 
 .nav-link:hover {
@@ -67,6 +72,7 @@
   cursor: pointer;
   justify-content: flex-end;
   transition: opacity 0.2s ease;
+  margin-right: 20px;
 }
 
 .user-identity:hover {
@@ -75,15 +81,18 @@
 
 /* PROFILE ICON */
 .user-identity .profile-icon {
-  color: #fff;
+  margin-bottom: 0; /* Resetting or adjusting margin for better alignment */
+  color: rgba(248, 244, 244, 1);
   stroke-linecap: round;
   fill: none;
 }
 
 /* USER NAME */
 .user-name {
-  font-size: 18px;
+  color: rgba(255, 255, 255, 1);
+  font-size: 20px;
   font-weight: 500;
+  margin-bottom: 0; /* Resetting or adjusting margin for better alignment */
 }
 
 /* BOTTOM ROW */

@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Deleteaccount1Component } from './deleteaccount1.component';
+import { DeleteAccount1Component } from './deleteaccount1.component';
 
-describe('Deleteaccount1Component', () => {
-  let component: Deleteaccount1Component;
-  let fixture: ComponentFixture<Deleteaccount1Component>;
+describe('DeleteAccount1Component', () => {
+  let component: DeleteAccount1Component;
+  let fixture: ComponentFixture<DeleteAccount1Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Deleteaccount1Component]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(Deleteaccount1Component);
+      imports: [DeleteAccount1Component],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(DeleteAccount1Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

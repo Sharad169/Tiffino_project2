@@ -2,14 +2,20 @@ import { Component } from '@angular/core';
 import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
-
+import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    RouterOutlet,
+    HeaderComponent,
+    FooterComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
@@ -18,10 +24,6 @@ export class AppComponent {
   showLayout = true;
 
   constructor(private router: Router) {
-
-
-
-
     // Handle refresh + first load
     this.showLayout = !this.shouldHideLayout(this.router.url || '/');
 
@@ -40,7 +42,6 @@ export class AppComponent {
    * Add all "no-header-footer" pages here.
    */
   private shouldHideLayout(url: string): boolean {
-
     // Hide header/footer for onboarding or verification-code pages
     return (
       url === '/' ||
@@ -55,13 +56,10 @@ export class AppComponent {
       '/onboarding',
       '/verification-code',
       '/login',
-      '/register'
+      '/register',
     ];
 
     // Check exact match OR startsWith for nested routes
-    return hiddenRoutes.some(route => url === route || url.startsWith(route));
-
+    return hiddenRoutes.some((route) => url === route || url.startsWith(route));
   }
-
-  
 }

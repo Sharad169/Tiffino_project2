@@ -48,15 +48,17 @@
             stroke="currentColor"
             stroke-width="2.5"
             stroke-linecap="round"
+            stroke-linejoin="round"
           />
         </svg>
-        <span class="user-name">Aaditya Salunkhe</span>
+        <span class="user-name">Profile</span>
       </div>
 
-      <!-- Only user name -->
-      <div class="profile-name" (click)="goToProfile()">
-        {{ name || "Profile" }}
-      </div>
+      <!-- Only user name: THIS DIV IS WHAT DISPLAYS "Profile" BELOW THE LOGO -->
+      <!-- **YOU MUST DELETE THIS BLOCK** -->
+      <span class="profile-name" (click)="goToProfile()">
+        {{ userName || "Profile" }}
+      </span>
     </div>
     <!-- end of top-row -->
 

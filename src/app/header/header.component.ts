@@ -10,16 +10,16 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   userName: string | null = null;
-   userId!: number;
-   name: string | null = sessionStorage.getItem('userName');
+  userId!: number;
+  name: string | null = sessionStorage.getItem('userName');
 
-  constructor(private router: Router) {}  
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-     const id = sessionStorage.getItem('userId');
+    const id = sessionStorage.getItem('userId');
     const name = sessionStorage.getItem('userName');
 
-    if (id) this.userId = +id;       // string → number
+    if (id) this.userId = +id; // string → number
     if (name) this.userName = name;
   }
 
@@ -30,7 +30,4 @@ export class HeaderComponent implements OnInit {
       console.warn('⚠️ User ID not found in sessionStorage!');
     }
   }
-  
-
-
 }

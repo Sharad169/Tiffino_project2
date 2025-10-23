@@ -1,0 +1,99 @@
+<div class="profile-container">
+  <div class="top-row">
+    <p class="greeting">Good Morning, Aditya</p>
+    <div class="top-actions">
+      <div class="help-large-box">
+        <div class="help-small-box">?</div>
+      </div>
+      <button class="wallet-btn">Wallet Money</button>
+      <i class="fas fa-bell notify"></i>
+      <img src="/assets/aaditya.jpg" alt="user" class="profile-pic" />
+    </div>
+  </div>
+
+  <div class="middle-row">
+    <span class="location">
+      <i class="fas fa-map-marker-alt"></i> Pune, Maharashtra
+    </span>
+    <div class="search-box">
+      <input type="text" placeholder="Search" />
+      <button class="menu-btn">☰</button>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
+      <i class="fa-solid fa-angle-left"></i> Back to Profile
+    </div>
+  </div>
+
+  <div class="profile">
+    <p>Profile</p>
+  </div>
+
+  <!-- Main Section -->
+  <div class="profile-section">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Account Settings
+        </li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Order History</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Payment Method</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Addresses</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Help Center</li>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Promocodes & Offers
+        </li>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Meal Plan
+          Subscription
+        </li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Invite Friends</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Privacy</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Logout</li>
+        <li><i class="fas fa-angle-right sidebar-arrow"></i> Delete Account</li>
+        <li>
+          <i class="fas fa-angle-right sidebar-arrow"></i> Your Subscription
+          Plan
+        </li>
+      </ul>
+    </div>
+
+    <div class="plan-details-wrapper">
+      <div class="plan-header-row">
+        <h2 class="section-title">Your current plan</h2>
+        <div class="pause-action">
+          <span class="pause-text">Resume your plan</span>
+          <button class="pause-btn">Resume</button>
+        </div>
+      </div>
+
+      <div class="plan-box monthly-plan-box">
+        <h3 class="plan-title">Monthly Plan</h3>
+        <ul class="plan-features">
+          <li>Priority delivery and guaranteed freshness</li>
+          <li>Access to weekly chef's specials and regional dishes</li>
+          <li>Option to track calories and view meal nutrition</li>
+          <li>Customizable Meal Options</li>
+          <li>Healthy & Balanced Nutrition</li>
+        </ul>
+      </div>
+
+      <div class="total-amount-box">
+        <p class="total-amount-text">
+          Total Amount Paid <span class="paid-amount"> 5000 Rs</span>
+        </p>
+        <p class="plan-type-text">Your Monthly Plan</p>
+      </div>
+
+      <p class="day-count">
+        Total days covered: <span class="day-value">15 days</span>
+      </p>
+      <p class="day-count">
+        Total days left: <span class="day-value">15 days</span>
+      </p>
+    </div>
+  </div>
+</div>

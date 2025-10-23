@@ -67,14 +67,24 @@
         >
           <i class="fas fa-angle-right sidebar-arrow"></i> Help Center
         </li>
-        <li>
+        <li
+          [routerLink]="['/promocode']"
+          routerLinkActive="active"
+          style="cursor: pointer"
+        >
           <i class="fas fa-angle-right sidebar-arrow"></i> Promocodes & Offers
         </li>
         <li>
           <i class="fas fa-angle-right sidebar-arrow"></i> Meal Plan
           Subscription
         </li>
-        <li><i class="fas fa-angle-right sidebar-arrow"></i> Invite Friends</li>
+        <li
+          [routerLink]="['/invitefriend']"
+          routerLinkActive="active"
+          style="cursor: pointer"
+        >
+          <i class="fas fa-angle-right sidebar-arrow"></i> Invite Friends
+        </li>
         <li
           [routerLink]="['/privacy']"
           routerLinkActive="active"
@@ -89,7 +99,21 @@
         >
           <i class="fas fa-angle-right sidebar-arrow"></i> Logout
         </li>
-        <li><i class="fas fa-angle-right sidebar-arrow"></i> Delete Account</li>
+        <li
+          [routerLink]="['/deleteaccount1']"
+          routerLinkActive="active"
+          style="cursor: pointer"
+        >
+          <i class="fas fa-angle-right sidebar-arrow"></i> Delete Account
+        </li>
+        <li
+          [routerLink]="['/subscriptionplan']"
+          routerLinkActive="active"
+          style="cursor: pointer"
+        >
+          <i class="fas fa-angle-right sidebar-arrow"></i> Your Subscription
+          Plan
+        </li>
 
         <!-- Dynamic Sidebar Items -->
         <li *ngFor="let item of sideBarItems">
@@ -103,12 +127,6 @@
           </p>
         </li>
       </ul>
-
-      <!-- Two Empty Boxes -->
-      <div class="empty-boxes">
-        <div class="empty-card"></div>
-        <div class="empty-card"></div>
-      </div>
     </div>
 
     <!-- Profile Details -->

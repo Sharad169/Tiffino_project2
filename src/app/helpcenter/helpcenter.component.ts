@@ -5,6 +5,6 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './helpcenter.component.html',
-  styleUrl: './helpcenter.component.css',
+  styleUrls: ['./helpcenter.component.css'],
 })
 export class HelpcenterComponent {}
