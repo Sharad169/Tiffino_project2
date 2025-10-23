@@ -148,8 +148,13 @@ export class UserSignInComponent {
         if (jwtToken) {
           sessionStorage.setItem('token', jwtToken);
         }
+
         console.log('OTP Verified:', res);
         sessionStorage.setItem('userId', res.userId);
+
+        console.log('OTP Verified:===', res);
+          sessionStorage.setItem('userId', res.userId);
+
         this.route.navigate(['/home']);
       },
       error: (err) => {

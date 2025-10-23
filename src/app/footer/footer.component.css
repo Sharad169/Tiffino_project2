@@ -12,7 +12,11 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+
   gap: 20px;
+
+  flex-wrap: wrap;
+
   margin-bottom: 36px;
   justify-content: space-between; /* keeps text left, store buttons right */
 }
@@ -31,8 +35,14 @@
 }
 
 .store-buttons img {
+
   width: 206px; /* adjust sizes if needed */
   height: 66px;
+
+  height: 50px;
+  margin-left: 25px;
+  margin-top: 10px;
+
   cursor: pointer;
   display: block;
 }
@@ -111,6 +121,7 @@
   align-items: flex-end;
   border-top: 1px solid #ddd;
   padding-top: 20px;
+
   width: 100%;
   box-sizing: border-box;
 }
@@ -120,6 +131,10 @@
   display: flex;
   align-items: center;
   gap: 24px;
+
+  gap: 70px;
+  flex-wrap: wrap;
+
 }
 
 /* City button */
@@ -131,6 +146,7 @@
   border-radius: 20px; /* CRITICAL: Use a very high radius for the pill shape */
   padding: 6px 16px;
   cursor: pointer;
+
   font-size: 15px; /* Adjust font size to match text size in the screenshot */
   font-weight: 400;
   /* Flex properties to align the text and the icon */
@@ -160,6 +176,10 @@
   height: 29px;
   font-weight: 700;
   font-size: 24px;
+
+  font-size: 14px;
+  margin-top: 10px;
+
 }
 /* Social icons */
 .social-icons a {
@@ -185,6 +205,7 @@
   }
 }
 
+
 @media (max-width: 768px) {
   .footer {
     padding: 24px 20px;
@@ -195,6 +216,12 @@
     align-items: flex-start;
     gap: 12px;
   }
+
+
+/* ---------------- Responsive ---------------- */
+
+/* Tablets */
+@media (max-width: 900px) {
 
   .footer-main {
     grid-template-columns: 1fr 1fr; /* two columns */
@@ -207,6 +234,7 @@
 
   .city-social-wrapper {
     flex-direction: column;
+
     align-items: center;
     gap: 12px;
   }
@@ -215,5 +243,75 @@
 @media (max-width: 420px) {
   .footer-main {
     grid-template-columns: 1fr; /* single column on very small screens */
+
+    gap: 16px;
+    align-items: center;
+  }
+
+  .store-buttons img {
+    height: 45px;
+    margin-left: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .footer {
+    padding: 30px 20px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .download-text {
+    font-size: 20px;
+  }
+
+  .store-buttons img {
+    height: 40px;
+    margin-left: 0;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .footer-column h2 {
+    font-size: 20px;
+  }
+
+  .footer-column h3 {
+    font-size: 14px;
+  }
+
+  .footer-column p,
+  .footer-column ul li a {
+    font-size: 13px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .city-btn {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+
+  .social-icons a {
+    font-size: 16px;
+    margin-right: 8px;
+  }
+
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+
   }
 }
