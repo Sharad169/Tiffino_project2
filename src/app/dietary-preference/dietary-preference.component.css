@@ -1,0 +1,170 @@
+/* Scrollable options container */
+.options-scrollbar {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  background-color: #f9f9f9;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  position: relative; /* scrolls with page */
+  z-index: 1000;
+}
+
+.options-container {
+  display: flex;
+  gap: 60px;
+  padding-left: 10px;
+}
+
+.option-btn {
+  flex: 0 0 auto;
+  min-width: 150px;
+  height: 50px;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.option-btn:hover,
+.option-btn.active {
+  background-color: #2f5d3f;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Hide scrollbar but allow scroll */
+.options-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.options-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Content sections */
+.content-section {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 0;
+  gap: 25px; /* Space between points */
+  padding-left: 100px; /* Left space for all options */
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between radio and textbox */
+  width: 100%;
+}
+
+/* Make option labels bold and neatly aligned */
+.option-item label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700; /* Bold text */
+}
+
+/* Text box styling */
+.input-box {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 500px; /* Change width here */
+  /* Optional responsive width: width: 100%; max-width: 300px; */
+}
+
+.input-box:focus {
+  border-color: #2f5d3f;
+}
+
+/* Next button styling */
+.next-btn {
+  margin-top: 20px;
+  margin-left: 100px; 
+  padding: 6px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2f5d3f;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.next-btn:hover {
+  background-color: #244c33;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .options-container {
+    gap: 25px;
+    padding-left: 10px;
+  }
+
+  .option-btn {
+    min-width: 120px;
+    height: 45px;
+    font-size: 13px;
+  }
+
+  .content-section {
+    padding-left: 20px;
+    margin-top: 25px;
+    gap: 20px; /* Reduce space for smaller screens */
+  }
+
+  .option-item label {
+    font-size: 14px;
+  }
+
+  .input-box {
+    width: 250px;
+    font-size: 14px;
+  }
+
+  .next-btn {
+    margin-left: 20px;
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .options-container {
+    gap: 15px;
+  }
+
+  .option-btn {
+    min-width: 100px;
+    font-size: 12px;
+    height: 40px;
+  }
+
+  .content-section {
+    padding-left: 15px;
+    gap: 15px;
+  }
+
+  .input-box {
+    width: 220px;
+    font-size: 13px;
+  }
+
+  .next-btn {
+    margin-left: 15px;
+    width: 90px;
+    font-size: 13px;
+  }
+}

@@ -31,7 +31,11 @@ import { DescriptionComponent } from './description/description.component';
 
 import { AddCardComponent } from './add-card/add-card.component';
 
+import { DietaryPreferenceComponent } from './dietary-preference/dietary-preference.component';
+
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+
+
 
 export const routes: Routes = [
   // Default page
@@ -129,6 +133,10 @@ export const routes: Routes = [
 
   //checkout page
   { path: 'checkout-page', component: CheckoutPageComponent },
+
+    //dietary-preference
+  { path: 'dietary-preference', component: DietaryPreferenceComponent },
+
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },

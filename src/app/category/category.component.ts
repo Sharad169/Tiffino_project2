@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';  
 
 @Component({
@@ -10,9 +11,7 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./category.component.css']   
 })
 export class CategoryComponent implements OnInit {
-  regionalCuisines: any[] = [];
   cuisines: any[] = [];
-
   cuisineOptions: string[] = [
     'North Indian',
     'South Indian',
@@ -24,7 +23,7 @@ export class CategoryComponent implements OnInit {
     'Kashmiri'
   ];
 
-  constructor(public api: AuthService) {}
+  constructor(public api: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.getByCategory('Regional');
@@ -34,19 +33,15 @@ export class CategoryComponent implements OnInit {
     this.api.getmealbycaterogy(category).subscribe((res: any) => { 
       this.cuisines = res;
       console.log(this.cuisines);
-    });
+    });67
   }
 
   filterCuisine(option: string): void {
     console.log('Selected Cuisine:', option);
-    // Optional: call API or filter logic here
   }
 
-  // ===== Add to Cart functionality using localStorage =====
-  addToCart(meal: any) {
+  addToCart(meal: any): void {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-
-    // Use meal.name as unique key if id is missing
     const existing = cart.find((item: any) => item.name === meal.name);
 
     if (existing) {
@@ -65,4 +60,20 @@ export class CategoryComponent implements OnInit {
     localStorage.setItem('cart', JSON.stringify(cart));
     alert(`${meal.name} added to cart!`);
   }
+
+  /** ✅ Scrolls the meal row smoothly to the right */
+  scrollRight(id: string): void {
+    const el = document.getElementById(id);
+    if (el) el.scrollBy({ left: 330, behavior: 'smooth' });
+  }
+
+  /** ✅ Navigates to cuisine detail page */
+  goToCuisineDetail(mealId: any): void {
+    this.router.navigate(['/cuisine-detail', mealId || 1]);
+  }
+
+  toggleLike(meal: any) {
+  meal.liked = !meal.liked;
+}
+
 }

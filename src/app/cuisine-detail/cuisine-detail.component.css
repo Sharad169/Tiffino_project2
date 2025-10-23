@@ -109,3 +109,34 @@ h2 {
     padding: 0 15px;
   }
 }
+/* Price & Add button inline layout */
+.price-add-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Price styling */
+.price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+}
+
+/* Add to Cart button styling */
+.add-btn {
+  background-color: #fff;
+  border: 2px solid #2e8b57;
+  color: #2e8b57;
+  border-radius: 25px;
+  padding: 5px 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #2e8b57;
+  color: #fff;
+}
