@@ -1,0 +1,260 @@
+/* Import Poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+ 
+/* General Container */
+.profile-container {
+  font-family: "Poppins", sans-serif;
+  margin: 0 80px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+ 
+/* Top Row */
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px 0 8px 250px;
+}
+ 
+.greeting {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
+ 
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+ 
+.wallet-btn {
+  height: 51px;
+  width: 171px;
+  background: #386341;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+ 
+.notify {
+  height: 48px;
+  width: 47px;
+  font-size: 20px;
+  color: #fff;
+  background: #386341;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+ 
+.profile-pic {
+  height: 48px;
+  width: 47px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+ 
+/* Middle Row */
+.middle-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+ 
+.location {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #386341;
+}
+ 
+.search-box {
+  height: 47px;
+  width: 510px;
+  display: flex;
+  gap: 6px;
+}
+ 
+.search-box input {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid #aaa;
+  font-size: 14px;
+}
+ 
+.menu-btn {
+  height: 47px;
+  width: 47px;
+  border: 2px solid #aaa;
+  background: #f9f9f9;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+/* Outer large box */
+.help-large-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 47px; /* height of large box */
+  width: 47px; /* width of large box */
+  top: 409px;
+  left: 1013px;
+  border: 2px solid rgba(162, 161, 161, 1);
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  padding: 5px; /* space for small box inside */
+  transition: background 0.2s;
+}
+ 
+/* Small box inside the large box */
+.help-small-box {
+  height: 18px;
+  width: 18px;
+  top: 3px;
+  left: 3px;
+  border: 2px solid rgba(145, 145, 145, 1);
+  border-radius: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(145, 145, 145, 1);
+  background-color: #fff;
+  transition: background 0.2s, color 0.2s;
+}
+ 
+/* Bottom Row */
+.bottom-row {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+ 
+.back-icon {
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  margin-top: 120px;
+}
+ 
+.back-link {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  margin-top: 50px;
+}
+ 
+/* Profile Title */
+.profile p {
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
+}
+ 
+/* Profile Section */
+.profile-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 0; /* optional spacing between sidebar and content */
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+ 
+/* Order details */
+.address-page {
+  width: 100%;
+  margin-left: 37px;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+ 
+.address-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 37px;
+}
+ 
+.address-btn button {
+  width: 266px;
+  height: 39px;
+  padding: 8px 16px;
+  background-color: rgba(56, 99, 65, 1);
+  border: none;
+  border-radius: 40px;
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+ 
+.address-card {
+  border-radius: 15px;
+  width: 100%;
+  background-color: #fff;
+  padding: 16px 16px; /* reduced top/bottom padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+}
+ 
+/* Name, details, phone */
+.address-card__name,
+.address-card__phone {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+}
+ 
+.address-card__details {
+  margin: 12px 0;
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+}
+ 
+/* Bottom row with phone and icons */
+.address-card__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* push bottom row to bottom */
+  padding-bottom: 4px; /* smaller gap from bottom border */
+}
+ 
+.address-card__icons {
+  display: flex;
+  gap: 16px;
+}
+ 
+.address-card__icon {
+  font-size: 22px;
+  cursor: pointer;
+  color: rgba(31, 31, 31, 1);
+  transition: color 0.3s;
+}
+ 

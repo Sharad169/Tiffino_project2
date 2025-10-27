@@ -3,52 +3,42 @@ import { UserService } from '../service/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+ 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule, SidebarComponent],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
   userEmail: string = 'aditya@gmail.com';
-  userData: any = {}; 
+  userData: any = {};
   selectedTabName: string = 'Account Settings';
-
-  sideBarItems = [
-    'Account Settings',
-    'Order History',
-    'Payment Method',
-    'Addresses',
-    'Help Center',
-    'Promocodes & Offers',
-    'Meal Plan Subscription',
-    'Invite Friends',
-    'Privacy',
-    'Logout',
-    'Delete Account'
-  ];
-
+ 
+  sideBarItems = [];
+ 
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
-    @Inject(PLATFORM_ID) private platformId: Object  // ✅ Detects Browser
+    @Inject(PLATFORM_ID) private platformId: Object // ✅ Detects Browser
   ) {}
-
+ 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.getUserDetails(+id);
     }
   }
-
+ 
   getUserDetails(id: number) {
     this.userService.getUserById(id).subscribe({
       next: (data) => {
         console.log('User data:', data);
         this.userData = data;
-
+ 
         // ✅ Use sessionStorage only in browser environment
         if (isPlatformBrowser(this.platformId) && this.userData?.name) {
           sessionStorage.setItem('userName', this.userData.name);
@@ -56,10 +46,10 @@ export class ProfileComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error fetching user:', err);
-      }
+      },
     });
   }
-
+ 
   bindFiled() {
     if (!this.userData) return;
     this.userData = {
@@ -69,9 +59,11 @@ export class ProfileComponent implements OnInit {
       dateOfBirth: this.userData.dateOfBirth,
     };
   }
-
+ 
   selectTab(tabName: string) {
     console.log('Selected Tab:', tabName);
     this.selectedTabName = tabName;
   }
 }
+ 
+ 

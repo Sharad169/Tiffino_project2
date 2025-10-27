@@ -35,6 +35,21 @@ import { DietaryPreferenceComponent } from './dietary-preference/dietary-prefere
 
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 
+import { OrderhistoryComponent } from './orderhistory/orderhistory.component';
+
+import { AddressPageComponent } from './address-page/address-page.component';
+
+import { HelpCenterComponent } from './helpcenter/helpcenter.component';
+
+import { PromocodeComponent } from './promocode/promocode.component';
+
+import { InvitefriendComponent } from './invitefriend/invitefriend.component';
+
+import { PrivacyComponent } from './privacy/privacy.component';
+
+import { Deleteaccount1Component } from './deleteaccount1/deleteaccount1.component';
+
+
 
 
 export const routes: Routes = [
@@ -127,6 +142,30 @@ export const routes: Routes = [
 
   //description
   { path: 'description', component: DescriptionComponent },
+
+  // profile
+   // orderhistory
+   { path: 'orderhistory', component: OrderhistoryComponent },
+
+    // address-page 
+   { path: 'address-page', component: AddressPageComponent },
+
+    // HelpCenter
+   { path: 'helpcenter', component: HelpCenterComponent },
+
+    // Promocode
+   { path: 'promocode', component: PromocodeComponent },
+
+    // Invitefriend
+    { path: 'invitefriend', component: InvitefriendComponent },
+
+    // Privacy
+    { path: 'privacy', component: PrivacyComponent },
+
+    // deleteaccount1
+    { path: 'deleteaccount1', component: Deleteaccount1Component },
+
+   
 
 //Add-card
 { path: 'add-card', component: AddCardComponent },
