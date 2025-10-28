@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
      const id = sessionStorage.getItem('userId');
-    const name = sessionStorage.getItem('userName');
+     const name = sessionStorage.getItem('userName');
 
     if (id) this.userId = +id;       // string → number
     if (name) this.userName = name;
@@ -29,7 +29,11 @@ export class HeaderComponent implements OnInit {
     } else {
       console.warn('⚠️ User ID not found in sessionStorage!');
     }
-  }
+    }
+
+    goToHome() {
+      this.router.navigate(['/home']);
+    } 
   
 
 

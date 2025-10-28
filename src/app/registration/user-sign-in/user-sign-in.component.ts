@@ -154,6 +154,7 @@ export class UserSignInComponent {
         }
         console.log('OTP Verified:===', res);
           sessionStorage.setItem('userId', res.userId);
+          sessionStorage.setItem('userName', res.name);
         this.route.navigate(['/home']);
       },
       error: (err) => {

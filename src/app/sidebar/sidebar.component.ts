@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
  
@@ -9,10 +9,16 @@ import { RouterModule, Router } from '@angular/router';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
   showPopup: boolean = false;
+  userName: string | null = '';
  
   constructor(private router: Router) {}
+
+
+  ngOnInit(): void {
+ this.userName= sessionStorage.getItem('userName');
+  }
  
   // Sidebar navigation functions
   navigateProfile() {
