@@ -213,15 +213,26 @@
   border-radius: 15px;
   width: 100%;
   background-color: #fff;
-  padding: 16px 16px; /* reduced top/bottom padding */
+  padding: 16px 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
   transition: box-shadow 0.3s;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+
+  /* 🟢 Add these lines */
+  margin-bottom: 25px; /* space between cards */
 }
- 
+
+.address-page {
+  width: 100%;
+  margin-left: 37px;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+  padding: 20px 30px; /* 🟢 add padding to overall section */
+}
+
 /* Name, details, phone */
 .address-card__name,
 .address-card__phone {
