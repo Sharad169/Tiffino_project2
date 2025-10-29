@@ -6,6 +6,7 @@ import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SuperadminSidebarComponent } from './superadmin-sidebar/superadmin-sidebar.component';
 
 @Component({
   selector: 'app-root',
@@ -72,7 +73,8 @@ export class AppComponent implements OnDestroy {
       '/',                  // login (root)
       '/verification-otp',  
       '/onboarding',       
-      '/welcome',           
+      '/welcome', 
+      '/superadmin-login',         
     ];
 
     const hideFragments = ['registration-section'];
