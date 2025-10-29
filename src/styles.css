@@ -1,6 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
-/* Reset browser default body margin & padding */
-body {
+/* === Remove unwanted right side space or scroll === */
+html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* 💡 stops horizontal scrolling */
+  box-sizing: border-box;
+}
+
+/* Ensure all elements respect box sizing */
+*, *::before, *::after {
+  box-sizing: inherit;
 }

@@ -49,6 +49,13 @@ import { PrivacyComponent } from './privacy/privacy.component';
 
 import { Deleteaccount1Component } from './deleteaccount1/deleteaccount1.component';
 
+// Super Admin
+import { CloudkitchenRegistrationComponent } from './cloudkitchen-registration/cloudkitchen-registration.component';
+
+import { SuperadminLoginComponent } from './superadmin-login/superadmin-login.component';
+
+import { ManagerRegistrationComponent } from './manager-registration/manager-registration.component';
+
 
 
 
@@ -175,6 +182,16 @@ export const routes: Routes = [
 
     //dietary-preference
   { path: 'dietary-preference', component: DietaryPreferenceComponent },
+
+  // Super Admin
+     // cloudkitchen-registration
+    { path: 'cloudkitchen-registration', component: CloudkitchenRegistrationComponent },
+
+    // superadmin-login
+    { path: 'superadmin-login', component: SuperadminLoginComponent },
+
+    // manager-registration
+     { path: 'manager-registration', component: ManagerRegistrationComponent },
 
 
   // Optional: redirect unknown paths to Welcome
