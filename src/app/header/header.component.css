@@ -1,11 +1,8 @@
 :host {
-  display: block;
-  width: 100%;
   position: relative;
-  left: 0;
-  top: 0;
-  margin: 0;
-  padding: 0;
+  left: -8px;
+  top: -8px;
+  width: calc(100% + 16px);
 }
 
 /* ---------------- Header ---------------- */
@@ -69,19 +66,8 @@
 .profile-name {
   font-size: 24px;
   display: flex;
-  align-items: center;
   justify-content: flex-end;
-  gap: 10px; 
-  cursor: pointer;
-  margin-right: 05px;
 }
-
-.profile-icon {
-  width: 24px;
-  height: 24px;
-  color: #fff;
-}
-
 
 /* Location row */
 .location {
@@ -242,4 +228,5 @@
     height: 48px;
     padding: 8px 12px;
   }
+ 
 }
