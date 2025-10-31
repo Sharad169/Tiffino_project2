@@ -55,6 +55,7 @@ import { CloudkitchenRegistrationComponent } from './cloudkitchen-registration/c
 import { SuperadminLoginComponent } from './superadmin-login/superadmin-login.component';
 
 import { ManagerRegistrationComponent } from './manager-registration/manager-registration.component';
+import { SuperadminsetpasswordComponent } from './superadminsetpassword/superadminsetpassword.component';
 
 
 
@@ -193,8 +194,24 @@ export const routes: Routes = [
     // manager-registration
      { path: 'manager-registration', component: ManagerRegistrationComponent },
 
+     //admin routes can be added here
+
+     { path: 'superadminsetpassword', component: SuperadminsetpasswordComponent },
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
-  
+
 ];
+
+export function shouldHideLayout(url: string): boolean {
+  // Hide header/footer for onboarding or verification-otp pages
+  return (
+    url === '/' ||
+    url === '' ||
+    url.startsWith('/onboarding') ||
+    url.startsWith('/verification-otp') ||
+    url.startsWith('/welcome') ||
+    url.startsWith('/superadminsetpassword')
+  );
+}
+
