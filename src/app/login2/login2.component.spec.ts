@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Deleteaccount2Component } from './deleteaccount2.component';
+import { Login2Component } from './login2.component';
 
-describe('Deleteaccount2Component', () => {
-  let component: Deleteaccount2Component;
-  let fixture: ComponentFixture<Deleteaccount2Component>;
+describe('Login2Component', () => {
+  let component: Login2Component;
+  let fixture: ComponentFixture<Login2Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Deleteaccount2Component]
+      imports: [Login2Component]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(Deleteaccount2Component);
+    fixture = TestBed.createComponent(Login2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

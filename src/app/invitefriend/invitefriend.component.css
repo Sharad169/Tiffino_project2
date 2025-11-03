@@ -153,6 +153,7 @@
   font-size: 16px;
   color: #000;
   cursor: pointer;
+  margin-top: 120px;
 }
 
 .back-link {
@@ -160,6 +161,7 @@
   font-weight: 500;
   color: #000;
   cursor: pointer;
+  margin-top: 50px;
 }
 
 /* Profile Title */
@@ -179,53 +181,13 @@
   margin-top: 10px;
 }
 
-.sidebar {
-  width: 399px;
-  height: 1005px;
-  background: #fafafa;
-  border: 1px solid rgba(0, 0, 0, 1);
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  padding: 52px;
-  margin: 2px 0;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar li {
-  display: flex;
-  align-items: center;
-  font-size: 18px;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 1);
-  margin-bottom: 36px;
-  gap: 10px;
-  cursor: pointer;
-
-  transition: background 0.2s;
-}
-
-.sidebar li:hover {
-  color: rgba(56, 99, 65, 1);
-  background: #f1f1f1;
-}
-
-.sidebar-arrow {
-  font-size: 25px;
-  color: rgba(31, 31, 31, 1);
-}
-
 /* Container for the entire component */
 .referral-container {
   width: 910px;
   height: 363px;
-  max-width: 1000px; /* Limit width for better layout control */
-  height: auto; /* Let content define height */
-  margin: -17px -90px 0 10px; /* Centers horizontally, adds top gap */
+  max-width: 1000px;
+  height: auto;
+  margin: -17px -90px 0 10px;
   padding: 20px;
   background-color: white;
   border-radius: 10px;
@@ -268,9 +230,9 @@
 /* Input and 'Copy Link' button group */
 .referral-actions {
   display: flex;
-  justify-content: center; /* Centers both horizontally */
+  justify-content: center;
   align-items: center;
-  gap: 10px; /* Space between input and button */
+  gap: 10px;
   margin-bottom: 20px;
   margin-left: 6px;
   width: 1200px;
@@ -339,10 +301,10 @@
   cursor: pointer;
   border: none;
   margin: 6px 0px 0px 5px;
-  line-height: 10px; /* Moves text slightly upward */
+  line-height: 10px;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Pushes text upward inside the button */
+  align-items: flex-start;
   padding-top: 17px;
 }
 
@@ -351,7 +313,6 @@
 }
 
 .social-share-box {
-  /* Layout and background */
   width: 868px;
   height: 140px;
   padding: 18px 25px;
@@ -360,20 +321,11 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-
-  /* Border to match screenshot's color/weight */
   border: 1px solid #000;
-
-  /* 💥 KEY CHANGE: Custom Border Radius 💥 */
-  /* Rounded top corners (e.g., 25px) */
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-
-  /* Straight/Square bottom corners (0px) */
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-
-  /* Positioning Adjustments */
   margin-left: 0;
   margin-top: 136px;
 }

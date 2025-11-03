@@ -1,16 +1,16 @@
-/* Container grid */
+/* ----------------------- Coupon Container ----------------------- */
 .coupon-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   margin: 100px 80px 0 80px;
-  gap: 50px 10px; /* 16px row gap, 24px column gap */
+  gap: 50px 10px; /* row gap 50px, column gap 10px */
 }
 
-/* Card styling */
+/* ----------------------- Coupon Card ----------------------- */
 .coupon-card {
-  width: 416px; /* Fixed width */
-  height: 600px; /* Total card height */
+  width: 416px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   border-radius: 12px;
@@ -28,73 +28,69 @@
   width: 416px;
   height: 322px;
   display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: center; /* vertical center */
+  justify-content: center;
+  align-items: center;
   font-size: 36px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 1);
+  color: #fff;
   text-align: center;
   border-radius: 10px;
 }
 
-/* Wrap header and body */
+/* Card content */
 .card-content {
-  width: 416px; /* Fixed width */
-  height: 302px; /* Remaining height */
+  width: 416px;
+  height: 302px;
   display: flex;
   flex-direction: column;
   background: #fff;
   border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* stronger shadow */
-  box-sizing: border-box;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   padding-left: 24px;
-  margin-top: -30px; /* Slight overlap on color-bar for better effect */
-  position: relative; /* Needed for shadow */
+  margin-top: -30px;
+  position: relative;
 }
 
-/* Header inside content */
+/* Header */
 .card-header {
   display: flex;
-  color: rgba(0, 0, 0, 1);
+  color: #000;
   font-weight: 600;
   font-size: 24px;
   margin-top: 55px;
   margin-bottom: 24px;
-  position: relative; /* make tag absolute inside this */
+  position: relative;
 }
 
 .tag {
-  position: absolute; /* absolute positioning */
-  top: -110%; /* adjust relative to header */
-  right: 24px; /* distance from right edge of header */
+  position: absolute;
+  top: -110%;
+  right: 24px;
   transform: translateY(-50%);
   width: 54px;
   height: 60px;
   background: black;
-  color: rgba(255, 255, 255, 1);
+  color: #fff;
   font-size: 16px;
   font-weight: 500;
   border-radius: 4px;
-
-  display: flex; /* use flexbox */
-  justify-content: center; /* horizontal center */
-  align-items: center; /* vertical center */
-  text-align: center; /* for multiple lines if any */
-  padding: 0; /* remove padding for perfect centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
 }
 
-/* Body inside content */
-
+/* Body */
 .card-body p {
   font-size: 20px;
   font-weight: 500;
-  color: rgba(0, 0, 0, 1);
+  color: #000;
 }
 
 .expiry p {
   font-size: 20px;
   font-weight: 500;
-  color: rgba(0, 0, 0, 1);
+  color: #000;
   margin-top: 44px;
   margin-bottom: 10px;
 }
@@ -108,4 +104,150 @@
 
 .expiry a:hover {
   text-decoration: underline;
+}
+
+/* ----------------------- Popup Overlay ----------------------- */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(5px);
+}
+
+/* ----------------------- Popup Card ----------------------- */
+.popup-card {
+  width: 400px;
+  height: 650px;
+  background: #55a852; /* default color, overridden dynamically */
+  border-radius: 25px;
+  color: #fff;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  font-weight: 500;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* horizontal center all children */
+  gap: 20px; /* vertical spacing between elements */
+  overflow: hidden;
+}
+
+/* Large side circles for ticket effect */
+.large-circle-left,
+.large-circle-right {
+  position: absolute;
+  top: 70%;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.large-circle-left {
+  left: -50px;
+}
+
+.large-circle-right {
+  right: -50px;
+}
+
+/* Popup logo */
+.popup-logo {
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+
+  margin-top: 10px;
+}
+
+/* Perforation dashed line */
+.coupon-separator {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 40px);
+  margin: 30px auto;
+  position: relative;
+  z-index: 5;
+}
+
+.dashed-line {
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.9) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  height: 3px;
+  width: 100%;
+  flex-grow: 1;
+  margin-left: -50px;
+  margin-right: -50px;
+}
+
+.coupon-separator::before,
+.coupon-separator::after {
+  content: none;
+}
+
+/* Coupon code section */
+.coupon-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-bottom: 30px;
+  margin-top: -10px;
+}
+
+.coupon-code {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-top: -10px;
+  margin-bottom: 30px;
+}
+
+/* ----------------------- Redeem Button ----------------------- */
+.redeem-btn {
+  font-size: 20px;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 1);
+  color: rgba(56, 99, 65, 1);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 190px; /* fixed width */
+  padding: 10px 25px;
+  height: auto;
+  margin-top: 0px; /* horizontal center */
+  display: block;
+  flex-shrink: 0; /* prevent flex from resizing the button */
+}
+
+.redeem-btn:hover {
+  background: #f0f0f0;
+}
+
+.validity-text {
+  font-size: 0.875rem;
+  color: #fff;
+  opacity: 0.9;
+  margin-top: -5px;
+  margin-bottom: 15px;
+  text-align: center;
 }

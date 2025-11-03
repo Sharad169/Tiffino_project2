@@ -1,0 +1,144 @@
+/* Use Poppins if not already loaded */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+.manager-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.manager-content {
+  flex-grow: 1;
+  padding-top: 330px;
+  padding-left: -70px;
+  margin-left: -970px;
+}
+
+/* container that holds fake select + popup */
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+  outline: none;
+}
+
+/* The long rounded select-like box */
+.fake-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 520px;
+  height: 46px;
+  padding: 0 18px;
+  border-radius: 12px;
+  border: 3px solid rgba(56, 99, 65, 1);
+  background: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.95);
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* label centered */
+.fake-select .label {
+  flex: 1;
+  text-align: center;
+}
+
+/* chevron on right; keep near edge */
+.fake-select .chev {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dropdown panel – positioned to the right side under the select */
+.dropdown-panel {
+  position: absolute;
+  top: calc(100% + 10px); /* a little gap below select */
+  left: 62%; /* push it toward right side like screenshot */
+  transform: translateX(-50%); /* center relative to that point */
+  width: 260px; /* compact menu width (as screenshot) */
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 6px 0;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+  transform-origin: top center;
+  z-index: 80;
+}
+
+/* show panel when container focused (keyboard) or hovered (mouse) */
+.dropdown-wrapper:focus-within .dropdown-panel,
+.dropdown-wrapper:hover .dropdown-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* each item */
+.dropdown-item {
+  padding: 12px 18px;
+  font-size: 15px;
+  color: rgba(31, 31, 31, 1);
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+/* hover state for items */
+.dropdown-item:hover {
+  background-color: rgba(224, 254, 228, 1); /* requested green highlight */
+}
+
+/* active/selected look same as hover (first item in screenshot is highlighted) */
+.dropdown-item.active {
+  background-color: rgba(224, 254, 228, 1);
+}
+
+/* subtle top highlight line as in screenshot: add a thin pale-green strip above first item */
+.dropdown-panel::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: calc(
+    100% - 6px - 60%
+  ); /* shorten to left align visually with screenshot top highlight */
+  height: 42px; /* height of first item */
+  /* background: rgba(224, 254, 228, 1); */
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 79;
+  opacity: 0.95;
+}
+
+/* remove the pseudo highlight when items not visible */
+.dropdown-wrapper:not(:hover) .dropdown-panel::before,
+.dropdown-wrapper:not(:focus-within) .dropdown-panel::before {
+  opacity: 0;
+}
+
+/* small responsive tweak */
+@media (max-width: 1000px) {
+  .fake-select {
+    width: 420px;
+    font-size: 16px;
+  }
+  .dropdown-panel {
+    left: 60%;
+    width: 240px;
+  }
+  .manager-content {
+    padding-left: 200px;
+    padding-top: 120px;
+  }
+}

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubsplanresumeComponent } from './subsplanresume.component';
+import { AddaddressComponent } from './addaddress.component';
 
-describe('SubsplanresumeComponent', () => {
-  let component: SubsplanresumeComponent;
-  let fixture: ComponentFixture<SubsplanresumeComponent>;
+describe('AddaddressComponent', () => {
+  let component: AddaddressComponent;
+  let fixture: ComponentFixture<AddaddressComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SubsplanresumeComponent]
+      imports: [AddaddressComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(SubsplanresumeComponent);
+    fixture = TestBed.createComponent(AddaddressComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

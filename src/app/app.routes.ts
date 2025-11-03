@@ -25,18 +25,19 @@ import { CoupenpageComponent } from './coupenpage/coupenpage.component';
 import { HelpcenterComponent } from './helpcenter/helpcenter.component';
 import { LogoutComponent } from './logout/logout.component';
 import { Deleteaccount1Component } from './deleteaccount1/deleteaccount1.component';
-import { Deleteaccount2Component } from './deleteaccount2/deleteaccount2.component';
+
 import { PrivacyComponent } from './privacy/privacy.component';
 import { PromocodeComponent } from './promocode/promocode.component';
 import { Itemdelevered2Component } from './itemdelevered2/itemdelevered2.component';
 import { WalletpageComponent } from './walletpage/walletpage.component';
 import { InvitefriendComponent } from './invitefriend/invitefriend.component';
 import { SubscriptionplanComponent } from './subscriptionplan/subscriptionplan.component';
-import { SubsplanresumeComponent } from './subsplanresume/subsplanresume.component';
+import { Login2Component } from './login2/login2.component';
+
 import { GetplanComponent } from './getplan/getplan.component';
 import { SubscriptionpageComponent } from './subscriptionpage/subscriptionpage.component';
 import { FinalpageComponent } from './finalpage/finalpage.component';
-
+import { ManagerregiComponent } from './managerregi/managerregi.component';
 import { DietarypreferenceComponent } from './dietarypreference/dietarypreference.component';
 
 import { ChineseMaunComponent } from './chinese-maun/chinese-maun.component';
@@ -53,6 +54,13 @@ import { DescriptionComponent } from './description/description.component';
 import { AddCardComponent } from './add-card/add-card.component';
 
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+import { ManagerinfoComponent } from './managerinfo/managerinfo.component';
+import { SuperadminchefComponent } from './superadminchef/superadminchef.component';
+import { SuperadmindelpartnerComponent } from './superadmindelpartner/superadmindelpartner.component';
+import { AddaddressComponent } from './addaddress/addaddress.component';
+import { ListemployeeComponent } from './listemployee/listemployee.component';
+import { SuperadminkitchenComponent } from './superadminkitchen/superadminkitchen.component';
+import { SuperadminsetpassswordComponent } from './superadminsetpasssword/superadminsetpasssword.component';
 
 export const routes: Routes = [
   // Default page
@@ -75,7 +83,10 @@ export const routes: Routes = [
 
   // Login / Registration
 
-  { path: 'login', component: UserSignInComponent },
+  { path: '', component: UserSignInComponent },
+
+  //Login2
+  { path: 'login2', component: Login2Component },
 
   // North page
 
@@ -154,9 +165,6 @@ export const routes: Routes = [
   //Deleteaccount1
   { path: 'deleteaccount1', component: Deleteaccount1Component },
 
-  //Deleteaccount2
-  { path: 'deleteaccount2', component: Deleteaccount2Component },
-
   //Itemdeleverd
   { path: 'itemdelivered', component: ItemdeliveredComponent },
 
@@ -178,9 +186,6 @@ export const routes: Routes = [
   //Subscriptionplan
   { path: 'subscriptionplan', component: SubscriptionplanComponent },
 
-  //Subsplanresume
-  { path: 'subsplanresume', component: SubsplanresumeComponent },
-
   //Getplan
   { path: 'getplan', component: GetplanComponent },
 
@@ -192,6 +197,31 @@ export const routes: Routes = [
 
   //Finalpage
   { path: 'finalpage', component: FinalpageComponent },
+
+  //ManagerRegi
+  { path: 'managerregi', component: ManagerregiComponent },
+
+  //Managerinfo
+  { path: 'managerinfo', component: ManagerinfoComponent },
+
+  //Superadminchef
+  { path: 'superadminchef', component: SuperadminchefComponent },
+
+  //Superadmindelpartner
+  { path: 'superadmindelpartner', component: SuperadmindelpartnerComponent },
+
+  //Addaddress
+  { path: 'addaddress', component: AddaddressComponent },
+
+  //ListEmployee
+  { path: 'listemployee', component: ListemployeeComponent },
+
+  //Superadminkitchen
+  { path: 'superadminkitchen', component: SuperadminkitchenComponent },
+
+  //Superadminsetpassword
+
+  { path: 'superadminsetpassword', component: SuperadminsetpassswordComponent },
 
   //Chinese Maun
   { path: 'chinese-maun', component: ChineseMaunComponent },

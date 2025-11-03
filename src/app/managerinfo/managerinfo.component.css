@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* Main Wrapper */
+.managerinfo-wrapper {
+  font-family: "Poppins", sans-serif;
+  margin-left: 480px;
+  margin-top: -365px;
+  padding-right: 100px;
+  max-width: 900px;
+}
+
+/* --------------------------------------------- */
+/* ✅ Dropdown (copied and matched to managerregi) */
+/* --------------------------------------------- */
+
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+  outline: none;
+  margin-bottom: 25px;
+}
+
+.fake-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 470px;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: 3px solid rgba(56, 99, 65, 1);
+  background: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+}
+
+.fake-select .label {
+  flex: 1;
+  text-align: center;
+}
+
+.dropdown-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 6px 0;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 150ms ease, transform 150ms ease;
+  transform-origin: top center;
+  z-index: 100;
+}
+
+/* Show dropdown on hover/focus */
+.dropdown-wrapper:focus-within .dropdown-panel,
+.dropdown-wrapper:hover .dropdown-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Dropdown item styling */
+.dropdown-item {
+  padding: 12px 18px;
+  font-size: 15px;
+  color: rgba(31, 31, 31, 1);
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+/* ✅ Replace blue hover with requested green tint */
+.dropdown-item:hover {
+  background-color: rgba(224, 254, 228, 1);
+}
+
+.dropdown-item.active {
+  background-color: rgba(224, 254, 228, 1);
+}
+
+/* --------------------------------------------- */
+/* Existing form styling below (unchanged) */
+/* --------------------------------------------- */
+
+.manager-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 400px;
+  height: 51px;
+  border: 1px solid rgba(162, 161, 161, 1);
+  border-radius: 20px;
+  padding: 0 10px;
+  outline: none;
+  font-size: 14px;
+  color: rgba(162, 161, 161, 1);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: rgba(56, 99, 65, 1);
+}
+
+label {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 500;
+}
+
+/* File Inputs */
+.file-group {
+  position: relative;
+}
+
+.file-group input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.custom-file-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  height: 51px;
+  border: 1px solid rgba(162, 161, 161, 1);
+  border-radius: 900px;
+  overflow: hidden;
+  position: relative;
+}
+
+.file-placeholder {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 13px;
+  color: #000000;
+}
+
+.custom-file-input::before {
+  content: "Choose File";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  height: 100%;
+  width: 30%;
+  background-color: rgba(230, 230, 230, 1);
+  border-right: 1px solid rgba(162, 161, 161, 1);
+}
+
+/* Address Boxes */
+.address-box {
+  width: 815px;
+  height: 70px;
+  border: 1px solid rgba(162, 161, 161, 1);
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-size: 24px;
+  color: rgba(162, 161, 161, 1);
+  outline: none;
+  resize: none;
+}
+
+/* Submit Button */
+.submit-row {
+  text-align: left;
+  margin-top: 56px;
+  margin-left: 330px;
+}
+
+button[type="submit"] {
+  width: 180px;
+  height: 57px;
+  background: rgba(56, 99, 65, 1);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}

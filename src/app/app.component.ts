@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { Sidebar2Component } from './sidebar2/sidebar2.component';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +17,8 @@ import { FooterComponent } from './footer/footer.component';
     RouterOutlet,
     HeaderComponent,
     FooterComponent,
+    SidebarComponent,
+    Sidebar2Component,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -48,7 +52,9 @@ export class AppComponent {
       url === '' ||
       url.startsWith('/onboarding') ||
       url.startsWith('/verification-code') ||
-      url.startsWith('/welcome')
+      url.startsWith('/welcome') ||
+      url.startsWith('/login2') ||
+      url.startsWith('/superadminsetpassword')
     );
 
     const hiddenRoutes = [

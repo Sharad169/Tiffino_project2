@@ -1,0 +1,231 @@
+/* Import Poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* --- Base Layout --- */
+:host {
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main-layout-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+/* LEFT PANEL: Sidebar Navigation */
+.sidebar-panel {
+  width: 300px;
+  padding: 30px 40px;
+  padding-top: 50px;
+  flex-shrink: 0;
+}
+
+.location-row {
+  display: flex;
+  align-items: center;
+  color: rgba(56, 99, 65, 1); /* Dark Green */
+  font-weight: 500;
+  font-size: 17px;
+  margin-top: 95px;
+  margin-left: 15px;
+}
+
+.location-row .fa-map-marker-alt {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.profile-section {
+  margin-bottom: 40px;
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* simple and elegant way */
+  color: rgba(31, 31, 31, 1);
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-right: 50px;
+  margin-left: 15px;
+}
+.back-icon {
+  width: 11px;
+  height: 20px;
+  font-size: 20px;
+  color: rgba(31, 31, 31, 1);
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+.profile-title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 30px;
+  color: rgba(0, 0, 0, 1);
+  margin-left: 18px;
+}
+
+/* Sidebar Navigation Links */
+.sidebar-nav .nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav .nav-item {
+  padding: 12px 15px;
+  margin-bottom: 28px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  font-weight: 500;
+  color: rgba(28, 27, 31, 1);
+  background-color: rgba(224, 254, 228, 0.9);
+  width: 342px;
+  height: 48px;
+  margin-left: 19px;
+}
+/* ... (Existing CSS remains unchanged) ... */
+
+/* Sidebar Navigation Links */
+/* ... (nav-list and default nav-item styles remain unchanged) ... */
+
+/* 💚 Active State Rule (Targeted by routerLinkActive) 💚 */
+.sidebar-nav .nav-item.active {
+  /* Background Color: rgba(56, 99, 65, 1) is equivalent to #386341 (Dark Green) */
+  background-color: rgba(56, 99, 65, 1);
+  /* Text Color: White */
+  color: rgba(255, 255, 255, 1);
+  width: 342px;
+  height: 48px;
+}
+
+/* 🎯 IMPORTANT: Ensure the nested <a> tag inherits the white color */
+.sidebar-nav .nav-item.active .nav-link {
+  color: inherit;
+}
+
+.sidebar-nav .nav-item:not(.active):hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* ... (Rest of the CSS remains unchanged) ... */
+.sidebar-nav .nav-item.active {
+  background-color: rgba(56, 99, 65, 1);
+  color: rgba(255, 255, 255, 1);
+  width: 342px;
+  height: 48px;
+}
+
+.sidebar-nav .nav-item:not(.active):hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.content-panel {
+  flex-grow: 1;
+  padding: 30px;
+  padding-left: 50px;
+}
+
+.header-top-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 100px;
+}
+
+.greeting {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  flex-grow: 1;
+  text-align: center;
+  margin-top: 50px;
+  margin-left: 10px;
+}
+
+.action-icons {
+  display: flex;
+  margin-right: 10px;
+  gap: 10px;
+  margin-left: 10px;
+  margin-bottom: -40px;
+}
+
+.help-large-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 47px;
+  width: 47px;
+  border: 2px solid rgba(162, 161, 161, 1);
+  border-radius: 12px;
+  margin-right: -50px;
+}
+
+.help-small-box {
+  height: 18px;
+  width: 18px;
+  border: 2px solid rgba(145, 145, 145, 1);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: rgba(145, 145, 145, 1);
+}
+
+.notification-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 47px;
+  background: #386341; /* Dark Green */
+  color: rgba(255, 255, 255, 1);
+  font-size: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 80px;
+}
+
+.search-row {
+  display: flex;
+  justify-content: flex-start; /* Align search bar left relative to content panel */
+  padding-left: 150px;
+  margin-top: 20px;
+}
+.search-box {
+  height: 47px;
+  width: 510px;
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid #aaa;
+  font-size: 14px;
+  pointer-events: auto;
+  background: transparent;
+}
+
+.menu-btn {
+  height: 47px;
+  width: 47px;
+  border: 2px solid #aaa;
+  background: #f9f9f9;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  pointer-events: auto;
+  background: transparent;
+}

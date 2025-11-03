@@ -144,19 +144,21 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  margin-top: 100px;
 }
 
 .back-link {
   font-size: 18px;
   font-weight: 500;
-  color: #000;
+  color: rgba(0, 0, 0, 1);
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .profile p {
   font-size: 32px;
   font-weight: 600;
-  color: #000;
+  color: rgba(0, 0, 0, 1);
   margin-bottom: 20px;
 }
 

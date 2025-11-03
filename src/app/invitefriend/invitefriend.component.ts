@@ -1,11 +1,12 @@
 import { Component, ElementRef, ViewChild } from '@angular/core'; // Import ViewChild and ElementRef
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-invitefriend',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, SidebarComponent],
   templateUrl: './invitefriend.component.html',
   styleUrls: ['./invitefriend.component.css'],
 })

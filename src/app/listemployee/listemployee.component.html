@@ -1,0 +1,29 @@
+<app-sidebar2></app-sidebar2>
+
+<div class="listemployee-wrapper">
+  <!-- Dropdown Section -->
+  <div class="dropdown-row">
+    <select class="employee-dropdown">
+      <option selected>List of Employee</option>
+      <option>List of Kitchen</option>
+      <option>Cloud Kitchen Registration</option>
+      <option>Registration Form</option>
+    </select>
+  </div>
+
+  <div class="employee-list">
+    <div class="employee-card" *ngFor="let emp of employees">
+      <div class="employee-photo"></div>
+      <div class="employee-details">
+        <h3 class="employee-name">{{ emp.name }}</h3>
+        <p class="employee-role">{{ emp.position }}</p>
+
+        <!-- Flex container for Kitchen ID and Employee ID -->
+        <div class="employee-id-row">
+          <p class="kitchen-id">Kitchen ID: {{ emp.kitchenId }}</p>
+          <p class="employee-id">Employee ID: {{ emp.employeeId }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

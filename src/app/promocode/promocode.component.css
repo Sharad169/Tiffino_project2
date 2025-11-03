@@ -146,11 +146,20 @@
   gap: 6px;
 }
 
+.back-icon {
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-top: 120px;
+}
+
 .back-link {
   font-size: 18px;
   font-weight: 500;
   color: #000;
   cursor: pointer;
+  margin-top: 50px;
 }
 
 .profile p {

@@ -152,6 +152,7 @@
   font-size: 16px;
   color: #000;
   cursor: pointer;
+  margin-top: 120px;
 }
 
 .back-link {
@@ -159,6 +160,7 @@
   font-weight: 500;
   color: #000;
   cursor: pointer;
+  margin-top: 50px;
 }
 
 /* Profile Title */
@@ -172,49 +174,13 @@
 /* Profile Section */
 .profile-section {
   display: flex;
-  height: 1004px;
+  height: 1005px;
   border: 1px solid rgba(0, 0, 0, 1);
-  border-radius: 15px;
+  border-left: none;
+  border-radius: 8px;
   overflow: hidden;
   background: #fff;
   margin-top: 10px;
-}
-
-/* Sidebar */
-.sidebar {
-  width: 350px;
-  background: #fafafa;
-  margin-left: 48px;
-  margin-top: 50px;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar li {
-  display: flex;
-  align-items: center;
-  font-size: 18px;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 1);
-  margin-bottom: 36px;
-  gap: 10px;
-  cursor: pointer;
-
-  transition: background 0.2s;
-}
-
-.sidebar li:hover {
-  color: rgba(56, 99, 65, 1);
-  background: #f1f1f1;
-}
-
-.sidebar-arrow {
-  font-size: 25px;
-  color: rgba(31, 31, 31, 1);
 }
 
 /* Profile Details */
@@ -222,7 +188,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  border-left: 2px solid rgba(0, 0, 0, 1);
+  border-left: none;
 }
 
 /* User Info */
@@ -257,7 +223,9 @@
 /* Account Form */
 .account-form {
   margin-left: 24px;
+  margin-right: 24px;
   margin-bottom: 21px;
+  margin-top: 100px;
 }
 
 .account-form h4 {
@@ -422,15 +390,6 @@ input:checked + .slider:before {
   overflow: hidden; /* keep border clean */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   z-index: 1;
-}
-
-/* Black sidebar line inside popup */
-.popup-sidebar {
-  width: 4px;
-
-  height: 100%;
-  border-top-left-radius: 35px;
-  border-bottom-left-radius: 35px;
 }
 
 /* ===== Popup Content ===== */

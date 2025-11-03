@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* === Main Wrapper === */
+.listkitchen-wrapper {
+  font-family: "Poppins", sans-serif;
+  margin-left: 450px;
+  margin-top: -220px;
+  padding-right: 100px;
+  max-width: 960px;
+}
+
+/* === Dropdown Filters === */
+.filter-row {
+  display: flex;
+  gap: 32px;
+  justify-content: flex-start;
+  margin-top: -370px;
+  margin-left: 30px;
+}
+.filter-dropdown {
+  width: 800px; /* increased from 500px */
+  height: 42px;
+  padding: 0 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  border: 3px solid #386341;
+  border-radius: 10px;
+
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="30" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="rgba(31,31,31,1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 30px;
+  outline: none;
+  text-align: center;
+}
+
+/* === Kitchen Grid === */
+.kitchen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px 30px;
+  margin-top: 40px;
+  margin-left: 30px;
+}
+
+/* === Kitchen Card === */
+.kitchen-card {
+  width: 400px;
+  height: 123px;
+  background-color: rgba(224, 254, 228, 0.4);
+  border: 1px solid rgba(162, 161, 161, 0.3);
+  border-radius: 15px;
+  box-shadow: 0 2px 6px #40985399;
+  padding: 15px 25px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kitchen-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 3px 8px #38794f;
+}
+
+/* === Text Styles === */
+.kitchen-card p {
+  margin: 4px 0;
+  color: #000;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.kitchen-id {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.kitchen-pin {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  font-weight: 500;
+}
+
+/* === Responsive Layout === */
+@media (max-width: 1090px) {
+  .listkitchen-wrapper {
+    margin-left: 450px;
+    max-width: 100%;
+  }
+
+  .filter-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .filter-dropdown {
+    width: 100%;
+  }
+
+  .kitchen-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kitchen-card {
+    width: 100%;
+  }
+}

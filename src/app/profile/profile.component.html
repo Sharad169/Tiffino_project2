@@ -1,32 +1,4 @@
 <div class="profile-container">
-  <!-- Top Row -->
-  <div class="top-row">
-    <p class="greeting">Good Morning, {{ userData.name }}</p>
-
-    <div class="top-actions">
-      <!-- Help Icon -->
-      <div class="help-large-box">
-        <div class="help-small-box">?</div>
-      </div>
-
-      <!-- Wallet & Notifications -->
-      <button class="wallet-btn">Wallet Money</button>
-      <i class="fas fa-bell notify"></i>
-      <img src="/assets/aaditya.jpg" alt="user" class="profile-pic" />
-    </div>
-  </div>
-
-  <!-- Middle Row -->
-  <div class="middle-row">
-    <span class="location">
-      <i class="fas fa-map-marker-alt"></i> Pune, Maharashtra
-    </span>
-    <div class="search-box">
-      <input type="text" placeholder="Search" />
-      <button class="menu-btn">☰</button>
-    </div>
-  </div>
-
   <!-- Bottom Row -->
   <div class="bottom-row">
     <i class="fa-solid fa-angle-left back-icon"></i>
@@ -40,94 +12,9 @@
 
   <!-- Main Section -->
   <div class="profile-section">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <ul>
-        <li>
-          <i class="fas fa-angle-right sidebar-arrow"></i> Account Settings
-        </li>
-        <li
-          [routerLink]="['/orderhistory']"
-          routerLinkActive="active"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-angle-right sidebar-arrow"></i> Order History
-        </li>
-        <li
-          [routerLink]="['/addresspage']"
-          routerLinkActive="active"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-angle-right sidebar-arrow"></i> Addresses
-        </li>
-        <li
-          [routerLink]="['/helpcenter']"
-          routerLinkActive="active"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-angle-right sidebar-arrow"></i> Help Center
-        </li>
-        <li
-          [routerLink]="['/promocode']"
-          routerLinkActive="active"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-angle-right sidebar-arrow"></i> Promocodes & Offers
-        </li>
-        <li>
-          <i class="fas fa-angle-right sidebar-arrow"></i> Meal Plan
-          Subscription
-        </li>
-        <li
-          [routerLink]="['/invitefriend']"
-          routerLinkActive="active"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-angle-right sidebar-arrow"></i> Invite Friends
-        </li>
-        <li
-          [routerLink]="['/privacy']"
-          routerLinkActive="active"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-angle-right sidebar-arrow"></i> Privacy
-        </li>
-        <li
-          [routerLink]="['/logout']"
-          routerLinkActive="active"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-angle-right sidebar-arrow"></i> Logout
-        </li>
-        <li
-          [routerLink]="['/deleteaccount1']"
-          routerLinkActive="active"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-angle-right sidebar-arrow"></i> Delete Account
-        </li>
-        <li
-          [routerLink]="['/subscriptionplan']"
-          routerLinkActive="active"
-          style="cursor: pointer"
-        >
-          <i class="fas fa-angle-right sidebar-arrow"></i> Your Subscription
-          Plan
-        </li>
-
-        <!-- Dynamic Sidebar Items -->
-        <li *ngFor="let item of sideBarItems">
-          <p
-            (click)="selectTab(item)"
-            [ngStyle]="{
-              color: selectedTabName === item ? '#386341' : 'black'
-            }"
-          >
-            <i class="fas fa-angle-right sidebar-arrow"></i> {{ item }}
-          </p>
-        </li>
-      </ul>
-    </div>
+    <!-- Sidebar Component -->
+    <app-sidebar></app-sidebar>
+    <!-- ✅ Sidebar only once -->
 
     <!-- Profile Details -->
     <div class="profile-details">
@@ -139,9 +26,6 @@
 
       <!-- Account Form -->
       <div class="account-form">
-        <h4>Account</h4>
-        <p class="desc">View and change your account preferences</p>
-
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name</label>
