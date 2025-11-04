@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-superadminsetpassword',
@@ -12,7 +13,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class SuperadminsetpasswordComponent implements OnInit {
   passwordForm!: FormGroup;
 
-    constructor(private fb: FormBuilder) {}
+    constructor(private fb: FormBuilder, public api : AdminService) {}
 
 
 ngOnInit() {
@@ -23,14 +24,27 @@ ngOnInit() {
     });
   }
 
-   onSubmit() {
+    onSubmit() {
+      const formValue = this.passwordForm.value;
+
+ const payload = {
+      email: formValue.email,
+      oldPassword: formValue.oldPassword,
+      
+      newPassword: formValue.newPassword, // map dateOfBirth correctly
+    };
+
     if (this.passwordForm.valid) {
-      console.log(this.passwordForm.value);
-     
+      this.api.loginAdmin(payload).subscribe({
+        next: (res) => console.log('✅ Password updated successfully', res),
+        error: (err) => console.error('❌ Error updating password', err)
+      });
+    } else {
+      this.passwordForm.markAllAsTouched();
     }
   }
 
     sendPassword() {
-    // Logic for sending password
+    
   }
 }
