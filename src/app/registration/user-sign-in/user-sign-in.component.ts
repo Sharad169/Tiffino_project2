@@ -103,6 +103,7 @@ export class UserSignInComponent {
 
 
   sendOtp(): void {
+    debugger
     const email = this.loginForm.get('email')?.value;
 
     this.api.sendOtp(email).subscribe({

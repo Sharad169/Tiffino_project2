@@ -197,6 +197,7 @@ export const routes: Routes = [
      //admin routes can be added here
 
      { path: 'superadminsetpassword', component: SuperadminsetpasswordComponent },
+     { path: 'superAdminLogin', component: SuperadminLoginComponent },
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
