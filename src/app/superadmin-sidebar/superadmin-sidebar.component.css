@@ -14,9 +14,7 @@
   width: 100%;
 }
  
-/* --------------------------------- */
 /* LEFT PANEL: Sidebar Navigation */
-/* --------------------------------- */
 .sidebar-panel {
   width: 300px;
   padding: 30px 40px;
@@ -87,31 +85,46 @@
   transition: background-color 0.2s, color 0.2s;
   font-weight: 500;
   color: rgba(28, 27, 31, 1);
-  /* Default background for non-active items */
-  background-color: #e0f8e0;
+  background-color: rgba(224, 254, 228, 0.9);
   width: 342px;
   height: 48px;
   margin-left: 19px;
 }
  
+/* 💚 Active State Rule (Targeted by routerLinkActive) 💚 */
 .sidebar-nav .nav-item.active {
-  background-color: #386341; /* Dark Green */
-  color: white;
+  /* Background Color: rgba(56, 99, 65, 1) is equivalent to #386341 (Dark Green) */
+  background-color: rgba(56, 99, 65, 1);
+  /* Text Color: White */
+  color: rgba(255, 255, 255, 1);
+  width: 342px;
+  height: 48px;
+}
+ 
+/* 🎯 IMPORTANT: Ensure the nested <a> tag inherits the white color */
+.sidebar-nav .nav-item.active .nav-link {
+  color: inherit;
+}
+ 
+.sidebar-nav .nav-item:not(.active):hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+/* ... (Rest of the CSS remains unchanged) ... */
+.sidebar-nav .nav-item.active {
+  background-color: rgba(56, 99, 65, 1);
+  color: rgba(255, 255, 255, 1);
   width: 342px;
   height: 48px;
 }
  
 .sidebar-nav .nav-item:not(.active):hover {
-  background-color: #cff7cf; /* Slightly darker light green on hover */
+  background-color: rgba(255, 255, 255, 1);
 }
  
-/* --------------------------------- */
-/* RIGHT PANEL: Header & Search Area */
-/* --------------------------------- */
 .content-panel {
   flex-grow: 1;
   padding: 30px;
-  /* Adjust this padding to visually align content correctly */
   padding-left: 50px;
 }
  
@@ -119,13 +132,13 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 100px; /* Space on the right for icons */
+  padding-right: 100px;
 }
  
 .greeting {
   font-size: 16px;
   font-weight: 500;
-  color: #000;
+  color: rgba(0, 0, 0, 1);
   flex-grow: 1;
   text-align: center;
   margin-top: 50px;
@@ -148,7 +161,6 @@
   width: 47px;
   border: 2px solid rgba(162, 161, 161, 1);
   border-radius: 12px;
-  background-color: #f9f9f9;
   margin-right: -50px;
 }
  
@@ -162,7 +174,6 @@
   justify-content: center;
   font-size: 14px;
   color: rgba(145, 145, 145, 1);
-  background-color: #fff;
 }
  
 .notification-circle {
@@ -172,7 +183,7 @@
   height: 48px;
   width: 47px;
   background: #386341; /* Dark Green */
-  color: #fff;
+  color: rgba(255, 255, 255, 1);
   font-size: 18px;
   border-radius: 50%;
   cursor: pointer;
@@ -214,3 +225,5 @@
   pointer-events: auto;
   background: transparent;
 }
+ 
+ 

@@ -20,27 +20,31 @@ export class SuperadminLoginComponent {
   constructor(private loginService: AdminService, public router: Router ) {}
 
   onLogin() {
-    if (!this.email || !this.password) {
-      alert('Please enter both email and password');
-      return;
-    }
-
-    this.loginService.login(this.email, this.password).subscribe({
-      next: (res) => {
-        console.log('Login successful:', res);
-        alert('Login successful!');
-        this.router.navigate(['/home']);
-
-          if (res.token) {
-          localStorage.setItem('accessToken', res.token); 
-        }
-        // You can store token or redirect here
-        // localStorage.setItem('adminData', JSON.stringify(res));
-      },
-      error: (err) => {
-        console.error('Login failed:', err);
-        alert('Invalid email or password');
-      }
-    });
+  if (!this.email || !this.password) {
+    alert('Please enter both email and password');
+    return;
   }
+
+  this.loginService.login(this.email, this.password).subscribe({
+    next: (res) => {
+      console.log('Login successful:', res);
+
+      // ✅ Check if token exists in response
+      if (res && res.token) {
+        sessionStorage.setItem('token', res.token); // ✅ Store token
+        console.log('Token stored in sessionStorage:', res.token);
+      } else {
+        console.warn('No token received from server');
+      }
+
+      alert('Login successful!');
+      this.router.navigate(['/home']); // ✅ Redirect to home page
+    },
+    error: (err) => {
+      console.error('Login failed:', err);
+      alert('Invalid email or password');
+    }
+  });
+}
+
 }
