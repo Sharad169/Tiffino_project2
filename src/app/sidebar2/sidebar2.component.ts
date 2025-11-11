@@ -45,7 +45,10 @@ export class Sidebar2Component {
   subscriberListRoutes = ['/superadminsubscriberlist'];
 
   //Superadminaddingmeal route
-  superadminaddingmeal = ['/superadminaddingcuisine', '/superadminmeal'];
+  superadminaddingmeal = ['/superadminmeal'];
+
+  //Superadmincoupanpage route
+  superadmincoupanpage = ['/superadmincoupanpage'];
 
   constructor(private location: Location, private router: Router) {}
 
@@ -94,5 +97,9 @@ export class Sidebar2Component {
   isSuperadminaddingmealActive(): boolean {
     const currentUrl = this.router.url;
     return this.superadminaddingmeal.some((r) => currentUrl.startsWith(r));
+  }
+  isSuperadmincoupanpageActive(): boolean {
+    const currentUrl = this.router.url;
+    return this.superadmincoupanpage.some((r) => currentUrl.startsWith(r));
   }
 }

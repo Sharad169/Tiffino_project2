@@ -21,7 +21,7 @@ import { HydrabadiComponent } from './hydrabadi/hydrabadi.component';
 import { GoaComponent } from './goa/goa.component';
 import { ChineseMaunComponent } from './chinese-maun/chinese-maun.component';
 import { InternationalMenuComponent } from './international-menu/international-menu.component';
-import { CuisineDetailComponent } from './cuisine-detail/cuisine-detail.component';
+//import { CuisineDetailComponent } from './cuisine-detail/cuisine-detail.component';
 import { CategoryComponent } from './category/category.component';
 
 // ===== User & Profile Pages =====
@@ -75,10 +75,11 @@ import { SuperadmindelpartnereditpageComponent } from './superadmindelpartneredi
 import { SuperadmincloudkitchenComponent } from './superadmincloudkitchen/superadmincloudkitchen.component';
 import { SuperadminsubscriberlistComponent } from './superadminsubscriberlist/superadminsubscriberlist.component';
 import { SuperadminmanagerlistComponent } from './superadminmanagerlist/superadminmanagerlist.component';
-import { SuperadminaddingcuisineComponent } from './superadminaddingcuisine/superadminaddingcuisine.component';
+
 import { SuperadmincheflistComponent } from './superadmincheflist/superadmincheflist.component';
 import { SuperadmindelpartnerlistComponent } from './superadmindelpartnerlist/superadmindelpartnerlist.component';
 import { SuperadminmealComponent } from './superadminmeal/superadminmeal.component';
+import { SuperadmincoupanpageComponent } from './superadmincoupanpage/superadmincoupanpage.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -106,7 +107,7 @@ export const routes: Routes = [
   { path: 'goa', component: GoaComponent },
   { path: 'chinese-maun', component: ChineseMaunComponent },
   { path: 'international-menu', component: InternationalMenuComponent },
-  { path: 'cuisine-detail/:id', component: CuisineDetailComponent },
+  //{ path: 'cuisine-detail/:id', component: CuisineDetailComponent },
   { path: 'category/:category', component: CategoryComponent },
 
   // ===== User & Order Pages =====
@@ -147,7 +148,10 @@ export const routes: Routes = [
   { path: 'superadmindelpartner', component: SuperadmindelpartnerComponent },
   { path: 'listemployee', component: ListemployeeComponent },
   { path: 'superadminkitchen', component: SuperadminkitchenComponent },
-  { path: 'superadminsetpassword', component: SuperadminsetpassswordComponent },
+  {
+    path: 'superadminsetpasssword',
+    component: SuperadminsetpassswordComponent,
+  },
   {
     path: 'superadminkitchendetails',
     component: SuperadminkitchendetailsComponent,
@@ -183,16 +187,14 @@ export const routes: Routes = [
     component: SuperadminsubscriberlistComponent,
   },
   { path: 'superadminmanagerlist', component: SuperadminmanagerlistComponent },
-  {
-    path: 'superadminaddingcuisine',
-    component: SuperadminaddingcuisineComponent,
-  },
+
   { path: 'superadmincheflist', component: SuperadmincheflistComponent },
   {
     path: 'superadmindelpartnerlist',
     component: SuperadmindelpartnerlistComponent,
   },
   { path: 'superadminmeal', component: SuperadminmealComponent },
+  { path: 'superadmincoupanpage', component: SuperadmincoupanpageComponent },
 
   // ===== Fallback =====
   { path: '**', redirectTo: '' },

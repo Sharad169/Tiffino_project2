@@ -86,6 +86,7 @@ export class AppComponent implements OnDestroy {
 
     const hideRoutes = [
       '/', // login
+      '/login',
       '/verification-otp',
       '/onboarding',
       '/welcome',
