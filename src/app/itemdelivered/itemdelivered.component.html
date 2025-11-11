@@ -3,7 +3,8 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 />
 
-<div class="order-container">
+<!-- ✅ Wrap entire page in a blur container -->
+<div class="order-container" [class.blur]="showPopup">
   <!-- Top Summary Bar -->
   <div class="order-summary-bar">
     <div>
@@ -26,7 +27,7 @@
 
   <!-- Order Status -->
   <div class="order-status">
-    <h3>Order Status: <span>Order Placed</span></h3>
+    <h3>Order Status: <span>Delivered</span></h3>
     <p class="estimated">Estimated Delivery ~ 12:30 P.M</p>
 
     <!-- Progress Bar -->
@@ -40,7 +41,7 @@
 
       <div class="progress-step completed">
         <div class="circle"><i class="fa-solid fa-check"></i></div>
-        <p>At Pickup PointL</p>
+        <p>At Pickup Point</p>
       </div>
 
       <div class="progress-step completed">
@@ -61,7 +62,6 @@
   </div>
 
   <!-- DELIVERY PARTNER -->
-
   <div class="delivery-partner">
     <div>
       <h4>Rahul is your Delivery Partner</h4>
@@ -84,16 +84,15 @@
           <div class="order-confirmed">
             <h4>Your Order is Delivered</h4>
             <p>
-              We,ve accepted your order it’s getting ready.The confirmation
-              email has been sent to your origin email id.Come back to this page
-              for updates to your order.
+              We’ve accepted your order, it’s getting ready. The confirmation
+              email has been sent to your registered email ID. Come back to this
+              page for updates.
             </p>
           </div>
         </div>
 
-        <!-- CUSTOMER INFO + BILLING + PAYMENT SIDE BY SIDE -->
+        <!-- CUSTOMER INFO + BILLING + PAYMENT -->
         <div class="customer-billing">
-          <!-- LEFT COLUMN -->
           <div class="left-column">
             <h4>Customer Information</h4>
             <p>
@@ -103,7 +102,6 @@
             </p>
           </div>
 
-          <!-- RIGHT COLUMN -->
           <div class="right-column">
             <div class="billing">
               <p>
@@ -137,7 +135,6 @@
           </div>
         </div>
 
-        <!-- BOXES -->
         <div class="border-boxes">
           <div class="box">
             <p>X1 Jalebi Falooda</p>
@@ -152,7 +149,6 @@
             <span>Rs 100</span>
           </div>
 
-          <!-- PRICE DETAILS -->
           <div class="price-details">
             <p>Delivery <span>Rs 10</span></p>
             <p class="with-border discount">Discount <span>- Rs 10</span></p>
@@ -163,5 +159,58 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ✅ Feedback Popup -->
+<div class="feedback-popup" *ngIf="showPopup">
+  <div class="popup-card">
+    <div class="popup-check"><i class="fa-solid fa-check"></i></div>
+    <h2>Thank You!</h2>
+    <p class="subtitle">You got your food Delivered</p>
+
+    <div class="popup-underline-text">— — — — — — — — — — —</div>
+
+    <div class="rating-section">
+      <p class="q">
+        How would you rate your experience at <strong>Shidori?</strong>:
+      </p>
+      <div class="stars">
+        <i
+          *ngFor="let s of [1, 2, 3, 4]"
+          class="fa-star"
+          [ngClass]="{
+            'fa-solid': experienceRating >= s,
+            'fa-regular': experienceRating < s
+          }"
+          (click)="setExperienceRating(s)"
+        ></i>
+      </div>
+
+      <p class="q">
+        How would you rate our Delivery Partner <strong>Shidori?</strong>
+      </p>
+      <div class="stars">
+        <i
+          *ngFor="let s of [1, 2, 3, 4]"
+          class="fa-star"
+          [ngClass]="{
+            'fa-solid': deliveryRating >= s,
+            'fa-regular': deliveryRating < s
+          }"
+          (click)="setDeliveryRating(s)"
+        ></i>
+      </div>
+    </div>
+
+    <textarea
+      placeholder="Write your comment..."
+      [(ngModel)]="comment"
+    ></textarea>
+    <button class="submit-btn" (click)="submitFeedback()">Submit</button>
+    <p class="note">
+      Your Ratings will help other privilege members in discovering better
+      places.
+    </p>
   </div>
 </div>

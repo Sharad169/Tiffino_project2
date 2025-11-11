@@ -61,6 +61,21 @@ import { AddaddressComponent } from './addaddress/addaddress.component';
 import { ListemployeeComponent } from './listemployee/listemployee.component';
 import { SuperadminkitchenComponent } from './superadminkitchen/superadminkitchen.component';
 import { SuperadminsetpassswordComponent } from './superadminsetpasssword/superadminsetpasssword.component';
+import { SuperadminkitchendetailsComponent } from './superadminkitchendetails/superadminkitchendetails.component';
+import { SuperadminmanagerdetailsComponent } from './superadminmanagerdetails/superadminmanagerdetails.component';
+import { SuperadminchefdetailsComponent } from './superadminchefdetails/superadminchefdetails.component';
+import { SuperadmindelpartnerdetailsComponent } from './superadmindelpartnerdetails/superadmindelpartnerdetails.component';
+import { SuperadmineditlistComponent } from './superadmineditlist/superadmineditlist.component';
+import { SuperadminmanagereditpageComponent } from './superadminmanagereditpage/superadminmanagereditpage.component';
+import { SuperadminchefeditpageComponent } from './superadminchefeditpage/superadminchefeditpage.component';
+import { SuperadmindelpartnereditpageComponent } from './superadmindelpartnereditpage/superadmindelpartnereditpage.component';
+import { SuperadmincloudkitchenComponent } from './superadmincloudkitchen/superadmincloudkitchen.component';
+import { SuperadminsubscriberlistComponent } from './superadminsubscriberlist/superadminsubscriberlist.component';
+import { SuperadminmanagerlistComponent } from './superadminmanagerlist/superadminmanagerlist.component';
+import { SuperadminaddingcuisineComponent } from './superadminaddingcuisine/superadminaddingcuisine.component';
+import { SuperadmincheflistComponent } from './superadmincheflist/superadmincheflist.component';
+import { SuperadmindelpartnerlistComponent } from './superadmindelpartnerlist/superadmindelpartnerlist.component';
+import { SuperadminmealComponent } from './superadminmeal/superadminmeal.component';
 
 export const routes: Routes = [
   // Default page
@@ -201,6 +216,12 @@ export const routes: Routes = [
   //ManagerRegi
   { path: 'managerregi', component: ManagerregiComponent },
 
+  //Superadmincloudkitchen
+  {
+    path: 'superadmincloudkitchen',
+    component: SuperadmincloudkitchenComponent,
+  },
+
   //Managerinfo
   { path: 'managerinfo', component: ManagerinfoComponent },
 
@@ -216,12 +237,80 @@ export const routes: Routes = [
   //ListEmployee
   { path: 'listemployee', component: ListemployeeComponent },
 
+  //Superadminmanagerlist
+  { path: 'superadminmanagerlist', component: SuperadminmanagerlistComponent },
+
+  //Superadmincheflist
+  { path: 'superadmincheflist', component: SuperadmincheflistComponent },
+
+  //Superadmindelpartnerlist
+  {
+    path: 'superadmindelpartnerlist',
+    component: SuperadmindelpartnerlistComponent,
+  },
+
   //Superadminkitchen
   { path: 'superadminkitchen', component: SuperadminkitchenComponent },
 
   //Superadminsetpassword
-
   { path: 'superadminsetpassword', component: SuperadminsetpassswordComponent },
+
+  //Superadminkitchendetails
+  {
+    path: 'superadminkitchendetails',
+    component: SuperadminkitchendetailsComponent,
+  },
+
+  //Superadminmanagerdetails
+  {
+    path: 'superadminmanagerdetails',
+    component: SuperadminmanagerdetailsComponent,
+  },
+
+  //Superadminchefdetails
+  { path: 'superadminchefdetails', component: SuperadminchefdetailsComponent },
+
+  //Superadmindelpartnerdetails
+  {
+    path: 'superadmindelpartnerdetails',
+    component: SuperadmindelpartnerdetailsComponent,
+  },
+
+  //Superadmineditlist
+  { path: 'superadmineditlist', component: SuperadmineditlistComponent },
+
+  //Superadminmanagereditpage
+  {
+    path: 'superadminmanagereditpage',
+    component: SuperadminmanagereditpageComponent,
+  },
+
+  //Superadminchefeditpage
+  {
+    path: 'superadminchefeditpage',
+    component: SuperadminchefeditpageComponent,
+  },
+
+  //Superadmindelpartnereditpage
+  {
+    path: 'superadmindelpartnereditpage',
+    component: SuperadmindelpartnereditpageComponent,
+  },
+
+  //Superadminsubscriberlist
+  {
+    path: 'superadminsubscriberlist',
+    component: SuperadminsubscriberlistComponent,
+  },
+
+  //Superadminaddingcuisine
+  {
+    path: 'superadminaddingcuisine',
+    component: SuperadminaddingcuisineComponent,
+  },
+
+  //Superadminmeal
+  { path: 'superadminmeal', component: SuperadminmealComponent },
 
   //Chinese Maun
   { path: 'chinese-maun', component: ChineseMaunComponent },

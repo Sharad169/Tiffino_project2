@@ -1,0 +1,81 @@
+<app-sidebar2></app-sidebar2>
+
+<!-- ===== Main Form Section ===== -->
+<div class="form-section">
+  <!-- Top Buttons -->
+  <div class="top-buttons">
+    <button class="btn-filled">Add Meal</button>
+    <button class="btn-outline">Add Cuisine</button>
+  </div>
+
+  <!-- Form -->
+  <div class="form-wrapper">
+    <form class="cuisine-form">
+      <!-- Meal Name & Cuisine Name -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="mealName">Meal Name</label>
+          <input type="text" id="mealName" />
+        </div>
+
+        <div class="form-group">
+          <label for="cuisineName">Cuisine Name</label>
+          <input type="text" id="cuisineName" />
+        </div>
+      </div>
+
+      <!-- Health & Nutrition & Allergens -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="healthNutrition">Health & Nutrition</label>
+          <input type="text" id="healthNutrition" />
+        </div>
+
+        <div class="form-group">
+          <label for="allergens">Allergens</label>
+          <input type="text" id="allergens" />
+        </div>
+      </div>
+
+      <!-- Amount & Meal Type -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="text" id="amount" />
+        </div>
+
+        <div class="form-group">
+          <label for="mealType">Meal Type</label>
+          <div class="dropdown-wrapper" tabindex="0">
+            <button type="button" class="fake-select"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cuisine Image -->
+      <div class="form-row">
+        <div class="form-group full">
+          <label for="cuisineImage">Cuisine Image</label>
+          <div class="file-upload">
+            <input type="file" id="cuisineImage" />
+            <label for="cuisineImage" class="choose-btn">Choose File</label>
+            <span class="file-name">No file chosen</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="form-row">
+        <div class="form-group full">
+          <label for="description">Description</label>
+          <input type="text" id="description" />
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="submit-row">
+        <button type="submit" class="submit-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

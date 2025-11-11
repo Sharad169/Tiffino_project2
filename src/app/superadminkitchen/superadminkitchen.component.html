@@ -1,25 +1,72 @@
 <app-sidebar2></app-sidebar2>
 
 <div class="listkitchen-wrapper">
-  <!-- Dropdown Filters -->
+  <!-- Custom Dropdown Filters (click-to-open) -->
   <div class="filter-row">
-    <select class="filter-dropdown">
-      <option selected>Status</option>
-      <option>Active</option>
-      <option>Inactive</option>
-      <option>Pending</option>
-    </select>
+    <!-- Status Dropdown -->
+    <div class="custom-dropdown">
+      <button
+        type="button"
+        class="dropdown-btn"
+        (click)="toggleStatus($event)"
+        aria-haspopup="listbox"
+        [attr.aria-expanded]="isStatusOpen"
+      >
+        <span>{{ selectedStatus || "Status" }}</span>
+        <i class="fa-solid fa-caret-down"></i>
+      </button>
 
-    <select class="filter-dropdown">
-      <option selected>Select State</option>
-      <option>Maharashtra</option>
-      <option>Karnataka</option>
-      <option>Delhi</option>
-      <option>Tamil Nadu</option>
-    </select>
+      <ul
+        class="dropdown-list"
+        role="listbox"
+        [class.open]="isStatusOpen"
+        (click)="$event.stopPropagation()"
+      >
+        <li
+          *ngFor="let opt of statusOptions"
+          (click)="selectStatus(opt.label, $event)"
+          class="dropdown-item"
+          role="option"
+          [attr.aria-selected]="selectedStatus === opt.label"
+        >
+          {{ opt.label }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- State Dropdown -->
+    <div class="custom-dropdown">
+      <button
+        type="button"
+        class="dropdown-btn"
+        (click)="toggleState($event)"
+        aria-haspopup="listbox"
+        [attr.aria-expanded]="isStateOpen"
+      >
+        <span>{{ selectedState || "Select State" }}</span>
+        <i class="fa-solid fa-caret-down"></i>
+      </button>
+
+      <ul
+        class="dropdown-list"
+        role="listbox"
+        [class.open]="isStateOpen"
+        (click)="$event.stopPropagation()"
+      >
+        <li
+          *ngFor="let opt of stateOptions"
+          (click)="selectState(opt.label, $event)"
+          class="dropdown-item"
+          role="option"
+          [attr.aria-selected]="selectedState === opt.label"
+        >
+          {{ opt.label }}
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <!-- Kitchen Cards Grid -->
+  <!-- Kitchen Grid (kept minimal for demo) -->
   <div class="kitchen-grid">
     <div class="kitchen-card">
       <p class="kitchen-id">Kitchen ID: SHD101</p>
@@ -44,64 +91,56 @@
 
     <div class="kitchen-card">
       <p class="kitchen-id">Kitchen ID: SHD104</p>
+      <p>State:Delhi</p>
+      <p>City: Delhi NCR</p>
+      <p class="kitchen-pin">PIN: 560102</p>
+    </div>
+    <div class="kitchen-card">
+      <p class="kitchen-id">Kitchen ID: SHD105</p>
       <p>State: Telangana</p>
       <p>City: Hyderabad</p>
       <p class="kitchen-pin">PIN: 500032</p>
     </div>
-
-    <div class="kitchen-card">
-      <p class="kitchen-id">Kitchen ID: SHD105</p>
-      <p>State: Tamil Nadu</p>
-      <p>City: Chennai</p>
-      <p class="kitchen-pin">PIN: 600042</p>
-    </div>
-
     <div class="kitchen-card">
       <p class="kitchen-id">Kitchen ID: SHD106</p>
       <p>State: Maharashtra</p>
       <p>City: Pune</p>
       <p class="kitchen-pin">PIN: 411001</p>
     </div>
-
     <div class="kitchen-card">
       <p class="kitchen-id">Kitchen ID: SHD107</p>
-      <p>State: Gujarat</p>
+      <p>State: Gujrat</p>
       <p>City: Ahmedabad</p>
       <p class="kitchen-pin">PIN: 380009</p>
     </div>
-
     <div class="kitchen-card">
       <p class="kitchen-id">Kitchen ID: SHD108</p>
       <p>State: Rajasthan</p>
       <p>City: Jaipur</p>
       <p class="kitchen-pin">PIN: 302018</p>
     </div>
-
+    <div class="kitchen-card">
+      <p class="kitchen-id">Kitchen ID: SHD108</p>
+      <p>State: Rajasthan</p>
+      <p>City: Jaipur</p>
+      <p class="kitchen-pin">PIN: 302018</p>
+    </div>
     <div class="kitchen-card">
       <p class="kitchen-id">Kitchen ID: SHD109</p>
       <p>State: Uttar Pradesh</p>
       <p>City: Lucknow</p>
       <p class="kitchen-pin">PIN: 226021</p>
     </div>
-
     <div class="kitchen-card">
       <p class="kitchen-id">Kitchen ID: SHD110</p>
-      <p>State: Madhya Pradesh</p>
+      <p>State: adhya Pradesh</p>
       <p>City: Bhopal</p>
       <p class="kitchen-pin">PIN: 462011</p>
     </div>
-
     <div class="kitchen-card">
       <p class="kitchen-id">Kitchen ID: SHD111</p>
       <p>State: Punjab</p>
-      <p>City: Bhopal</p>
-      <p class="kitchen-pin">PIN: 462011</p>
-    </div>
-
-    <div class="kitchen-card">
-      <p class="kitchen-id">Kitchen ID:SHD111</p>
-      <p>State:Punjab</p>
-      <p>City:Chandigarh</p>
+      <p>City: Chandigarh,</p>
       <p class="kitchen-pin">PIN:160022</p>
     </div>
   </div>

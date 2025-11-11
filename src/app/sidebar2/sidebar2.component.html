@@ -1,9 +1,6 @@
 <div class="main-layout-wrapper">
   <div class="sidebar-panel">
-    <div class="location-row">
-      <i class="fas fa-map-marker-alt"></i>
-      <span class="location-text">Pune, Maharashtra</span>
-    </div>
+    <div class="location-row"></div>
 
     <div class="profile-section">
       <span class="back-link" (click)="goBack()">
@@ -11,36 +8,53 @@
       </span>
       <h1 class="profile-title">Profile</h1>
     </div>
+
     <div class="sidebar-nav">
       <ul class="nav-list">
         <li class="nav-item highlight" [class.active]="isRegistrationActive()">
           <a routerLink="/managerregi" class="nav-link">Registration Form</a>
         </li>
 
+        <li class="nav-item highlight" [class.active]="isCloudKitchenActive()">
+          <a routerLink="/superadmincloudkitchen" class="nav-link">
+            Cloud Kitchen registration
+          </a>
+        </li>
+
+        <li class="nav-item highlight" [class.active]="isEmployeeActive()">
+          <a routerLink="/listemployee" class="nav-link">List of Employee</a>
+        </li>
+
+        <li class="nav-item highlight" [class.active]="isKitchenActive()">
+          <a routerLink="/superadminkitchen" class="nav-link">
+            List of Kitchen
+          </a>
+        </li>
+
+        <li class="nav-item highlight" [class.active]="isEditEmployeeActive()">
+          <a routerLink="/superadmineditlist" class="nav-link">
+            Edit Employee Information
+          </a>
+        </li>
+
         <li
           class="nav-item highlight"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
+          [class.active]="isSubscriberListActive()"
         >
-          <a routerLink="/cloud-kitchen-registration" class="nav-link"
-            >Cloud Kitchen registration</a
-          >
+          <a routerLink="/superadminsubscriberlist" class="nav-link">
+            Subscriber List
+          </a>
+        </li>
+        <li class="nav-item highlight" [class.active]="">
+          <a routerLink="" class="nav-link"> Create Coupon </a>
         </li>
         <li
           class="nav-item highlight"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
+          [class.active]="isSuperadminaddingmealActive()"
         >
-          <a routerLink="/listemployee" class="nav-link">List of employee</a>
-        </li>
-        <li
-          class="nav-item highlight"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
-          <a routerLink="/superadminkitchen" class="nav-link"
-            >List of Kitchen</a
-          >
+          <a routerLink="/superadminaddingcuisine" class="nav-link">
+            Add meal
+          </a>
         </li>
       </ul>
     </div>

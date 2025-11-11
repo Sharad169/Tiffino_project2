@@ -1,0 +1,59 @@
+<app-sidebar2></app-sidebar2>
+<!-- ===== Main Form Section ===== -->
+<div class="form-section">
+  <!-- Top Buttons -->
+  <div class="top-buttons">
+    <button class="btn-filled">Add Meal</button>
+    <button class="btn-outline">Add Cuisine</button>
+  </div>
+
+  <!-- Form -->
+  <div class="form-wrapper">
+    <form class="cuisine-form">
+      <!-- Cuisine Name & Category -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cuisineName">cuisine name</label>
+          <input type="text" id="cuisineName" />
+        </div>
+
+        <div class="form-group">
+          <label>category</label>
+          <div class="dropdown-wrapper" tabindex="0">
+            <button type="button" class="fake-select"></button>
+            <ul class="dropdown-panel" role="listbox">
+              <li class="dropdown-item">Regional Cuisine</li>
+              <li class="dropdown-item">International Cuisine</li>
+              <li class="dropdown-item">Special Cuisine</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cuisine Image -->
+      <div class="form-row">
+        <div class="form-group full">
+          <label for="cuisineImage">Cuisine image</label>
+          <div class="file-upload">
+            <input type="file" id="cuisineImage" />
+            <label for="cuisineImage" class="choose-btn">Choose File</label>
+            <span class="file-name">PDF</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="form-row">
+        <div class="form-group full">
+          <label for="description">Description</label>
+          <input type="text" id="description" />
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="submit-row">
+        <button type="submit" class="submit-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

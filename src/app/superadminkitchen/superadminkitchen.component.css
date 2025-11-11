@@ -1,24 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-/* === Main Wrapper === */
 .listkitchen-wrapper {
   font-family: "Poppins", sans-serif;
   margin-left: 450px;
-  margin-top: -220px;
+  margin-top: -630px;
   padding-right: 100px;
   max-width: 960px;
 }
 
-/* === Dropdown Filters === */
+/* ===================== FILTER ROW ===================== */
 .filter-row {
   display: flex;
   gap: 32px;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   margin-top: -370px;
   margin-left: 30px;
 }
-.filter-dropdown {
-  width: 800px; /* increased from 500px */
+
+/* ===================== CUSTOM DROPDOWN ===================== */
+.custom-dropdown {
+  position: relative;
+  width: 400px;
+}
+
+/* button that shows current selection */
+/* .dropdown-btn {
+  width: 100%;
   height: 42px;
   padding: 0 20px;
   font-size: 18px;
@@ -26,26 +34,122 @@
   color: #000;
   border: 3px solid #386341;
   border-radius: 10px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='30' viewBox='0 0 24 24' fill='none'><path d='M7 10l5 5 5-5' stroke='rgba(31,31,31,1)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 15px center; 
+  background-size: 18px; 
+} */
 
-  appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="30" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="rgba(31,31,31,1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+/* small visual on hover (button only) */
+/* .dropdown-btn:hover {
+  background-color: #f6fff6;
+} */
+/* dropdown button with a working embedded SVG arrow */
+.dropdown-btn {
+  width: 100%;
+  height: 42px;
+  /* keep room on the right for the arrow */
+  padding: 0 45px 0 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  border: 3px solid #386341;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  /* encoded SVG data URI (works reliably) */
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2210%22%20height%3D%2230%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5%22%20stroke%3D%22rgba(31%2C31%2C31%2C1)%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 15px center;
   background-size: 30px;
-  outline: none;
-  text-align: center;
 }
 
-/* === Kitchen Grid === */
+/* keep existing hover effect */
+.dropdown-btn:hover {
+  background-color: #f6fff6;
+}
+
+/* if you still have a <i> caret inside button from FA, hide it so it doesn't overlap */
+.dropdown-btn i.fa-solid {
+  display: none;
+}
+
+/* dropdown list hidden by default, shown when .open is present */
+.dropdown-list {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(56, 99, 65, 0.25);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 100;
+  display: none;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+/* show when open */
+.dropdown-list.open {
+  display: block;
+  width: 245px;
+  margin-left: 150px;
+}
+/* Hide scrollbar visually but keep it functional */
+.dropdown-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+.dropdown-list {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and older Edge */
+}
+.dropdown-item {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+/* hover for items (this is your desired color) */
+.dropdown-item:hover {
+  background-color: #e0fee4;
+}
+
+/* selected item appearance */
+.dropdown-item[aria-selected="true"] {
+  background-color: #e0fee4;
+}
+
+/* ===================== KITCHEN GRID ===================== */
 .kitchen-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 25px 30px;
   margin-top: 40px;
   margin-left: 30px;
-}
 
-/* === Kitchen Card === */
+  max-height: 450px; /* Adjust scroll height as you need */
+  overflow-y: auto; /* Enables vertical scroll */
+  padding-right: 10px;
+}
+.kitchen-grid::-webkit-scrollbar {
+  width: 8px;
+}
 .kitchen-card {
   width: 400px;
   height: 123px;
@@ -63,7 +167,6 @@
   box-shadow: 0 3px 8px #38794f;
 }
 
-/* === Text Styles === */
 .kitchen-card p {
   margin: 4px 0;
   color: #000;
@@ -83,7 +186,7 @@
   font-weight: 500;
 }
 
-/* === Responsive Layout === */
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 1090px) {
   .listkitchen-wrapper {
     margin-left: 450px;
@@ -95,7 +198,7 @@
     gap: 20px;
   }
 
-  .filter-dropdown {
+  .custom-dropdown {
     width: 100%;
   }
 

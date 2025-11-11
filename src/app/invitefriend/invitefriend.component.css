@@ -380,7 +380,7 @@
 /* ADD THIS to your CSS to manage the two items on the first row */
 .input-copy-group {
   display: flex;
-  gap: 15px; /* Same gap as referral-actions */
+  gap: 15px;
 }
 
 /* Update the referral-actions to correctly stack its contents */
@@ -407,7 +407,7 @@
 
 /* Update the wide Share button width to match the combined width above */
 .share-btn {
-  width: 868px; /* 350px (input) + 140px (copy btn) + 15px (gap) = 505px */
+  width: 868px;
   height: 50px;
   margin-top: 10px;
   margin-left: -3px;
