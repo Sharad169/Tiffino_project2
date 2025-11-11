@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [SuperadminSidebarComponent,CommonModule,ReactiveFormsModule],
   templateUrl: './superadmincloudkitchen.component.html',
-styleUrls: ['./superadmincloudkitchen.component.css']
+  styleUrls: ['./superadmincloudkitchen.component.css']
 })
 export class SuperadmincloudkitchenComponent {
    addressForm!: FormGroup;
