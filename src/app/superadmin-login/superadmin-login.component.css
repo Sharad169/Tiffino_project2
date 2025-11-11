@@ -15,7 +15,6 @@
   --text-color-secondary: rgba(0, 0, 0, 1);
   --signup-link-color: rgba(18, 18, 18, 1);
   --blur-strength: 8px;
- 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -228,3 +227,5 @@
     font-size: 0.8rem;
   }
 }
+ 
+ 

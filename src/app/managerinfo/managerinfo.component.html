@@ -1,0 +1,136 @@
+<app-superadmin-sidebar></app-superadmin-sidebar>
+ 
+<div class="managerinfo-wrapper">
+  <!-- Custom dropdown identical to managerregi -->
+  <div class="dropdown-wrapper" tabindex="0">
+    <button class="fake-select" aria-haspopup="listbox" aria-expanded="false">
+      <span class="label">Manager</span>
+      <span class="chev" aria-hidden="true">
+        <svg
+          class="dropdown-icon"
+          width="40"
+          height="40"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7 10l5 5 5-5"
+            stroke="rgba(31, 31, 31, 1)"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+    </button>
+ 
+    <!-- Dropdown Menu -->
+    <ul class="dropdown-panel" role="listbox">
+      <li (click)="navigateTo('/managerinfo')" class="dropdown-item">
+        Manager
+      </li>
+      <li (click)="navigateTo('/superadminchef')" class="dropdown-item">
+        Chef
+      </li>
+      <li (click)="navigateTo('/superadmindelpartner')" class="dropdown-item">
+        Delivery Partner
+      </li>
+    </ul>
+  </div>
+ 
+  <!-- Registration form -->
+<form [formGroup]="managerForm" class="manager-form" (ngSubmit)="onSubmit()">
+<!-- Name & Email -->
+<div class="form-row">
+<div class="form-group">
+<label for="name">Name</label>
+<input id="name" type="text" formControlName="managerName" />
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input id="email" type="email" formControlName="email" />
+</div>
+</div>
+ 
+  <!-- DOB & Phone -->
+<div class="form-row">
+<div class="form-group">
+<label for="dob">DOB</label>
+<input id="dob" type="date" formControlName="dateOfBirth" />
+</div>
+<div class="form-group">
+<label for="phone">Phone No.</label>
+<input id="phone" type="text" formControlName="phone" />
+</div>
+</div>
+ 
+  <!-- Kitchen ID & Photo -->
+<div class="form-row">
+<div class="form-group">
+<label for="kitchen-id">Kitchen Code</label>
+<input id="kitchen-id" type="text" formControlName="kitchenCode" />
+</div>
+<div class="form-group file-group">
+<label for="photo">Photo (PDF/Image)</label>
+<input id="photo" type="file" (change)="onFileSelected($event, 'photo')" accept=".pdf,image/*" />
+<span *ngIf="uploadedFiles.photo.uploaded" class="tick-mark">✔ {{ uploadedFiles.photo.name }}</span>
+</div>
+</div>
+ 
+  <!-- Aadhar & PAN -->
+<div class="form-row">
+<div class="form-group file-group">
+<label for="aadhar">Aadhar</label>
+<input id="aadhar" type="file" (change)="onFileSelected($event, 'aadhar')" accept=".pdf,image/*" />
+<span *ngIf="uploadedFiles.aadhar.uploaded" class="tick-mark">✔ {{ uploadedFiles.aadhar.name }}</span>
+</div>
+ 
+    <div class="form-group file-group">
+<label for="pan">PAN Card</label>
+<input id="pan" type="file" (change)="onFileSelected($event, 'pan')" accept=".pdf,image/*" />
+<span *ngIf="uploadedFiles.pan.uploaded" class="tick-mark">✔ {{ uploadedFiles.pan.name }}</span>
+</div>
+</div>
+ 
+  <!-- Bank & Cheque -->
+<div class="form-row">
+<div class="form-group">
+<label for="bank-acct">Bank Account No.</label>
+<input id="bank-acct" type="text" formControlName="bankAccountNum" />
+</div>
+ 
+    <div class="form-group">
+<label for="ifsc">IFSC Code</label>
+<input id="ifsc" type="text" formControlName="ifsc" />
+</div>
+</div>
+ 
+  <div class="form-row">
+<div class="form-group file-group">
+<label for="cheque-book">Cheque Book</label>
+<input id="cheque-book" type="file" (change)="onFileSelected($event, 'chequeBook')" accept=".pdf,image/*" />
+<span *ngIf="uploadedFiles.chequeBook.uploaded" class="tick-mark">✔ {{ uploadedFiles.chequeBook.name }}</span>
+</div>
+</div>
+ 
+  <!-- Addresses -->
+<div class="form-group full">
+<label for="perm-address">Permanent Address</label>
+<textarea id="perm-address" formControlName="permanentAddress"></textarea>
+</div>
+ 
+  <div class="form-group full">
+<label for="curr-address">Current Address</label>
+<textarea id="curr-address" formControlName="currentAddress"></textarea>
+</div>
+ 
+  <div class="submit-row">
+<button type="submit">Submit</button>
+</div>
+</form>
+ 
+
+</div>
+ 
+ 

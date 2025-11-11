@@ -81,5 +81,11 @@ button {
 button:hover {
   background-color: #2f5134;
 }
+
+.error{
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+}
  
  

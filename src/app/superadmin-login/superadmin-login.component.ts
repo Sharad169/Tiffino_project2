@@ -38,7 +38,7 @@ export class SuperadminLoginComponent {
       }
 
       alert('Login successful!');
-      this.router.navigate(['/home']); // ✅ Redirect to home page
+      this.router.navigate(['/superadmincloudkitchen']); // ✅ Redirect to home page
     },
     error: (err) => {
       console.error('Login failed:', err);

@@ -12,6 +12,8 @@ export class AdminService {
   private adminBaseUrl = 'http://localhost:8081/api/admins/super-admin/update-password';
     private baseUrl = 'http://localhost:8081/api/admins';
       private baseUrl1 = 'http://localhost:8081/api/kitchens';
+      private baseUrl2 =" http://localhost:8081";
+ 
 
  loginAdmin(data: any) {
   
@@ -31,6 +33,43 @@ export class AdminService {
 
     return this.http.post(this.baseUrl1, data, { headers});
   }
+
+
+// addManager(managerData: any, uploadedFiles: any): Observable<any> {
+//   const token = sessionStorage.getItem('token');
+//     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+//   const formData = new FormData();
+
+//   // Append text fields
+//   const textFields = ['name','email','dob','phone','kitchenId','bankAccount','permAddress','currAddress'];
+//   textFields.forEach(field => {
+//     if (managerData[field]) {
+//       formData.append(field, managerData[field]);
+//     }
+//   });
+
+//   // Append files only if they exist
+//   const fileFields = ['photo','aadhar','panCard','chequeBook'];
+//   fileFields.forEach(field => {
+//     const file = uploadedFiles[field]?.file;
+//     if (file) {
+//       formData.append(field, file); // only append if file exists
+//     }
+//   });
+
+//   // Send POST request
+//   return this.http.post(`${this.baseUrl2}/managers`, formData, { headers });
+// }
+
+// admin.service.ts
+addManager(formData: FormData) {
+
+   const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  return this.http.post(`${this.baseUrl2}/api/admins/managers`, formData, { headers });
+}
+
+ 
 
     
   
