@@ -75,11 +75,11 @@ import { SuperadmindelpartnereditpageComponent } from './superadmindelpartneredi
 import { SuperadmincloudkitchenComponent } from './superadmincloudkitchen/superadmincloudkitchen.component';
 import { SuperadminsubscriberlistComponent } from './superadminsubscriberlist/superadminsubscriberlist.component';
 import { SuperadminmanagerlistComponent } from './superadminmanagerlist/superadminmanagerlist.component';
-
 import { SuperadmincheflistComponent } from './superadmincheflist/superadmincheflist.component';
 import { SuperadmindelpartnerlistComponent } from './superadmindelpartnerlist/superadmindelpartnerlist.component';
 import { SuperadminmealComponent } from './superadminmeal/superadminmeal.component';
 import { SuperadmincoupanpageComponent } from './superadmincoupanpage/superadmincoupanpage.component';
+import { DelpartnerdashboardComponent } from './delpartnerdashboard/delpartnerdashboard.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -195,6 +195,9 @@ export const routes: Routes = [
   },
   { path: 'superadminmeal', component: SuperadminmealComponent },
   { path: 'superadmincoupanpage', component: SuperadmincoupanpageComponent },
+
+  // Del Partner section
+  { path: 'delpartnerdashboard', component: DelpartnerdashboardComponent },
 
   // ===== Fallback =====
   { path: '**', redirectTo: '' },

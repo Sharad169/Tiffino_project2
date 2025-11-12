@@ -8,7 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { Sidebar2Component } from './sidebar2/sidebar2.component';
-
+import { DelpartnersidebarComponent } from './delpartnersidebar/delpartnersidebar.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -20,6 +20,7 @@ import { Sidebar2Component } from './sidebar2/sidebar2.component';
     FooterComponent,
     SidebarComponent,
     Sidebar2Component,
+    DelpartnersidebarComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -91,7 +92,7 @@ export class AppComponent implements OnDestroy {
       '/onboarding',
       '/welcome',
       '/login2',
-      '/superadminsetpassword',
+      '/superadminsetpasssword',
     ];
 
     const hideFragments = ['registration-section'];

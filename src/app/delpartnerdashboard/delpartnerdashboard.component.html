@@ -1,0 +1,45 @@
+<app-delpartnersidebar></app-delpartnersidebar>
+
+<div class="dashboard">
+  <!-- Kitchen Section -->
+  <div class="card kitchen-card">
+    <h3>Your kitchen</h3>
+    <p>
+      Flat No. 204, Green Valley Residency, Sector 45, Near Huda City Centre,
+    </p>
+    <p class="kitchen-id">Kitchen ID:123456</p>
+  </div>
+
+  <div class="info-grid">
+    <!-- Left Box -->
+    <div class="card date-card">
+      <div class="date-info">
+        <h4>17 Oct 2025</h4>
+        <p class="sub-text">Friday</p>
+        <p class="time">09:56:56</p>
+        <p class="swipe-text">view Swipe</p>
+      </div>
+
+      <!-- ✅ Updated Button -->
+      <button class="btn-signin" (click)="toggleSignIn()">
+        {{ isSignedIn ? "Sign Out" : "Sign In" }}
+      </button>
+    </div>
+
+    <div class="card leave-card">
+      <h4>Leaves In balance</h4>
+      <h6 class="days">4.5 Days</h6>
+      <p>1.5 days from August</p>
+      <p>1.5 days from September</p>
+      <p>1.5 days from October</p>
+      <button class="btn-apply-leave">Apply Leave</button>
+    </div>
+  </div>
+
+  <!-- Rating Section -->
+  <div class="card rating-card">
+    <h4>Your Rating</h4>
+    <p>Good</p>
+    <div class="stars">☆☆☆☆</div>
+  </div>
+</div>
