@@ -1,0 +1,128 @@
+/* General Container */
+.order-container {
+  width: 890px;
+  height: 560px;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  padding: 20px 24px;
+  font-family: "Poppins", sans-serif;
+  background: #ffffff;
+  margin-top: -410px;
+  margin-left: 470px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 24px;
+  color: #000000;
+  margin-bottom: 12px;
+}
+
+.order-date {
+  color: #000;
+}
+
+.order-time {
+  color: #9d9b9b;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* Customer Info */
+.customer-info {
+  background: #fff;
+  padding: 8px 0;
+  color: #111;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.customer-info p {
+  font-size: 20px;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 4px; /* ↓ Reduced from 10px to 4px for tighter spacing */
+}
+
+.customer-info .address {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 40px; /* Keep address a bit spaced from others */
+}
+.address strong {
+  font-size: 24px;
+  color: #000000;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.customer-info .delivery {
+  margin-top: 20px;
+}
+/* Food Card */
+.food-card {
+  display: flex;
+  align-items: center;
+  background: #f7f7f7;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin: 16px 0 20px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.food-card img {
+  width: 240px;
+  height: 148px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-top: -8px;
+  margin-right: 14px;
+}
+
+.food-details h4 {
+  margin-top: -39px;
+  margin-bottom: 19px;
+  margin-left: 22px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.food-details p {
+  margin-top: 4px;
+  margin-left: 22px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 1.4;
+}
+
+/* Start Button */
+.order-btn-box {
+  text-align: center;
+}
+
+.start-btn {
+  width: 170px;
+  height: 49px;
+  background-color: #386341;
+  color: #ffffff;
+  padding: 8px 28px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease;
+  margin-top: 21px;
+}
+
+.start-btn:hover {
+  background-color: #254b25;
+}

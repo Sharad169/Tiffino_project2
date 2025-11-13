@@ -80,6 +80,7 @@ import { SuperadmindelpartnerlistComponent } from './superadmindelpartnerlist/su
 import { SuperadminmealComponent } from './superadminmeal/superadminmeal.component';
 import { SuperadmincoupanpageComponent } from './superadmincoupanpage/superadmincoupanpage.component';
 import { DelpartnerdashboardComponent } from './delpartnerdashboard/delpartnerdashboard.component';
+import { YourcurrentorderdelpartnerComponent } from './yourcurrentorderdelpartner/yourcurrentorderdelpartner.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -198,6 +199,10 @@ export const routes: Routes = [
 
   // Del Partner section
   { path: 'delpartnerdashboard', component: DelpartnerdashboardComponent },
+  {
+    path: 'yourcurrentorderdelpartner',
+    component: YourcurrentorderdelpartnerComponent,
+  },
 
   // ===== Fallback =====
   { path: '**', redirectTo: '' },
