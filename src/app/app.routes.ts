@@ -58,6 +58,8 @@ import { ManagerRegistrationComponent } from './manager-registration/manager-reg
 import { SuperadminsetpasswordComponent } from './superadminsetpassword/superadminsetpassword.component';
 import { SuperadmincloudkitchenComponent } from './superadmincloudkitchen/superadmincloudkitchen.component';
 import { ManagerinfoComponent } from './managerinfo/managerinfo.component';
+import { SuperadminchefComponent } from './superadminchef/superadminchef.component';
+import { SuperadmindelpartnerComponent } from './superadmindelpartner/superadmindelpartner.component';
 
 
 
@@ -207,6 +209,9 @@ export const routes: Routes = [
   },
 
   { path: 'managerinfo', component: ManagerinfoComponent },
+  { path: 'superadminchef', component: SuperadminchefComponent },
+  { path: 'superadmindelpartner', component: SuperadmindelpartnerComponent },
+ 
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },

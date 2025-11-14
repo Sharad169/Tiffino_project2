@@ -13,6 +13,8 @@ export class AdminService {
     private baseUrl = 'http://localhost:8081/api/admins';
       private baseUrl1 = 'http://localhost:8081/api/kitchens';
       private baseUrl2 =" http://localhost:8081";
+      private baseUrl3 = "http://localhost:8081/api";
+      private apiUrl = "http://localhost:8081/api/admins/super-admin/delivery-partners";
  
 
  loginAdmin(data: any) {
@@ -69,6 +71,19 @@ addManager(formData: FormData) {
   return this.http.post(`${this.baseUrl2}/api/admins/managers`, formData, { headers });
 }
 
+
+addChef(formData: FormData) {
+
+   const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  return this.http.post(`${this.baseUrl3}/chefs`, formData, { headers });
+}
+
+// registerDeliveryPartner(formData: FormData): Observable<any> {
+//     const token = sessionStorage.getItem('token');
+//     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+//     return this.http.post(this.apiUrl, formData, { headers });
+//   }
  
 
     
