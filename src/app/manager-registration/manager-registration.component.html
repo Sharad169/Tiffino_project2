@@ -1,7 +1,7 @@
 <div class="manager-layout">
   <!-- keep your existing sidebar untouched -->
   <app-superadmin-sidebar></app-superadmin-sidebar>
- 
+
   <div class="manager-content">
     <!-- dropdown container -->
     <div class="dropdown-wrapper" tabindex="0">
@@ -27,15 +27,19 @@
           </svg>
         </span>
       </button>
- 
+
       <!-- dropdown panel (pure CSS show/hide using :focus-within) -->
       <ul class="dropdown-panel" role="listbox" aria-label="Employees">
-        <li class="dropdown-item active" role="option">Manager</li>
-        <li class="dropdown-item" role="option">Chef</li>
-        <li class="dropdown-item" role="option">Delivery Partner</li>
+        <li (click)="navigateTo('/managerinfo')" class="dropdown-item">
+          Manager
+        </li>
+        <li (click)="navigateTo('/superadminchef')" class="dropdown-item">
+          Chef
+        </li>
+        <li (click)="navigateTo('/superadmindelpartner')" class="dropdown-item">
+          Delivery Partner
+        </li>
       </ul>
     </div>
   </div>
 </div>
- 
- 

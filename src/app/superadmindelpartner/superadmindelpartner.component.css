@@ -1,29 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
- 
-/* --- Wrapper --- */
+
+/* -------------------- */
+/* MAIN WRAPPER         */
+/* -------------------- */
 .managerinfo-wrapper {
   font-family: "Poppins", sans-serif;
-  margin-left: 480px;
-  margin-top: -630px;
-  padding-right: 100px;
   max-width: 900px;
+  margin-top: -505px;
+  margin-left: 450px;
+  padding: 20px;
+  box-sizing: border-box;
 }
- 
-/* --- Custom Dropdown --- */
-.role-selection-row {
-  margin-bottom: 25px;
-}
+
+/* -------------------- */
+/* DROPDOWN STYLING      */
+/* -------------------- */
 .dropdown-wrapper {
   position: relative;
   display: inline-block;
   outline: none;
+  margin-bottom: 25px;
+  width: 470px;
 }
- 
+
 .fake-select {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 470px;
+  width: 100%;
   height: 40px;
   padding: 0 18px;
   border-radius: 10px;
@@ -34,12 +38,12 @@
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
 }
- 
-.dropdown-icon {
-  margin-right: -240px;
+
+.fake-select .label {
+  flex: 1;
+  text-align: center;
 }
- 
-/* Dropdown Panel (hidden by default) */
+
 .dropdown-panel {
   position: absolute;
   top: calc(100% + 8px);
@@ -52,15 +56,14 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 6px 0;
   list-style: none;
-  margin: 0;
+  margin-left: 100px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 150ms ease, transform 150ms ease;
   z-index: 100;
 }
- 
-/* Show dropdown on hover or focus */
+
 .dropdown-wrapper:focus-within .dropdown-panel,
 .dropdown-wrapper:hover .dropdown-panel {
   opacity: 1;
@@ -68,226 +71,182 @@
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
 }
- 
-/* Dropdown Items */
+
 .dropdown-item {
   padding: 12px 18px;
-  font-size: 15px;
+  font-size: 20px;
   color: rgba(31, 31, 31, 1);
   cursor: pointer;
   transition: background-color 120ms ease;
 }
- 
-/* ✅ Custom Hover Color (No Blue!) */
-.dropdown-item:hover {
+
+.dropdown-item:hover,
+.dropdown-item.active {
   background-color: rgba(224, 254, 228, 1);
 }
- 
-/* --- Form Layout --- */
+
+/* -------------------- */
+/* FORM STYLING         */
+/* -------------------- */
 .manager-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
- 
+
+/* -------------------- */
+/* FORM ROWS            */
+/* -------------------- */
 .form-row {
   display: flex;
   gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
 }
- 
+
+/* Centered submit row */
+.submit-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+/* -------------------- */
+/* FORM GROUPS          */
+/* -------------------- */
 .form-group {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  width: 400px; /* default width for inputs */
 }
-.role-dropdown {
-  width: 470px;
-  height: 40px;
-  padding: 0 20px;
-  font-size: 20px;
-  font-weight: 400;
-  border: 3px solid rgba(56, 99, 65, 1);
-  border-radius: 10px;
-  text-align: center;
-  color: rgba(0, 0, 0, 1);
-  appearance: none;
-  margin-bottom: 20px;
- 
-  /* ✅ Updated Down Arrow (from managerregi) */
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="30" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="rgba(31,31,31,1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
- 
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 35px;
-  outline: none;
-}
- 
-/* --- Form Layout --- */
-.manager-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
- 
-.form-row {
-  display: flex;
-  gap: 20px;
-}
- 
-.form-group {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
- 
+
+/* Full width for address boxes */
 .form-group.full {
-  width: 100%;
+  width: 800px;
 }
- 
-/* --- Input Styling --- */
-input[type="text"],
-input[type="email"] {
-  width: 400px;
-  height: 51px;
-  border: 1px solid rgba(162, 161, 161, 1);
-  border-radius: 20px;
-  padding: 0 10px;
-  outline: none;
-  font-size: 14px;
-  color: rgba(162, 161, 161, 1);
-}
- 
-input[type="text"]:focus,
-input[type="email"]:focus {
-  border-color: rgba(56, 99, 65, 1);
-}
- 
+
+/* -------------------- */
+/* LABELS               */
+/* -------------------- */
 label {
   font-size: 20px;
-  color: rgba(0, 0, 0, 1);
   font-weight: 500;
+  margin-bottom: 8px;
 }
- 
-/* --- File Inputs --- */
-.file-group {
-  position: relative;
-}
-/* The actual file input must remain invisible and sit on top */
-.file-group input[type="file"] {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+/* -------------------- */
+/* TEXT INPUTS          */
+/* -------------------- */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"] {
   width: 100%;
-  height: 100%; /* Cover the entire custom input area */
-  opacity: 0;
-  cursor: pointer;
-  z-index: 2;
-}
- 
-/* Base container for the custom file input */
-.custom-file-input {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Space out "Choose File" area and "PDF" area */
-  width: 400px;
   height: 51px;
- 
-  /* 🎯 MODIFICATION: Use the specific border color and set border-radius high for pill shape */
-  border: 1px solid rgba(162, 161, 161, 1); /* 1px #A2A1A1 */
-  border-radius: 900px; /* This creates the circular/pill shape */
- 
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-}
-/* The PDF text display area */
-.file-placeholder {
-  /* 🎯 MODIFICATION: Set a fixed color and center the "PDF" text */
-  flex-grow: 1; /* Allow it to take the remaining space */
-  text-align: center; /* Center "PDF" text */
-  font-size: 13px;
-  color: #000000;
-  padding: 0; /* Remove padding-left from previous setup */
-  margin-right: 10px; /* Optional: Add small margin */
-}
-/* The element that holds the "Choose File" text */
-.custom-file-input::before {
-  /* 🎯 MODIFICATION: Ensure "Choose File" is positioned correctly and remove left border */
-  content: "Choose File";
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  height: 100%;
- 
-  /* Calculate width for "Choose File" part, e.g., half the container width minus some padding */
-  width: 30%;
- 
-  padding: 0; /* Remove padding */
-  background-color: rgba(
-    230,
-    230,
-    230,
-    1
-  ); /* Add a slight background for the button part */
- 
-  /* Remove the conflicting border left */
-  border-left: none;
- 
-  /* 🎯 NEW: Add a right border to separate "Choose File" from "PDF" */
-  border-right: 1px solid rgba(162, 161, 161, 1);
-}
-/* --- Address Boxes --- */
-.address-box {
-  width: 815px;
-  height: 70px;
-  border: 1px solid rgba(162, 161, 161, 1);
+  border: 1px solid #a2a1a1;
   border-radius: 20px;
-  padding: 10px 15px;
-  font-size: 24px;
-  color: rgba(162, 161, 161, 1);
+  padding-left: 14px;
+  font-size: 20px;
+  color: #000;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  font-size: 13px;
+  color: #a2a1a1;
+}
+
+/* -------------------- */
+/* FILE INPUTS          */
+/* -------------------- */
+.file-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.file-group input[type="file"] {
+  width: 100%;
+  height: 51px;
+  border: 1px solid #a2a1a1;
+  border-radius: 20px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.file-group input[type="file"]::file-selector-button {
+  background-color: #d9d9d9;
+  width: 40%;
+  height: 100%;
+  border: none;
+  border-right: 1px solid #a2a1a1;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* -------------------- */
+/* TICK MARK            */
+/* -------------------- */
+.tick-mark {
+  color: green;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+/* -------------------- */
+/* ADDRESS BOXES        */
+/* -------------------- */
+.address-box {
+  width: 800px;
+  height: 80px;
+  border: 1px solid #a2a1a1;
+  border-radius: 20px;
+  padding: 14px 18px;
+  font-size: 20px;
+  color: #000;
   outline: none;
   resize: none;
+  overflow: hidden;
 }
- 
-/* --- Submit Button --- */
-.submit-row {
-  text-align: left;
-  margin-top: 56px;
-  margin-left: 330px;
-  margin-right: 485px;
+/* Textarea inside .form-group.full */
+/* Textarea inside .form-group.full */
+.form-group.full textarea {
+  width: 820px; /* match parent width 800px */
+  height: 80px; /* fixed height */
+  resize: none; /* prevent user resizing */
+  overflow: hidden; /* hide scrollbars */
+  box-sizing: border-box;
+  padding: 14px 18px;
+  border-radius: 20px;
 }
- 
+/* -------------------- */
+/* SUBMIT BUTTON        */
+/* -------------------- */
 button[type="submit"] {
   width: 180px;
   height: 57px;
-  background: rgba(56, 99, 65, 1);
-  color: rgba(255, 255, 255, 1);
+  background: #386341;
+  color: white;
   border: none;
-  padding: 10px 50px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
-  transition: background-color 0.3s;
 }
- 
-button[type="submit"]:hover {
-  background: rgba(56, 99, 65, 1);
+
+/* -------------------- */
+/* VEHICLE INSURANCE & DRIVING LICENCE (Delivery specific) */
+/* -------------------- */
+.form-group.vehicle,
+.form-group.driving {
+  width: 400px; /* same as normal inputs */
 }
- 
-/* --- Responsive --- */
-@media (max-width: 1024px) {
-  .managerinfo-wrapper {
-    margin-left: 320px;
-    max-width: 90%;
-  }
- 
-  .role-dropdown {
-    width: 100%;
-  }
+
+/* Centered rows for addresses */
+.form-row.address-row {
+  justify-content: center;
 }
- 
- 

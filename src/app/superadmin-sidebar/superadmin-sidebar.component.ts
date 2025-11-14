@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { Location, CommonModule } from '@angular/common';
@@ -6,37 +5,35 @@ import { Location, CommonModule } from '@angular/common';
 @Component({
   selector: 'app-superadmin-sidebar',
   standalone: true,
-  imports: [],
+  imports: [RouterModule, CommonModule],
   templateUrl: './superadmin-sidebar.component.html',
-  styleUrl: './superadmin-sidebar.component.css'
+  styleUrls: ['./superadmin-sidebar.component.css'],
 })
- 
-
 export class SuperadminSidebarComponent {
   // ✅ Registration Form group
   registrationRoutes = [
-    '/managerregi',
+    '/manager-registration',
     '/superadminchef',
     '/superadmindelpartner',
     '/managerinfo',
   ];
- 
-  cloudKitchenRoutes = [
-    '/cloud-kitchen-registration',
-    '/superadmincloudkitchen',
-  ];
- 
+  //Cloud Kitchen registration route
+  cloudKitchenRoutes = ['/superadmincloudkitchen'];
+
   // ✅ List of Kitchen group
   kitchenRoutes = ['/superadminkitchen', '/superadminkitchendetails'];
- 
+
   // ✅ List of Employee group
   employeeRoutes = [
     '/listemployee',
     '/superadminmanagerdetails',
     '/superadminchefdetails',
     '/superadmindelpartnerdetails',
+    '/superadminmanagerlist',
+    '/superadmincheflist',
+    '/superadmindelpartnerlist',
   ];
- 
+
   // ✅ Edit Employee route
   editEmployeeRoutes = [
     '/superadmineditlist',
@@ -44,13 +41,21 @@ export class SuperadminSidebarComponent {
     '/superadminchefeditpage',
     '/superadmindelpartnereditpage',
   ];
+  //Subscriber route
   subscriberListRoutes = ['/superadminsubscriberlist'];
+
+  //Superadminaddingmeal route
+  superadminaddingmeal = ['/superadminmeal'];
+
+  //Superadmincoupanpage route
+  superadmincoupanpage = ['/superadmincoupanpage'];
+
   constructor(private location: Location, private router: Router) {}
- 
+
   goBack(): void {
     this.location.back();
   }
- 
+
   // ✅ Registration Form active
   isRegistrationActive(): boolean {
     const currentUrl = this.router.url;
@@ -70,13 +75,13 @@ export class SuperadminSidebarComponent {
     const currentUrl = this.router.url;
     return this.kitchenRoutes.some((route) => currentUrl.startsWith(route));
   }
- 
+
   // ✅ List of Employee active
   isEmployeeActive(): boolean {
     const currentUrl = this.router.url;
     return this.employeeRoutes.some((route) => currentUrl.startsWith(route));
   }
- 
+
   // ✅ Edit Employee active
   isEditEmployeeActive(): boolean {
     const currentUrl = this.router.url;
@@ -88,6 +93,13 @@ export class SuperadminSidebarComponent {
     const currentUrl = this.router.url;
     return this.subscriberListRoutes.some((r) => currentUrl.startsWith(r));
   }
+
+  isSuperadminaddingmealActive(): boolean {
+    const currentUrl = this.router.url;
+    return this.superadminaddingmeal.some((r) => currentUrl.startsWith(r));
+  }
+  isSuperadmincoupanpageActive(): boolean {
+    const currentUrl = this.router.url;
+    return this.superadmincoupanpage.some((r) => currentUrl.startsWith(r));
+  }
 }
- 
- 
