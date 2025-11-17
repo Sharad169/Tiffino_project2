@@ -1,44 +1,25 @@
-<!-- <h2>{{ cuisineName }}</h2>
+<h2>{{ cuisineName }}</h2>
 
 <div class="row">
   <div class="col-md-4" *ngFor="let meal of meals">
-
     <div class="card">
       <img [src]="meal.imageUrl" class="card-img-top" [alt]="meal.name" />
 
-    <div class="card mb-4 shadow-sm">
-      <img [src]="meal.imageUrl" class="card-img-top" [alt]="meal.name" style="height:200px;object-fit:cover;">
+      <div class="card mb-4 shadow-sm">
+        <img
+          [src]="meal.imageUrl"
+          class="card-img-top"
+          [alt]="meal.name"
+          style="height: 200px; object-fit: cover"
+        />
 
-      <div class="card-body">
-        <h5 class="card-title">{{ meal.name }}</h5>
-        <p class="card-text">{{ meal.description }}</p>
-        <p><strong>Price:</strong> ₹{{ meal.price }}</p>
-        <button class="btn btn-success w-100" (click)="addToCart(meal)">Add to Cart</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<div class="wrapper">
-  <h2 class="section-title">{{ cuisineName }}</h2>
-
-  <div class="cards-container">
-    <div class="card" *ngFor="let meal of meals">
-      <img [src]="meal.imageUrl" [alt]="meal.name" class="card-img" />
-
-      <div class="card-body">
-        <div class="card-top">
-          <h3 class="card-title">{{ meal.name }}</h3>
-          <div class="rating">
-            <span class="stars">☆☆☆☆</span>
-          </div>
-        </div>
-
-        <p class="card-text">{{ meal.description }}</p>
-
-        <div class="price-cart">
-          <span class="price">₹{{ meal.price }}</span>
-          <button class="add-btn">Add to Cart</button>
+        <div class="card-body">
+          <h5 class="card-title">{{ meal.name }}</h5>
+          <p class="card-text">{{ meal.description }}</p>
+          <p><strong>Price:</strong> ₹{{ meal.price }}</p>
+          <button class="btn btn-success w-100" (click)="addToCart(meal)">
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>
