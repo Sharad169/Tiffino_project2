@@ -60,6 +60,8 @@ import { SuperadmincloudkitchenComponent } from './superadmincloudkitchen/supera
 import { ManagerinfoComponent } from './managerinfo/managerinfo.component';
 import { SuperadminchefComponent } from './superadminchef/superadminchef.component';
 import { SuperadmindelpartnerComponent } from './superadmindelpartner/superadmindelpartner.component';
+import { SuperadminkitchenComponent } from './superadminkitchen/superadminkitchen.component';
+import { ListemployeeComponent } from './listemployee/listemployee.component';
 
 
 
@@ -207,6 +209,12 @@ export const routes: Routes = [
     path: 'superadmincloudkitchen',
     component: SuperadmincloudkitchenComponent,
   },
+
+  { path: 'superadminkitchen', component: SuperadminkitchenComponent },
+
+  { path: 'listemployee', component: ListemployeeComponent },
+ 
+ 
 
   { path: 'managerinfo', component: ManagerinfoComponent },
   { path: 'superadminchef', component: SuperadminchefComponent },
