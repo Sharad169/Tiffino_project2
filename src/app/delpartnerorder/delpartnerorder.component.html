@@ -38,8 +38,42 @@
     </div>
   </div>
 
-  <!-- BUTTON WRAPPER -->
+  <!-- BOTTOM SECTION (PROGRESS BAR + OTP) -->
   <div class="order-bottom">
-    <button class="start-btn">Start Order</button>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-line"></div>
+
+      <div class="progress-step completed">
+        <div class="circle"><i class="fa-solid fa-check"></i></div>
+        <p>preparing order</p>
+      </div>
+
+      <div class="progress-step completed">
+        <div class="circle"><i class="fa-solid fa-check"></i></div>
+        <p>At Pickup Point</p>
+      </div>
+
+      <div class="progress-step completed">
+        <div class="circle"><i class="fa-solid fa-check"></i></div>
+        <p>Order Picked</p>
+      </div>
+
+      <div class="progress-step completed">
+        <div class="circle"><i class="fa-solid fa-check"></i></div>
+        <p>On the way</p>
+      </div>
+
+      <div class="progress-step">
+        <div class="circle"></div>
+        <p>DELIVERED</p>
+      </div>
+    </div>
+
+    <!-- OTP SECTION -->
+    <div class="otp-wrapper">
+      <label>Enter OTP</label>
+      <input type="text" class="otp-input" maxlength="6" placeholder="" />
+    </div>
   </div>
 </div>

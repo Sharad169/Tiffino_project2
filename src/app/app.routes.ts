@@ -81,6 +81,9 @@ import { SuperadminmealComponent } from './superadminmeal/superadminmeal.compone
 import { SuperadmincoupanpageComponent } from './superadmincoupanpage/superadmincoupanpage.component';
 import { DelpartnerdashboardComponent } from './delpartnerdashboard/delpartnerdashboard.component';
 import { YourcurrentorderdelpartnerComponent } from './yourcurrentorderdelpartner/yourcurrentorderdelpartner.component';
+import { DelpartnercurrentorderComponent } from './delpartnercurrentorder/delpartnercurrentorder.component';
+import { DelpartnerorderComponent } from './delpartnerorder/delpartnerorder.component';
+import { DelpartnerordercompleteComponent } from './delpartnerordercomplete/delpartnerordercomplete.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -202,6 +205,17 @@ export const routes: Routes = [
   {
     path: 'yourcurrentorderdelpartner',
     component: YourcurrentorderdelpartnerComponent,
+  },
+
+  {
+    path: 'delpartnercurrentorder',
+    component: DelpartnercurrentorderComponent,
+  },
+
+  { path: 'delpartnerorder', component: DelpartnerorderComponent },
+  {
+    path: 'delpartnerordercomplete',
+    component: DelpartnerordercompleteComponent,
   },
 
   // ===== Fallback =====

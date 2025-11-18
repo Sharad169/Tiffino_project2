@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
-import { Location, CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-delpartnersidebar',
   standalone: true,
@@ -11,8 +11,17 @@ import { Location, CommonModule } from '@angular/common';
 export class DelpartnersidebarComponent {
   constructor(public router: Router) {}
 
+  // -------- ROUTE GROUPS ----------
+  dashboardRoutes = ['/delpartnerdashboard'];
+
+  currentOrderRoutes = [
+    '/yourcurrentorderdelpartner',
+    '/delpartnercurrentorder',
+    '/delpartnerorder',
+    '/delpartnerordercomplete',
+  ];
   // helper function to check active route
-  isActive(path: string): boolean {
-    return this.router.url === path;
+  isActive(paths: string[]): boolean {
+    return paths.some((path) => this.router.url.startsWith(path));
   }
 }

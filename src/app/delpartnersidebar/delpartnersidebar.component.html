@@ -18,13 +18,18 @@
       <ul class="nav-list">
         <li
           class="nav-item highlight"
-          [class.active]="isActive('/delpartnerdashboard')"
+          [class.active]="isActive(dashboardRoutes)"
         >
           <a routerLink="/delpartnerdashboard" class="nav-link">Home</a>
         </li>
 
-        <li class="nav-item highlight" [class.active]="">
-          <a routerLink="" class="nav-link">Your current Order</a>
+        <li
+          class="nav-item highlight"
+          [class.active]="isActive(currentOrderRoutes)"
+        >
+          <a routerLink="/delpartnercurrentorder" class="nav-link"
+            >Your current Order</a
+          >
         </li>
 
         <li class="nav-item highlight" [class.active]="">
