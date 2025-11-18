@@ -1,45 +1,53 @@
 <app-superadmin-sidebar></app-superadmin-sidebar>
 
 <div class="listkitchen-wrapper">
+  <!-- Correct Filter Row -->
+  <div class="filter-row">
+    <!-- Status Dropdown -->
+    <div class="custom-dropdown">
+      <button type="button" class="dropdown-btn" (click)="toggleStatus()">
+        <span>{{ selectedStatus || "Status" }}</span>
+      </button>
 
-  <!-- Static Dropdown Filters -->
-   <div class="row">
-  <div class=" col custom-dropdown">
-  <button type="button" class="dropdown-btn" (click)="toggleStatus()">
-    <span>{{ selectedStatus || 'Status' }}</span>
-    <i class="fa-solid fa-caret-down"></i>
-  </button>
+      <ul class="dropdown-list" [class.open]="isStatusOpen">
+        <li class="dropdown-item" (click)="filterStatus('ASSIGNED')">
+          ASSIGNED
+        </li>
+        <li class="dropdown-item" (click)="filterStatus('NOT ASSIGNED')">
+          NOT ASSIGNED
+        </li>
+      </ul>
+    </div>
 
-  <ul class="dropdown-list" [class.open]="isStatusOpen">
-    <li class="dropdown-item" (click)="filterStatus('ASSIGNED')">ASSIGNED</li>
-    <li class="dropdown-item" (click)="filterStatus('NOT ASSIGNED')">NOT ASSIGNED</li>
-  </ul>
-</div>
+    <!-- State Dropdown -->
+    <div class="custom-dropdown">
+      <button
+        type="button"
+        class="dropdown-btn"
+        (click)="isStateOpen = !isStateOpen"
+      >
+        <span>{{ selectedState || "State" }}</span>
+      </button>
 
-<div class=" col custom-dropdown">
-  <button type="button" class="dropdown-btn" (click)="isStateOpen = !isStateOpen">
-    <span>{{ selectedState || 'State' }}</span>
-    <i class="fa-solid fa-caret-down"></i>
-  </button>
-
-  <ul class="dropdown-list" [class.open]="isStateOpen">
-    <li class="dropdown-item" (click)="filterState('Maharashtra')">Maharashtra</li>
-    <li class="dropdown-item" (click)="filterState('Delhi')">Delhi</li>
-    <li class="dropdown-item" (click)="filterState('Karnataka')">Karnataka</li>
-  </ul>
-</div>
-</div>
-
-  <!-- Static Kitchen Cards -->
-<div class="kitchen-grid">
-  <div class="kitchen-card" *ngFor="let k of filteredKitchens">
-    <p class="kitchen-id">Kitchen ID: {{ k.kitchenCode }}</p>
-    <p>State: {{ k.state }}</p>
-    <p>City: {{ k.city }}</p>
-    <p class="kitchen-pin">PIN: {{ k.pinCode }}</p>
+      <ul class="dropdown-list" [class.open]="isStateOpen">
+        <li class="dropdown-item" (click)="filterState('Maharashtra')">
+          Maharashtra
+        </li>
+        <li class="dropdown-item" (click)="filterState('Delhi')">Delhi</li>
+        <li class="dropdown-item" (click)="filterState('Karnataka')">
+          Karnataka
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 
-
-
+  <!-- Kitchen Grid -->
+  <div class="kitchen-grid">
+    <div class="kitchen-card" *ngFor="let k of filteredKitchens">
+      <p class="kitchen-id">Kitchen ID: {{ k.kitchenCode }}</p>
+      <p>State: {{ k.state }}</p>
+      <p>City: {{ k.city }}</p>
+      <p class="kitchen-pin">PIN: {{ k.pinCode }}</p>
+    </div>
+  </div>
 </div>
