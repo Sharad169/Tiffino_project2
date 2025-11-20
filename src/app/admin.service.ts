@@ -16,6 +16,7 @@ export class AdminService {
       private baseUrl3 = "http://localhost:8081/api";
       private apiUrl = "http://localhost:8081/api/admins/super-admin/delivery-partners";
       private apiUrl5 = "http://localhost:8081/api"
+      private apiUrl6 = "http://localhost:8081/api/kitchens"
  
 
  loginAdmin(data: any) {
@@ -91,6 +92,12 @@ showAllKitchens(): Observable<any> {
    const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
   return this.http.get(this.apiUrl5+"/kitchens/all", { headers });
+}
+
+showAllEmployees(): Observable<any> {
+   const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  return this.http.get(this.apiUrl6+"/All/Employees", { headers });
 }
 
 }
