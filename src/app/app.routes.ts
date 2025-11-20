@@ -84,6 +84,10 @@ import { YourcurrentorderdelpartnerComponent } from './yourcurrentorderdelpartne
 import { DelpartnercurrentorderComponent } from './delpartnercurrentorder/delpartnercurrentorder.component';
 import { DelpartnerorderComponent } from './delpartnerorder/delpartnerorder.component';
 import { DelpartnerordercompleteComponent } from './delpartnerordercomplete/delpartnerordercomplete.component';
+import { DelpartnerordersdeliverdbyyouComponent } from './delpartnerordersdeliverdbyyou/delpartnerordersdeliverdbyyou.component';
+import { DelpartneryourdetailsComponent } from './delpartneryourdetails/delpartneryourdetails.component';
+import { DelpartneryourdetailsrequestComponent } from './delpartneryourdetailsrequest/delpartneryourdetailsrequest.component';
+import { DetailsdeliverypartnerComponent } from './detailsdeliverypartner/detailsdeliverypartner.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -217,7 +221,22 @@ export const routes: Routes = [
     path: 'delpartnerordercomplete',
     component: DelpartnerordercompleteComponent,
   },
-
+  {
+    path: 'delpartnerordersdeliverdbyyou',
+    component: DelpartnerordersdeliverdbyyouComponent,
+  },
+  {
+    path: 'delpartneryourdetails',
+    component: DelpartneryourdetailsComponent,
+  },
+  {
+    path: 'delpartneryourdetailsrequest',
+    component: DelpartneryourdetailsrequestComponent,
+  },
+  {
+    path: 'detailsdeliverypartner',
+    component: DetailsdeliverypartnerComponent,
+  },
   // ===== Fallback =====
   { path: '**', redirectTo: '' },
 ];
