@@ -88,6 +88,10 @@ import { DelpartnerordersdeliverdbyyouComponent } from './delpartnerordersdelive
 import { DelpartneryourdetailsComponent } from './delpartneryourdetails/delpartneryourdetails.component';
 import { DelpartneryourdetailsrequestComponent } from './delpartneryourdetailsrequest/delpartneryourdetailsrequest.component';
 import { DetailsdeliverypartnerComponent } from './detailsdeliverypartner/detailsdeliverypartner.component';
+import { ApplyleavemanagerComponent } from './applyleavemanager/applyleavemanager.component';
+import { ManagerapproveorderComponent } from './managerapproveorder/managerapproveorder.component';
+import { DelpartnerapplyleaveComponent } from './delpartnerapplyleave/delpartnerapplyleave.component';
+import { DelpartnerhelpsupportpageComponent } from './delpartnerhelpsupportpage/delpartnerhelpsupportpage.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -237,6 +241,15 @@ export const routes: Routes = [
     path: 'detailsdeliverypartner',
     component: DetailsdeliverypartnerComponent,
   },
+  { path: 'delpartnerapplyleave', component: DelpartnerapplyleaveComponent },
+  {
+    path: 'delpartnerhelpsupportpage',
+    component: DelpartnerhelpsupportpageComponent,
+  },
+
+  //Manager Section
+  { path: 'applyleavemanager', component: ApplyleavemanagerComponent },
+  { path: 'managerapproveorder', component: ManagerapproveorderComponent },
   // ===== Fallback =====
   { path: '**', redirectTo: '' },
 ];

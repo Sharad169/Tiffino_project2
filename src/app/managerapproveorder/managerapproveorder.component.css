@@ -1,0 +1,91 @@
+.subscription-wrapper {
+  width: 100%;
+  max-width: 380px;
+  margin-left: 480px;
+  margin-top: -420px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Heading */
+.order-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+/* Scroll Area */
+.cards-scroll-area {
+  max-height: 650px;
+  width: 866px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.cards-scroll-area::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card Box */
+.card {
+  width: 866px;
+  height: 324px;
+  background: #ffffff;
+  border-radius: 40px;
+  padding: 20px;
+  margin-top: 40px;
+  margin-bottom: 14px;
+  border: none;
+}
+
+/* Delivery No + Date (FIRST ROW) */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+}
+
+.delivery-info {
+  font-size: 24px;
+  margin: 0;
+  color: #000000;
+}
+
+.date-info {
+  font-size: 20px;
+  margin: 0;
+  color: #000;
+}
+
+/* ORDER DETAILS */
+.card-body p {
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+/* RATING + APPROVE BUTTON IN SAME ROW */
+.rating-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.rating-text {
+  font-size: 20px;
+  margin: 0;
+}
+
+/* APPROVE BUTTON */
+.approve-btn {
+  width: 166px;
+  height: 49px;
+  background: #386341;
+  color: #ffffff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}

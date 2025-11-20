@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { DelpartnersidebarComponent } from '../delpartnersidebar/delpartnersidebar.component';
-
 @Component({
-  selector: 'app-delpartnerdashboard',
+  selector: 'app-delpartnerapplyleave',
   standalone: true,
   imports: [DelpartnersidebarComponent],
-  templateUrl: './delpartnerdashboard.component.html',
-  styleUrls: ['./delpartnerdashboard.component.css'], // fixed plural
+  templateUrl: './delpartnerapplyleave.component.html',
+  styleUrls: ['./delpartnerapplyleave.component.css'],
 })
-export class DelpartnerdashboardComponent {}
+export class DelpartnerapplyleaveComponent {}

@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { Sidebar2Component } from './sidebar2/sidebar2.component';
 import { DelpartnersidebarComponent } from './delpartnersidebar/delpartnersidebar.component';
+import { ManagersidebarComponent } from './managersidebar/managersidebar.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,6 +22,7 @@ import { DelpartnersidebarComponent } from './delpartnersidebar/delpartnersideba
     SidebarComponent,
     Sidebar2Component,
     DelpartnersidebarComponent,
+    ManagersidebarComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],

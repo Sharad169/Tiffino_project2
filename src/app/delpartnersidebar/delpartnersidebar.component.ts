@@ -12,7 +12,7 @@ export class DelpartnersidebarComponent {
   constructor(public router: Router) {}
 
   // -------- ROUTE GROUPS ----------
-  dashboardRoutes = ['/delpartnerdashboard'];
+  dashboardRoutes = ['/delpartnerdashboard', '/delpartnerapplyleave'];
 
   currentOrderRoutes = [
     '/yourcurrentorderdelpartner',
@@ -20,8 +20,21 @@ export class DelpartnersidebarComponent {
     '/delpartnerorder',
     '/delpartnerordercomplete',
   ];
+
+  ordersDeliveredRoutes = ['/delpartnerordersdeliverdbyyou'];
+  helpSupportRoutes = ['/delpartnerhelpsupportpage'];
+
+  yourDetailsRoutes = [
+    '/delpartneryourdetails',
+    '/delpartneryourdetailsrequest',
+    '/detailsdeliverypartner',
+  ];
+
   // helper function to check active route
   isActive(paths: string[]): boolean {
-    return paths.some((path) => this.router.url.startsWith(path));
+    return paths.includes(this.router.url);
+  }
+  goBack() {
+    history.back();
   }
 }
