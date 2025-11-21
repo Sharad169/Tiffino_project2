@@ -13,7 +13,12 @@ export class ManagersidebarComponent {
 
   // --- ROUTE GROUPS FOR HIGHLIGHTING ---
   homeRoutes = ['/applyleavemanager']; // highlight Home
-  currenttOrderRoutes = ['/managerapproveorder']; // highlight Your current order
+  currenttOrderRoutes = [
+    '/managerapproveorder',
+    '/managerstartordersubscriber',
+  ]; // highlight Your current order
+  ordersDeliverRoutes = ['/managerorderdeliverbyyou'];
+  helpCenterRoutes = ['/managerhelpsupportpage'];
 
   // Check active route
   isActive(paths: string[]): boolean {

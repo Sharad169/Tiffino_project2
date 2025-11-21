@@ -1,0 +1,62 @@
+.privacy-wrapper {
+  font-family: "Poppins", sans-serif;
+  margin-left: 40px; /* adjust for your sidebar */
+  margin-top: -410px;
+  margin-left: 480px;
+}
+
+/* Heading */
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #386341;
+  margin-bottom: 32px;
+}
+
+/* Green Bubble */
+.chat-bubble {
+  background: #386341;
+  width: 448px;
+  height: 149px;
+  padding: 23px 41px;
+  border-radius: 20px;
+  color: #ffffff;
+}
+
+.bubble-title,
+text {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 3px 0;
+}
+
+/* .bubble-text {
+  font-size: 16px;
+  line-height: 18px;
+  margin: 0;
+} */
+
+/* Message Input Bottom */
+.message-box {
+  margin-top: 456px;
+  margin-bottom: 100px;
+}
+
+.message-input {
+  width: 857px;
+  height: 68px;
+  background: #ffffff;
+  border: 2px solid #7c7c7c;
+  border-radius: 26px;
+  padding: 0 20px;
+  font-size: 20px;
+  font-weight: 400;
+  outline: none;
+  text-align: center;
+  color: #000000;
+}
+
+.message-input::placeholder {
+  color: #000;
+  opacity: 0.7;
+}

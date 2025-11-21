@@ -29,12 +29,22 @@
           >
         </li>
 
-        <li class="nav-item highlight" [class.active]="">
-          <a routerLink="" class="nav-link">Orders delivered by you</a>
+        <li
+          class="nav-item highlight"
+          [class.active]="isActive(ordersDeliverRoutes)"
+        >
+          <a routerLink="/managerorderdeliverbyyou" class="nav-link"
+            >Orders delivered by you</a
+          >
         </li>
 
-        <li class="nav-item highlight" [class.active]="">
-          <a routerLink="" class="nav-link">Help Center</a>
+        <li
+          class="nav-item highlight"
+          [class.active]="isActive(helpCenterRoutes)"
+        >
+          <a routerLink="/managerhelpsupportpage" class="nav-link"
+            >Help Center</a
+          >
         </li>
 
         <li class="nav-item highlight" [class.active]="">

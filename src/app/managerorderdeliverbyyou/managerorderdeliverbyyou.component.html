@@ -1,11 +1,11 @@
 <app-managersidebar></app-managersidebar>
 
 <div class="subscription-wrapper">
-  <h2 class="order-title">List of Current Orders:</h2>
+  <h2 class="order-title">List of previous orders:</h2>
 
   <div class="cards-scroll-area">
     <!-- CARD 1 -->
-    <div class="card" (click)="openOrder()">
+    <div class="card">
       <!-- ROW 1: Delivery No + Date -->
       <div class="card-header">
         <p class="delivery-info"><strong>Delivery No.- 01</strong></p>
@@ -22,13 +22,12 @@
         <!-- RATING + APPROVE BUTTON IN SAME ROW -->
         <div class="rating-row">
           <p class="rating-text"><strong>Allergens: </strong>Egg</p>
-          <button class="approve-btn">Approve</button>
         </div>
       </div>
     </div>
 
     <!-- CARD 2 -->
-    <div class="card" (click)="openOrder()">
+    <div class="card">
       <div class="card-header">
         <p class="delivery-info"><strong>Delivery No.- 02</strong></p>
         <p class="date-info"><strong>Date: </strong>dd/mm/yyyy</p>
@@ -42,13 +41,12 @@
 
         <div class="rating-row">
           <p class="rating-text"><strong>Allergens: </strong>Egg</p>
-          <button class="approve-btn">Approve</button>
         </div>
       </div>
     </div>
 
     <!-- CARD 3 -->
-    <div class="card" (click)="openOrder()">
+    <div class="card">
       <div class="card-header">
         <p class="delivery-info"><strong>Delivery No.- 03</strong></p>
         <p class="date-info"><strong>Date: </strong>dd/mm/yyyy</p>
@@ -62,7 +60,6 @@
 
         <div class="rating-row">
           <p class="rating-text"><strong>Allergens: </strong>Egg</p>
-          <button class="approve-btn">Approve</button>
         </div>
       </div>
     </div>

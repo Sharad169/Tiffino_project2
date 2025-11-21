@@ -92,6 +92,9 @@ import { ApplyleavemanagerComponent } from './applyleavemanager/applyleavemanage
 import { ManagerapproveorderComponent } from './managerapproveorder/managerapproveorder.component';
 import { DelpartnerapplyleaveComponent } from './delpartnerapplyleave/delpartnerapplyleave.component';
 import { DelpartnerhelpsupportpageComponent } from './delpartnerhelpsupportpage/delpartnerhelpsupportpage.component';
+import { ManagerorderdeliverbyyouComponent } from './managerorderdeliverbyyou/managerorderdeliverbyyou.component';
+import { ManagerhelpsupportpageComponent } from './managerhelpsupportpage/managerhelpsupportpage.component';
+import { ManagerstartordersubscriberComponent } from './managerstartordersubscriber/managerstartordersubscriber.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -250,6 +253,18 @@ export const routes: Routes = [
   //Manager Section
   { path: 'applyleavemanager', component: ApplyleavemanagerComponent },
   { path: 'managerapproveorder', component: ManagerapproveorderComponent },
+  {
+    path: 'managerorderdeliverbyyou',
+    component: ManagerorderdeliverbyyouComponent,
+  },
+  {
+    path: 'managerhelpsupportpage',
+    component: ManagerhelpsupportpageComponent,
+  },
+  {
+    path: 'managerstartordersubscriber',
+    component: ManagerstartordersubscriberComponent,
+  },
   // ===== Fallback =====
   { path: '**', redirectTo: '' },
 ];
