@@ -43,7 +43,7 @@
 
   <!-- Kitchen Grid -->
   <div class="kitchen-grid">
-    <div class="kitchen-card" *ngFor="let k of filteredKitchens">
+    <div class="kitchen-card" *ngFor="let k of filteredKitchens" (click)="viewKitchenDetails(k.kitchenCode)">
       <p class="kitchen-id">Kitchen ID: {{ k.kitchenCode }}</p>
       <p>State: {{ k.state }}</p>
       <p>City: {{ k.city }}</p>

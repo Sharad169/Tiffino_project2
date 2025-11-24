@@ -135,6 +135,14 @@ toggleState() {
 }
 
 
+viewKitchenDetails(kitchenCode: string) {
+  // Navigate to kitchen details page
+ console.log(kitchenCode);
+
+}
+ 
+
+
 
 }
  
