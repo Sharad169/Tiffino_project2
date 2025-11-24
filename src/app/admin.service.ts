@@ -100,6 +100,13 @@ showAllEmployees(): Observable<any> {
   return this.http.get(this.apiUrl6+"/All/Employees", { headers });
 }
 
+getKitchenById(kitchenCode: string): Observable<any> {
+   const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  return this.http.get(`${this.apiUrl6}/kitchen-code/${kitchenCode}`, { headers });
+
+}
+
 }
  
 
