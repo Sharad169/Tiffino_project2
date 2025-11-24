@@ -234,7 +234,8 @@ export function shouldHideLayout(url: string): boolean {
     url.startsWith('/onboarding') ||
     url.startsWith('/verification-otp') ||
     url.startsWith('/welcome') ||
-    url.startsWith('/superadminsetpassword')
+    url.startsWith('/superadminsetpassword')||
+    url.startsWith('/listemployee')
   );
 }
 

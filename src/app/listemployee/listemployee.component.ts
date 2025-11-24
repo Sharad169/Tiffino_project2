@@ -66,4 +66,13 @@ export class ListemployeeComponent implements OnInit {
       error: (err) => console.error('❌ Error fetching employees:', err)
     });
   }
+
+getPhoto(emp: any) {
+  // If no photo or photo is PDF → return default image
+  if (!emp.photo || emp.photo.endsWith('.pdf')) {
+    return 'assets/default-user.png'; 
+  }
+
+  return emp.photo;
+}
 }
