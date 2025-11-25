@@ -1,12 +1,37 @@
 <div class="main-layout-wrapper">
-  <div class="sidebar-panel">
-    <div class="location-row"></div>
+  <!-- CONTENT PANEL FIRST (TOP) -->
+  <div class="content-panel">
+    <div class="top-header-row">
+      <p class="greeting">Good Morning, Aaditya</p>
 
-    <!-- 🔴 Horizontally Centered Inactive Status (scrolls with page) -->
+      <div class="action-icons">
+        <div class="help-large-box">
+          <div class="help-small-box">?</div>
+        </div>
+
+        <div class="notification-circle">
+          <i class="fas fa-bell notify"></i>
+          <img src="/assets/aaditya.jpg" alt="user" class="profile-pic" />
+        </div>
+      </div>
+    </div>
+
+    <div class="search-row">
+      <div class="search-box">
+        <input type="text" placeholder="Search" />
+        <button class="menu-btn">☰</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR PANEL BELOW -->
+  <div class="sidebar-panel">
     <div class="inactive-status">
       <span class="inactive-text">Inactive</span>
       <div class="inactive-dot"></div>
     </div>
+
+    <div class="location-row"></div>
 
     <div class="profile-section">
       <span class="back-link" (click)="goBack()">
@@ -47,32 +72,10 @@
           >
         </li>
 
-        <li class="nav-item highlight" [class.active]="">
+        <li class="nav-item highlight">
           <a routerLink="" class="nav-link">Your Details</a>
         </li>
       </ul>
-    </div>
-  </div>
-
-  <div class="content-panel">
-    <div class="header-top-row">
-      <p class="greeting">Good Morning, Aditya</p>
-      <div class="action-icons">
-        <div class="help-large-box">
-          <div class="help-small-box">?</div>
-        </div>
-        <div class="notification-circle">
-          <i class="fas fa-bell notify"></i>
-          <img src="/assets/aaditya.jpg" alt="user" class="profile-pic" />
-        </div>
-      </div>
-    </div>
-
-    <div class="search-row">
-      <div class="search-box">
-        <input type="text" placeholder="Search" />
-        <button class="menu-btn">☰</button>
-      </div>
     </div>
   </div>
 </div>

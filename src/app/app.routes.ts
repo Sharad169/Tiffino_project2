@@ -95,6 +95,7 @@ import { DelpartnerhelpsupportpageComponent } from './delpartnerhelpsupportpage/
 import { ManagerorderdeliverbyyouComponent } from './managerorderdeliverbyyou/managerorderdeliverbyyou.component';
 import { ManagerhelpsupportpageComponent } from './managerhelpsupportpage/managerhelpsupportpage.component';
 import { ManagerstartordersubscriberComponent } from './managerstartordersubscriber/managerstartordersubscriber.component';
+import { ManagerOrderdelpartnerdetailsComponent } from './manager-orderdelpartnerdetails/manager-orderdelpartnerdetails.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -264,6 +265,10 @@ export const routes: Routes = [
   {
     path: 'managerstartordersubscriber',
     component: ManagerstartordersubscriberComponent,
+  },
+  {
+    path: 'manager-orderdelpartnerdetails',
+    component: ManagerOrderdelpartnerdetailsComponent,
   },
   // ===== Fallback =====
   { path: '**', redirectTo: '' },

@@ -1,0 +1,314 @@
+/* ---------------------------------------------------
+   ORIGINAL CSS (UNCHANGED)
+   --------------------------------------------------- */
+
+/* General Container */
+.order-container {
+  width: 900px;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  padding: 20px 24px;
+  font-family: "Poppins", sans-serif;
+  background: #ffffff;
+  margin-top: 100px;
+  margin-left: 0;
+  margin-bottom: 80px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.order-time {
+  color: #9d9b9b;
+  font-size: 20px;
+}
+
+/* Customer Info */
+.customer-info {
+  padding: 8px 0;
+  margin-bottom: 12px;
+}
+
+.customer-info p {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+/* Name + Subscriber */
+.row-flex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.subscriber-badge {
+  color: #2ae484;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 570px;
+}
+
+/* HEALTH & NUTRITION EXACT ALIGNMENT */
+.nutrition-row {
+  display: flex;
+  align-items: flex-start;
+  font-size: 20px;
+  color: #000000;
+}
+
+.nutrition-row .label {
+  margin-right: 8px;
+}
+
+.nutrition-row .value {
+  display: block;
+  line-height: 26px;
+}
+
+/* Food Card */
+.food-card {
+  display: flex;
+  align-items: center;
+  background: #f7f7f7;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin: 16px 0 20px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.food-card img {
+  width: 240px;
+  height: 148px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-right: 14px;
+}
+
+.food-details h4 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 19px;
+}
+
+/* Employee Wrapper */
+.employee-details-wrapper {
+  background: #f7f8fa;
+  margin-top: -40px;
+  margin-left: 470px;
+  margin-right: 70px;
+  width: 900px;
+}
+
+.employee-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 3px solid #386341;
+  border-radius: 20px;
+  padding: 48px 60px;
+  background-color: #e0fee4;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.employee-card::before {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 11px;
+  right: 11px;
+  bottom: 11px;
+  border: 3px solid #386341;
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.employee-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.employee-top {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.employee-img {
+  width: 143px;
+  height: 141px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.employee-name {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.employee-info {
+  margin-top: 25px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.employee-info p {
+  margin-bottom: 12px;
+}
+
+/* Label part bold */
+.label {
+  font-size: 20px;
+  color: #000000;
+}
+
+/* Button Outside */
+.order-button-outside {
+  text-align: center;
+  margin-top: -40px;
+}
+
+.start-btn {
+  width: 170px;
+  height: 49px;
+  background-color: #386341;
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease;
+  margin-top: 90px;
+  margin-left: 40px;
+}
+
+/* DESKTOP RESPONSIVE */
+@media (min-width: 1025px) {
+  .order-container {
+    width: 900px;
+    margin-left: 420px;
+    margin-top: -400px;
+  }
+
+  .employee-details-wrapper {
+    margin-left: 420px;
+    margin-right: 70px;
+  }
+
+  .subscriber-badge {
+    margin-left: 570px;
+  }
+}
+
+/* ---------------------------------------------------
+   RESPONSIVE FIXES (TABLETS + MOBILE)
+   --------------------------------------------------- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .order-container,
+  .employee-details-wrapper {
+    width: 92% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: -410px !important;
+  }
+
+  .employee-card {
+    flex-direction: column;
+    padding: 30px;
+    gap: 20px;
+  }
+
+  .employee-top {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .subscriber-badge {
+    margin-left: auto !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .order-container,
+  .employee-details-wrapper {
+    width: 95% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 15px !important;
+    margin-top: 10px !important;
+  }
+
+  /* Order Text */
+  .order-header {
+    font-size: 18px;
+  }
+
+  .order-time {
+    font-size: 16px;
+  }
+
+  .customer-info p {
+    font-size: 16px;
+  }
+
+  .row-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .subscriber-badge {
+    font-size: 14px;
+    margin-left: 0 !important;
+  }
+
+  /* Food Card Mobile */
+  .food-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .food-card img {
+    width: 100% !important;
+    height: 180px !important;
+    margin-bottom: 12px;
+  }
+
+  /* Employee Card */
+  .employee-card {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .employee-img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .employee-info {
+    font-size: 16px;
+  }
+
+  /* Button Full Width */
+  .start-btn {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-top: 90px !important;
+  }
+}
