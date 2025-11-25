@@ -20,6 +20,11 @@ export class ManagersidebarComponent {
   ]; // highlight Your current order
   ordersDeliverRoutes = ['/managerorderdeliverbyyou'];
   helpCenterRoutes = ['/managerhelpsupportpage'];
+  yourDetailsPageRoutes = [
+    '/manager-yourdetailspage',
+    '/manager-yourdetailseditrequestpage',
+    '/manager-yourdetailssubmitpage',
+  ];
 
   // Check active route
   isActive(paths: string[]): boolean {

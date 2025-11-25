@@ -72,8 +72,13 @@
           >
         </li>
 
-        <li class="nav-item highlight">
-          <a routerLink="" class="nav-link">Your Details</a>
+        <li
+          class="nav-item highlight"
+          [class.active]="isActive(yourDetailsPageRoutes)"
+        >
+          <a routerLink="/manager-yourdetailspage" class="nav-link"
+            >Your Details</a
+          >
         </li>
       </ul>
     </div>

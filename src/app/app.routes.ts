@@ -96,6 +96,9 @@ import { ManagerorderdeliverbyyouComponent } from './managerorderdeliverbyyou/ma
 import { ManagerhelpsupportpageComponent } from './managerhelpsupportpage/managerhelpsupportpage.component';
 import { ManagerstartordersubscriberComponent } from './managerstartordersubscriber/managerstartordersubscriber.component';
 import { ManagerOrderdelpartnerdetailsComponent } from './manager-orderdelpartnerdetails/manager-orderdelpartnerdetails.component';
+import { ManagerYourdetailspageComponent } from './manager-yourdetailspage/manager-yourdetailspage.component';
+import { ManagerYourdetailseditrequestpageComponent } from './manager-yourdetailseditrequestpage/manager-yourdetailseditrequestpage.component';
+import { ManagerYourdetailssubmitpageComponent } from './manager-yourdetailssubmitpage/manager-yourdetailssubmitpage.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -269,6 +272,18 @@ export const routes: Routes = [
   {
     path: 'manager-orderdelpartnerdetails',
     component: ManagerOrderdelpartnerdetailsComponent,
+  },
+  {
+    path: 'manager-yourdetailspage',
+    component: ManagerYourdetailspageComponent,
+  },
+  {
+    path: 'manager-yourdetailseditrequestpage',
+    component: ManagerYourdetailseditrequestpageComponent,
+  },
+  {
+    path: 'manager-yourdetailssubmitpage',
+    component: ManagerYourdetailssubmitpageComponent,
   },
   // ===== Fallback =====
   { path: '**', redirectTo: '' },
