@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { SuperadminSidebarComponent } from '../superadmin-sidebar/superadmin-sidebar.component';
 import { AdminService } from '../admin.service';
 
@@ -20,7 +20,7 @@ export class ListemployeeComponent implements OnInit {
   selectedOption: string = 'All';
   dropdownOpen: boolean = false;
 
-  constructor(public api: AdminService) {}
+  constructor(public api: AdminService, private router : Router) {}
 
   ngOnInit(): void {
     this.loadAllEmployees();
@@ -74,5 +74,11 @@ getPhoto(emp: any) {
   }
 
   return emp.photo;
+}
+
+emloyeeDetails(empId:any){
+  console.log("Employee ID:", empId);
+  this.router.navigate(['/superadminmanagerdetails', empId]);
+
 }
 }
