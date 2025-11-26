@@ -17,6 +17,7 @@ export class ManagersidebarComponent {
     '/managerapproveorder',
     '/managerstartordersubscriber',
     '/manager-orderdelpartnerdetails',
+    '/manager-status',
   ]; // highlight Your current order
   ordersDeliverRoutes = ['/managerorderdeliverbyyou'];
   helpCenterRoutes = ['/managerhelpsupportpage'];

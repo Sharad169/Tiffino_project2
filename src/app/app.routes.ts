@@ -99,6 +99,7 @@ import { ManagerOrderdelpartnerdetailsComponent } from './manager-orderdelpartne
 import { ManagerYourdetailspageComponent } from './manager-yourdetailspage/manager-yourdetailspage.component';
 import { ManagerYourdetailseditrequestpageComponent } from './manager-yourdetailseditrequestpage/manager-yourdetailseditrequestpage.component';
 import { ManagerYourdetailssubmitpageComponent } from './manager-yourdetailssubmitpage/manager-yourdetailssubmitpage.component';
+import { ManagerStatusComponent } from './manager-status/manager-status.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -285,6 +286,7 @@ export const routes: Routes = [
     path: 'manager-yourdetailssubmitpage',
     component: ManagerYourdetailssubmitpageComponent,
   },
+  { path: 'manager-status', component: ManagerStatusComponent },
   // ===== Fallback =====
   { path: '**', redirectTo: '' },
 ];
