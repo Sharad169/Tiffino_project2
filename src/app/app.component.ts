@@ -10,6 +10,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { Sidebar2Component } from './sidebar2/sidebar2.component';
 import { DelpartnersidebarComponent } from './delpartnersidebar/delpartnersidebar.component';
 import { ManagersidebarComponent } from './managersidebar/managersidebar.component';
+import { ChefSidebarComponent } from './chef-sidebar/chef-sidebar.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,6 +24,7 @@ import { ManagersidebarComponent } from './managersidebar/managersidebar.compone
     Sidebar2Component,
     DelpartnersidebarComponent,
     ManagersidebarComponent,
+    ChefSidebarComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],

@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { ManagersidebarComponent } from '../managersidebar/managersidebar.component';
+import { ChefSidebarComponent } from '../chef-sidebar/chef-sidebar.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-applyleavemanager',
+  selector: 'app-chef-applyleave',
   standalone: true,
-  imports: [ManagersidebarComponent, FormsModule, CommonModule],
-  templateUrl: './applyleavemanager.component.html',
-  styleUrls: ['./applyleavemanager.component.css'],
+  imports: [ChefSidebarComponent, FormsModule, CommonModule],
+  templateUrl: './chef-applyleave.component.html',
+  styleUrls: ['./chef-applyleave.component.css'],
 })
-export class ApplyleavemanagerComponent {
+export class ChefApplyleaveComponent {
   showLeaveType = false;
 
   leaveType: string | null = null;

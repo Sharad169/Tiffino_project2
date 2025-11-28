@@ -1,11 +1,17 @@
+/* =======================
+   MAIN WRAPPER
+======================= */
 .apply-wrapper {
   font-family: "Poppins", sans-serif;
   padding: 20px 0;
   max-width: 650px;
   margin-top: -410px;
-  margin-left: 470px;
+  margin-left: 450px;
 }
 
+/* =======================
+   HEADING
+======================= */
 .apply-wrapper h2 {
   font-size: 24px;
   font-weight: 500;
@@ -13,8 +19,10 @@
   margin-bottom: 40px;
 }
 
-.input-box,
-.reason-box {
+/* =======================
+   ALL COMMON INPUTS
+======================= */
+.input-box {
   width: 373px;
   height: 48px;
   background: #f1f1f1;
@@ -22,27 +30,32 @@
   border-radius: 8px;
   padding: 10px 14px;
   font-size: 16px;
-  font-weight: 500; /* bold like leave type */
+  font-weight: 500;
   outline: none;
   box-sizing: border-box;
   color: #000000;
 }
 
+/* LEAVE TYPE DROPDOWN ARROW */
 .leave-type {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='23px' height='24px' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10l5 5 5-5' stroke='rgba(31,31,31,1)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 16px center;
   background-size: 30px;
-  color: #1f1f1f;
   cursor: pointer;
 }
 
+/* COLUMN SPACING */
 .small-fields {
   display: flex;
   flex-direction: column;
   gap: 18px;
   margin-top: 18px;
 }
+
+/* =======================
+   CONTACT DETAILS (INLINE PREFIX)
+======================= */
 .contact-box {
   width: 373px;
   height: 48px;
@@ -54,18 +67,15 @@
   font-size: 16px;
   font-weight: 500;
   color: #000;
-  position: relative;
   box-sizing: border-box;
 }
 
-/* fixed prefix text */
 .prefix {
   pointer-events: none;
   color: #000000;
   font-weight: 500;
 }
 
-/* input field typing after prefix */
 .contact-input {
   border: none;
   outline: none;
@@ -76,6 +86,10 @@
   flex: 1;
   margin-left: 4px;
 }
+
+/* =======================
+   REASON BOX (LABEL ON TOP)
+======================= */
 .reason-box {
   width: 866px;
   height: 190px;
@@ -87,28 +101,30 @@
   box-sizing: border-box;
 }
 
-/* FIXED LABEL */
 .reason-label {
   font-size: 16px;
   font-weight: 500;
   color: #000000;
-  margin-bottom: 8px; /* push textarea down */
+  margin-bottom: 8px;
   pointer-events: none;
 }
 
-/* MULTI-LINE INPUT BOX */
 .reason-textarea {
   width: 100%;
-  min-height: 100px;
+  min-height: 130px;
   border: none;
   outline: none;
   background: transparent;
   font-size: 16px;
   font-weight: 500;
   color: #000000;
-  resize: none; /* prevent resizing to keep UI clean */
   line-height: 22px;
+  resize: none;
 }
+
+/* =======================
+   SUBMIT BUTTON
+======================= */
 .submit-btn {
   margin-top: 32px;
   display: flex;
@@ -127,15 +143,14 @@ button {
   font-size: 16px;
   font-weight: 500;
   margin-top: 46px;
-  margin-left: 280px;
+  margin-left: 210px;
 }
 
-/* ---------------------------------- */
-/*        ADDED FUNCTIONALITY CSS     */
-/* ---------------------------------- */
-
+/* =======================
+   DROPDOWN
+======================= */
 .custom-dropdown {
-  width: 300px; /* kept your updated width */
+  width: 300px;
   background: #f1f1f1;
   border-radius: 8px;
   margin-top: 5px;
@@ -159,12 +174,13 @@ button {
   background: #e0fee4;
 }
 
-/* Hide date input visually */
+/* Hide date input */
 .hidden-date {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
+
 /* ============================================================= */
 /*                      RESPONSIVE SECTION                       */
 /* ============================================================= */

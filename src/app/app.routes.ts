@@ -100,6 +100,9 @@ import { ManagerYourdetailspageComponent } from './manager-yourdetailspage/manag
 import { ManagerYourdetailseditrequestpageComponent } from './manager-yourdetailseditrequestpage/manager-yourdetailseditrequestpage.component';
 import { ManagerYourdetailssubmitpageComponent } from './manager-yourdetailssubmitpage/manager-yourdetailssubmitpage.component';
 import { ManagerStatusComponent } from './manager-status/manager-status.component';
+import { ChefDashboardComponent } from './chef-dashboard/chef-dashboard.component';
+import { ChefApplyleaveComponent } from './chef-applyleave/chef-applyleave.component';
+import { ChefHelpsupportpageComponent } from './chef-helpsupportpage/chef-helpsupportpage.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -287,6 +290,11 @@ export const routes: Routes = [
     component: ManagerYourdetailssubmitpageComponent,
   },
   { path: 'manager-status', component: ManagerStatusComponent },
+
+  //Chef Section
+  { path: 'chef-dashboard', component: ChefDashboardComponent },
+  { path: 'chef-applyleave', component: ChefApplyleaveComponent },
+  { path: 'chef-helpsupportpage', component: ChefHelpsupportpageComponent },
   // ===== Fallback =====
   { path: '**', redirectTo: '' },
 ];
