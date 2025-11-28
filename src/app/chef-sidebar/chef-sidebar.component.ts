@@ -12,6 +12,11 @@ export class ChefSidebarComponent {
 
   homeRoutes = ['/chef-dashboard', '/chef-applyleave'];
   helpSupportRoutes = ['/chef-helpsupportpage'];
+  yourDetailsRoutes = [
+    '/chef-yourdetailspage',
+    '/chef-yourdetailsrequestpage',
+    '/chef-editdetailspage',
+  ];
 
   isActive(paths: string[]): boolean {
     return paths.includes(this.router.url);

@@ -103,6 +103,9 @@ import { ManagerStatusComponent } from './manager-status/manager-status.componen
 import { ChefDashboardComponent } from './chef-dashboard/chef-dashboard.component';
 import { ChefApplyleaveComponent } from './chef-applyleave/chef-applyleave.component';
 import { ChefHelpsupportpageComponent } from './chef-helpsupportpage/chef-helpsupportpage.component';
+import { ChefYourdetailspageComponent } from './chef-yourdetailspage/chef-yourdetailspage.component';
+import { ChefYourdetailsrequestpageComponent } from './chef-yourdetailsrequestpage/chef-yourdetailsrequestpage.component';
+import { ChefEditdetailspageComponent } from './chef-editdetailspage/chef-editdetailspage.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -295,6 +298,12 @@ export const routes: Routes = [
   { path: 'chef-dashboard', component: ChefDashboardComponent },
   { path: 'chef-applyleave', component: ChefApplyleaveComponent },
   { path: 'chef-helpsupportpage', component: ChefHelpsupportpageComponent },
+  { path: 'chef-yourdetailspage', component: ChefYourdetailspageComponent },
+  {
+    path: 'chef-yourdetailsrequestpage',
+    component: ChefYourdetailsrequestpageComponent,
+  },
+  { path: 'chef-editdetailspage', component: ChefEditdetailspageComponent },
   // ===== Fallback =====
   { path: '**', redirectTo: '' },
 ];
