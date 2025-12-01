@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { get } from 'http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -17,6 +18,7 @@ export class AdminService {
       private apiUrl4 = "http://localhost:8081/api/admins";
       private apiUrl5 = "http://localhost:8081/api"
       private apiUrl6 = "http://localhost:8081/api/kitchens"
+ 
  
 
  loginAdmin(data: any) {
@@ -112,13 +114,12 @@ getEmloyeeById(code: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
   return this.http.get(`${this.apiUrl4}/manager/${code}`, { headers });
 }
+
+getChefById(code: string): Observable<any> {
+   const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  return this.http.get(`${this.baseUrl3}/chef/${code}`, { headers });
 }
  
 
-    
-  
-  
-  
-
-
-
+}
