@@ -175,3 +175,165 @@
 .employee-id {
   text-align: right;
 }
+/*********************************************************
+    RESPONSIVE — EMPLOYEE LIST PAGE (FINAL PRODUCTION)
+**********************************************************/
+
+/* ---------- LARGE LAPTOP (max 1440px) ---------- */
+@media (max-width: 1440px) {
+  .listemployee-wrapper {
+    margin-left: 360px;
+    max-width: 850px;
+  }
+
+  .dropdown-selected {
+    width: 500px;
+  }
+
+  .employee-card {
+    width: 750px;
+  }
+}
+
+/* ---------- NORMAL LAPTOP (max 1200px) ---------- */
+@media (max-width: 1200px) {
+  .listemployee-wrapper {
+    margin-left: 250px;
+    margin-top: -580px;
+    max-width: 100%;
+  }
+
+  .dropdown-selected {
+    width: 440px;
+  }
+
+  .assign-buttons {
+    left: 520px;
+  }
+
+  .employee-card {
+    width: 680px;
+  }
+}
+
+/* ---------- TABLETS (max 992px) ---------- */
+@media (max-width: 992px) {
+  .listemployee-wrapper {
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+
+  /* Stack dropdown and assign buttons */
+  .dropdown-row {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .dropdown-selected {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .assign-buttons {
+    position: static;
+    justify-content: center;
+  }
+
+  .assign-btn {
+    width: 160px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  /* Employee card full width */
+  .employee-card {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding: 16px;
+  }
+
+  .employee-photo {
+    width: 110px;
+    height: 110px;
+  }
+
+  .employee-name {
+    font-size: 18px;
+  }
+}
+
+/* ---------- MOBILE LARGE (max 768px) ---------- */
+@media (max-width: 768px) {
+  .dropdown-selected {
+    height: 40px;
+    font-size: 18px;
+    background-size: 26px;
+  }
+
+  .assign-buttons {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .assign-btn {
+    width: 150px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .employee-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .employee-photo {
+    margin-right: 0;
+  }
+
+  .employee-id-row {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .kitchen-id,
+  .employee-id {
+    margin-right: 0;
+    margin-top: 0;
+  }
+}
+
+/* ---------- MOBILE SMALL (max 480px) ---------- */
+@media (max-width: 480px) {
+  .dropdown-selected {
+    font-size: 16px;
+    padding: 0 14px;
+    background-size: 22px;
+  }
+
+  .assign-btn {
+    width: 140px;
+    height: 34px;
+  }
+
+  .employee-photo {
+    width: 90px;
+    height: 90px;
+  }
+
+  .employee-name {
+    font-size: 17px;
+  }
+
+  .employee-role {
+    font-size: 14px;
+  }
+
+  .employee-card {
+    padding: 14px;
+  }
+}

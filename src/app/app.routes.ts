@@ -106,6 +106,8 @@ import { ChefHelpsupportpageComponent } from './chef-helpsupportpage/chef-helpsu
 import { ChefYourdetailspageComponent } from './chef-yourdetailspage/chef-yourdetailspage.component';
 import { ChefYourdetailsrequestpageComponent } from './chef-yourdetailsrequestpage/chef-yourdetailsrequestpage.component';
 import { ChefEditdetailspageComponent } from './chef-editdetailspage/chef-editdetailspage.component';
+import { ChefSubscriptioneditdetailsComponent } from './chef-subscriptioneditdetails/chef-subscriptioneditdetails.component';
+import { ChefSubscriptionordersComponent } from './chef-subscriptionorders/chef-subscriptionorders.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -304,6 +306,14 @@ export const routes: Routes = [
     component: ChefYourdetailsrequestpageComponent,
   },
   { path: 'chef-editdetailspage', component: ChefEditdetailspageComponent },
+  {
+    path: 'chef-subscriptioneditdetails',
+    component: ChefSubscriptioneditdetailsComponent,
+  },
+  {
+    path: 'chef-subscriptionorders',
+    component: ChefSubscriptionordersComponent,
+  },
   // ===== Fallback =====
   { path: '**', redirectTo: '' },
 ];

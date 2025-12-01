@@ -17,7 +17,10 @@ export class ChefSidebarComponent {
     '/chef-yourdetailsrequestpage',
     '/chef-editdetailspage',
   ];
-
+  orderDetailsRoutes = [
+    '/chef-subscriptioneditdetails',
+    '/chef-subscriptionorders',
+  ];
   isActive(paths: string[]): boolean {
     return paths.includes(this.router.url);
   }

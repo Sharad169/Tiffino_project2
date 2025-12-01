@@ -1,8 +1,9 @@
 /* superadminemployeedetails.component.css */
 
+/* Base styles remain the same */
 .employee-details-wrapper {
   background: #f7f8fa;
-  margin-top: -410px;
+  margin-top: -635px;
   margin-left: 494px;
   margin-right: 70px;
 }
@@ -35,9 +36,9 @@
 .employee-left {
   display: flex;
   flex-direction: column;
+  z-index: 1;
 }
 
-/* Image and Name beside each other */
 .employee-top {
   display: flex;
   align-items: center;
@@ -49,6 +50,7 @@
   height: 141px;
   border-radius: 50%;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 .employee-name {
@@ -57,7 +59,6 @@
   color: #000000;
 }
 
-/* Info below image */
 .employee-info {
   margin-top: 25px;
   color: #000000;
@@ -67,9 +68,9 @@
 
 .employee-info p {
   margin-bottom: 12px;
+  word-wrap: break-word;
 }
 
-/* Illustration image at bottom right (absolute position) */
 .employee-illustration {
   position: absolute;
   right: 30px;
@@ -81,7 +82,7 @@
   width: 612px;
   height: 408px;
   display: block;
-  margin-bottom: 14px; /* ensures it touches the bottom edge */
+  margin-bottom: 14px;
 }
 
 /* Delivery Section */
@@ -104,6 +105,8 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .delivery-number {
@@ -112,6 +115,7 @@
   color: #000000;
   margin: 0;
 }
+
 .number {
   font-size: 24px;
   font-weight: 600;
@@ -132,17 +136,387 @@
   color: #ff0000;
 }
 
-/* Label part bold */
 .label {
   font-size: 20px;
   font-weight: 600;
   color: #000000;
 }
 
-/* Details */
 .delivery-details p {
   font-size: 20px;
   font-weight: 400;
   margin: 5px 0;
   color: #000000;
+}
+
+/* ===========================
+   RESPONSIVE MEDIA QUERIES
+   =========================== */
+
+/* Large Desktop (1440px and above) */
+@media (min-width: 1440px) {
+  .employee-details-wrapper {
+    margin-left: 494px;
+    margin-right: 70px;
+  }
+}
+
+/* Standard Desktop/Laptop (1024px - 1439px) */
+@media (max-width: 1439px) {
+  .employee-details-wrapper {
+    margin-top: -635px;
+    margin-left: 350px;
+    margin-right: 40px;
+  }
+
+  .employee-card {
+    padding: 40px 50px;
+  }
+
+  .employee-illustration {
+    left: 300px;
+    right: 20px;
+  }
+
+  .employee-illustration img {
+    width: 500px;
+    height: 350px;
+  }
+}
+
+/* Laptop/Small Desktop (1024px - 1280px) */
+@media (max-width: 1280px) {
+  .employee-details-wrapper {
+    margin-top: 0;
+    margin-left: 280px;
+    margin-right: 30px;
+  }
+
+  .employee-card {
+    padding: 35px 40px;
+  }
+
+  .employee-illustration {
+    left: 250px;
+  }
+
+  .employee-illustration img {
+    width: 400px;
+    height: 300px;
+  }
+
+  .employee-info {
+    font-size: 18px;
+  }
+
+  .employee-name {
+    font-size: 18px;
+  }
+
+  .delivery-number,
+  .number {
+    font-size: 22px;
+  }
+
+  .delivery-details p,
+  .label {
+    font-size: 18px;
+  }
+}
+
+/* Tablet Landscape (768px - 1023px) */
+@media (max-width: 1023px) {
+  .employee-details-wrapper {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .employee-card {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .employee-illustration {
+    position: relative;
+    left: auto;
+    right: auto;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .employee-illustration img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .employee-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .employee-name {
+    font-size: 18px;
+  }
+
+  .employee-info {
+    font-size: 16px;
+  }
+
+  .employee-info p {
+    margin-bottom: 10px;
+  }
+
+  .delivery-card {
+    padding: 25px;
+  }
+
+  .delivery-number,
+  .number {
+    font-size: 20px;
+  }
+
+  .delivery-details p,
+  .label {
+    font-size: 16px;
+  }
+}
+
+/* Tablet Portrait (600px - 767px) */
+@media (max-width: 767px) {
+  .employee-details-wrapper {
+    margin: 20px 15px;
+  }
+
+  .employee-card {
+    padding: 25px 20px;
+    border-radius: 15px;
+  }
+
+  .employee-card::before {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border-radius: 15px;
+  }
+
+  .employee-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .employee-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .employee-name {
+    font-size: 16px;
+  }
+
+  .employee-info {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  .employee-info p {
+    margin-bottom: 8px;
+  }
+
+  .employee-illustration img {
+    max-width: 300px;
+  }
+
+  .delivery-section {
+    margin-top: 20px;
+  }
+
+  .delivery-card {
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+
+  .delivery-number,
+  .number {
+    font-size: 18px;
+  }
+
+  .delivery-details p,
+  .label {
+    font-size: 14px;
+  }
+
+  .status {
+    font-size: 16px;
+  }
+}
+
+/* Mobile Landscape (480px - 599px) */
+@media (max-width: 599px) {
+  .employee-details-wrapper {
+    margin: 15px 10px;
+  }
+
+  .employee-card {
+    padding: 20px 15px;
+  }
+
+  .employee-img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .employee-name {
+    font-size: 15px;
+  }
+
+  .employee-info {
+    font-size: 13px;
+  }
+
+  .employee-illustration img {
+    max-width: 250px;
+  }
+
+  .delivery-card {
+    padding: 18px;
+  }
+
+  .delivery-number,
+  .number {
+    font-size: 16px;
+  }
+
+  .delivery-details p,
+  .label {
+    font-size: 13px;
+  }
+}
+
+/* Mobile Portrait (320px - 479px) */
+@media (max-width: 479px) {
+  .employee-details-wrapper {
+    margin: 10px;
+  }
+
+  .employee-card {
+    padding: 15px;
+    border: 2px solid #386341;
+    border-radius: 12px;
+  }
+
+  .employee-card::before {
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    border: 2px solid #386341;
+    border-radius: 12px;
+  }
+
+  .employee-top {
+    gap: 12px;
+  }
+
+  .employee-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .employee-name {
+    font-size: 14px;
+  }
+
+  .employee-info {
+    font-size: 12px;
+    margin-top: 15px;
+  }
+
+  .employee-info p {
+    margin-bottom: 6px;
+  }
+
+  .employee-illustration {
+    margin-top: 20px;
+  }
+
+  .employee-illustration img {
+    max-width: 200px;
+    margin-bottom: 10px;
+  }
+
+  .delivery-section {
+    margin-top: 15px;
+  }
+
+  .delivery-card {
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+
+  .delivery-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .delivery-number,
+  .number {
+    font-size: 14px;
+  }
+
+  .delivery-details p,
+  .label {
+    font-size: 12px;
+    margin: 4px 0;
+  }
+
+  .status {
+    font-size: 14px;
+  }
+}
+
+/* Extra Small Mobile (max 360px) */
+@media (max-width: 360px) {
+  .employee-card {
+    padding: 12px;
+  }
+
+  .employee-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .employee-name {
+    font-size: 13px;
+  }
+
+  .employee-info {
+    font-size: 11px;
+  }
+
+  .employee-illustration img {
+    max-width: 180px;
+  }
+
+  .delivery-card {
+    padding: 12px;
+  }
+
+  .delivery-number,
+  .number {
+    font-size: 13px;
+  }
+
+  .delivery-details p,
+  .label {
+    font-size: 11px;
+  }
 }

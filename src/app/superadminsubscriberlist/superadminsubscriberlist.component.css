@@ -15,7 +15,7 @@
 }
 
 .toggle-btn {
-  width: 254px;
+  width: 264px;
   height: 39px;
   background: #ffffff;
   border: 1px solid #000000;
@@ -90,4 +90,149 @@
 
 .card-body strong {
   font-weight: 600;
+}
+/*******************************************
+   RESPONSIVE DESIGN — SUBSCRIPTION PAGE
+********************************************/
+
+/* ----------- Large Laptops (max 1440px) ----------- */
+@media (max-width: 1440px) {
+  .subscription-wrapper {
+    margin-left: 360px;
+    margin-top: -560px;
+  }
+
+  .cards-scroll-area,
+  .card {
+    width: 760px;
+  }
+}
+
+/* ----------- Small Laptops (max 1200px) ----------- */
+@media (max-width: 1200px) {
+  .subscription-wrapper {
+    margin-left: 300px;
+    margin-top: -520px;
+  }
+
+  .cards-scroll-area,
+  .card {
+    width: 680px;
+  }
+
+  .card {
+    height: auto;
+    padding: 20px;
+  }
+
+  .card-header .name,
+  .card-header .status {
+    font-size: 22px;
+  }
+
+  .card-body p {
+    font-size: 18px;
+  }
+}
+
+/* ----------- Tablets (max 992px) ----------- */
+@media (max-width: 992px) {
+  .subscription-wrapper {
+    margin: 20px auto;
+    padding: 0 15px;
+    max-width: 100%;
+  }
+
+  .toggle-btn {
+    width: 230px;
+  }
+
+  .cards-scroll-area,
+  .card {
+    width: 100%;
+  }
+
+  .card {
+    border-radius: 30px;
+    height: auto;
+  }
+
+  .card-header .name,
+  .card-header .status {
+    font-size: 20px;
+  }
+
+  .card-body p {
+    font-size: 17px;
+  }
+}
+
+/* ----------- Mobile Large (max 768px) ----------- */
+@media (max-width: 768px) {
+  .toggle-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .toggle-btn {
+    width: 100%;
+    height: 42px;
+    font-size: 15px;
+  }
+
+  .cards-scroll-area {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .card {
+    border-radius: 25px;
+    padding: 18px;
+    width: 100%;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .card-header .name {
+    font-size: 18px;
+  }
+
+  .card-header .status {
+    font-size: 18px;
+  }
+
+  .card-body p {
+    font-size: 16px;
+  }
+}
+
+/* ----------- Small Mobile (max 480px) ----------- */
+@media (max-width: 480px) {
+  .subscription-wrapper {
+    padding: 0 10px;
+  }
+
+  .toggle-btn {
+    font-size: 14px;
+    height: 38px;
+  }
+
+  .card {
+    border-radius: 20px;
+    padding: 14px;
+  }
+
+  .card-header .name,
+  .card-header .status {
+    font-size: 16px;
+  }
+
+  .card-body p {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
 }

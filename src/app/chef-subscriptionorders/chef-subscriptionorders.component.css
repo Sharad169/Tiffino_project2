@@ -1,18 +1,15 @@
-/* ---------------------------------------------------- */
-/* DESKTOP UI (unchanged for your project)              */
-/* ---------------------------------------------------- */
-
+/* General Container */
 .order-container {
   width: 900px;
-  border: 2px solid #000;
+  border: 2px solid #000000;
   border-radius: 20px;
   padding: 20px 24px;
   font-family: "Poppins", sans-serif;
-  background: #fff;
+  background: #ffffff;
   margin-top: -410px;
   margin-left: 470px;
   margin-bottom: 80px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Header */
@@ -54,10 +51,16 @@
   border-radius: 8px;
   font-size: 20px;
   font-weight: 500;
-  margin-left: 570px; /* desktop look preserved */
+  margin-left: 570px;
 }
 
-/* Health & Nutrition */
+/* Yellow Label */
+.yellow-label {
+  color: #f7a81f;
+  font-weight: 600;
+}
+
+/* Nutrition */
 .nutrition-row {
   display: flex;
   align-items: flex-start;
@@ -81,7 +84,7 @@
   border-radius: 12px;
   padding: 10px 12px;
   margin: 16px 0 20px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .food-card img {
@@ -98,124 +101,98 @@
   margin-bottom: 19px;
 }
 
-/* Button outside card */
 .order-button-outside {
   text-align: center;
   margin-top: -40px;
 }
 
-.start-btn {
-  width: 170px;
-  height: 49px;
-  background-color: #386341;
-  color: #fff;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: 0.3s ease;
-  margin-top: 60px;
-  margin-left: 450px; /* desktop kept same */
-}
+/******************************************************
+   RESPONSIVE — SAFE CHANGES (DO NOT BREAK UI)
+******************************************************/
 
-.start-btn:hover {
-  background-color: #254b25;
-}
-
-/* ---------------------------------------------------- */
-/* RESPONSIVE — WITHOUT TOUCHING DESKTOP UI            */
-/* ---------------------------------------------------- */
-
+/* -------- Laptop / Tablet 1200px -------- */
 @media (max-width: 1200px) {
   .order-container {
     margin-left: 300px;
+    width: 760px;
   }
 
   .subscriber-badge {
-    margin-left: auto;
-  }
-
-  .start-btn {
-    margin-left: auto;
-    display: block;
-  }
-}
-
-@media (max-width: 992px) {
-  .order-container {
-    width: 90%;
-    margin: 40px auto;
-    padding: 18px;
-    margin-top: 40px;
-  }
-
-  .food-card {
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: center;
+    margin-left: 420px;
   }
 
   .food-card img {
-    width: 100%;
-    height: auto;
-    margin: 0 0 14px 0;
-  }
-
-  .subscriber-badge {
-    margin-left: auto;
-  }
-
-  .start-btn {
-    margin: 40px auto 0;
+    width: 200px;
+    height: 130px;
   }
 }
 
-@media (max-width: 768px) {
-  .order-header {
-    flex-direction: column;
-    gap: 6px;
-    text-align: center;
-  }
-
-  .row-flex {
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .subscriber-badge {
-    margin-left: 0;
-    align-self: center;
-  }
-
-  .nutrition-row {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 576px) {
+/* -------- Tablets 992px -------- */
+@media (max-width: 992px) {
   .order-container {
-    width: 94%;
-    padding: 16px;
+    margin-left: 200px;
+    width: 600px;
+  }
+
+  .order-header {
+    font-size: 20px;
   }
 
   .customer-info p,
   .nutrition-row,
-  .food-details h4,
-  .card-body p {
-    font-size: 16px;
+  .food-details h4 {
+    font-size: 18px;
   }
 
-  .start-btn {
+  .subscriber-badge {
+    margin-left: auto;
+  }
+
+  .food-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .food-card img {
+    margin: 0 0 12px 0;
     width: 100%;
-    height: 50px;
-    font-size: 17px;
+    height: auto;
   }
 }
 
-@media (max-width: 420px) {
+/* -------- Mobile 768px -------- */
+@media (max-width: 768px) {
   .order-container {
-    padding: 12px;
+    margin: 20px auto;
+    width: 90%;
+    padding: 20px;
+  }
+
+  .order-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .customer-info p {
+    font-size: 16px;
+  }
+
+  .subscriber-badge {
+    margin-left: 0;
+    font-size: 16px;
+  }
+
+  .row-flex {
+    flex-wrap: wrap;
+  }
+}
+
+/* -------- Small Mobile 480px -------- */
+@media (max-width: 480px) {
+  .order-container {
+    width: 95%;
+    padding: 16px;
   }
 
   .order-header {
@@ -226,7 +203,15 @@
     font-size: 16px;
   }
 
-  .subscriber-badge {
-    font-size: 16px;
+  .nutrition-row {
+    flex-direction: column;
+  }
+
+  .food-details h4 {
+    font-size: 20px;
+  }
+
+  .food-card {
+    padding: 10px;
   }
 }

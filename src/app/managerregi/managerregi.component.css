@@ -1,6 +1,9 @@
 /* Use Poppins if not already loaded */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
+/* ------------------------------------------------ */
+/* MAIN LAYOUT – DESKTOP UI PRESERVED EXACTLY       */
+/* ------------------------------------------------ */
 .manager-layout {
   display: flex;
   width: 100%;
@@ -10,83 +13,97 @@
 
 .manager-content {
   flex-grow: 1;
+
+  /* ✔ Desktop look preserved */
   padding-top: 330px;
-  padding-left: -70px;
   margin-left: -970px;
+  padding-left: 0;
   margin-top: -20px;
 }
 
-/* container that holds fake select + popup */
+/* ------------------------------------------------ */
+/* DROPDOWN WRAPPER                                 */
+/* ------------------------------------------------ */
 .dropdown-wrapper {
   position: relative;
   display: inline-block;
   outline: none;
 }
 
-/* The long rounded select-like box */
+/* SELECT-LIKE BOX */
 .fake-select {
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 520px;
   height: 46px;
+
   padding: 0 18px;
   border-radius: 12px;
   border: 3px solid rgba(56, 99, 65, 1);
   background: #fff;
   cursor: pointer;
+
   font-size: 18px;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.95);
-  box-sizing: border-box;
+
   position: relative;
+  box-sizing: border-box;
 }
 
-/* label centered */
+/* LABEL CENTERED */
 .fake-select .label {
   flex: 1;
   text-align: center;
 }
 
-/* chevron on right; keep near edge */
+/* CHEVRON */
 .fake-select .chev {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Dropdown panel – positioned to the right side under the select */
+/* ------------------------------------------------ */
+/* DROPDOWN PANEL                                   */
+/* ------------------------------------------------ */
 .dropdown-panel {
   position: absolute;
-  top: calc(100% + 10px); /* a little gap below select */
-  left: 62%; /* push it toward right side like screenshot */
-  transform: translateX(-50%); /* center relative to that point */
-  width: 260px; /* compact menu width (as screenshot) */
-  border-radius: 6px;
+  top: calc(100% + 10px);
+  left: 62%;
+  transform: translateX(-50%);
+
+  width: 260px;
+
   background: #fff;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.08);
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
   padding: 6px 0;
   list-style: none;
+
   margin-left: 70px;
+
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+
   transition: opacity 160ms ease, transform 160ms ease;
-  transform-origin: top center;
   z-index: 80;
 }
 
-/* show panel when container focused (keyboard) or hovered (mouse) */
-.dropdown-wrapper:focus-within .dropdown-panel,
-.dropdown-wrapper:hover .dropdown-panel {
+.dropdown-wrapper:hover .dropdown-panel,
+.dropdown-wrapper:focus-within .dropdown-panel {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
 }
 
-/* each item */
+/* MENU ITEM */
 .dropdown-item {
   padding: 12px 18px;
   font-size: 15px;
@@ -95,51 +112,109 @@
   transition: background-color 120ms ease;
 }
 
-/* hover state for items */
-.dropdown-item:hover {
-  background-color: rgba(224, 254, 228, 1); /* requested green highlight */
-}
-
-/* active/selected look same as hover (first item in screenshot is highlighted) */
+/* ITEM HOVER */
+.dropdown-item:hover,
 .dropdown-item.active {
   background-color: rgba(224, 254, 228, 1);
 }
 
-/* subtle top highlight line as in screenshot: add a thin pale-green strip above first item */
+/* FIRST ITEM HIGHLIGHT BAR */
 .dropdown-panel::before {
   content: "";
   position: absolute;
   top: 6px;
   left: 6px;
-  right: calc(
-    100% - 6px - 60%
-  ); /* shorten to left align visually with screenshot top highlight */
-  height: 42px; /* height of first item */
-  /* background: rgba(224, 254, 228, 1); */
+  width: 140px;
+  height: 42px;
   border-radius: 4px;
+  background: rgba(224, 254, 228, 1);
   pointer-events: none;
   z-index: 79;
   opacity: 0.95;
 }
 
-/* remove the pseudo highlight when items not visible */
 .dropdown-wrapper:not(:hover) .dropdown-panel::before,
 .dropdown-wrapper:not(:focus-within) .dropdown-panel::before {
   opacity: 0;
 }
 
-/* small responsive tweak */
-@media (max-width: 1000px) {
+/* ------------------------------------------------ */
+/* RESPONSIVE SYSTEM — NO DESKTOP UI BREAKING      */
+/* ------------------------------------------------ */
+
+/* ★ Tablet Large (1024px) */
+@media (max-width: 1200px) {
+  .manager-content {
+    margin-left: -700px;
+  }
+
+  .fake-select {
+    width: 480px;
+  }
+}
+
+/* ★ Tablet Medium (992px) */
+@media (max-width: 992px) {
+  .manager-content {
+    margin-left: -540px;
+    padding-top: 200px;
+  }
+
   .fake-select {
     width: 420px;
     font-size: 16px;
   }
+
   .dropdown-panel {
-    left: 60%;
     width: 240px;
+    left: 60%;
+    margin-left: 40px;
   }
+}
+
+/* ★ Small Tablets / Landscape Mobiles (768px) */
+@media (max-width: 768px) {
   .manager-content {
-    padding-left: 200px;
-    padding-top: 120px;
+    margin-left: -50px;
+    padding-top: 140px;
+  }
+
+  .fake-select {
+    width: 100%;
+    max-width: 360px;
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .dropdown-panel {
+    width: 220px;
+    left: 50%;
+    margin-left: 0;
+  }
+}
+
+/* ★ Mobile Portrait (480px) */
+@media (max-width: 480px) {
+  .manager-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .fake-select {
+    width: 100%;
+    max-width: 100%;
+    height: 42px;
+    font-size: 15px;
+  }
+
+  .dropdown-panel {
+    width: 200px;
+    left: 50%;
+    margin-left: 0;
+  }
+
+  .dropdown-item {
+    font-size: 14px;
+    padding: 10px 16px;
   }
 }

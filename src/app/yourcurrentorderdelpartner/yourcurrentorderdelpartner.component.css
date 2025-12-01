@@ -1,4 +1,7 @@
-/* General Container */
+/* --------------------------------------------------------- */
+/* DESKTOP VERSION (UNCHANGED — YOUR UI REMAINS SAME)        */
+/* --------------------------------------------------------- */
+
 .order-container {
   width: 890px;
   height: 560px;
@@ -112,4 +115,102 @@
 
 .start-btn:hover {
   background-color: #254b25;
+}
+
+/* --------------------------------------------------------- */
+/* RESPONSIVE — LAPTOP (max-width: 1200px)                  */
+/* --------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .order-container {
+    margin-left: 300px;
+  }
+}
+
+/* --------------------------------------------------------- */
+/* RESPONSIVE — TABLET (max-width: 992px)                   */
+/* --------------------------------------------------------- */
+@media (max-width: 992px) {
+  .order-container {
+    width: 90%;
+    height: auto;
+    margin: 60px auto;
+    padding: 20px;
+  }
+
+  .food-card {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .food-card img {
+    width: 100%;
+    height: auto;
+    margin: 0 0 16px 0;
+  }
+
+  .start-btn {
+    margin: 40px auto 0;
+    display: block;
+  }
+}
+
+/* --------------------------------------------------------- */
+/* RESPONSIVE — MOBILE (max-width: 768px)                   */
+/* --------------------------------------------------------- */
+@media (max-width: 768px) {
+  .order-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .customer-info p,
+  .customer-info .address {
+    font-size: 18px;
+  }
+
+  .food-details h4 {
+    font-size: 20px;
+  }
+
+  .food-details p {
+    font-size: 14px;
+  }
+
+  .start-btn {
+    width: 80%;
+    height: 50px;
+  }
+}
+
+/* --------------------------------------------------------- */
+/* EXTRA SMALL MOBILE (max-width: 480px)                    */
+/* --------------------------------------------------------- */
+@media (max-width: 480px) {
+  .order-container {
+    width: 94%;
+    padding: 14px;
+  }
+
+  .order-header {
+    font-size: 18px;
+  }
+
+  .order-time {
+    font-size: 16px;
+  }
+
+  .customer-info p {
+    font-size: 16px;
+  }
+
+  .food-details h4 {
+    font-size: 18px;
+  }
+
+  .start-btn {
+    width: 100%;
+    font-size: 17px;
+  }
 }

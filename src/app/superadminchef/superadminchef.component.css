@@ -3,9 +3,8 @@
 /* --- Main Wrapper --- */
 .managerinfo-wrapper {
   font-family: "Poppins", sans-serif;
-  margin-left: 380px; /* positions it to the right of your sidebar */
-  margin-top: -630px;
   margin-left: 480px;
+  margin-top: -630px;
   padding-right: 100px;
   max-width: 900px;
 }
@@ -14,6 +13,7 @@
 .role-selection-row {
   margin-bottom: 25px;
 }
+
 .role-dropdown {
   width: 470px;
   height: 40px;
@@ -32,9 +32,11 @@
   background-size: 35px;
   outline: none;
 }
+
 .dropdown-icon {
   margin-right: -340px;
 }
+
 /* --- Form Layout --- */
 .manager-form {
   display: flex;
@@ -87,93 +89,70 @@ label {
   position: relative;
 }
 
-/* The actual file input must remain invisible and sit on top */
 .file-group input[type="file"] {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Cover the entire custom input area */
+  height: 100%;
   opacity: 0;
   cursor: pointer;
   z-index: 2;
 }
 
-/* Base container for the custom file input */
 .custom-file-input {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Space out "Choose File" area and "PDF" area */
+  justify-content: space-between;
   width: 400px;
   height: 51px;
-
-  /* 🎯 MODIFICATION: Use the specific border color and set border-radius high for pill shape */
-  border: 1px solid rgba(162, 161, 161, 1); /* 1px #A2A1A1 */
-  border-radius: 900px; /* This creates the circular/pill shape */
-
+  border: 1px solid rgba(162, 161, 161, 1);
+  border-radius: 900px;
   overflow: hidden;
   position: relative;
   z-index: 1;
 }
-/* The PDF text display area */
+
 .file-placeholder {
-  /* 🎯 MODIFICATION: Set a fixed color and center the "PDF" text */
-  flex-grow: 1; /* Allow it to take the remaining space */
-  text-align: center; /* Center "PDF" text */
+  flex-grow: 1;
+  text-align: center;
   font-size: 13px;
   color: #000000;
-  padding: 0; /* Remove padding-left from previous setup */
-  margin-right: 10px; /* Optional: Add small margin */
+  padding: 0;
+  margin-right: 10px;
 }
-/* The element that holds the "Choose File" text */
+
 .custom-file-input::before {
-  /* 🎯 MODIFICATION: Ensure "Choose File" is positioned correctly and remove left border */
   content: "Choose File";
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 13px;
   height: 100%;
-
-  /* Calculate width for "Choose File" part, e.g., half the container width minus some padding */
   width: 30%;
-
-  padding: 0; /* Remove padding */
-  background-color: rgba(
-    230,
-    230,
-    230,
-    1
-  ); /* Add a slight background for the button part */
-
-  /* Remove the conflicting border left */
+  padding: 0;
+  background-color: rgba(230, 230, 230, 1);
   border-left: none;
-
-  /* 🎯 NEW: Add a right border to separate "Choose File" from "PDF" */
   border-right: 1px solid rgba(162, 161, 161, 1);
 }
-/* --- Address Boxes --- */
 
-/* --- Custom Dropdown Hover Fix (Remove Blue Color) --- */
-
-/* Remove default system styling for options */
+/* --- Custom Dropdown Hover Fix --- */
 .role-dropdown option {
-  background-color: #fff; /* Default white background */
-  color: #000; /* Keep text readable */
+  background-color: #fff;
+  color: #000;
 }
 
-/* Custom hover color for dropdown options */
 .role-dropdown option:hover,
 .role-dropdown option:focus,
 .role-dropdown option:active {
-  background-color: rgba(230, 230, 230, 1) !important; /* Replace blue */
-  color: #000 !important; /* Keep text visible */
+  background-color: rgba(230, 230, 230, 1) !important;
+  color: #000 !important;
 }
 
-/* Optional: For some browsers (especially Chrome/Edge) */
 .role-dropdown:focus option:checked {
   background-color: rgba(230, 230, 230, 1) !important;
 }
+
 .dropdown-wrapper {
   position: relative;
   display: inline-block;
@@ -193,7 +172,6 @@ label {
   cursor: pointer;
   font-size: 20px;
   font-weight: 400;
-
   color: rgba(0, 0, 0, 1);
 }
 
@@ -233,11 +211,11 @@ label {
   transition: background-color 120ms ease;
 }
 
-/* ✅ Matches managerinfo color (no blue hover) */
 .dropdown-item:hover {
   background-color: rgba(224, 254, 228, 1);
 }
 
+/* --- Address Boxes --- */
 .address-box {
   width: 815px;
   height: 70px;
@@ -273,17 +251,486 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background: rgba(56, 99, 65, 1);
+  background: rgba(45, 80, 52, 1);
 }
 
-/* --- Responsive --- */
-@media (max-width: 1024px) {
+/* ========================================
+   PROFESSIONAL RESPONSIVE BREAKPOINTS
+   ======================================== */
+
+/* Large Desktop (1440px and above) - Original Design */
+@media (min-width: 1440px) {
   .managerinfo-wrapper {
-    margin-left: 320px;
-    max-width: 90%;
+    margin-left: 480px;
+    margin-top: -630px;
+    padding-right: 100px;
+  }
+}
+
+/* Standard Desktop (1200px - 1439px) */
+@media (max-width: 1439px) {
+  .managerinfo-wrapper {
+    margin-left: 380px;
+    margin-top: -630px;
+    padding-right: 60px;
+    max-width: 850px;
   }
 
-  .role-dropdown {
+  .role-dropdown,
+  .fake-select {
+    width: 420px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  .custom-file-input {
+    width: 360px;
+  }
+
+  .address-box {
+    width: 740px;
+  }
+
+  .submit-row {
+    margin-left: 280px;
+  }
+}
+
+/* Laptop (1024px - 1199px) */
+@media (max-width: 1199px) {
+  .managerinfo-wrapper {
+    margin-left: 300px;
+    margin-top: -600px;
+    padding-right: 40px;
+    max-width: 750px;
+  }
+
+  .role-dropdown,
+  .fake-select {
+    width: 380px;
+    font-size: 18px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  .custom-file-input {
+    width: 320px;
+    height: 48px;
+  }
+
+  label {
+    font-size: 18px;
+  }
+
+  .address-box {
+    width: 660px;
+    height: 65px;
+    font-size: 22px;
+  }
+
+  .submit-row {
+    margin-left: 240px;
+    margin-top: 40px;
+  }
+
+  button[type="submit"] {
+    width: 160px;
+    height: 52px;
+    font-size: 15px;
+  }
+}
+
+/* Tablet Landscape (768px - 1023px) */
+@media (max-width: 1023px) {
+  .managerinfo-wrapper {
+    margin-left: 20px;
+    margin-top: 20px;
+    padding-right: 20px;
+    max-width: 100%;
+  }
+
+  .role-selection-row {
+    margin-bottom: 20px;
+  }
+
+  .role-dropdown,
+  .fake-select {
     width: 100%;
+    max-width: 500px;
+    font-size: 18px;
+    height: 45px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  .custom-file-input {
+    width: 100%;
+    max-width: 500px;
+    height: 48px;
+  }
+
+  label {
+    font-size: 18px;
+  }
+
+  .address-box {
+    width: 100%;
+    max-width: 500px;
+    height: 70px;
+    font-size: 20px;
+  }
+
+  .submit-row {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+    margin-top: 35px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .dropdown-icon {
+    margin-right: 0;
+  }
+}
+
+/* Tablet Portrait (600px - 767px) */
+@media (max-width: 767px) {
+  .managerinfo-wrapper {
+    margin-left: 15px;
+    margin-top: 15px;
+    padding-right: 15px;
+  }
+
+  .role-dropdown,
+  .fake-select {
+    width: 100%;
+    font-size: 16px;
+    height: 42px;
+    padding: 0 15px;
+  }
+
+  .manager-form {
+    gap: 15px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  .custom-file-input {
+    width: 100%;
+    height: 45px;
+    font-size: 13px;
+  }
+
+  label {
+    font-size: 16px;
+  }
+
+  .custom-file-input::before {
+    font-size: 12px;
+    width: 35%;
+  }
+
+  .file-placeholder {
+    font-size: 12px;
+  }
+
+  .address-box {
+    width: 100%;
+    height: 65px;
+    font-size: 18px;
+    padding: 8px 12px;
+  }
+
+  .submit-row {
+    margin-top: 30px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    max-width: 180px;
+    height: 50px;
+    font-size: 15px;
+  }
+
+  .dropdown-panel {
+    width: 220px;
+  }
+
+  .dropdown-item {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile Landscape (480px - 599px) */
+@media (max-width: 599px) {
+  .managerinfo-wrapper {
+    margin-left: 12px;
+    margin-top: 12px;
+    padding-right: 12px;
+  }
+
+  .role-dropdown,
+  .fake-select {
+    width: 100%;
+    font-size: 15px;
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  .manager-form {
+    gap: 12px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  .custom-file-input {
+    width: 100%;
+    height: 42px;
+    font-size: 12px;
+    padding: 0 8px;
+  }
+
+  label {
+    font-size: 15px;
+  }
+
+  .custom-file-input::before {
+    font-size: 11px;
+    width: 38%;
+  }
+
+  .file-placeholder {
+    font-size: 11px;
+  }
+
+  .address-box {
+    width: 100%;
+    height: 60px;
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+
+  .submit-row {
+    margin-top: 25px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    max-width: 160px;
+    height: 48px;
+    font-size: 14px;
+    padding: 10px 30px;
+  }
+
+  .dropdown-panel {
+    width: 200px;
+  }
+
+  .dropdown-item {
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+}
+
+/* Mobile Portrait (320px - 479px) */
+@media (max-width: 479px) {
+  .managerinfo-wrapper {
+    margin-left: 10px;
+    margin-top: 10px;
+    padding-right: 10px;
+  }
+
+  .role-selection-row {
+    margin-bottom: 15px;
+  }
+
+  .role-dropdown,
+  .fake-select {
+    width: 100%;
+    font-size: 14px;
+    height: 38px;
+    padding: 0 10px;
+    border-radius: 8px;
+  }
+
+  .manager-form {
+    gap: 10px;
+  }
+
+  .form-row {
+    gap: 10px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  .custom-file-input {
+    width: 100%;
+    height: 40px;
+    font-size: 12px;
+    padding: 0 8px;
+    border-radius: 15px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  .custom-file-input {
+    border-radius: 25px;
+  }
+
+  .custom-file-input::before {
+    font-size: 10px;
+    width: 40%;
+  }
+
+  .file-placeholder {
+    font-size: 10px;
+    margin-right: 5px;
+  }
+
+  .address-box {
+    width: 100%;
+    height: 55px;
+    font-size: 14px;
+    padding: 6px 8px;
+    border-radius: 15px;
+  }
+
+  .submit-row {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    max-width: 150px;
+    height: 45px;
+    font-size: 13px;
+    padding: 8px 20px;
+    border-radius: 8px;
+  }
+
+  .dropdown-panel {
+    width: 180px;
+  }
+
+  .dropdown-item {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+
+/* Extra Small Mobile (max 360px) */
+@media (max-width: 360px) {
+  .managerinfo-wrapper {
+    margin-left: 8px;
+    margin-top: 8px;
+    padding-right: 8px;
+  }
+
+  .role-dropdown,
+  .fake-select {
+    width: 100%;
+    font-size: 13px;
+    height: 36px;
+    padding: 0 8px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  .custom-file-input {
+    width: 100%;
+    height: 38px;
+    font-size: 11px;
+    padding: 0 6px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  .custom-file-input::before {
+    font-size: 9px;
+    width: 42%;
+  }
+
+  .file-placeholder {
+    font-size: 9px;
+  }
+
+  .address-box {
+    width: 100%;
+    height: 50px;
+    font-size: 13px;
+    padding: 5px 6px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    max-width: 140px;
+    height: 42px;
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+
+  .dropdown-panel {
+    width: 160px;
+  }
+
+  .dropdown-item {
+    padding: 7px 8px;
+    font-size: 11px;
+  }
+}
+
+/* Ultra Small Mobile (max 320px) */
+@media (max-width: 320px) {
+  .managerinfo-wrapper {
+    margin-left: 5px;
+    margin-top: 5px;
+    padding-right: 5px;
+  }
+
+  .role-dropdown,
+  .fake-select {
+    font-size: 12px;
+    height: 34px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  .custom-file-input {
+    height: 36px;
+    font-size: 10px;
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  .address-box {
+    height: 48px;
+    font-size: 12px;
+  }
+
+  button[type="submit"] {
+    max-width: 130px;
+    height: 40px;
+    font-size: 11px;
   }
 }

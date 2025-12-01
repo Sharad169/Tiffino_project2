@@ -2,7 +2,7 @@
 
 .employee-details-wrapper {
   background: #f7f8fa;
-  margin-top: -420px;
+  margin-top: -635px;
   margin-left: 494px;
   margin-right: 70px;
 }
@@ -141,4 +141,191 @@
   font-weight: 400;
   margin: 5px 0;
   color: #000000;
+}
+
+/*********************************************************
+   RESPONSIVE — SUPERADMIN EMPLOYEE DETAILS PAGE
+**********************************************************/
+
+/* ---------- LARGE LAPTOP (max 1440px) ---------- */
+@media (max-width: 1440px) {
+  .employee-details-wrapper {
+    margin-left: 380px;
+    margin-top: -580px;
+  }
+
+  .employee-illustration img {
+    width: 520px;
+    height: auto;
+  }
+
+  .employee-illustration {
+    left: 330px;
+  }
+}
+
+/* ---------- NORMAL LAPTOP (max 1200px) ---------- */
+@media (max-width: 1200px) {
+  .employee-details-wrapper {
+    margin-left: 260px;
+    margin-top: -520px;
+  }
+
+  .employee-card {
+    padding: 40px 40px;
+  }
+
+  .employee-illustration img {
+    width: 450px;
+  }
+
+  .employee-illustration {
+    left: 280px;
+  }
+
+  .employee-info p,
+  .employee-name {
+    font-size: 18px;
+  }
+}
+
+/* ---------- TABLET (max 992px) ---------- */
+@media (max-width: 992px) {
+  .employee-details-wrapper {
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+
+  .employee-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Name + Image center aligned */
+  .employee-top {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .employee-info {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .employee-info p {
+    margin-bottom: 8px;
+  }
+
+  /* Illustration moves below card */
+  .employee-illustration {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .employee-illustration img {
+    width: 80%;
+    height: auto;
+  }
+
+  /* Delivery cards full width */
+  .delivery-card {
+    padding: 22px;
+  }
+
+  .delivery-number,
+  .number {
+    font-size: 20px;
+  }
+
+  .delivery-details p,
+  .label {
+    font-size: 16px;
+  }
+}
+
+/* ---------- MOBILE LARGE (max 768px) ---------- */
+@media (max-width: 768px) {
+  .employee-card {
+    padding: 28px 20px;
+  }
+
+  .employee-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .employee-name {
+    font-size: 17px;
+  }
+
+  .employee-info p {
+    font-size: 15px;
+  }
+
+  .delivery-card {
+    padding: 18px;
+  }
+
+  .delivery-number,
+  .number {
+    font-size: 18px;
+  }
+
+  .delivery-details p,
+  .label {
+    font-size: 15px;
+  }
+
+  .employee-illustration img {
+    width: 90%;
+  }
+}
+
+/* ---------- MOBILE SMALL (max 480px) ---------- */
+@media (max-width: 480px) {
+  .employee-card {
+    padding: 20px;
+  }
+
+  .employee-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .employee-name {
+    font-size: 16px;
+  }
+
+  .employee-info {
+    font-size: 14px;
+  }
+
+  .employee-info p {
+    margin-bottom: 6px;
+  }
+
+  .employee-illustration img {
+    width: 100%;
+  }
+
+  .delivery-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .delivery-number,
+  .number {
+    font-size: 16px;
+  }
+
+  .delivery-details p,
+  .label {
+    font-size: 14px;
+  }
 }
