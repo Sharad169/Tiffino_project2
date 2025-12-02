@@ -548,3 +548,67 @@ textarea {
     flex-direction: column;
   }
 }
+@media (max-width: 992px) {
+  .order-summary-bar {
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+
+  .main-content {
+    flex-direction: column;
+  }
+
+  .left-section {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .map-confirm img {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+  }
+
+  .customer-billing {
+    flex-direction: column;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .progress-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .progress-line {
+    display: none;
+  }
+
+  .feedback-popup .popup-card {
+    width: 90%;
+    height: auto;
+  }
+}
+
+/* Angular layout requested */
+.left,
+.right {
+  float: left;
+  width: 20%;
+}
+.main {
+  float: left;
+  width: 60%;
+}
+
+@media screen and (max-width: 800px) {
+  .left,
+  .main,
+  .right {
+    width: 100%;
+    float: none;
+  }
+}

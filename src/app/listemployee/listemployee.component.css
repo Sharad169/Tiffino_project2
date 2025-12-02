@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
+/* ------------------------------------------- */
+/* DESKTOP VERSION (UNCHANGED – YOUR UI SAFE)  */
+/* ------------------------------------------- */
 .listemployee-wrapper {
   font-family: "Poppins", sans-serif;
   margin-left: 480px;
@@ -8,7 +11,7 @@
   max-width: 900px;
 }
 
-/* --- Dropdown Section --- */
+/* Dropdown */
 .dropdown-row {
   position: relative;
   margin-bottom: 25px;
@@ -27,10 +30,9 @@
   background: #fff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
   justify-content: center;
-  /* ✅ Your original dropdown icon */
+  cursor: pointer;
+
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="30" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="rgba(31,31,31,1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
   background-repeat: no-repeat;
   background-position: right 15px center;
@@ -38,7 +40,7 @@
 }
 
 .arrow {
-  display: none; /* no visible arrow span */
+  display: none;
 }
 
 .dropdown-list {
@@ -61,12 +63,11 @@
   transition: background 0.2s;
 }
 
-/* ✅ Custom hover color */
 .dropdown-item:hover {
   background-color: #e0fee4;
 }
 
-/* --- Employee List Section --- */
+/* Employee Listing */
 .employee-list {
   max-height: 900px;
   overflow-y: scroll;
@@ -79,10 +80,6 @@
 
 .employee-list::-webkit-scrollbar {
   display: none;
-}
-
-.employee-list {
-  padding-right: 4px;
 }
 
 .employee-card {
@@ -146,4 +143,120 @@
 
 .employee-id {
   text-align: right;
+}
+
+/* ---------------------------------------------------------- */
+/* RESPONSIVE — LAPTOPS (max-width: 1200px)                   */
+/* ---------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .listemployee-wrapper {
+    margin-left: 350px;
+  }
+
+  .employee-card {
+    width: 750px;
+  }
+}
+
+/* ---------------------------------------------------------- */
+/* RESPONSIVE — TABLETS (max-width: 992px)                    */
+/* ---------------------------------------------------------- */
+@media (max-width: 992px) {
+  .listemployee-wrapper {
+    margin-left: 200px;
+    margin-top: 0;
+    max-width: 100%;
+  }
+
+  .dropdown-selected {
+    width: 90%;
+    margin-left: 0;
+  }
+
+  .dropdown-list {
+    left: 0;
+    width: 90%;
+  }
+
+  .employee-card {
+    width: 90%;
+    height: auto;
+    flex-wrap: wrap;
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .employee-photo {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 10px;
+  }
+
+  .employee-details {
+    width: 100%;
+    text-align: center;
+  }
+
+  .employee-id-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+/* ---------------------------------------------------------- */
+/* RESPONSIVE — MOBILE (max-width: 768px)                     */
+/* ---------------------------------------------------------- */
+@media (max-width: 768px) {
+  .listemployee-wrapper {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .dropdown-selected {
+    width: 100%;
+  }
+
+  .employee-card {
+    width: 100%;
+  }
+
+  .employee-name {
+    font-size: 18px;
+  }
+
+  .employee-role,
+  .employee-id,
+  .kitchen-id {
+    font-size: 14px;
+    margin-right: 0;
+  }
+}
+
+/* ---------------------------------------------------------- */
+/* EXTRA SMALL MOBILE (max-width: 480px)                      */
+/* ---------------------------------------------------------- */
+@media (max-width: 480px) {
+  .dropdown-selected {
+    font-size: 16px;
+    height: 40px;
+  }
+
+  .dropdown-item {
+    font-size: 16px;
+  }
+
+  .employee-photo {
+    width: 90px;
+    height: 90px;
+  }
+
+  .employee-name {
+    font-size: 16px;
+  }
+
+  .employee-role,
+  .employee-id,
+  .kitchen-id {
+    font-size: 13px;
+  }
 }
