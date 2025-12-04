@@ -12,102 +12,124 @@ import { FormsModule } from '@angular/forms';
 })
 export class ApplyleavemanagerComponent {
   showLeaveType = false;
-
   leaveType: string | null = null;
+
   fromDate: string | null = null;
   toDate: string | null = null;
+  displayFrom: string | null = null;
+  displayTo: string | null = null;
 
-  contactDetails: string = '';
-  reasonText: string = '';
+  contactDetails = '';
+  reasonText = '';
+
+  /* Calendar */
+  calendarOpen = false;
+  activeField: 'from' | 'to' | null = null;
+
+  popupTop = 0;
+  popupLeft = 0;
+
+  monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  currentYear = new Date().getFullYear();
+  currentMonth = new Date().getMonth();
+  days: number[] = [];
+
+  constructor() {
+    this.generateDays();
+  }
+
+  generateDays() {
+    const total = new Date(
+      this.currentYear,
+      this.currentMonth + 1,
+      0
+    ).getDate();
+    this.days = Array.from({ length: total }, (_, i) => i + 1);
+  }
+
+  prevMonth() {
+    if (this.currentMonth === 0) {
+      this.currentMonth = 11;
+      this.currentYear--;
+    } else this.currentMonth--;
+    this.generateDays();
+  }
+
+  nextMonth() {
+    if (this.currentMonth === 11) {
+      this.currentMonth = 0;
+      this.currentYear++;
+    } else this.currentMonth++;
+    this.generateDays();
+  }
+
+  prevYear() {
+    this.currentYear--;
+    this.generateDays();
+  }
+  nextYear() {
+    this.currentYear++;
+    this.generateDays();
+  }
+
+  openCalendar(field: 'from' | 'to', box: HTMLElement) {
+    this.activeField = field;
+    this.calendarOpen = true;
+
+    const rect = box.getBoundingClientRect();
+    this.popupTop = rect.bottom + window.scrollY + 4;
+    this.popupLeft = rect.left + window.scrollX;
+  }
+
+  selectCalendarDate(day: number) {
+    const mm = String(this.currentMonth + 1).padStart(2, '0');
+    const dd = String(day).padStart(2, '0');
+
+    const backend = `${this.currentYear}-${mm}-${dd}`;
+    const display = `${dd}/${mm}/${this.currentYear}`;
+
+    if (this.activeField === 'from') {
+      this.fromDate = backend;
+      this.displayFrom = display;
+    } else {
+      this.toDate = backend;
+      this.displayTo = display;
+    }
+
+    this.calendarOpen = false;
+  }
 
   toggleLeaveTypeDropdown() {
     this.showLeaveType = !this.showLeaveType;
   }
-
-  selectLeaveType(type: string) {
-    this.leaveType = type;
+  selectLeaveType(t: string) {
+    this.leaveType = t;
     this.showLeaveType = false;
   }
 
-  openFromDatePicker() {
-    const picker = document.getElementById(
-      'fromPicker'
-    ) as HTMLInputElement | null;
-    picker?.showPicker();
-  }
-
-  setFromDate(event: Event) {
-    const input = event.target as HTMLInputElement;
-    this.fromDate = input.value;
-  }
-
-  openToDatePicker() {
-    const picker = document.getElementById(
-      'toPicker'
-    ) as HTMLInputElement | null;
-    picker?.showPicker();
-  }
-
-  setToDate(event: Event) {
-    const input = event.target as HTMLInputElement;
-    this.toDate = input.value;
-  }
-
-  onContactInput(event: any) {
-    this.contactDetails = event.target.value;
-  }
-
-  // REASON BOX
-  onReasonFocus() {
-    if (this.reasonText === '' || this.reasonText === 'Reason') {
-      this.reasonText = '';
-    }
-  }
-
-  onReasonInput(event: any) {
-    this.reasonText = event.target.value;
-  }
-
-  // SUBMIT
   submitLeave() {
-    if (!this.leaveType) {
-      alert('Please select Leave Type');
-      return;
-    }
-    if (!this.fromDate) {
-      alert('Please select From Date');
-      return;
-    }
-    if (!this.toDate) {
-      alert('Please select To Date');
-      return;
-    }
-    if (!this.contactDetails.trim()) {
-      alert('Please enter Contact Details');
-      return;
-    }
-    if (!this.reasonText.trim()) {
-      alert('Please enter Reason');
-      return;
-    }
-
-    const leaveData = {
-      leaveType: this.leaveType,
-      fromDate: this.fromDate,
-      toDate: this.toDate,
-      contactDetails: this.contactDetails,
-      reason: this.reasonText,
-    };
-
-    console.log('Leave Submitted:', leaveData);
+    if (!this.leaveType) return alert('Select Leave Type');
+    if (!this.fromDate) return alert('Select From Date');
+    if (!this.toDate) return alert('Select To Date');
+    if (!this.contactDetails) return alert('Enter contact');
+    if (!this.reasonText) return alert('Enter reason');
 
     alert(
-      `Leave Submitted Successfully\n\n` +
-        `Type: ${this.leaveType}\n` +
-        `From: ${this.fromDate}\n` +
-        `To: ${this.toDate}\n` +
-        `Contact: ${this.contactDetails}\n` +
-        `Reason: ${this.reasonText}`
+      `Leave Submitted\n\nFrom: ${this.displayFrom}\nTo: ${this.displayTo}`
     );
   }
 }

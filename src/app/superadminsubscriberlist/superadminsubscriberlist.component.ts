@@ -10,9 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./superadminsubscriberlist.component.css'],
 })
 export class SuperadminsubscriberlistComponent {
-  isSubscriber: boolean = true; // Default view
+  isSubscriber: boolean = true;
 
-  // Sample data
   subscriberItems = [
     {
       name: 'Akshay',

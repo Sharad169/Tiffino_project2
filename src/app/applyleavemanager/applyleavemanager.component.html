@@ -8,7 +8,7 @@
     <input
       type="text"
       class="input-box leave-type"
-      value="Leave type"
+      [value]="leaveType || 'Leave type'"
       readonly
       (click)="toggleLeaveTypeDropdown()"
     />
@@ -22,61 +22,90 @@
 
   <div class="small-fields">
     <!-- FROM DATE -->
-    <div class="date-wrapper">
+    <div class="date-wrapper" #fromBox>
       <input
         type="text"
         class="input-box"
-        [value]="fromDate || 'From date'"
         readonly
-        (click)="openFromDatePicker()"
-      />
-      <input
-        type="date"
-        id="fromPicker"
-        class="hidden-date"
-        (change)="setFromDate($event)"
+        [value]="displayFrom || 'From date'"
+        (click)="openCalendar('from', fromBox)"
       />
     </div>
 
     <!-- TO DATE -->
-    <div class="date-wrapper">
+    <div class="date-wrapper" #toBox>
       <input
         type="text"
         class="input-box"
-        [value]="toDate || 'To date'"
         readonly
-        (click)="openToDatePicker()"
-      />
-      <input
-        type="date"
-        id="toPicker"
-        class="hidden-date"
-        (change)="setToDate($event)"
+        [value]="displayTo || 'To date'"
+        (click)="openCalendar('to', toBox)"
       />
     </div>
 
-    <!-- CONTACT DETAILS (looks like leave type) -->
+    <!-- CONTACT -->
     <div class="contact-box">
-      <span class="prefix">Contact Details </span>
-      <input
-        type="text"
-        class="contact-input"
-        [(ngModel)]="contactDetails"
-        (input)="onContactInput($event)"
-      />
+      <span class="prefix">Contact Details</span>
+      <input type="text" class="contact-input" [(ngModel)]="contactDetails" />
     </div>
-    <!-- REASON BOX (text starts on next line) -->
+
+    <!-- REASON -->
     <div class="reason-box">
       <span class="reason-label">Reason</span>
-      <textarea
-        class="reason-textarea"
-        [(ngModel)]="reasonText"
-        (input)="onReasonInput($event)"
-      ></textarea>
+      <textarea class="reason-textarea" [(ngModel)]="reasonText"></textarea>
     </div>
 
     <div class="submit-btn">
       <button (click)="submitLeave()">Submit</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CALENDAR POPUP ================= -->
+<div
+  class="calendar-popup"
+  *ngIf="calendarOpen"
+  [style.top.px]="popupTop"
+  [style.left.px]="popupLeft"
+>
+  <!-- HEADER -->
+  <div class="calendar-header-wrapper">
+    <div class="nav-left">
+      <button class="nav-btn" (click)="prevYear()">«</button>
+      <button class="nav-btn-prevmonth" (click)="prevMonth()">‹</button>
+    </div>
+
+    <div class="calendar-title">
+      {{ monthNames[currentMonth] }}
+      <br />
+      {{ currentYear }}
+    </div>
+
+    <div class="nav-right">
+      <button class="nav-btn-nextmonth" (click)="nextMonth()">›</button>
+      <button class="nav-btn" (click)="nextYear()">»</button>
+    </div>
+  </div>
+
+  <!-- WEEK HEADER -->
+  <div class="calendar-header">
+    <div>MON</div>
+    <div>TUE</div>
+    <div>WED</div>
+    <div>THR</div>
+    <div>FRI</div>
+    <div>SAT</div>
+    <div>SUN</div>
+  </div>
+
+  <!-- DAYS -->
+  <div class="calendar-grid">
+    <div
+      *ngFor="let d of days"
+      class="calendar-day"
+      (click)="selectCalendarDate(d)"
+    >
+      {{ d }}
     </div>
   </div>
 </div>

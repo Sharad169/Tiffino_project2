@@ -108,6 +108,9 @@ import { ChefYourdetailsrequestpageComponent } from './chef-yourdetailsrequestpa
 import { ChefEditdetailspageComponent } from './chef-editdetailspage/chef-editdetailspage.component';
 import { ChefSubscriptioneditdetailsComponent } from './chef-subscriptioneditdetails/chef-subscriptioneditdetails.component';
 import { ChefSubscriptionordersComponent } from './chef-subscriptionorders/chef-subscriptionorders.component';
+import { UseraboutuspageComponent } from './useraboutuspage/useraboutuspage.component';
+import { UserNetworkerrorpageComponent } from './user-networkerrorpage/user-networkerrorpage.component';
+import { UserItemunavailablepageComponent } from './user-itemunavailablepage/user-itemunavailablepage.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -121,6 +124,12 @@ export const routes: Routes = [
   // ===== Home / Explore =====
   { path: 'home', component: HomeComponent },
   { path: 'ex', component: ExploreSubpageComponent },
+  { path: 'useraboutuspage', component: UseraboutuspageComponent },
+  { path: 'user-networkerrorpage', component: UserNetworkerrorpageComponent },
+  {
+    path: 'user-itemunavailablepage',
+    component: UserItemunavailablepageComponent,
+  },
 
   // ===== Cuisine Pages =====
   { path: 'north', component: NorthComponent },
