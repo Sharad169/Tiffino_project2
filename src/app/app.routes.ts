@@ -222,7 +222,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'superadminmanagerdetails/:empId',
+    path: 'superadminmanagerdetails/:empId/:role',
     component: SuperadminemployeedetailsComponent,
   },
  

@@ -118,7 +118,16 @@ getEmloyeeById(code: string): Observable<any> {
 getChefById(code: string): Observable<any> {
    const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  return this.http.get(`${this.baseUrl3}/chef/${code}`, { headers });
+  return this.http.get(`${this.baseUrl3}/chefs/${code}`, { headers });
+}
+
+getDeliveryPartnerById(code: string): Observable<any> {
+   const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  return this.http.get(`${this.baseUrl3}/delivery-partner/${code}`, { headers });
+
+
+  // http://localhost:8081/api/delivery-partner/{PartnerCode}
 }
  
 

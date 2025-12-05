@@ -20,25 +20,46 @@ export class SuperadminemployeedetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const empId = this.router.snapshot.paramMap.get('empId');
-  this.getEmloyeeDetails(empId);
+    const role = this.router.snapshot.paramMap.get('role');
+  this.getEmloyeeDetails(empId, role || undefined);
   }
 
 
- getEmloyeeDetails(empId: string | null) {
-  if (!empId) {
+getEmloyeeDetails(empId: string | null, role?: string) {
+  debugger
+  if (!empId || !role) {
     return;
   }
 
-  this.api.getEmloyeeById(empId).subscribe({
-    next: (res) => {
-      console.log("Employee Details:", res);
-       this.employee = [res]
-    },
-    error: (err) => {
-      console.error("Error fetching employee:", err);
-    }
-  });
+    let request$;
+
+  // Role ke basis pe service call
+  if (role.toLowerCase() === 'manager') {
+    request$ = this.api.getEmloyeeById(empId);
+  } else if (role.toLowerCase() === 'chef') {
+    request$ = this.api.getChefById(empId);
+  }else if (role.toLowerCase() === 'delivery partner') {
+    request$ = this.api.getDeliveryPartnerById(empId);
+  }
+     else {
+    console.warn('Unknown role:', role);
+    return;
+  }
+
+  // API call execute karna
+console.log('Request Observable:', request$);
+request$?.subscribe({
+  next: (res) => {
+    console.log("Employee Details:", res);
+    this.employee = [res];
+  },
+  error: (err) => {
+    console.error("Error fetching employee:", err);
+  }
+});
+
 }
+
 
 
 
