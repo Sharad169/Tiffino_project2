@@ -24,7 +24,7 @@
 
     <!-- Employee List -->
    <div class="employee-list">
-  <div class="employee-card" *ngFor="let emp of filteredEmployees" (click)="emloyeeDetails(emp.managerCode || emp.chefCode || emp.partnerCode)"> 
+  <div class="employee-card" *ngFor="let emp of filteredEmployees" (click)="emloyeeDetails(emp.managerCode || emp.chefCode || emp.partnerCode, emp.role.toLowerCase())"> 
 
     <div class="employee-photo"
          [style.backgroundImage]="'url(' + emp.photo + ')'">

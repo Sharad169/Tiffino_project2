@@ -76,8 +76,9 @@ getPhoto(emp: any) {
   return emp.photo;
 }
 
-emloyeeDetails(empId:any){
+emloyeeDetails(empId:any, role:any){
   console.log("Employee ID:", empId);
+  console.log("Employee Role:", role);
   this.router.navigate(['/superadminmanagerdetails', empId]);
 
 }
