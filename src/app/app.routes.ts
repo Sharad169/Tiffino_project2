@@ -64,6 +64,7 @@ import { SuperadminkitchenComponent } from './superadminkitchen/superadminkitche
 import { ListemployeeComponent } from './listemployee/listemployee.component';
 import { SuperadminkitchendetailsComponent } from './superadminkitchendetails/superadminkitchendetails.component';
 import { SuperadminemployeedetailsComponent } from './superadminemployeedetails/superadminemployeedetails.component';
+import { SuperadminmealComponent } from './superadminmeal/superadminmeal.component';
 
 
 
@@ -225,6 +226,8 @@ export const routes: Routes = [
     path: 'superadminmanagerdetails/:empId/:role',
     component: SuperadminemployeedetailsComponent,
   },
+
+   { path: 'superadminmeal', component: SuperadminmealComponent },
  
  
 

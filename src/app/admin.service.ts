@@ -18,6 +18,7 @@ export class AdminService {
       private apiUrl4 = "http://localhost:8081/api/admins";
       private apiUrl5 = "http://localhost:8081/api"
       private apiUrl6 = "http://localhost:8081/api/kitchens"
+      private baseUrl7 = 'http://localhost:8082/api/cuisines';
  
  
 
@@ -125,10 +126,16 @@ getDeliveryPartnerById(code: string): Observable<any> {
    const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
   return this.http.get(`${this.baseUrl3}/delivery-partner/${code}`, { headers });
-
-
-  // http://localhost:8081/api/delivery-partner/{PartnerCode}
+  
 }
+
+
+
+addCuisine(data: any): Observable<any> {
+   const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post(this.baseUrl, data , { headers });
+  }
  
 
 }

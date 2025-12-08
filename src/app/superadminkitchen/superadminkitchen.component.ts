@@ -30,6 +30,7 @@ isStateOpen: boolean = false;
  
 
   allKitchen() {
+    debugger
   this.api.showAllKitchens().subscribe({
     next: (res) => {
       this.kitchenList = res;
