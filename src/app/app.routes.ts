@@ -111,6 +111,7 @@ import { ChefSubscriptionordersComponent } from './chef-subscriptionorders/chef-
 import { UseraboutuspageComponent } from './useraboutuspage/useraboutuspage.component';
 import { UserNetworkerrorpageComponent } from './user-networkerrorpage/user-networkerrorpage.component';
 import { UserItemunavailablepageComponent } from './user-itemunavailablepage/user-itemunavailablepage.component';
+import { UserStoreclosedpageComponent } from './user-storeclosedpage/user-storeclosedpage.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -126,6 +127,7 @@ export const routes: Routes = [
   { path: 'ex', component: ExploreSubpageComponent },
   { path: 'useraboutuspage', component: UseraboutuspageComponent },
   { path: 'user-networkerrorpage', component: UserNetworkerrorpageComponent },
+  { path: 'user-storeclosedpage', component: UserStoreclosedpageComponent },
   {
     path: 'user-itemunavailablepage',
     component: UserItemunavailablepageComponent,
