@@ -54,7 +54,11 @@ import { CloudkitchenRegistrationComponent } from './cloudkitchen-registration/c
 
 import { SuperadminLoginComponent } from './superadmin-login/superadmin-login.component';
 
-import { ManagerRegistrationComponent } from './manager-registration/manager-registration.component';
+// manager
+
+import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
+
+import { ManagerSidebarComponent } from './manager-sidebar/manager-sidebar.component';
 
 
 
@@ -190,8 +194,16 @@ export const routes: Routes = [
     // superadmin-login
     { path: 'superadmin-login', component: SuperadminLoginComponent },
 
-    // manager-registration
-     { path: 'manager-registration', component: ManagerRegistrationComponent },
+
+    // manager-dashboard
+{ path: 'manager-dashboard', component: ManagerDashboardComponent },
+{ path: 'manager-sidebar', component: ManagerSidebarComponent },
+
+
+
+
+
+
 
 
   // Optional: redirect unknown paths to Welcome

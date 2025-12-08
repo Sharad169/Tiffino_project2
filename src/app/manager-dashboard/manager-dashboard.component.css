@@ -1,0 +1,50 @@
+.dashboard-wrapper {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  padding-left: 40px;
+}
+
+/* CARD BOX */
+.card {
+  width: 330px;
+  border: 2px solid #2e2e2e;
+  border-radius: 14px;
+  padding: 22px;
+  font-size: 15px;
+}
+
+/* HEADINGS */
+.date-title,
+.balance-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* SUB TEXT */
+.day,
+.time,
+.line,
+.swipe {
+  color: #444;
+  margin-bottom: 6px;
+}
+
+/* BUTTONS */
+.btn-signin,
+.btn-apply {
+  background: #2e5f33;
+  border: none;
+  padding: 10px 24px;
+  color: white;
+  border-radius: 10px;
+  margin-top: 12px;
+  cursor: pointer;
+  float: right; /* moves button right like image */
+}
+
+.btn-signin:hover,
+.btn-apply:hover {
+  background: #244b28;
+}
