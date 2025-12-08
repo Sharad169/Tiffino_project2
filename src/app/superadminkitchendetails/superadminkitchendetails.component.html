@@ -1,0 +1,19 @@
+<app-superadmin-sidebar></app-superadmin-sidebar>
+
+
+<div class="kitchen-card" *ngFor="let detail of kitchen">
+  <div class="kitchen-details">
+    <p>Kitchen ID : {{detail.kitchenCode}}</p>
+    <p>PIN : {{detail.pinCode}}</p>
+    <p>City : {{detail.city}}</p>
+    <p>State : {{detail.state}}</p>
+    <p>Manager : {{detail.managerCode}}</p>
+    <p>Number of Employees : {{detail.totalStaffCount}}</p>
+    <p>Address : {{detail.address}}</p>
+    <p>Number of Deliveries : {{detail.totalDelivery}}</p>
+    <p>Rating : {{detail.rating}}</p>
+    <p>Feedback : {{detail.feedback}}</p>
+    <p>Starting Date : {{detail.startDate}}</p>
+    <p>Region : {{detail.region}}</p>
+  </div>
+</div>

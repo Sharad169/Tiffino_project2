@@ -11,7 +11,7 @@ import { SuperadminSidebarComponent } from './superadmin-sidebar/superadmin-side
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent,],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
@@ -35,14 +35,20 @@ export class AppComponent implements OnDestroy {
 
     // Watch for hash changes (like #registration-section)
     if (this.isBrowser) {
-      window.addEventListener('hashchange', this.updateLayoutVisibility.bind(this));
+      window.addEventListener(
+        'hashchange',
+        this.updateLayoutVisibility.bind(this)
+      );
     }
   }
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();
     if (this.isBrowser) {
-      window.removeEventListener('hashchange', this.updateLayoutVisibility.bind(this));
+      window.removeEventListener(
+        'hashchange',
+        this.updateLayoutVisibility.bind(this)
+      );
     }
   }
 
@@ -70,11 +76,13 @@ export class AppComponent implements OnDestroy {
     }
 
     const hideRoutes = [
-      '/',                  // login (root)
-      '/verification-otp',  
-      '/onboarding',       
-      '/welcome', 
-      '/superadmin-login',         
+      '/', // login (root)
+      '/verification-otp',
+      '/onboarding',
+      '/welcome',
+      '/superAdminLogin',
+      '/superadminsetpassword',
+
     ];
 
     const hideFragments = ['registration-section'];

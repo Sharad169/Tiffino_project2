@@ -23,9 +23,7 @@ export class AuthService {
 
   sendOtp(email: string): Observable<any> {
   return this.http.post(
-    `${this.baseUrl}/request-otp?email=${email}`,
-    {},
-    { responseType: 'text' }  // 👈 Important
+    `${this.baseUrl}/request-otp?email=${email}`,{}, { responseType: 'text' }
   );
 }
 
@@ -42,7 +40,8 @@ export class AuthService {
   }
 
   getmealbycaterogy(category: string){
-    const token = sessionStorage.getItem('token');
+     
+ const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(`http://localhost:8082/api/cuisines/category/${category}/with-meals`, { headers });
   }
@@ -59,7 +58,6 @@ export class AuthService {
  return this.http.post(`${this.Url}/${userId}/add`, item, { headers });
   }
 
-  
 
  
 

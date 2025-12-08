@@ -1,19 +1,20 @@
 <div class="profile-container">
+  <!-- Top Row -->
   <div class="top-row">
     <div class="top-actions"></div>
   </div>
-
+ 
   <div class="middle-row">
     <span class="location"></span>
     <div class="search-box"></div>
   </div>
-
+ 
   <div class="bottom-row">
     <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
       <i class="fa-solid fa-angle-left"></i> Back
     </div>
   </div>
-
+ 
   <div class="profile">
     <p>Profile</p>
   </div>
@@ -21,44 +22,40 @@
   <!-- Main Section -->
   <div class="profile-section">
     <app-sidebar></app-sidebar>
-
+    <!-----   Address card   ----->
     <div class="address-page">
+      <!-- Toggle Button -->
       <div class="address-btn">
-        <button>Add Address</button>
+        <button (click)="showTable()">
+          {{ isAddressPage ? 'Add Address' : 'View Address' }}
+        </button>
       </div>
-
-      <!-- Address List -->
-      <div *ngIf="addresses.length > 0; else noAddress">
-        <div class="address-card" *ngFor="let address of addresses">
-          <div class="address-card__content">
-            <h4 class="address-card__name">
-              {{ address.city | titlecase }}
-            </h4>
-            <p class="address-card__details">
-              {{ address.line1 }}<br />
-              {{ address.city }}, {{ address.state }} – {{ address.pincode }}
-            </p>
-          </div>
-
-          <div class="address-card__bottom">
-            <p class="address-card__phone">
-              <strong>Ph No. {{ address.secondaryPhone }}</strong>
-            </p>
-            <div class="address-card__icons">
-  <div class="address-card__icons">
-    <i class="fas fa-pen address-card__icon edit-icon" title="Edit"></i>
-    <i class="fas fa-trash address-card__icon delete-icon" title="Delete"></i>
-  </div>
-            </div>
+ 
+      <div class="address-card">
+        <div class="address-card__content">
+          <h4 class="address-card__name">Aditya Dhanraj</h4>
+          <p class="address-card__details">
+            Flat No. 302, Green Leaf Residency, 2nd Cross, Koramangala 5th
+            Block,<br />
+            Bengaluru, Karnataka – 560095<br />
+            Landmark: Near Forum Mall
+          </p>
+        </div>
+ 
+        <div class="address-card__bottom">
+          <p class="address-card__phone"><strong>Ph No. 1234567891</strong></p>
+          <div class="address-card__icons">
+            <i
+              class="fa-solid fa-pen address-card__icon edit-icon"
+              title="Edit"
+            ></i>
+            <i
+              class="fa-solid fa-trash address-card__icon delete-icon"
+              title="Delete"
+            ></i>
           </div>
         </div>
       </div>
-
-      <ng-template #noAddress>
-        <p style="margin-top: 20px;">No address found.</p>
-      </ng-template>
-
-      
     </div>
   </div>
 </div>

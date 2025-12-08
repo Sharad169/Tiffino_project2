@@ -37,7 +37,7 @@ export class CuisineDetailComponent implements OnInit {
 
           if (data && data.meals) {
             this.meals = Array.isArray(data.meals) ? data.meals : [data.meals];
-            this.cuisineName = data.cuisineName || 'Cuisine';
+            this.cuisineName =  data.CuisineName || 'Cuisine' ;
             
           } else if (Array.isArray(data)) {
             this.meals = data;
