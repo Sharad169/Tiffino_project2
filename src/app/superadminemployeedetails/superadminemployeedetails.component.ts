@@ -30,9 +30,7 @@ getEmloyeeDetails(empId: string | null, role?: string) {
   if (!empId || !role) {
     return;
   }
-
     let request$;
-
   // Role ke basis pe service call
   if (role.toLowerCase() === 'manager') {
     request$ = this.api.getEmloyeeById(empId);
@@ -40,12 +38,10 @@ getEmloyeeDetails(empId: string | null, role?: string) {
     request$ = this.api.getChefById(empId);
   }else if (role.toLowerCase() === 'delivery partner') {
     request$ = this.api.getDeliveryPartnerById(empId);
-  }
-     else {
+  }else {
     console.warn('Unknown role:', role);
     return;
   }
-
   // API call execute karna
 console.log('Request Observable:', request$);
 request$?.subscribe({
@@ -59,10 +55,4 @@ request$?.subscribe({
 });
 
 }
-
-
-
-
-
-
 }
