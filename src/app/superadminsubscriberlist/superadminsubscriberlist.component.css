@@ -33,7 +33,6 @@
   color: #fff;
 }
 /* ===== Scroll only cards area (keeps Non-Subscriber button visible) ===== */
-
 .cards-scroll-area {
   max-height: 650px; /* adjust depending on how much you want visible */
   width: 866px;
