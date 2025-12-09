@@ -166,7 +166,7 @@ onSubmit(): void {
   );
  
   const keyMapping: any = {
-
+    
     photo: 'photo',
 
     aadhar: 'aadhar',

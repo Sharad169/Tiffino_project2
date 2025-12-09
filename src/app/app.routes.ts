@@ -55,6 +55,15 @@ import { CloudkitchenRegistrationComponent } from './cloudkitchen-registration/c
 import { SuperadminLoginComponent } from './superadmin-login/superadmin-login.component';
 
 import { ManagerRegistrationComponent } from './manager-registration/manager-registration.component';
+import { SuperadminsetpasswordComponent } from './superadminsetpassword/superadminsetpassword.component';
+import { SuperadmincloudkitchenComponent } from './superadmincloudkitchen/superadmincloudkitchen.component';
+import { ManagerinfoComponent } from './managerinfo/managerinfo.component';
+import { SuperadminchefComponent } from './superadminchef/superadminchef.component';
+import { SuperadmindelpartnerComponent } from './superadmindelpartner/superadmindelpartner.component';
+import { SuperadminkitchenComponent } from './superadminkitchen/superadminkitchen.component';
+import { ListemployeeComponent } from './listemployee/listemployee.component';
+import { SuperadminkitchendetailsComponent } from './superadminkitchendetails/superadminkitchendetails.component';
+import { SuperadminemployeedetailsComponent } from './superadminemployeedetails/superadminemployeedetails.component';
 
 
 
@@ -193,6 +202,36 @@ export const routes: Routes = [
     // manager-registration
      { path: 'manager-registration', component: ManagerRegistrationComponent },
 
+     //admin routes can be added here
+
+     { path: 'superadminsetpassword', component: SuperadminsetpasswordComponent },
+     { path: 'superAdminLogin', component: SuperadminLoginComponent },
+
+       {
+    path: 'superadmincloudkitchen',
+    component: SuperadmincloudkitchenComponent,
+  },
+
+  { path: 'superadminkitchen', component: SuperadminkitchenComponent },
+
+  { path: 'listemployee', component: ListemployeeComponent },
+
+  {
+    path: 'superadminkitchendetails/:kitchenCode',
+    component: SuperadminkitchendetailsComponent
+  },
+
+  {
+    path: 'superadminmanagerdetails/:empId/:role',
+    component: SuperadminemployeedetailsComponent,
+  },
+ 
+ 
+
+  { path: 'managerinfo', component: ManagerinfoComponent },
+  { path: 'superadminchef', component: SuperadminchefComponent },
+  { path: 'superadmindelpartner', component: SuperadmindelpartnerComponent },
+ 
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
