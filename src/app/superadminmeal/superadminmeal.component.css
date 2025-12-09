@@ -382,6 +382,91 @@ input:focus {
     height: 40px;
     font-size: 15px;
   }
+
+  
 }
+
+.multi-select {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 5px 8px;
+  position: relative;
+  min-height: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  cursor: pointer;
+  background: #fff;
+}
+
+.multi-select.open {
+  border-color: #007bff;
+}
+
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  flex: 1;
+}
+
+.tag {
+  background: #007bff;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.tag .remove {
+  margin-left: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.placeholder {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  z-index: 10;
+  margin-top: 2px;
+  padding: 0;
+  list-style: none;
+}
+
+.multi-select.open .dropdown {
+  display: block;
+}
+
+.dropdown li {
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropdown li:hover {
+  background: #f0f0f0;
+}
+
+.dropdown input[type="checkbox"] {
+  pointer-events: none;
+}
+
  
  

@@ -76,67 +76,123 @@
  
   <!-- ===== Add Cuisine Form ===== -->
   <div *ngIf="showCuisineForm" class="form-wrapper">
-    <form class="cuisine-form">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="mealName">Meal Name</label>
-          <input type="text" id="mealName" />
+   <form [formGroup]="cuisineForm" class="cuisine-form" (ngSubmit)="saveCuisine()">
+
+  <!-- Row 1 -->
+  <div class="form-row">
+    <div class="form-group">
+      <label for="mealName">Meal Name</label>
+      <input type="text" id="mealName" formControlName="mealName" placeholder="Enter Meal Name" />
+    </div>
+
+    <div class="form-group">
+      <label for="cuisineName">Cuisine Name</label>
+      <input type="text" id="cuisineName" formControlName="cuisineName" placeholder="Enter Cuisine Name" />
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="form-row">
+
+    <!-- Health & Nutrition -->
+    <div class="form-group">
+      <label>Health & Nutrition</label>
+      <div class="multi-select" (click)="toggleDropdown()" [class.open]="dropdownOpen">
+
+        <!-- Selected Tags -->
+        <div class="selected-tags">
+          <span class="tag" *ngFor="let tag of selectedNutrition">
+            {{ tag }}
+            <span class="remove" (click)="removeNutrition(tag); $event.stopPropagation()">×</span>
+          </span>
+          <span class="placeholder" *ngIf="selectedNutrition.length === 0">Select Nutrition Info</span>
         </div>
- 
-        <div class="form-group">
-          <label for="cuisineName">Cuisine Name</label>
-          <input type="text" id="cuisineName" />
-        </div>
+
+        <!-- Dropdown List -->
+        <ul class="dropdown">
+          <li *ngFor="let item of nutritionList" (click)="toggleNutrition(item)">
+            <input type="checkbox" [checked]="selectedNutrition.includes(item)" /> {{ item }}
+          </li>
+        </ul>
       </div>
- 
-      <div class="form-row">
-        <div class="form-group">
-          <label for="healthNutrition">Health & Nutrition</label>
-          <input type="text" id="healthNutrition" />
+    </div>
+
+    <!-- Allergens -->
+    <div class="form-group">
+      <label>Allergens</label>
+      <div class="multi-select" (click)="toggleAllergensDropdown()" [class.open]="allergensDropdownOpen">
+
+        <!-- Selected Tags -->
+        <div class="selected-tags">
+          <span class="tag" *ngFor="let tag of selectedAllergens">
+            {{ tag }}
+            <span class="remove" (click)="removeAllergen(tag); $event.stopPropagation()">×</span>
+          </span>
+          <span class="placeholder" *ngIf="selectedAllergens.length === 0">Select Allergens</span>
         </div>
- 
-        <div class="form-group">
-          <label for="allergens">Allergens</label>
-          <input type="text" id="allergens" />
-        </div>
+
+        <!-- Dropdown List -->
+        <ul class="dropdown">
+          <li *ngFor="let item of allergensList" (click)="toggleAllergen(item)">
+            <input type="checkbox" [checked]="selectedAllergens.includes(item)" /> {{ item }}
+          </li>
+        </ul>
       </div>
- 
-      <div class="form-row">
-        <div class="form-group">
-          <label for="amount">Amount</label>
-          <input type="text" id="amount" />
-        </div>
- 
-        <div class="form-group">
-          <label for="mealType">Meal Type</label>
-          <div class="dropdown-wrapper" tabindex="0">
-            <button type="button" class="fake-select"></button>
-          </div>
-        </div>
+    </div>
+
+  </div>
+
+  <!-- Row 3 -->
+  <div class="form-row">
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input type="text" id="amount" formControlName="amount" placeholder="Enter Amount" />
+    </div>
+
+    <!-- Meal Type -->
+    <div class="form-group">
+      <label for="mealType">Meal Type</label>
+      <div class="dropdown-wrapper" tabindex="0">
+        <button type="button" class="fake-select">
+          {{ cuisineForm.get('mealType')?.value || 'Select Meal Type' }}
+        </button>
+
+        <ul class="dropdown-panel">
+          <li class="dropdown-item" (click)="selectMealType('BREAKFAST')">BREAKFAST</li>
+          <li class="dropdown-item" (click)="selectMealType('LUNCH')">LUNCH</li>
+        </ul>
       </div>
- 
-      <div class="form-row">
-        <div class="form-group full">
-          <label for="cuisineImage">Cuisine Image</label>
-          <div class="file-upload">
-            <input type="file" id="cuisineImage" />
-            <label for="cuisineImage" class="choose-btn">Choose File</label>
-            <span class="file-name">No file chosen</span>
-          </div>
-        </div>
+    </div>
+  </div>
+
+  <!-- Row 4 -->
+  <div class="form-row">
+    <div class="form-group full">
+      <label for="cuisineImage">Cuisine Image</label>
+      <div class="file-upload">
+        <input type="file" id="cuisineImage" (change)="onFileSelect1($event)" />
+        <label for="cuisineImage" class="choose-btn">Choose File</label>
+        <span class="file-name">{{ fileName1 || 'No file chosen' }}</span>
       </div>
- 
-      <div class="form-row">
-        <div class="form-group full">
-          <label for="description">Description</label>
-          <input type="text" id="description" />
-        </div>
-      </div>
- 
-      <div class="submit-row">
-        <button type="submit" class="submit-btn">Submit</button>
-      </div>
-    </form>
+    </div>
+  </div>
+
+  <!-- Row 5 -->
+  <div class="form-row">
+    <div class="form-group full">
+      <label for="description">Description</label>
+      <input type="text" id="description" formControlName="description" placeholder="Enter Description" />
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <div class="submit-row">
+    <button type="submit" class="submit-btn">Submit</button>
+  </div>
+
+</form>
+
+
   </div>
 </div>
  

@@ -136,6 +136,12 @@ addCuisine(data: any): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.post(this.baseUrl7, data , { headers });
   }
+
+   addMeal(formData: FormData): Observable<any> {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post(this.baseUrl7, formData, { headers });
+  }
  
 
 }
