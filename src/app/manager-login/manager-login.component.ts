@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule], // ✅ ADD THIS
   templateUrl: './manager-login.component.html',
-  styleUrl: './manager-login.component.css',
+  styleUrls: ['./manager-login.component.css'],
 })
 export class ManagerLoginComponent {
   email: string = '';
