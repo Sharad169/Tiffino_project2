@@ -76,19 +76,26 @@
  
   <!-- ===== Add Cuisine Form ===== -->
   <div *ngIf="showCuisineForm" class="form-wrapper">
-   <form [formGroup]="cuisineForm" class="cuisine-form" (ngSubmit)="saveCuisine()">
+   <form [formGroup]="cuisineForm1" class="cuisine-form" (ngSubmit)="saveMeal()">
 
   <!-- Row 1 -->
   <div class="form-row">
     <div class="form-group">
-      <label for="mealName">Meal Name</label>
-      <input type="text" id="mealName" formControlName="mealName" placeholder="Enter Meal Name" />
+      <label for="name">Meal Name</label>
+      <input type="text" id="name" formControlName="name" placeholder="Enter Meal Name" />
     </div>
 
-    <div class="form-group">
-      <label for="cuisineName">Cuisine Name</label>
-      <input type="text" id="cuisineName" formControlName="cuisineName" placeholder="Enter Cuisine Name" />
-    </div>
+  <div class="form-group">
+  <label>Cuisine</label>
+  <select formControlName="cuisineId">
+    <option value="" disabled>Select Cuisine</option>
+    <option *ngFor="let c of cuisines" [value]="c.cuisineId">
+      {{ c.name }}
+    </option>
+  </select>
+</div>
+
+
   </div>
 
   <!-- Row 2 -->
@@ -146,24 +153,43 @@
   <div class="form-row">
     <div class="form-group">
       <label for="amount">Amount</label>
-      <input type="text" id="amount" formControlName="amount" placeholder="Enter Amount" />
+      <input type="text" id="price" formControlName="price" placeholder="Enter Amount" />
     </div>
 
     <!-- Meal Type -->
-    <div class="form-group">
-      <label for="mealType">Meal Type</label>
-      <div class="dropdown-wrapper" tabindex="0">
-        <button type="button" class="fake-select">
-          {{ cuisineForm.get('mealType')?.value || 'Select Meal Type' }}
-        </button>
+   <div class="form-group">
+  <label>Meal Type</label>
 
-        <ul class="dropdown-panel">
-          <li class="dropdown-item" (click)="selectMealType('BREAKFAST')">BREAKFAST</li>
-          <li class="dropdown-item" (click)="selectMealType('LUNCH')">LUNCH</li>
-        </ul>
-      </div>
+  <div class="multi-select" (click)="toggleMealTypeDropdown()" [class.open]="mealTypeDropdownOpen">
+
+    <!-- Selected tags -->
+    <div class="selected-tags">
+      <span class="tag" *ngFor="let mt of selectedMealTypes">
+        {{ mt }}
+        <span class="remove" (click)="removeMealType(mt); $event.stopPropagation()">×</span>
+      </span>
+      <span class="placeholder" *ngIf="selectedMealTypes.length === 0">Select Meal Type</span>
     </div>
+
+    <!-- Dropdown List -->
+    <ul class="dropdown">
+      <li *ngFor="let mt of mealTypeList" (click)="toggleMealType(mt)">
+        <input type="checkbox" [checked]="selectedMealTypes.includes(mt)" /> {{ mt }}
+      </li>
+    </ul>
+
   </div>
+</div>
+
+  </div>
+
+  <div class="form-group">
+  <label for="dietType">Diet Type</label>
+  <select id="dietType" formControlName="dietType">
+    <option value="" disabled selected>Select Diet Type</option>
+    <option *ngFor="let diet of dietTypes" [value]="diet">{{ diet }}</option>
+  </select>
+</div>
 
   <!-- Row 4 -->
   <div class="form-row">
@@ -176,6 +202,8 @@
       </div>
     </div>
   </div>
+
+
 
   <!-- Row 5 -->
   <div class="form-row">

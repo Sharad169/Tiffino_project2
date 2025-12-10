@@ -12,6 +12,12 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./superadminmeal.component.css'],
 })
 export class SuperadminmealComponent {
+mealTypeDropdownOpen = false;
+selectedMealTypes: string[] = [];
+mealTypeList: string[] = ['BREAKFAST', 'LUNCH', 'DINNER'];
+
+
+ 
   nutritionValue: string = '';
   fileName: string = '';
   cuisineForm!: FormGroup;
@@ -26,6 +32,7 @@ export class SuperadminmealComponent {
 selectedAllergens: string[] = [];
 fileName1: string = '';
 selectedFile1: File | null = null;
+cuisines: any[] = [];
 
 nutritionList: string[] = [
   'high-protein',
@@ -49,6 +56,7 @@ nutritionList: string[] = [
   'weight-loss',
   'heart-healthy'
 ];
+  dietTypes: string[] = ['VEGETARIAN', 'NON_VEGETARIAN', 'VEGAN']; 
 allergensList: string[] = [
   'dairy-containing',
   'nut-containing',
@@ -61,6 +69,7 @@ allergensList: string[] = [
   'seafood-containing',
   'shellfish-containing'
 ];
+  uploadedImage: any;
   constructor(private fb: FormBuilder, private api: AdminService) {}
 
     ngOnInit() {
@@ -71,14 +80,18 @@ allergensList: string[] = [
     });
 
     this.cuisineForm1 = this.fb.group({
-  mealName: [''],
+  name: [''],
   cuisineName: [''],
-  amount: [''],
+  price: [''],
   description: [''],
-  mealType: [''],
-  healthNutrition: [[]], // array
+    cuisineId: [''],
+     dietType: [''], 
+   mealType: [[]],
+  nutritionInfo: [[]], // array
   allergens: [[]]         // array
 });
+
+  this.loadCuisines();
   }
 
    onFileSelect(event: any) {
@@ -94,12 +107,11 @@ allergensList: string[] = [
 
 toggleNutrition(value: string) {
   if (this.selectedNutrition.includes(value)) {
-    this.selectedNutrition = this.selectedNutrition.filter(item => item !== value);
+    this.selectedNutrition = this.selectedNutrition.filter(n => n !== value);
   } else {
     this.selectedNutrition.push(value);
   }
-
-  this.cuisineForm1.patchValue({ healthNutrition: this.selectedNutrition });
+  this.cuisineForm1.patchValue({ nutritionInfo: this.selectedNutrition });
 }
 
 toggleDropdown() {
@@ -112,7 +124,7 @@ toggleAllergensDropdown() {
 
 removeNutrition(value: string) {
   this.selectedNutrition = this.selectedNutrition.filter(item => item !== value);
-  this.cuisineForm1.patchValue({ healthNutrition: this.selectedNutrition });
+  this.cuisineForm1.patchValue({ nutritionInfo: this.selectedNutrition });
 }
  
   toggleForm(type: string) {
@@ -163,13 +175,12 @@ removeNutrition(value: string) {
     });
   }
 
-  toggleAllergen(value: string) {
+toggleAllergen(value: string) {
   if (this.selectedAllergens.includes(value)) {
-    this.selectedAllergens = this.selectedAllergens.filter(item => item !== value);
+    this.selectedAllergens = this.selectedAllergens.filter(a => a !== value);
   } else {
     this.selectedAllergens.push(value);
   }
-
   this.cuisineForm1.patchValue({ allergens: this.selectedAllergens });
 }
 
@@ -185,6 +196,23 @@ selectMealType(value: string) {
 }
 
 
+toggleMealTypeDropdown() {
+  this.mealTypeDropdownOpen = !this.mealTypeDropdownOpen;
+}
+
+toggleMealType(value: string) {
+  if (this.selectedMealTypes.includes(value)) {
+    this.selectedMealTypes = this.selectedMealTypes.filter(m => m !== value);
+  } else {
+    this.selectedMealTypes.push(value);
+  }
+  this.cuisineForm1.patchValue({ mealType: this.selectedMealTypes });
+}
+
+removeMealType(value: string) {
+  this.selectedMealTypes = this.selectedMealTypes.filter(m => m !== value);
+  this.cuisineForm1.patchValue({ mealType: this.selectedMealTypes });
+}
 
 onFileSelect1(event: any) {
   const file = event.target.files[0];
@@ -194,58 +222,72 @@ onFileSelect1(event: any) {
   }
 }
 
+// saveMeal() {
+//   const f = this.cuisineForm1.value;
+
+//   const fd = new FormData();
+//   fd.append("name", f.mealName);
+//   fd.append("description", f.description);
+//   fd.append("price", f.amount);
+
+//   // THIS IS FIXED 🔥
+//   fd.append("cuisineId", f.cuisineId.toString());
+
+//   (this.selectedNutrition || []).forEach(n => fd.append("nutritionInfo", n));
+//   (this.selectedAllergens || []).forEach(a => fd.append("allergens", a));
+//   (this.selectedMealTypes || []).forEach(m => fd.append("mealType", m));
+
+//   if (this.selectedFile1) {
+//     fd.append("imgUrl", this.selectedFile1);
+//   }
+
+//   this.api.addMeal(fd).subscribe({
+//     next: (res) => alert('Meal saved successfully!'),
+//     error: (err) => console.error(err)
+//   });
+// }
+
 saveMeal() {
-  if (this.cuisineForm1.invalid) {
-    return;
-  }
-
-  const formValues = this.cuisineForm1.value;
-   const cuisine = this.cuisineForm1.value;
-
-  // FormData to handle image
-  const fd = new FormData();
-    fd.append(
-
-    'cuisine',
-
-    new Blob([JSON.stringify(cuisine)], { type: 'application/json' })
-
+  if (this.cuisineForm1.invalid) return;
+ 
+  const meal = this.cuisineForm1.value;   // 👈 takes everything exactly from form
+ 
+  const formData = new FormData();
+  formData.append(
+    "meal",
+    new Blob([JSON.stringify(meal)], { type: "application/json" })
   );
-  fd.append('name', formValues.mealName);
-  fd.append('description', formValues.description);
-  fd.append('price', formValues.amount);
-  fd.append('cuisineId', formValues.cuisineName); // if cuisineId numeric, convert: +formValues.cuisineName
-  fd.append('dietType', 'VEGETARIAN'); // hardcoded for now, can add dropdown
+ 
+  if (this.selectedFile1) {
+    formData.append("image", this.selectedFile1);
 
-  // Nutrition Info array
-  formValues.healthNutrition.forEach((nut: string) => fd.append('nutritionInfo', nut));
-
-  // Allergens array
-  formValues.allergens.forEach((all: string) => fd.append('allergens', all));
-
-  // Meal Type array
-  formValues.mealType.forEach((meal: string) => fd.append('mealType', meal));
-
-  // Image
-  if (this.selectedFile) {
-    fd.append('imgUrl', this.selectedFile, this.selectedFile.name);
   }
-
-  this.api.addMeal(fd).subscribe({
-    next: (res) => {
-      console.log('Cuisine added successfully', res);
-      alert('Cuisine added successfully!');
+ 
+  this.api.addMeal(formData).subscribe({
+    next: () => {
+      alert("Meal added successfully!");
       this.cuisineForm1.reset();
-      this.selectedFile = null;
-      this.fileName = '';
-      this.selectedNutrition = [];
       this.selectedAllergens = [];
+      this.selectedMealTypes = [];
+      this.selectedNutrition = [];
     },
-    error: (err) => {
-      console.error('Error adding cuisine', err);
-      alert('Failed to add cuisine.');
-    }
+    error: err => console.error("Meal save error:", err)
   });
 }
 
+
+
+
+
+loadCuisines() {
+  this.api.allCuisins().subscribe({
+    next: (res) => {
+      console.log('Cuisines fetched successfully', res);
+      this.cuisines = res as any[];
+    },
+    error: (err) => {
+      console.error('Error fetching cuisines', err);
+    }
+  });
+}
 }
