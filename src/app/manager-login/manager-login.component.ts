@@ -30,7 +30,6 @@ export class ManagerLoginComponent {
       .login(managerCode, this.password, this.tempPass)
       .subscribe({
         next: (res) => {
-          debugger;
           console.log('Login success:', res);
           alert('Login successful');
         },
