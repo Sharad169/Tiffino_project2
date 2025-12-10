@@ -112,6 +112,7 @@ import { UseraboutuspageComponent } from './useraboutuspage/useraboutuspage.comp
 import { UserNetworkerrorpageComponent } from './user-networkerrorpage/user-networkerrorpage.component';
 import { UserItemunavailablepageComponent } from './user-itemunavailablepage/user-itemunavailablepage.component';
 import { UserStoreclosedpageComponent } from './user-storeclosedpage/user-storeclosedpage.component';
+import { ManagerLoginComponent } from './manager-login/manager-login.component';
 
 export const routes: Routes = [
   // ===== Default Routes =====
@@ -275,6 +276,7 @@ export const routes: Routes = [
   },
 
   //Manager Section
+  { path: 'manager-login', component: ManagerLoginComponent },
   { path: 'applyleavemanager', component: ApplyleavemanagerComponent },
   { path: 'managerapproveorder', component: ManagerapproveorderComponent },
   {
