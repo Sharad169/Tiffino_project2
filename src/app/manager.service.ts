@@ -15,7 +15,7 @@ export class ManagerService {
     password: string,
     tempPass: string
   ): Observable<any> {
-    const url = `${this.baseUrl}/login?managerCode=${managerCode}&Password=${password}&tempPass=${tempPass}`;
+    const url = `${this.baseUrl}/manager-login?managerCode=${managerCode}&Password=${password}&tempPass=${tempPass}`;
     return this.http.post(url, {}); // POST request with empty body
   }
 }
