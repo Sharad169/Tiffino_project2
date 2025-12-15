@@ -67,6 +67,20 @@ import { SuperadminemployeedetailsComponent } from './superadminemployeedetails/
 import { SuperadminmealComponent } from './superadminmeal/superadminmeal.component';
 
 
+// chef
+import { ChefLoginComponent } from './chef-login/chef-login.component';
+import { ChefApplyleaveComponent } from './chef-applyleave/chef-applyleave.component';
+import { ChefSidebarComponent } from './chef-sidebar/chef-sidebar.component';
+import { ChefSubscriptioneditdetailsComponent } from './chef-subscriptioneditdetails/chef-subscriptioneditdetails.component';
+import { ChefSubscriptionordersComponent } from './chef-subscriptionorders/chef-subscriptionorders.component';
+import { ChefDashboardComponent } from './chef-dashboard/chef-dashboard.component';
+import { ChefEditdetailspageComponent } from './chef-editdetailspage/chef-editdetailspage.component';
+import { ChefHelpsupportpageComponent } from './chef-helpsupportpage/chef-helpsupportpage.component';
+import { ChefYourdetailspageComponent } from './chef-yourdetailspage/chef-yourdetailspage.component';
+
+
+
+
 
 
 export const routes: Routes = [
@@ -182,7 +196,26 @@ export const routes: Routes = [
     // deleteaccount1
     { path: 'deleteaccount1', component: Deleteaccount1Component },
 
-   
+
+  //  chef
+   { path: 'chef-login', component: ChefLoginComponent },
+
+   { path: 'chef-applyleave', component: ChefApplyleaveComponent },
+
+   { path: 'chef-sidebar', component: ChefSidebarComponent },
+
+   { path: 'subscription-edit-details', component: ChefSubscriptioneditdetailsComponent },
+
+  { path: 'chef-subscriptionorders', component: ChefSubscriptionordersComponent },
+
+  { path: 'chef-dashboard', component: ChefDashboardComponent },
+
+   { path: 'chef-editdetailspage', component: ChefEditdetailspageComponent },
+
+   { path: 'chef-helpsupportpage', component: ChefHelpsupportpageComponent },
+
+   { path: 'chef-yourdetailspage', component: ChefYourdetailspageComponent },
+
 
 //Add-card
 { path: 'add-card', component: AddCardComponent },
@@ -206,6 +239,7 @@ export const routes: Routes = [
      //admin routes can be added here
 
      { path: 'superadminsetpassword', component: SuperadminsetpasswordComponent },
+
      { path: 'superAdminLogin', component: SuperadminLoginComponent },
 
        {
