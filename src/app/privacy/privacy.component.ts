@@ -9,3 +9,4 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   styleUrl: './privacy.component.css',
 })
 export class PrivacyComponent {}
+ 

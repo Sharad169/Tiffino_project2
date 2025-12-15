@@ -25,25 +25,18 @@
 }
 
 /* ---------------- Food Scroller ---------------- */
+/* ---------------- Food Scroller Auto Scroll ---------------- */
+.food-scroller-container {
+  overflow: hidden;
+  padding-left: 60px; /* Left space added */
+  margin-top: 40px;
+}
+
 .food-scroller {
   display: flex;
   gap: 40px;
-  overflow-x: auto;
-  padding: 60px 0 20px 0; /* removed side padding */
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  margin: 0; /* removed left margin space */
-}
-
-.food-scroller::-webkit-scrollbar {
-  height: 8px;
-}
-.food-scroller::-webkit-scrollbar-thumb {
-  background: #2f5233;
-  border-radius: 4px;
-}
-.food-scroller::-webkit-scrollbar-track {
-  background: #f0f0f0;
+  animation: scrollCards 25s linear infinite;
+  width: max-content;
 }
 
 .food-card {
@@ -51,56 +44,74 @@
   flex: 0 0 auto;
   width: 865px;
   height: 400px;
-  border-radius: 16px;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease-in-out;
-  margin-top: 30px;
-}
-
-.food-card:hover {
-  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  background: #000;
+  transition: transform 0.3s ease;
 }
 
 .food-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(70%);
+  transition: filter 0.4s ease;
 }
 
-/* Overlay */
-.food-overlay {
+.food-card:hover img {
+  filter: brightness(55%);
+}
+
+.food-content {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,0.5);
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
   color: #fff;
-  padding: 15px;
-}
-
-.food-overlay .card-title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 5px;
+  max-width: 60%;
   font-family: 'Poppins', sans-serif;
 }
 
-.food-overlay .card-text {
-  font-size: 0.95rem;
-  margin-bottom: 10px;
-  font-family: 'Poppins', sans-serif;
+.food-content h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.food-content p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 .order-btn {
-  background: white;
-  color: black;
+  background: #fff;
+  color: #000;
   font-weight: 600;
-  border-radius: 8px;
-  padding: 6px 14px;
-  font-size: 0.9rem;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 28px;
+  font-size: 1rem;
   font-family: 'Poppins', sans-serif;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.order-btn:hover {
+  background: #f2f2f2;
+  transform: scale(1.05);
+}
+
+/* Smooth auto-scroll animation */
+@keyframes scrollCards {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* ---------------- Cuisine Cards ---------------- */
@@ -149,8 +160,8 @@
   display: flex;
   gap: 20px;
   overflow-x: auto;
-  padding: 30px 0 20px 0; /* removed side padding */
-  margin: 0; /* no side spacing */
+  padding: 30px 0 20px 60px; /* added left space = 60px */
+  margin: 0;
   scroll-behavior: smooth;
   scrollbar-width: thin;
 }
@@ -223,7 +234,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #2f5233;
+  background: #0c100d;
   color: #fff;
   font-size: 14px;
   padding: 5px 8px;

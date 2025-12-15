@@ -1,27 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-/* Main Wrapper */
+/* -------------------- */
+/* MAIN WRAPPER         */
+/* -------------------- */
 .managerinfo-wrapper {
   font-family: "Poppins", sans-serif;
-  margin-left: 480px; /* Desktop layout preserved */
-  margin-top: -630px;
-  padding-right: 100px;
   max-width: 900px;
+  margin-top: -505px;
+  margin-left: 450px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* Dropdown */
+/* -------------------- */
+/* DROPDOWN STYLING      */
+/* -------------------- */
 .dropdown-wrapper {
   position: relative;
   display: inline-block;
   outline: none;
   margin-bottom: 25px;
+  width: 470px;
 }
 
 .fake-select {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 470px;
+  width: 100%;
   height: 40px;
   padding: 0 18px;
   border-radius: 10px;
@@ -30,7 +36,7 @@
   cursor: pointer;
   font-size: 20px;
   font-weight: 400;
-  color: #000;
+  color: rgba(0, 0, 0, 1);
 }
 
 .fake-select .label {
@@ -38,7 +44,6 @@
   text-align: center;
 }
 
-/* Dropdown Panel */
 .dropdown-panel {
   position: absolute;
   top: calc(100% + 8px);
@@ -51,11 +56,12 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 6px 0;
   list-style: none;
-  margin: 0;
+  margin-left: 100px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 150ms ease, transform 150ms ease;
+  transform-origin: top center;
   z-index: 100;
 }
 
@@ -69,225 +75,174 @@
 
 .dropdown-item {
   padding: 12px 18px;
-  font-size: 15px;
-  color: #1f1f1f;
+  font-size: 20px;
+  color: rgba(31, 31, 31, 1);
   cursor: pointer;
   transition: background-color 120ms ease;
 }
 
-.dropdown-item:hover,
+.dropdown-item:hover {
+  background-color: rgba(224, 254, 228, 1);
+}
+
 .dropdown-item.active {
   background-color: rgba(224, 254, 228, 1);
 }
 
-/* Form Layout */
+/* -------------------- */
+/* FORM STYLING         */
+/* -------------------- */
 .manager-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
+/* -------------------- */
+/* FORM ROWS            */
+/* -------------------- */
 .form-row {
   display: flex;
   gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
 }
 
+/* Kitchen Code + Photo row fix */
+.form-row:nth-of-type(3) {
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+/* Centered submit row */
+.submit-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+/* -------------------- */
+/* FORM GROUPS          */
+/* -------------------- */
 .form-group {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  width: 400px; /* default for normal inputs */
 }
 
-/* Inputs */
-input[type="text"],
-input[type="email"] {
-  width: 400px;
-  height: 51px;
-  border: 1px solid rgba(162, 161, 161, 1);
-  border-radius: 20px;
-  padding: 0 10px;
-  outline: none;
-  font-size: 14px;
-  color: #a2a1a1;
+/* Keep addresses wider */
+.form-group.full {
+  width: 800px; /* permanent & current address */
 }
 
-input:focus {
-  border-color: rgba(56, 99, 65, 1);
-}
-
-/* Labels */
+/* -------------------- */
+/* LABELS               */
+/* -------------------- */
 label {
   font-size: 20px;
   font-weight: 500;
-  color: #000;
+  margin-bottom: 8px;
 }
 
-/* File Upload */
+/* -------------------- */
+/* TEXT INPUTS          */
+/* -------------------- */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+  height: 51px;
+  border: 1px solid #a2a1a1;
+  border-radius: 20px;
+  padding-left: 14px;
+  font-size: 20px;
+  color: #000;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  font-size: 13px;
+  color: #a2a1a1;
+}
+
+/* -------------------- */
+/* FILE INPUTS          */
+/* -------------------- */
 .file-group {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .file-group input[type="file"] {
-  position: absolute;
-  inset: 0;
   width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.custom-file-input {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 400px;
   height: 51px;
   border: 1px solid #a2a1a1;
-  border-radius: 900px;
-  overflow: hidden;
-  position: relative;
+  border-radius: 20px;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.file-placeholder {
-  flex-grow: 1;
-  text-align: center;
-  font-size: 13px;
-  color: #000;
-}
-
-.custom-file-input::before {
-  content: "Choose File";
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
+.file-group input[type="file"]::file-selector-button {
+  background-color: #d9d9d9;
+  width: 40%;
   height: 100%;
-  width: 30%;
-  background: #e6e6e6;
+  border: none;
   border-right: 1px solid #a2a1a1;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
 }
 
-/* Address Box */
+/* -------------------- */
+/* TICK MARK            */
+/* -------------------- */
+.tick-mark {
+  color: green;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+/* -------------------- */
+/* ADDRESS BOXES        */
+/* -------------------- */
 .address-box {
-  width: 815px;
-  height: 70px;
+  width: 820px; /* fills parent form-group */
+  height: 80px;
   border: 1px solid #a2a1a1;
   border-radius: 20px;
-  padding: 10px 15px;
-  font-size: 24px;
-  color: #a2a1a1;
-  outline: none;
-  resize: none;
+  padding: 14px 18px;
+  font-size: 20px;
+  box-sizing: border-box;
 }
 
-/* Submit Button */
-.submit-row {
-  text-align: left;
-  margin-top: 56px;
-  margin-left: 330px;
+/* Textarea inside .form-group.full */
+/* Textarea inside .form-group.full */
+.form-group.full textarea {
+  width: 820px; /* match parent width 800px */
+  height: 80px; /* fixed height */
+  resize: none; /* prevent user resizing */
+  overflow: hidden; /* hide scrollbars */
+  box-sizing: border-box;
+  padding: 14px 18px;
+  border-radius: 20px;
 }
 
+/* -------------------- */
+/* SUBMIT BUTTON        */
+/* -------------------- */
 button[type="submit"] {
   width: 180px;
   height: 57px;
   background: #386341;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
-}
-
-/* ------------------------------------------------------------ */
-/* RESPONSIVE (NO UI BREAKING) */
-/* ------------------------------------------------------------ */
-
-/* Large Tablets */
-@media (max-width: 1200px) {
-  .managerinfo-wrapper {
-    margin-left: 300px;
-  }
-
-  .address-box {
-    width: 700px;
-  }
-}
-
-/* Tablets */
-@media (max-width: 992px) {
-  .managerinfo-wrapper {
-    margin-left: 200px;
-    max-width: 100%;
-  }
-
-  .fake-select,
-  input[type="text"],
-  input[type="email"],
-  .custom-file-input {
-    width: 100%;
-  }
-
-  .address-box {
-    width: 100%;
-  }
-
-  .form-row {
-    flex-direction: column;
-  }
-
-  .submit-row {
-    margin-left: 0;
-  }
-}
-
-/* Mobile Large */
-@media (max-width: 768px) {
-  .managerinfo-wrapper {
-    margin-left: 0;
-    margin-top: 0;
-    padding: 20px;
-  }
-
-  .fake-select {
-    height: 44px;
-    font-size: 18px;
-  }
-
-  input[type="text"],
-  input[type="email"] {
-    height: 48px;
-    font-size: 16px;
-  }
-
-  .custom-file-input {
-    height: 48px;
-  }
-
-  .address-box {
-    height: 62px;
-    font-size: 18px;
-  }
-
-  button[type="submit"] {
-    width: 100%;
-  }
-}
-
-/* Mobile Small */
-@media (max-width: 480px) {
-  .fake-select {
-    font-size: 16px;
-  }
-
-  input,
-  .custom-file-input {
-    font-size: 14px;
-  }
-
-  .address-box {
-    font-size: 16px;
-  }
 }

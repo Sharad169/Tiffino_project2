@@ -1,0 +1,304 @@
+<!-- Scrollable Options Section -->
+<div class="options-scrollbar">
+  <div class="options-container">
+    <button
+      class="option-btn"
+      [class.active]="activeSection === 'dietary'"
+      (click)="showSection('dietary')"
+    >
+      Dietary Preferences
+    </button>
+    <button
+      class="option-btn"
+      [class.active]="activeSection === 'cuisine'"
+      (click)="showSection('cuisine')"
+    >
+      Cuisine Type
+    </button>
+    <button
+  class="option-btn"
+  [class.active]="activeSection === 'mealType'"
+  (click)="showSection('mealType')"
+>
+  Meal Type
+</button>
+    <button
+  class="option-btn"
+  [class.active]="activeSection === 'portionSpice'"
+  (click)="showSection('portionSpice')"
+>
+  Portion & Spice Levels
+</button>
+
+  <button
+  class="option-btn"
+  [class.active]="activeSection === 'healthNutrition'"
+  (click)="showSection('healthNutrition')"
+>
+  Health & Nutrition
+</button>
+    
+<button
+  class="option-btn"
+  [class.active]="activeSection === 'allergens'"
+  (click)="showSection('allergens')"
+>
+  Allergens
+</button>
+  
+<button
+  class="option-btn"
+  [class.active]="activeSection === 'specials'"
+  (click)="showSection('specials')"
+>
+  Specials
+</button>
+     
+<button
+  class="option-btn"
+  [class.active]="activeSection === 'priceRange'"
+  (click)="showSection('priceRange')"
+>
+  Price Range
+</button>
+
+  <button
+  class="option-btn"
+  [class.active]="activeSection === 'ratingsReviews'"
+  (click)="showSection('ratingsReviews')"
+>
+  Ratings & Reviews
+</button>
+
+  </div>
+</div>
+
+<!-- Dietary Preferences Section -->
+<div *ngIf="activeSection === 'dietary'" class="content-section">
+  <div class="option-item" *ngFor="let option of dietaryOptions">
+    <label>
+      <input
+        type="radio"
+        name="dietary"
+        [value]="option"
+        [(ngModel)]="selectedDietary"
+      />
+      {{ option }}
+    </label>
+    <input
+      *ngIf="selectedDietary === option"
+      type="text"
+      placeholder="Enter details..."
+      class="input-box"
+    />
+  </div>
+
+  <button class="next-btn">Next</button>
+</div>
+
+<!-- Cuisine Type Section -->
+<div *ngIf="activeSection === 'cuisine'" class="content-section">
+  <div class="option-item" *ngFor="let cuisine of cuisineOptions">
+    <label>
+      <input
+        type="radio"
+        name="cuisine"
+        [value]="cuisine"
+        [(ngModel)]="selectedCuisine"
+      />
+      {{ cuisine }}
+    </label>
+    <input
+      *ngIf="selectedCuisine === cuisine"
+      type="text"
+      placeholder="Enter details..."
+      class="input-box"
+    />
+  </div>
+
+  <button class="next-btn">Next</button>
+</div>
+
+<!-- Meal Type Section -->
+<div *ngIf="activeSection === 'mealType'" class="content-section">
+  <div class="option-item" *ngFor="let meal of mealTypeOptions">
+    <label>
+      <input
+        type="radio"
+        name="mealType"
+        [value]="meal"
+        [(ngModel)]="selectedMealType"
+      />
+      {{ meal }}
+    </label>
+    <input
+      *ngIf="selectedMealType === meal"
+      type="text"
+      placeholder="Enter details..."
+      class="input-box"
+    />
+  </div>
+
+  <button class="next-btn">Next</button>
+</div>
+
+<!-- Portion & Spice Levels Section -->
+<div *ngIf="activeSection === 'portionSpice'" class="content-section">
+
+  <!-- Portion Size Section -->
+  <h4>Portion Size</h4>
+  <div class="option-item" *ngFor="let portion of portionOptions">
+    <label>
+      <input
+        type="radio"
+        name="portion"
+        [value]="portion"
+        [(ngModel)]="selectedPortion"
+      />
+      {{ portion }}
+    </label>
+    <input
+      *ngIf="selectedPortion === portion"
+      type="text"
+      placeholder="Enter details..."
+      class="input-box"
+    />
+  </div>
+
+  <!-- Spice Level Section -->
+  <h4 style="margin-top: 25px;">Spice Level</h4>
+  <div class="option-item" *ngFor="let spice of spiceOptions">
+    <label>
+      <input
+        type="radio"
+        name="spice"
+        [value]="spice"
+        [(ngModel)]="selectedSpice"
+      />
+      {{ spice }}
+    </label>
+    <input
+      *ngIf="selectedSpice === spice"
+      type="text"
+      placeholder="Enter details..."
+      class="input-box"
+    />
+  </div>
+
+  <button class="next-btn">Next</button>
+</div>
+
+<!-- Health & Nutrition Section -->
+<div *ngIf="activeSection === 'healthNutrition'" class="content-section">
+  <div class="option-item" *ngFor="let health of healthNutritionOptions">
+    <label>
+      <input
+        type="radio"
+        name="healthNutrition"
+        [value]="health"
+        [(ngModel)]="selectedHealthNutrition"
+      />
+      {{ health }}
+    </label>
+    <input
+      *ngIf="selectedHealthNutrition === health"
+      type="text"
+      placeholder="Enter details..."
+      class="input-box"
+    />
+  </div>
+
+  <button class="next-btn">Next</button>
+</div>
+
+<!-- Allergens Section -->
+<div *ngIf="activeSection === 'allergens'" class="content-section">
+  <div class="option-item" *ngFor="let allergen of allergenOptions">
+    <label>
+      <input
+        type="radio"
+        name="allergens"
+        [value]="allergen"
+        [(ngModel)]="selectedAllergen"
+      />
+      {{ allergen }}
+    </label>
+    <input
+      *ngIf="selectedAllergen === allergen"
+      type="text"
+      placeholder="Enter details..."
+      class="input-box"
+    />
+  </div>
+
+  <button class="next-btn">Next</button>
+</div>
+
+<!-- Specials Section -->
+<div *ngIf="activeSection === 'specials'" class="content-section">
+  <div class="option-item" *ngFor="let special of specialOptions">
+    <label>
+      <input
+        type="radio"
+        name="specials"
+        [value]="special"
+        [(ngModel)]="selectedSpecial"
+      />
+      {{ special }}
+    </label>
+    <input
+      *ngIf="selectedSpecial === special"
+      type="text"
+      placeholder="Enter details..."
+      class="input-box"
+    />
+  </div>
+
+  <button class="next-btn">Next</button>
+</div>
+
+<!-- Price Range Section -->
+<div *ngIf="activeSection === 'priceRange'" class="content-section">
+  <div class="option-item" *ngFor="let price of priceRangeOptions">
+    <label>
+      <input
+        type="radio"
+        name="priceRange"
+        [value]="price"
+        [(ngModel)]="selectedPriceRange"
+      />
+      {{ price }}
+    </label>
+    <input
+      *ngIf="selectedPriceRange === price"
+      type="text"
+      placeholder="Enter details..."
+      class="input-box"
+    />
+  </div>
+
+  <button class="next-btn">Next</button>
+</div>
+
+<!-- Ratings & Reviews Section -->
+<div *ngIf="activeSection === 'ratingsReviews'" class="content-section">
+  <div class="option-item" *ngFor="let rating of ratingsReviewsOptions">
+    <label>
+      <input
+        type="radio"
+        name="ratingsReviews"
+        [value]="rating"
+        [(ngModel)]="selectedRatingsReviews"
+      />
+      {{ rating }}
+    </label>
+    <input
+      *ngIf="selectedRatingsReviews === rating"
+      type="text"
+      placeholder="Enter details..."
+      class="input-box"
+    />
+  </div>
+
+  <button class="next-btn">Next</button>
+</div>

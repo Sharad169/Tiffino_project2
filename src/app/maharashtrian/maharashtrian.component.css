@@ -26,38 +26,6 @@
   margin: 0 80px;
 }
 
-/* 2. Style and position the favorite icon */
-.favorite-icon {
-  /* Positioning: Absolute to place it over the image */
-  position: absolute;
-  top: 25px; /* Distance from the top */
-  right: 25px; /* Distance from the right */
-  z-index: 10; /* Ensure it's above the image */
-  cursor: pointer;
-  margin-top: -6px;
-
-  /* Container Styling (White Circle) */
-  background-color: rgba(217, 217, 217, 1);
-  border-radius: 60%; /* Perfect circle */
-
-  /* Size and Alignment */
-  width: 50px;
-  height: 47px;
-  padding: 8px; /* Padding for the icon inside the circle */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /* Border/Shadow to match the subtle look in the screenshot */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-
-  /* Icon Appearance (Dark outline, Font Awesome size) */
-  font-size: 25px;
-  color: rgba(31, 31, 31, 1); /* Dark gray/black outline */
-  transition: all 0.2s ease;
-}
-
 @media (min-width: 600px) {
   .cards-container {
     grid-template-columns: repeat(2, 1fr);
@@ -98,8 +66,8 @@
 
 /* IMAGE */
 .card-img {
-  width: 385;
-  height: 285px;
+  width: 379;
+  height: 271px;
   padding: 12px;
   object-fit: cover;
   border-radius: 20px;

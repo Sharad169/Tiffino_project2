@@ -1,6 +1,6 @@
 /* Import Poppins font */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
+ 
 /* General Container */
 .profile-container {
   font-family: "Poppins", sans-serif;
@@ -9,7 +9,7 @@
   flex-direction: column;
   background: #fff;
 }
-
+ 
 /* Top Row */
 .top-row {
   display: flex;
@@ -17,7 +17,7 @@
   align-items: center;
   margin: 100px 0 8px 250px;
 }
-
+ 
 .greeting {
   flex: 1;
   text-align: center;
@@ -25,13 +25,13 @@
   font-weight: 500;
   color: #000;
 }
-
+ 
 .top-actions {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-
+ 
 .wallet-btn {
   height: 51px;
   width: 171px;
@@ -42,7 +42,7 @@
   font-size: 16px;
   cursor: pointer;
 }
-
+ 
 .notify {
   height: 48px;
   width: 47px;
@@ -55,14 +55,14 @@
   border-radius: 50%;
   cursor: pointer;
 }
-
+ 
 .profile-pic {
   height: 48px;
   width: 47px;
   border-radius: 50%;
   border: 2px solid #ccc;
 }
-
+ 
 /* Middle Row */
 .middle-row {
   display: flex;
@@ -70,7 +70,7 @@
   justify-content: center;
   position: relative;
 }
-
+ 
 .location {
   position: absolute;
   left: 0;
@@ -81,14 +81,14 @@
   font-weight: 500;
   color: #386341;
 }
-
+ 
 .search-box {
   height: 47px;
   width: 510px;
   display: flex;
   gap: 6px;
 }
-
+ 
 .search-box input {
   flex: 1;
   padding: 8px 14px;
@@ -96,7 +96,7 @@
   border: 2px solid #aaa;
   font-size: 14px;
 }
-
+ 
 .menu-btn {
   height: 47px;
   width: 47px;
@@ -122,7 +122,7 @@
   padding: 5px; /* space for small box inside */
   transition: background 0.2s;
 }
-
+ 
 /* Small box inside the large box */
 .help-small-box {
   height: 18px;
@@ -140,7 +140,7 @@
   background-color: #fff;
   transition: background 0.2s, color 0.2s;
 }
-
+ 
 /* Bottom Row */
 .bottom-row {
   margin: 20px 0;
@@ -148,14 +148,14 @@
   align-items: center;
   gap: 6px;
 }
-
+ 
 .back-icon {
   font-size: 16px;
   color: #000;
   cursor: pointer;
   margin-top: 120px;
 }
-
+ 
 .back-link {
   font-size: 18px;
   font-weight: 500;
@@ -163,7 +163,7 @@
   cursor: pointer;
   margin-top: 50px;
 }
-
+ 
 /* Profile Title */
 .profile p {
   font-size: 32px;
@@ -171,7 +171,7 @@
   color: #000;
   margin-bottom: 20px;
 }
-
+ 
 /* Profile Section */
 .profile-section {
   display: flex;
@@ -181,7 +181,7 @@
   width: 100%;
   box-sizing: border-box;
 }
-
+ 
 /* Order details */
 .address-page {
   width: 100%;
@@ -189,20 +189,20 @@
   background-color: #f5f5f5;
   box-sizing: border-box;
 }
-
+ 
 .orders-section {
   width: 90%;
   margin: 0 auto;
   margin-top: 10px;
 }
-
+ 
 .orders-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
 }
-
+ 
 .orders-header h3 {
   width: 224px;
   height: 36px;
@@ -211,7 +211,7 @@
   color: rgba(56, 99, 65, 1);
   margin: -50px -57px;
 }
-
+ 
 .see-all {
   width: 81px;
   height: 36px;
@@ -221,7 +221,7 @@
   text-decoration: none;
   margin-right: 60px;
 }
-
+ 
 .order-card {
   width: 857px;
   height: 245px;
@@ -229,13 +229,13 @@
   border-radius: 12px;
   margin: 44px 80px 0 24px;
 }
-
+ 
 .order-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
+ 
 .order-top h4 {
   width: 157px;
   height: 30px;
@@ -244,14 +244,14 @@
   margin: 50px 0px 8px -58px;
   color: rgba(0, 0, 0, 1);
 }
-
+ 
 .order-top p {
   font-size: 15px;
   font-weight: 500;
   margin-left: -58px;
   color: rgba(124, 124, 124, 1);
 }
-
+ 
 .price {
   width: 75px;
   height: 33px;
@@ -274,13 +274,13 @@
   background-color: #fff; /* optional: white background */
   margin: -15px 104px 0px 15px;
 }
-
+ 
 .order-images {
   display: flex;
   gap: 10px;
   margin: 2px 0px 0px -58px;
 }
-
+ 
 .order-img {
   width: 108px;
   height: 120px;
@@ -291,7 +291,7 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-
+ 
 /* FAQ Section */
 .faq-section {
   width: 100%; /* full width of container */
@@ -302,7 +302,7 @@
   box-sizing: border-box;
   margin-left: -15px;
 }
-
+ 
 .faq-section h3 {
   width: 157px;
   height: 36px;
@@ -311,12 +311,12 @@
   color: rgba(56, 99, 65, 1);
   margin: 80px 0px 8px 0px;
 }
-
+ 
 .faq-list {
   border: 1px solid rgba(124, 124, 124, 1);
   overflow: hidden;
 }
-
+ 
 .faq-item {
   padding: 14px 18px; /* increased padding for bigger touch area */
   border-bottom: 1px solid rgba(124, 124, 124, 1);

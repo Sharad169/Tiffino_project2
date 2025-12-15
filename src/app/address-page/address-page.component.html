@@ -1,0 +1,143 @@
+<div class="profile-container">
+  <!-- Top Row -->
+  <div class="top-row">
+    <div class="top-actions"></div>
+  </div>
+
+  <!-- Middle Row -->
+  <div class="middle-row">
+    <span class="location"></span>
+    <div class="search-box"></div>
+  </div>
+
+  <!-- Back Button -->
+  <div class="bottom-row">
+    <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
+      <i class="fa-solid fa-angle-left"></i> Back
+    </div>
+  </div>
+
+  <!-- Profile Title -->
+  <div class="profile">
+    <p>Profile</p>
+  </div>
+
+  <!-- Main Section -->
+  <div class="profile-section">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+
+    <!-- Address Section -->
+    <div class="address-page">
+      <!-- Toggle Button -->
+      <div class="address-btn">
+        <button (click)="showTable()">
+          {{ isAddressPage ? 'Add Address' : 'View Address' }}
+        </button>
+      </div>
+
+      <!-- Address Card View -->
+      <div class="address-card" *ngIf="isAddressPage">
+        
+
+        <div class="address-card" style="margin-bottom: 21px;" *ngFor="let addr of addresses">
+  <div class="address-card__top">
+    <p class="address-card__name"><strong>{{ addr.name }}</strong></p>
+    <p class="address-card__address">{{ addr.address }}, {{ addr.city }}, {{ addr.state }} - {{ addr.pincode }}</p>
+  </div>
+
+  <div class="address-card__bottom">
+    <p class="address-card__phone"><strong>Ph No. {{ addr.secondaryPhone }}</strong></p>
+    <div class="address-card__icons">
+      <!-- Edit Button -->
+      <button 
+        class="edit-icon" 
+        title="Edit" 
+        (click)="editAddress(addr)"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
+      </button>
+
+      <!-- Delete Button -->
+      <button 
+        class="delete-icon" 
+        title="Delete" 
+        (click)="deleteAddress(addr.id)"
+      >
+       <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+        width="24px" fill="#1f1f1f"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="addresses.length === 0">
+ <b> No data found</b>
+</div>
+
+      </div>
+
+      <!-- Add Address Form -->
+     <form
+  class="address-form"
+  *ngIf="!isAddressPage"
+  [formGroup]="addressForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" />
+      <small *ngIf="isInvalid('name')" class="error">Name is required (min 3 characters)</small>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone No.</label>
+      <input id="phone" type="text" formControlName="secondaryPhone" />
+      <small *ngIf="isInvalid('secondaryPhone')" class="error">
+        Enter valid 10-digit phone number
+      </small>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="city">City</label>
+      <input id="city" type="text" formControlName="city" />
+      <small *ngIf="isInvalid('city')" class="error">City is required</small>
+    </div>
+
+    <div class="form-group">
+      <label for="state">State</label>
+      <input id="state" type="text" formControlName="state" />
+      <small *ngIf="isInvalid('state')" class="error">State is required</small>
+    </div>
+  </div>
+
+  <div class="form-group full">
+    <label for="address">Address</label>
+    <textarea id="address" formControlName="address"></textarea>
+    <small *ngIf="isInvalid('address')" class="error">
+      Address must be at least 10 characters
+    </small>
+  </div>
+
+  <div class="form-group full">
+    <label for="pincode">Pincode</label>
+    <input id="pincode" type="text" formControlName="pincode" />
+    <small *ngIf="isInvalid('pincode')" class="error">
+      Enter valid 6-digit pincode
+    </small>
+  </div>
+
+  <div class="submit-row">
+    <button type="submit" [disabled]="addressForm.invalid">
+      {{ isEditMode ? 'Update' : 'Submit' }}
+    </button>
+  </div>
+</form>
+
+
+    </div>
+  </div>
+</div>

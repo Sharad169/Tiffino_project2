@@ -1,4 +1,4 @@
-<app-sidebar2></app-sidebar2>
+<app-superadmin-sidebar></app-superadmin-sidebar>
 <div class="managerinfo-wrapper">
   <!-- ✅ Custom Dropdown (No Blue Hover) -->
   <div class="role-selection-row">
@@ -41,105 +41,145 @@
   </div>
 
   <!-- Registration form -->
-  <form class="manager-form">
+
+  <form
+    [formGroup]="delPartnerForm"
+    class="manager-form"
+    (ngSubmit)="onSubmit()"
+  >
     <div class="form-row">
       <div class="form-group">
-        <label for="name">Name</label>
-        <input id="name" type="text" />
+        <label>Name</label>
+        <input type="text" formControlName="name" />
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
-        <input id="email" type="email" />
+        <label>Email</label>
+        <input type="email" formControlName="email" />
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group">
         <label for="dob">DOB</label>
-        <input id="dob" type="text" placeholder="YYYY/MM/DD" />
+        <input
+          id="dob"
+          type="text"
+          placeholder="YYYY/MM/DD"
+          formControlName="dateOfBirth"
+        />
       </div>
       <div class="form-group">
-        <label for="phone">Phone No.</label>
-        <input id="phone" type="text" />
+        <label>Phone No.</label>
+        <input type="text" formControlName="phone" />
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group">
-        <label for="kitchen-id">Kitchen ID</label>
-        <input id="kitchen-id" type="text" />
+        <label>Kitchen Code</label>
+        <input type="text" formControlName="kitchenCode" />
+      </div>
+      <div class="form-group file-group">
+        <label>Photo (PDF/Image)</label>
+        <input
+          type="file"
+          (change)="onFileSelected($event, 'photo')"
+          accept=".pdf,image/*"
+        />
+        <span *ngIf="uploadedFiles.photo.uploaded"
+          >✔ {{ uploadedFiles.photo.name }}</span
+        >
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group file-group">
+        <label>Aadhar</label>
+        <input
+          type="file"
+          (change)="onFileSelected($event, 'aadhar')"
+          accept=".pdf,image/*"
+        />
+        <span *ngIf="uploadedFiles.aadhar.uploaded"
+          >✔ {{ uploadedFiles.aadhar.name }}</span
+        >
+      </div>
+      <div class="form-group file-group">
+        <label>PAN Card</label>
+        <input
+          type="file"
+          (change)="onFileSelected($event, 'pan')"
+          accept=".pdf,image/*"
+        />
+        <span *ngIf="uploadedFiles.pan.uploaded"
+          >✔ {{ uploadedFiles.pan.name }}</span
+        >
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group file-group">
+        <label>Vehicle Insurance</label>
+        <input
+          type="file"
+          (change)="onFileSelected($event, 'vehicleInsurance')"
+          accept=".pdf,image/*"
+        />
+        <span *ngIf="uploadedFiles.insurance.uploaded"
+          >✔ {{ uploadedFiles.vehicleInsurance.name }}</span
+        >
+      </div>
+
+      <div class="form-group file-group">
+        <label>Driving License</label>
+        <input
+          type="file"
+          (change)="onFileSelected($event, 'drivingLicense')"
+          accept=".pdf,image/*"
+        />
+        <span *ngIf="uploadedFiles.license.uploaded"
+          >✔ {{ uploadedFiles.drivingLicense.name }}</span
+        >
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Bank Account No.</label>
+        <input type="text" formControlName="bankAccountNum" />
       </div>
       <div class="form-group">
-        <label for="vehicle-no">Vehicle No.</label>
-        <input id="vehicle-no" type="text" />
+        <label>IFSC Code</label>
+        <input type="text" formControlName="ifsc" />
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group file-group">
-        <label for="aadhar">Aadhar No.</label>
-        <div class="custom-file-input">
-          <span class="file-placeholder">PDF</span>
-          <input id="aadhar" type="file" />
-        </div>
+        <label>Cheque Book</label>
+        <input
+          type="file"
+          (change)="onFileSelected($event, 'chequeBook')"
+          accept=".pdf,image/*"
+        />
+        <span *ngIf="uploadedFiles.chequeBook.uploaded"
+          >✔ {{ uploadedFiles.chequeBook.name }}</span
+        >
       </div>
-      <div class="form-group file-group">
-        <label for="pan-card">PAN card No.</label>
-        <div class="custom-file-input">
-          <span class="file-placeholder">PDF</span>
-          <input id="pan-card" type="file" />
-        </div>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group file-group">
-        <label for="vehicle-insurance">Vehicle Insurance</label>
-        <div class="custom-file-input">
-          <span class="file-placeholder">PDF</span>
-          <input id="vehicle-insurance" type="file" />
-        </div>
-      </div>
-      <div class="form-group file-group">
-        <label for="driving-license">Driving License</label>
-        <div class="custom-file-input">
-          <span class="file-placeholder">PDF</span>
-          <input id="driving-license" type="file" />
-        </div>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group file-group">
-        <label for="photo">Photo</label>
-        <div class="custom-file-input">
-          <span class="file-placeholder">PDF</span>
-          <input id="photo" type="file" />
-        </div>
-      </div>
-
-      <div class="form-group full">
-        <label for="bank-acct">Bank Account No.</label>
-        <input id="bank-acct" type="text" />
-      </div>
-    </div>
-
-    <div class="form-group file-group">
-      <label for="cheque-book">Cheque Book</label>
-      <div class="custom-file-input">
-        <span class="file-placeholder">PDF</span>
-        <input id="cheque-book" type="file" />
+      <div class="form-group">
+        <label>Vehial No</label>
+        <input type="text" formControlName="vehicleNumber" />
       </div>
     </div>
 
     <div class="form-group full">
-      <label for="perm-address">Permanent Address</label>
-      <textarea id="perm-address" type="text" class="address-box"></textarea>
+      <label>Permanent Address</label>
+      <input type="text" formControlName="permanentAddress" />
     </div>
 
     <div class="form-group full">
-      <label for="curr-address">Current Address</label>
-      <textarea id="curr-address" type="text" class="address-box"></textarea>
+      <label>Current Address</label>
+      <textarea formControlName="currentAddress"></textarea>
     </div>
 
     <div class="submit-row">

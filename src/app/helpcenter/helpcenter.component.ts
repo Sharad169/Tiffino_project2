@@ -8,4 +8,4 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   templateUrl: './helpcenter.component.html',
   styleUrls: ['./helpcenter.component.css'],
 })
-export class HelpcenterComponent {}
+export class HelpCenterComponent {}

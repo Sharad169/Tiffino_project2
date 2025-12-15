@@ -1,6 +1,6 @@
 <div class="header-content-container">
   <div class="header-details">
-    <p class="greeting">Good Morning, Aditya</p>
+    <p class="greeting">Good Morning, {{userName}}</p>
     <div class="top-actions">
       <div class="help-large-box">
         <div class="help-small-box">?</div>
@@ -38,8 +38,8 @@
       <li (click)="navigatePromocode()" style="cursor: pointer">
         <i class="fas fa-angle-right sidebar-arrow"></i> Promocodes & Offers
       </li>
-      <li (click)="navigateSubscriptionPlan()" style="cursor: pointer">
-        <i class="fas fa-angle-right sidebar-arrow"></i> Meal Plan Subscribtion
+      <li>
+        <i class="fas fa-angle-right sidebar-arrow"></i> Meal Plan Subscription
       </li>
       <li (click)="navigateInviteFriend()" style="cursor: pointer">
         <i class="fas fa-angle-right sidebar-arrow"></i> Invite Friends
@@ -53,10 +53,13 @@
       <li (click)="navigateDeleteAccount()" style="cursor: pointer">
         <i class="fas fa-angle-right sidebar-arrow"></i> Delete Account
       </li>
+      <li (click)="navigateSubscriptionPlan()" style="cursor: pointer">
+        <i class="fas fa-angle-right sidebar-arrow"></i> Your Subscription Plan
+      </li>
     </ul>
   </div>
 </div>
-
+ 
 <!-- Logout Confirmation Popup -->
 <div class="logout-popup" *ngIf="showPopup">
   <div class="popup-box">

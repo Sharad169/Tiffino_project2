@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 
@@ -9,14 +9,26 @@ import { RouterModule, Router } from '@angular/router';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
   showPopup: boolean = false;
+  userName: string | null = '';
+  userId: string | null = '';
 
   constructor(private router: Router) {}
 
-  // Sidebar navigation functions
+  ngOnInit(): void {
+    this.userName = sessionStorage.getItem('userName');
+    this.userId = sessionStorage.getItem('userId'); // 👈 make sure userId is stored at login
+  }
+
+  // ✅ Go to profile with logged-in userId
   navigateProfile() {
-    this.router.navigate(['/profile']);
+    if (this.userId) {
+      this.router.navigate([`/profile/${this.userId}`]);
+    } else {
+      console.error('User ID not found in sessionStorage');
+      this.router.navigate(['/login']); // fallback if no id
+    }
   }
 
   navigateOrderHistory() {
@@ -24,7 +36,7 @@ export class SidebarComponent {
   }
 
   navigateAddress() {
-    this.router.navigate(['/addresspage']);
+    this.router.navigate(['/address-page']);
   }
 
   navigateHelpCenter() {
@@ -62,6 +74,7 @@ export class SidebarComponent {
 
   confirmLogout() {
     this.showPopup = false;
+    sessionStorage.clear(); // clear session
     console.log('User logged out');
     this.router.navigate(['/login']); // redirect after logout
   }

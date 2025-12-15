@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
+ 
 :host {
   display: block;
   font-family: "Poppins", sans-serif;
 }
-
+ 
 /* ------------------------------ */
 /* TOP HEADER (Good Morning → Help) */
 /* ------------------------------ */
@@ -16,14 +16,14 @@
   width: 650px;
   z-index: 10; /* Ensures header stays above other content */
 }
-
+ 
 .header-details {
   display: flex;
   justify-content: flex-end; /* Push content to right edge of container */
   align-items: center;
   gap: 12px;
 }
-
+ 
 .header-details .greeting {
   font-size: 18px;
   font-weight: 500;
@@ -32,14 +32,14 @@
   white-space: nowrap;
   margin-top: 100px;
 }
-
+ 
 .top-actions {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-top: 80px;
 }
-
+ 
 .help-large-box {
   display: flex;
   align-items: center;
@@ -51,7 +51,7 @@
   background-color: #f9f9f9;
   cursor: pointer;
 }
-
+ 
 .help-small-box {
   height: 18px;
   width: 18px;
@@ -64,7 +64,7 @@
   color: rgba(145, 145, 145, 1);
   background-color: #fff;
 }
-
+ 
 .wallet-btn {
   height: 47px;
   min-width: 140px;
@@ -76,7 +76,7 @@
   cursor: pointer;
   margin-top: 6px;
 }
-
+ 
 .notify {
   height: 47px;
   width: 47px;
@@ -88,7 +88,7 @@
   font-size: 20px;
   border-radius: 50%;
 }
-
+ 
 .profile-pic {
   height: 47px;
   width: 47px;
@@ -97,7 +97,7 @@
   object-fit: cover;
   margin-right: -360px;
 }
-
+ 
 /* Middle Row */
 .middle-row {
   display: flex;
@@ -105,7 +105,7 @@
   justify-content: center;
   position: relative;
 }
-
+ 
 .location {
   position: absolute;
   left: 0;
@@ -118,14 +118,14 @@
   margin-left: -320px;
   margin-top: -10px;
 }
-
+ 
 .search-box {
   height: 47px;
   width: 510px;
   display: flex;
   gap: 6px;
 }
-
+ 
 .search-box input {
   flex: 1;
   padding: 8px 14px;
@@ -133,7 +133,7 @@
   border: 2px solid #aaa;
   font-size: 14px;
 }
-
+ 
 .menu-btn {
   height: 47px;
   width: 47px;
@@ -143,7 +143,7 @@
   cursor: pointer;
   font-size: 16px;
 }
-
+ 
 /* ------------------------------------------- */
 /* SIDEBAR MENU STYLES */
 /* ------------------------------------------- */
@@ -154,20 +154,20 @@
   border-top-left-radius: 10px; /* ✅ rounded top-left corner */
   border-bottom-left-radius: 10px; /* ✅ rounded bottom-left corner */
 }
-
+ 
 /* Sidebar header (separator and padding) */
 .sidebar-header {
   padding: 10px 0;
   border-bottom: none;
 }
-
+ 
 /* Navigation list */
 .sidebar ul {
   list-style: none;
   margin: 0;
   padding: 20px 20px;
 }
-
+ 
 .sidebar ul li {
   font-size: 18px;
   font-weight: 500;
@@ -180,16 +180,16 @@
   border-radius: 6px;
   transition: all 0.3s ease;
 }
-
+ 
 .sidebar ul li:hover {
   color: rgba(56, 99, 65, 1);
 }
-
+ 
 .sidebar ul li.active {
   font-weight: 600;
   color: #198754;
 }
-
+ 
 .sidebar-arrow {
   width: 23px;
   height: 24px;
@@ -198,25 +198,25 @@
   color: rgba(31, 31, 31, 1);
   transition: 0.3s ease;
 }
-
+ 
 .sidebar ul li:hover .sidebar-arrow,
 .sidebar ul li.active .sidebar-arrow {
   color: rgba(56, 99, 65, 1);
 }
-
+ 
 .sidebar ul li:not(:last-child) {
   border-bottom: 1px solid #f1f1f1;
   margin-bottom: 2px;
   padding-bottom: 36px;
 }
-
+ 
 .sidebar ul li i {
   width: 18px;
   text-align: center;
 }
 /* Logout popup */
 /* Update your existing CSS for a clean, center-aligned popup */
-
+ 
 /* Logout popup container (no change needed here) */
 .logout-popup {
   position: fixed;
@@ -230,7 +230,7 @@
   align-items: center;
   z-index: 1000;
 }
-
+ 
 /* ----------------- CORRECTED POPUP BOX ----------------- */
 .popup-box {
   width: 563px;
@@ -248,7 +248,7 @@
   padding: 40px; /* Uniform padding */
   box-sizing: border-box; /* Include padding in width/height */
 }
-
+ 
 /* Header Text (Logout?) */
 .popup-box h3 {
   width: 515px;
@@ -259,7 +259,7 @@
   margin-top: -15px;
   margin-bottom: 25px; /* Add space below the main title */
 }
-
+ 
 /* ----------------- CORRECTED PARAGRAPH TEXT ----------------- */
 .popup-box p {
   width: 100%;
@@ -268,7 +268,7 @@
   color: rgba(255, 255, 255, 1);
   margin: -12px 0px 50px 0px;
 }
-
+ 
 /* Button Container */
 .popup-actions {
   width: 100%;
@@ -280,7 +280,7 @@
   margin-top: -34px;
   margin-left: -170px;
 }
-
+ 
 /* Button Styling */
 .popup-actions button {
   width: 25px;
@@ -295,7 +295,8 @@
   margin: 0;
   transition: opacity 0.2s;
 }
-
+ 
 .popup-actions button:hover {
   opacity: 0.8;
 }
+ 

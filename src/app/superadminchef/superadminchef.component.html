@@ -1,7 +1,7 @@
-<app-sidebar2></app-sidebar2>
+<app-superadmin-sidebar></app-superadmin-sidebar>   
 <div class="managerinfo-wrapper">
   <!-- Dropdown for role -->
-
+ 
   <div class="role-selection-row">
     <div class="dropdown-wrapper" tabindex="0">
       <button class="fake-select">
@@ -25,7 +25,7 @@
           </svg>
         </span>
       </button>
-
+ 
       <ul class="dropdown-panel">
         <li (click)="onRoleChangeCustom('manager')" class="dropdown-item">
           Manager
@@ -40,96 +40,108 @@
       </ul>
     </div>
   </div>
-
+ 
   <!-- Registration form -->
-  <form class="manager-form">
-    <div class="form-row">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input id="name" type="text" />
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input id="email" type="email" />
-      </div>
+  <form class="manager-form" [formGroup]="chefForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" />
     </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" />
+    </div>
+  </div>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label for="dob">DOB</label>
-        <input id="dob" type="text" placeholder="YYYY/MM/DD" />
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone No.</label>
-        <input id="phone" type="text" />
-      </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="dob">DOB</label>
+      <input id="dob" type="text" placeholder="YYYY/MM/DD" formControlName="dateOfBirth" />
     </div>
+    <div class="form-group">
+      <label for="phone">Phone No.</label>
+      <input id="phone" type="text" formControlName="phone" />
+    </div>
+  </div>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label for="kitchen-id">Kitchen ID</label>
-        <input id="kitchen-id" type="text" />
-      </div>
-      <div class="form-group file-group">
-        <label for="photo">Photo</label>
-        <div class="custom-file-input">
-          <span class="file-placeholder">PDF</span>
-          <input id="photo" type="file" />
-        </div>
-      </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="kitchen-id">Kitchen ID</label>
+      <input id="kitchen-id" type="text" formControlName="kitchenCode" />
     </div>
-
-    <div class="form-row">
-      <div class="form-group file-group">
-        <label for="aadhar">Aadhar No.</label>
-        <div class="custom-file-input">
-          <span class="file-placeholder">PDF</span>
-          <input id="aadhar" type="file" />
-        </div>
-      </div>
-      <div class="form-group file-group">
-        <label for="pan-card">PAN card No.</label>
-        <div class="custom-file-input">
-          <span class="file-placeholder">PDF</span>
-          <input id="pan-card" type="file" />
-        </div>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="bank-acct">Bank Account No.</label>
-        <input id="bank-acct" type="text" />
-      </div>
-      <div class="form-group file-group">
-        <label for="cheque-book">Cheque Book</label>
-        <div class="custom-file-input">
-          <span class="file-placeholder">PDF</span>
-          <input id="cheque-book" type="file" />
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group full">
-      <label for="perm-address">Chef Specialization</label>
-      <textarea
-        id="chef-specialization"
-        type="text"
-        class="address-box"
-      ></textarea>
-    </div>
-    <div class="form-group full">
-      <label for="perm-address">Permanent Address</label>
-      <textarea id="perm-address" type="text" class="address-box"></textarea>
-    </div>
-
-    <div class="form-group full">
-      <label for="curr-address">Current Address</label>
-      <textarea id="curr-address" type="text" class="address-box"></textarea>
-    </div>
-
-    <div class="submit-row">
-      <button type="submit">Submit</button>
-    </div>
-  </form>
+    <div class="form-group file-group">
+  <label for="photo">Photo</label>
+  <div class="custom-file-input">
+    <span class="file-placeholder">
+      {{ uploadedFiles.photo || 'PDF' }}
+    </span>
+    <input id="photo" type="file" (change)="onFileSelected($event, 'photo')" accept=".pdf,image/*" />
+    <span *ngIf="uploadedFiles.photo" class="tick-mark">✔️</span>
+  </div>
 </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group file-group">
+  <label for="aadhar">Aadhar No.</label>
+  <div class="custom-file-input">
+    <span class="file-placeholder">
+      {{ uploadedFiles.aadhar || 'PDF' }}
+    </span>
+    <input id="aadhar" type="file" (change)="onFileSelected($event, 'aadhar')" accept=".pdf,image/*" />
+    <span *ngIf="uploadedFiles.aadhar" class="tick-mark">✔️</span>
+  </div>
+</div>
+    <div class="form-group file-group">
+  <label for="pan-card">PAN card No.</label>
+  <div class="custom-file-input">
+    <span class="file-placeholder">
+      {{ uploadedFiles.panCard || 'PDF' }}
+    </span>
+    <input id="pan-card" type="file" (change)="onFileSelected($event, 'panCard')" accept=".pdf,image/*" />
+    <span *ngIf="uploadedFiles.panCard" class="tick-mark">✔️</span>
+  </div>
+</div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="bank-acct">Bank Account No.</label>
+      <input id="bank-acct" type="text" formControlName="bankAccount" />
+    </div>
+    <div class="form-group file-group">
+  <label for="cheque-book">Cheque Book</label>
+  <div class="custom-file-input">
+    <span class="file-placeholder">
+      {{ uploadedFiles.chequeBook || 'PDF' }}
+    </span>
+    <input id="cheque-book" type="file" (change)="onFileSelected($event, 'chequeBook')" accept=".pdf,image/*"/>
+    <span *ngIf="uploadedFiles.chequeBook" class="tick-mark">✔️</span>
+  </div>
+</div>
+  </div>
+
+  <div class="form-group full">
+    <label for="chef-specialization">Chef Specialization</label>
+    <textarea id="chef-specialization" class="address-box" formControlName="chefSpecialization"></textarea>
+  </div>
+
+  <div class="form-group full">
+    <label for="perm-address">Permanent Address</label>
+    <textarea id="perm-address" class="address-box" formControlName="permAddress"></textarea>
+  </div>
+
+  <div class="form-group full">
+    <label for="curr-address">Current Address</label>
+    <textarea id="curr-address" class="address-box" formControlName="currAddress"></textarea>
+  </div>
+
+  <div class="submit-row">
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+</div>
+ 
+ 

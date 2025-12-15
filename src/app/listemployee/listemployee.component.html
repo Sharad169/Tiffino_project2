@@ -1,41 +1,51 @@
-<app-sidebar2></app-sidebar2>
+<div class="admin-container">
 
-<div class="listemployee-wrapper">
-  <!-- Custom Dropdown Section -->
-  <div class="dropdown-row">
-    <!-- Selected area -->
-    <div class="dropdown-selected" (click)="toggleDropdown($event)">
-      {{ selectedOption }}
-      <span class="arrow">▾</span>
+  <!-- Sidebar -->
+  <app-superadmin-sidebar></app-superadmin-sidebar>   
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Role Dropdown -->
+    <div class="dropdown-row">
+      <div class="dropdown-selected" (click)="toggleDropdown($event)">
+        {{ selectedOption }}
+        <span class="arrow">▾</span>
+      </div>
+      <ul class="dropdown-list" *ngIf="dropdownOpen">
+        <li class="dropdown-item" 
+            *ngFor="let role of roles" 
+            (click)="selectRole(role)"
+            [class.selected]="selectedOption === role">
+          {{ role }}
+        </li>
+      </ul>
     </div>
 
-    <!-- Dropdown list -->
-    <ul class="dropdown-list" *ngIf="dropdownOpen">
-      <li
-        class="dropdown-item"
-        *ngFor="let role of roles"
-        (click)="selectRole(role)"
-      >
-        {{ role }}
-      </li>
-    </ul>
-  </div>
+    <!-- Employee List -->
+   <div class="employee-list">
+  <div class="employee-card" *ngFor="let emp of filteredEmployees" (click)="emloyeeDetails(emp.managerCode || emp.chefCode || emp.partnerCode, emp.role.toLowerCase())"> 
 
-  <!-- Employee List -->
-  <div class="employee-list">
-    <div class="employee-card" *ngFor="let emp of employees">
-      <div
-        class="employee-photo"
-        [style.backgroundImage]="'url(' + emp.image + ')'"
-      ></div>
-      <div class="employee-details">
-        <h3 class="employee-name">{{ emp.name }}</h3>
-        <p class="employee-role">{{ emp.position }}</p>
-        <div class="employee-id-row">
-          <p class="kitchen-id">Kitchen ID: {{ emp.kitchenId }}</p>
-          <p class="employee-id">Employee ID: {{ emp.employeeId }}</p>
-        </div>
+    <div class="employee-photo"
+         [style.backgroundImage]="'url(' + emp.photo + ')'">
+    </div>
+
+    <div class="employee-details">
+      <h3 class="employee-name">{{ emp.name }}</h3>
+      <p class="employee-role">{{ emp.role }}</p>
+
+      <div class="employee-id-row">
+        <p class="kitchen-id">Kitchen ID: {{ emp.kitchenCode }}</p>
+
+        <p class="employee-id">
+          Employee ID: {{ emp.managerCode || emp.chefCode || emp.partnerCode }}
+        </p>
       </div>
     </div>
+
+  </div>
+</div>
+
+
   </div>
 </div>

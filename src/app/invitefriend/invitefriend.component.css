@@ -1,6 +1,6 @@
 /* Import Poppins font */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
+ 
 /* General Container */
 .profile-container {
   font-family: "Poppins", sans-serif;
@@ -9,7 +9,7 @@
   flex-direction: column;
   background: #fff;
 }
-
+ 
 /* Top Row */
 .top-row {
   display: flex;
@@ -17,7 +17,7 @@
   align-items: center;
   margin: 100px 0 8px 250px;
 }
-
+ 
 .greeting {
   flex: 1;
   text-align: center;
@@ -25,13 +25,13 @@
   font-weight: 500;
   color: #000;
 }
-
+ 
 .top-actions {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-
+ 
 .wallet-btn {
   height: 51px;
   width: 171px;
@@ -42,7 +42,7 @@
   font-size: 16px;
   cursor: pointer;
 }
-
+ 
 .notify {
   height: 48px;
   width: 47px;
@@ -55,14 +55,14 @@
   border-radius: 50%;
   cursor: pointer;
 }
-
+ 
 .profile-pic {
   height: 48px;
   width: 47px;
   border-radius: 50%;
   border: 2px solid #ccc;
 }
-
+ 
 /* Middle Row */
 .middle-row {
   display: flex;
@@ -70,7 +70,7 @@
   justify-content: center;
   position: relative;
 }
-
+ 
 .location {
   position: absolute;
   left: 0;
@@ -81,14 +81,14 @@
   font-weight: 500;
   color: #386341;
 }
-
+ 
 .search-box {
   height: 47px;
   width: 510px;
   display: flex;
   gap: 6px;
 }
-
+ 
 .search-box input {
   flex: 1;
   padding: 8px 14px;
@@ -96,7 +96,7 @@
   border: 2px solid #aaa;
   font-size: 14px;
 }
-
+ 
 .menu-btn {
   height: 47px;
   width: 47px;
@@ -122,7 +122,7 @@
   padding: 5px; /* space for small box inside */
   transition: background 0.2s;
 }
-
+ 
 /* Small box inside the large box */
 .help-small-box {
   height: 18px;
@@ -140,7 +140,7 @@
   background-color: #fff;
   transition: background 0.2s, color 0.2s;
 }
-
+ 
 /* Bottom Row */
 .bottom-row {
   margin: 20px 0;
@@ -148,14 +148,14 @@
   align-items: center;
   gap: 6px;
 }
-
+ 
 .back-icon {
   font-size: 16px;
   color: #000;
   cursor: pointer;
   margin-top: 120px;
 }
-
+ 
 .back-link {
   font-size: 18px;
   font-weight: 500;
@@ -163,7 +163,7 @@
   cursor: pointer;
   margin-top: 50px;
 }
-
+ 
 /* Profile Title */
 .profile p {
   font-size: 32px;
@@ -171,7 +171,7 @@
   color: #000;
   margin-bottom: 20px;
 }
-
+ 
 /* Profile Section */
 .profile-section {
   display: flex;
@@ -180,7 +180,7 @@
   background: #fff;
   margin-top: 10px;
 }
-
+ 
 /* Container for the entire component */
 .referral-container {
   width: 910px;
@@ -194,14 +194,14 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   margin-bottom: 20px;
 }
-
+ 
 /* Graphic Area Styling */
 .referral-graphic-area {
   margin-bottom: 20px;
   overflow: hidden;
   border-radius: 15px;
 }
-
+ 
 /* Illustration image */
 .illustration-placeholder {
   width: 100%;
@@ -212,7 +212,7 @@
   background-repeat: no-repeat;
   border-radius: 10px;
 }
-
+ 
 /* Text Styling */
 .referral-text {
   width: 100%;
@@ -222,11 +222,11 @@
   margin-left: 5px;
   margin-top: 24px;
 }
-
+ 
 .referral-text strong {
   font-weight: 600;
 }
-
+ 
 /* Input and 'Copy Link' button group */
 .referral-actions {
   display: flex;
@@ -239,7 +239,7 @@
   height: 47px;
   margin-top: 44px;
 }
-
+ 
 .search-input {
   width: 60%;
   height: 47px;
@@ -283,11 +283,11 @@
   cursor: pointer;
   transition: background-color 0.2s;
 }
-
+ 
 .copy-link-btn:hover {
   background-color: #35523a;
 }
-
+ 
 /* Main 'Share' button */
 .share-btn {
   width: 875px;
@@ -307,11 +307,11 @@
   align-items: flex-start;
   padding-top: 17px;
 }
-
+ 
 .share-btn:hover {
   background-color: #35523a;
 }
-
+ 
 .social-share-box {
   width: 868px;
   height: 140px;
@@ -329,7 +329,7 @@
   margin-left: 0;
   margin-top: 136px;
 }
-
+ 
 .share-icon {
   width: 63px;
   height: 95px;
@@ -342,37 +342,37 @@
   width: 89px;
   height: 89px;
 }
-
+ 
 .social-share-box img[alt="Google Drive"] {
   width: 65px;
   height: 67px;
 }
-
+ 
 .social-share-box img[alt="Google"] {
   width: 55px;
   height: 55px;
 }
-
+ 
 .social-share-box img[alt="WhatsApp"] {
   width: 55px;
   height: 55px;
 }
-
+ 
 .social-share-box img[alt="Telegram"] {
   width: 55px;
   height: 55px;
 }
-
+ 
 .social-share-box img[alt="Instagram"] {
   width: 55px;
   height: 55px;
 }
-
+ 
 .social-share-box img[alt="Snapchat"] {
   width: 55px;
   height: 55px;
 }
-
+ 
 .social-share-box img[alt="Facebook"] {
   width: 45px;
   height: 50px;
@@ -382,7 +382,7 @@
   display: flex;
   gap: 15px;
 }
-
+ 
 /* Update the referral-actions to correctly stack its contents */
 .referral-actions {
   display: flex;
@@ -394,17 +394,17 @@
   width: 100%;
   height: auto;
 }
-
+ 
 /* Update the search input and copy button width to fit the layout */
 .search-input {
   width: 530px;
 }
-
+ 
 .copy-link-btn {
   width: 320px;
   margin-right: 0;
 }
-
+ 
 /* Update the wide Share button width to match the combined width above */
 .share-btn {
   width: 868px;

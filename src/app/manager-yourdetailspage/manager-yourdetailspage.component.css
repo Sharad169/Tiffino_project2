@@ -3,7 +3,7 @@
 /* --- Wrapper --- */
 .managerinfo-wrapper {
   font-family: "Poppins", sans-serif;
-  margin-left: 430px;
+  margin-left: 400px;
   margin-top: -470px;
   padding-right: 100px;
   max-width: 900px;
@@ -29,7 +29,7 @@
 .edit-icon {
   position: absolute;
   top: 60px;
-  left: 830px;
+  left: 750px;
   background: #386341;
   color: #fff;
   width: 70px;
@@ -173,115 +173,4 @@ label {
   color: #7c7c7c;
   margin-top: 90px;
   font-weight: 600;
-}
-
-/* -------------------------
-      RESPONSIVE LAPTOP
--------------------------- */
-@media (max-width: 1440px) {
-  .managerinfo-wrapper {
-    margin-left: 330px;
-  }
-  .edit-icon {
-    left: 600px;
-  }
-}
-
-/* -------------------------
-      RESPONSIVE TABLET
--------------------------- */
-@media (max-width: 1024px) {
-  .managerinfo-wrapper {
-    margin-left: 150px;
-    max-width: 100%;
-    width: 100%;
-    padding-right: 40px;
-    margin-top: 0;
-  }
-
-  .form-row {
-    flex-direction: column;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  .custom-file-input {
-    width: 100% !important;
-  }
-
-  .address-box {
-    width: 100% !important;
-  }
-
-  .edit-icon {
-    left: 450px;
-    top: 130px;
-  }
-}
-
-/* -------------------------
-      RESPONSIVE MOBILE
--------------------------- */
-@media (max-width: 768px) {
-  .managerinfo-wrapper {
-    margin-left: 0 !important;
-    margin-top: 20px;
-    padding: 10px;
-    width: 100%;
-  }
-
-  .form-row {
-    flex-direction: column;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  .custom-file-input {
-    width: 100% !important;
-  }
-
-  .address-box {
-    width: 100% !important;
-    height: 120px;
-    font-size: 18px;
-  }
-
-  .edit-icon {
-    left: 50%;
-    transform: translateX(-50%);
-    top: 210px;
-  }
-}
-
-/* -------------------------
-      SMALL MOBILE
--------------------------- */
-@media (max-width: 480px) {
-  .user-avatar {
-    width: 200px;
-    height: 100px;
-  }
-
-  label {
-    font-size: 16px;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  .custom-file-input {
-    height: 45px;
-    width: 100% !important;
-  }
-
-  .address-box {
-    height: 100px;
-    width: 100% !important;
-  }
-
-  .edit-icon {
-    width: 60px;
-    height: 60px;
-    font-size: 20px;
-    top: 200px;
-  }
 }

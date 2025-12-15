@@ -1,35 +1,20 @@
-<app-sidebar2></app-sidebar2>
+<app-superadmin-sidebar></app-superadmin-sidebar>
 
 <div class="listkitchen-wrapper">
-  <!-- Custom Dropdown Filters (click-to-open) -->
+  <!-- Correct Filter Row -->
   <div class="filter-row">
     <!-- Status Dropdown -->
     <div class="custom-dropdown">
-      <button
-        type="button"
-        class="dropdown-btn"
-        (click)="toggleStatus($event)"
-        aria-haspopup="listbox"
-        [attr.aria-expanded]="isStatusOpen"
-      >
+      <button type="button" class="dropdown-btn" (click)="toggleStatus()">
         <span>{{ selectedStatus || "Status" }}</span>
-        <i class="fa-solid fa-caret-down"></i>
       </button>
 
-      <ul
-        class="dropdown-list"
-        role="listbox"
-        [class.open]="isStatusOpen"
-        (click)="$event.stopPropagation()"
-      >
-        <li
-          *ngFor="let opt of statusOptions"
-          (click)="selectStatus(opt.label, $event)"
-          class="dropdown-item"
-          role="option"
-          [attr.aria-selected]="selectedStatus === opt.label"
-        >
-          {{ opt.label }}
+      <ul class="dropdown-list" [class.open]="isStatusOpen">
+        <li class="dropdown-item" (click)="filterStatus('ASSIGNED')">
+          ASSIGNED
+        </li>
+        <li class="dropdown-item" (click)="filterStatus('NOT ASSIGNED')">
+          NOT ASSIGNED
         </li>
       </ul>
     </div>
@@ -39,109 +24,30 @@
       <button
         type="button"
         class="dropdown-btn"
-        (click)="toggleState($event)"
-        aria-haspopup="listbox"
-        [attr.aria-expanded]="isStateOpen"
+        (click)="isStateOpen = !isStateOpen"
       >
-        <span>{{ selectedState || "Select State" }}</span>
-        <i class="fa-solid fa-caret-down"></i>
+        <span>{{ selectedState || "State" }}</span>
       </button>
 
-      <ul
-        class="dropdown-list"
-        role="listbox"
-        [class.open]="isStateOpen"
-        (click)="$event.stopPropagation()"
-      >
-        <li
-          *ngFor="let opt of stateOptions"
-          (click)="selectState(opt.label, $event)"
-          class="dropdown-item"
-          role="option"
-          [attr.aria-selected]="selectedState === opt.label"
-        >
-          {{ opt.label }}
+      <ul class="dropdown-list" [class.open]="isStateOpen">
+        <li class="dropdown-item" (click)="filterState('Maharashtra')">
+          Maharashtra
+        </li>
+        <li class="dropdown-item" (click)="filterState('Delhi')">Delhi</li>
+        <li class="dropdown-item" (click)="filterState('Karnataka')">
+          Karnataka
         </li>
       </ul>
     </div>
   </div>
 
-  <!-- Kitchen Grid (kept minimal for demo) -->
+  <!-- Kitchen Grid -->
   <div class="kitchen-grid">
-    <div class="kitchen-card">
-      <p class="kitchen-id">Kitchen ID: SHD101</p>
-      <p>State: Maharashtra</p>
-      <p>City: Mumbai</p>
-      <p class="kitchen-pin">PIN: 400059</p>
-    </div>
-
-    <div class="kitchen-card">
-      <p class="kitchen-id">Kitchen ID: SHD102</p>
-      <p>State: Maharashtra</p>
-      <p>City: Mumbai</p>
-      <p class="kitchen-pin">PIN: 400056</p>
-    </div>
-
-    <div class="kitchen-card">
-      <p class="kitchen-id">Kitchen ID: SHD103</p>
-      <p>State: Karnataka</p>
-      <p>City: Bengaluru</p>
-      <p class="kitchen-pin">PIN: 110020</p>
-    </div>
-
-    <div class="kitchen-card">
-      <p class="kitchen-id">Kitchen ID: SHD104</p>
-      <p>State:Delhi</p>
-      <p>City: Delhi NCR</p>
-      <p class="kitchen-pin">PIN: 560102</p>
-    </div>
-    <div class="kitchen-card">
-      <p class="kitchen-id">Kitchen ID: SHD105</p>
-      <p>State: Telangana</p>
-      <p>City: Hyderabad</p>
-      <p class="kitchen-pin">PIN: 500032</p>
-    </div>
-    <div class="kitchen-card">
-      <p class="kitchen-id">Kitchen ID: SHD106</p>
-      <p>State: Maharashtra</p>
-      <p>City: Pune</p>
-      <p class="kitchen-pin">PIN: 411001</p>
-    </div>
-    <div class="kitchen-card">
-      <p class="kitchen-id">Kitchen ID: SHD107</p>
-      <p>State: Gujrat</p>
-      <p>City: Ahmedabad</p>
-      <p class="kitchen-pin">PIN: 380009</p>
-    </div>
-    <div class="kitchen-card">
-      <p class="kitchen-id">Kitchen ID: SHD108</p>
-      <p>State: Rajasthan</p>
-      <p>City: Jaipur</p>
-      <p class="kitchen-pin">PIN: 302018</p>
-    </div>
-    <div class="kitchen-card">
-      <p class="kitchen-id">Kitchen ID: SHD108</p>
-      <p>State: Rajasthan</p>
-      <p>City: Jaipur</p>
-      <p class="kitchen-pin">PIN: 302018</p>
-    </div>
-    <div class="kitchen-card">
-      <p class="kitchen-id">Kitchen ID: SHD109</p>
-      <p>State: Uttar Pradesh</p>
-      <p>City: Lucknow</p>
-      <p class="kitchen-pin">PIN: 226021</p>
-    </div>
-    <div class="kitchen-card">
-      <p class="kitchen-id">Kitchen ID: SHD110</p>
-      <p>State: Madhya Pradesh</p>
-      <p>City: Bhopal</p>
-      <p class="kitchen-pin">PIN: 462011</p>
-    </div>
-    <div class="kitchen-card">
-      <p class="kitchen-id">Kitchen ID: SHD111</p>
-      <p>State: Punjab</p>
-      <p>City: Chandigarh</p>
-      <p class="kitchen-pin">PIN:160022</p>
+    <div class="kitchen-card" *ngFor="let k of filteredKitchens" (click)="viewKitchenDetails(k.kitchenCode)">
+      <p class="kitchen-id">Kitchen ID: {{ k.kitchenCode }}</p>
+      <p>State: {{ k.state }}</p>
+      <p>City: {{ k.city }}</p>
+      <p class="kitchen-pin">PIN: {{ k.pinCode }}</p>
     </div>
   </div>
 </div>

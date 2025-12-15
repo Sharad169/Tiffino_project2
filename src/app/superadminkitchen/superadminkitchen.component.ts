@@ -1,78 +1,83 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
-import { Sidebar2Component } from '../sidebar2/sidebar2.component';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SuperadminSidebarComponent } from '../superadmin-sidebar/superadmin-sidebar.component';
+import { FormsModule } from '@angular/forms';
+import { AdminService } from '../admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-superadminkitchen',
   standalone: true,
-  imports: [Sidebar2Component, CommonModule],
+  imports: [SuperadminSidebarComponent, CommonModule, FormsModule],
   templateUrl: './superadminkitchen.component.html',
   styleUrls: ['./superadminkitchen.component.css'],
 })
-export class SuperadminkitchenComponent {
-  statusOptions = [
-    { value: 'assigned', label: 'Assigned' },
-    { value: 'not_assigned', label: 'Not Assigned' },
-  ];
-
-  stateOptions = [
-    { value: 'maharashtra', label: 'Maharashtra' },
-    { value: 'karnataka', label: 'Benglore' },
-    { value: 'delhi', label: 'Delhi' },
-    { value: 'tamilnadu', label: 'Tamil Nadu' },
-    { value: 'andhra pradesh', label: 'Andhra Pradesh' },
-    { value: 'assam', label: 'Assam' },
-    { value: 'bihar', label: 'Bihar' },
-    { value: 'chhattisgrah', label: 'Chhattisgrah' },
-    { value: 'goa', label: 'Goa' },
-    { value: 'gujrat', label: 'Gujrat' },
-    { value: 'haryana', label: 'Haryana' },
-    { value: 'himachal pradesh ', label: 'Himachal Pradesh' },
-    { value: 'jharkhand', label: 'Jharkhand' },
-    { value: 'item 11', label: 'Item 11' },
-    { value: 'item 12', label: 'Item 12' },
-    { value: 'item 12', label: 'Item 12' },
-  ];
-
+export class SuperadminkitchenComponent implements OnInit {
+  kitchenList: any[] = [];
+  filteredKitchens: any[] = [];
   selectedStatus: string = '';
   selectedState: string = '';
+  isStatusOpen: boolean = false;
+  isStateOpen: boolean = false;
 
-  isStatusOpen = false;
-  isStateOpen = false;
-
-  constructor(private host: ElementRef<HTMLElement>) {}
-
-  toggleStatus(event: MouseEvent) {
-    event.stopPropagation();
-    this.isStatusOpen = !this.isStatusOpen;
-    if (this.isStatusOpen) this.isStateOpen = false;
+  constructor(
+    private host: ElementRef<HTMLElement>,
+    public api: AdminService,
+    private router: Router
+  ) {}
+  ngOnInit(): void {
+    this.allKitchen();
   }
 
-  toggleState(event: MouseEvent) {
-    event.stopPropagation();
-    this.isStateOpen = !this.isStateOpen;
-    if (this.isStateOpen) this.isStatusOpen = false;
+  allKitchen() {
+    debugger;
+    this.api.showAllKitchens().subscribe({
+      next: (res) => {
+        this.kitchenList = res;
+        this.filteredKitchens = res;
+        console.log('kitchen', this.kitchenList);
+      },
+      error: () => {
+        alert('Failed to load kitchens');
+      },
+    });
   }
 
-  selectStatus(label: string, event: MouseEvent) {
-    event.stopPropagation();
-    this.selectedStatus = label;
-    this.isStatusOpen = false;
-  }
+  filterStatus(status: string) {
+    this.selectedStatus = status;
+    this.isStatusOpen = false; // close dropdown after selection
 
-  selectState(label: string, event: MouseEvent) {
-    event.stopPropagation();
-    this.selectedState = label;
-    this.isStateOpen = false;
-  }
-
-  // close dropdowns when clicking outside component
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(ev: MouseEvent) {
-    const target = ev.target as Node | null;
-    if (!this.host.nativeElement.contains(target)) {
-      this.isStatusOpen = false;
-      this.isStateOpen = false;
+    if (status === 'ASSIGNED') {
+      this.filteredKitchens = this.kitchenList.filter(
+        (k) => k.status === 'ASSIGNED'
+      );
+    } else {
+      this.filteredKitchens = this.kitchenList.filter(
+        (k) => k.status !== 'ASSIGNED'
+      );
     }
+  }
+
+  filterState(state: string) {
+    this.selectedState = state;
+    this.isStateOpen = false; // close dropdown after selection
+
+    // Filter dynamically, case-insensitive
+    this.filteredKitchens = this.kitchenList.filter(
+      (k) => k.state?.trim().toLowerCase() === state.toLowerCase()
+    );
+  }
+
+  toggleStatus() {
+    this.isStatusOpen = !this.isStatusOpen;
+  }
+
+  toggleState() {
+    this.isStateOpen = !this.isStateOpen;
+  }
+
+  viewKitchenDetails(kitchenCode: string) {
+    // Navigate to kitchen details page
+    this.router.navigate(['/superadminkitchendetails', kitchenCode]);
   }
 }

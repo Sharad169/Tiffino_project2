@@ -1,48 +1,19 @@
-<app-sidebar2></app-sidebar2>
+<app-superadmin-sidebar></app-superadmin-sidebar>
 
-<div class="kitchen-card">
+
+<div class="kitchen-card" *ngFor="let detail of kitchen">
   <div class="kitchen-details">
-    <p>Kitchen ID : 12345678</p>
-    <p>PIN : 12345678</p>
-    <p>City : Pune</p>
-    <p>State : Maharashtra</p>
-    <p>Manager : Mr. Ravi Sharma</p>
-    <p>Number of Employee : 25</p>
-    <p>Address : Viman Nagar, Pune</p>
-    <p>Number of delivery : 250</p>
-    <p>Rating : 4.5</p>
-    <p>Feedback : Good</p>
-    <p>Starting date : 15/05/2025</p>
-    <p>Region : Viman Nagar</p>
-  </div>
-
-  <!-- ✅ Revenue Section -->
-  <div class="revenue-section">
-    <label>Revenue:</label>
-
-    <div class="dropdown">
-      <div class="dropdown-selected" (click)="toggleDropdown($event)">
-        {{ selectedOption || "Select Option" }}
-      </div>
-
-      <ul class="dropdown-list" [class.show]="dropdownOpen">
-        <li
-          *ngFor="let option of options"
-          (click)="selectOption(option, $event)"
-        >
-          {{ option }}
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ✅ Amount Display -->
-  <div *ngIf="amount" class="amount-box">
-    <p>Amount: Rs {{ amount }}</p>
-  </div>
-
-  <!-- Illustration -->
-  <div class="illustration">
-    <img src="assets/kitchen.png" alt="illustration" />
+    <p>Kitchen ID : {{detail.kitchenCode}}</p>
+    <p>PIN : {{detail.pinCode}}</p>
+    <p>City : {{detail.city}}</p>
+    <p>State : {{detail.state}}</p>
+    <p>Manager : {{detail.managerCode}}</p>
+    <p>Number of Employees : {{detail.totalStaffCount}}</p>
+    <p>Address : {{detail.address}}</p>
+    <p>Number of Deliveries : {{detail.totalDelivery}}</p>
+    <p>Rating : {{detail.rating}}</p>
+    <p>Feedback : {{detail.feedback}}</p>
+    <p>Starting Date : {{detail.startDate}}</p>
+    <p>Region : {{detail.region}}</p>
   </div>
 </div>

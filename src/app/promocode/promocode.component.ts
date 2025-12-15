@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-
+ 
 @Component({
   selector: 'app-promocode',
   standalone: true,
@@ -11,3 +11,5 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   styleUrl: './promocode.component.css',
 })
 export class PromocodeComponent {}
+ 
+ 
