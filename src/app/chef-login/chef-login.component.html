@@ -6,13 +6,27 @@
       <h2>Welcome Back to Tiffino</h2>
       <p class="subtitle">Log in with your email</p>
 
-      <label>Email</label>
-      <input type="email" />
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
 
-      <label>Password</label>
-      <input type="password" />
+        <label>Email</label>
+        <input type="email" formControlName="email" />
+        <small *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+          Valid email is required
+        </small>
 
-      <button class="login-btn">Login</button>
+        <label>Password</label>
+        <input type="password" formControlName="password" />
+        <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+          Password is required
+        </small>
+
+        <button class="login-btn" type="submit" [disabled]="loginForm.invalid || loading">
+          {{ loading ? 'Logging in...' : 'Login' }}
+        </button>
+
+        <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      </form>
 
       <p class="help-text">
         please contact support&#64;shidori.in or use the in-app Help section.
