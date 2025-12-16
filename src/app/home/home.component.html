@@ -88,13 +88,13 @@
 <section class="cuisines-section">
   <h2 class="section-title">Regional Cuisines:</h2> 
   <div class="cuisine-scroller">
-    <div class="cuisine-card" *ngFor="let item of regionalCuisines" (click)="goToCuisine(item.cuisineId)">
+    <div class="cuisine-card" *ngFor="let item of cuisines" (click)="goToCuisine(item.cuisineId)">
       <img [src]="item.imageUrl" [alt]="item.name">
       <div class="cuisine-name">{{ item.name }}</div>
       <div class="cuisine-category">{{ item.category }}</div>
       <div class="cuisine-desc">{{ item.description }}</div>
     </div>
-    <button class="explore-btn" (click)="goToCategoryPage(regionalCuisines[0].category)">Explore</button>
+    <button class="explore-btn" (click)="goToCategoryPage(cuisines[0].category)">Explore</button>
   </div>
   
 </section>

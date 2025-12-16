@@ -65,6 +65,7 @@ import { ListemployeeComponent } from './listemployee/listemployee.component';
 import { SuperadminkitchendetailsComponent } from './superadminkitchendetails/superadminkitchendetails.component';
 import { SuperadminemployeedetailsComponent } from './superadminemployeedetails/superadminemployeedetails.component';
 import { SuperadminmealComponent } from './superadminmeal/superadminmeal.component';
+import { ManagerLoginComponent } from './manager-login/manager-login.component';
 
 
 
@@ -171,7 +172,7 @@ export const routes: Routes = [
    { path: 'helpcenter', component: HelpCenterComponent },
 
     // Promocode
-   { path: 'promocode', component: PromocodeComponent },
+   { path: 'promocode', component: PromocodeComponent },  
 
     // Invitefriend
     { path: 'invitefriend', component: InvitefriendComponent },
@@ -228,7 +229,8 @@ export const routes: Routes = [
   },
 
    { path: 'superadminmeal', component: SuperadminmealComponent },
- 
+
+   {path : 'manager-login', component : ManagerLoginComponent}, 
  
 
   { path: 'managerinfo', component: ManagerinfoComponent },
@@ -250,7 +252,8 @@ export function shouldHideLayout(url: string): boolean {
     url.startsWith('/verification-otp') ||
     url.startsWith('/welcome') ||
     url.startsWith('/superadminsetpassword')||
-    url.startsWith('/listemployee')
+    url.startsWith('/listemployee')||
+    url.startsWith('/manager-login')
   );
 }
 

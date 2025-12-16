@@ -33,24 +33,41 @@ export class SuperadmindelpartnerComponent implements OnInit {
 
   ngOnInit(): void {
 this.delPartnerForm = this.fb.group({
-  name: [''],
-  email: [''],
-  phone: [''],
-  dateOfBirth: [''],
-  kitchenCode: [''],
-  bankAccountNum: [''],
-  vehicleNumber: [''],  // added field
-  ifsc: [''],                  // fixed
-  permanentAddress: [''],      // fixed
-  currentAddress: [''],        // fixed
+    name: ['', Validators.required],
+ 
+    email: ['', [
+      Validators.required,
+      Validators.email
+    ]],
+ 
+    phone: ['', [
+      Validators.required,
+      Validators.pattern(/^\d{10}$/)
+    ]],
+ 
+    dateOfBirth: ['', Validators.required],
+ 
+    currentAddress: ['', Validators.required],
+ 
+    permanentAddress: ['', Validators.required],
+ 
+    vehicleNumber: ['', Validators.required],
+ 
+    bankAccountNum: ['', Validators.required],
+ 
+    ifsc: ['', Validators.required],
+ 
+    kitchenCode: [''],
+ 
+    // file placeholders (no validators here)
+    aadhar: [null],
+    panCard: [null],
+    vehicleInsurance: [null],
+    drivingLicense: [null],
+    photo: [null],
+    chequeBook: [null],
+  });
 
-  aadhar: [null],
-  panCard: [null],
-  vehicleInsurance: [null],
-  drivingLicense: [null],
-  photo: [null],
-  chequeBook: [null],
-});
   }
 
   // 📁 Handle file input
@@ -143,20 +160,115 @@ this.delPartnerForm = this.fb.group({
 //   });
 // }
 
+// onSubmit(): void {
+
+//   if (this.delPartnerForm.invalid) {
+
+//     alert('Please fill out all required fields before submitting.');
+
+//     return;
+
+//   }
+ 
+//   const DelInfo = this.delPartnerForm.value;
+ 
+//   const formData = new FormData();
+
+//   formData.append(
+
+//     'DelInfo',
+
+//     new Blob([JSON.stringify(DelInfo)], { type: 'application/json' })
+
+//   );
+ 
+//   const keyMapping: any = {
+    
+//     photo: 'photo',
+
+//     aadhar: 'aadhar',
+
+//     panCard: 'pan',
+
+//     chequeBook: 'chequeBook',
+
+//     vehicleInsurance: 'insurance',
+
+//     drivingLicense: 'license',
+
+//   };
+ 
+//   Object.keys(this.uploadedFiles).forEach((key) => {
+
+//     const file = this.uploadedFiles[key].file;
+
+//     if (file) {
+
+//       formData.append(keyMapping[key], file);
+
+//     }
+
+//   });
+ 
+//   const headers = new HttpHeaders({
+
+//     Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+
+//   });
+ 
+//   this.http.post(this.apiUrl, formData, { headers }).subscribe({
+
+//     next: () => alert('Delivery Partner registered successfully!'),
+
+//     error: () => alert('Failed to register Delivery Partner.'),
+
+//   });
+
+// }
+
 onSubmit(): void {
 
+  console.log(this.delPartnerForm.value);
+  
+ 
   if (this.delPartnerForm.invalid) {
 
-    alert('Please fill out all required fields before submitting.');
+    alert('Please fill all required fields');
 
     return;
 
   }
  
-  const DelInfo = this.delPartnerForm.value;
+  const raw = this.delPartnerForm.value;
+ 
+  // ✅ ONLY DTO FIELDS
+
+  const DelInfo = {
+
+    name: raw.name,
+
+    email: raw.email,
+
+    phone: raw.phone,
+
+    dateOfBirth: raw.dateOfBirth,
+
+    currentAddress: raw.currentAddress,
+
+    permanentAddress: raw.permanentAddress,
+
+    vehicleNumber: raw.vehicleNumber,
+
+    bankAccountNum: raw.bankAccountNum,
+
+    ifsc: raw.ifsc,
+
+    kitchenCode: raw.kitchenCode
+
+  };
  
   const formData = new FormData();
-
+ 
   formData.append(
 
     'DelInfo',
@@ -165,29 +277,29 @@ onSubmit(): void {
 
   );
  
-  const keyMapping: any = {
-    
-    photo: 'photo',
+  const fileMap: any = {
 
     aadhar: 'aadhar',
 
     panCard: 'pan',
 
-    chequeBook: 'chequeBook',
-
-    vehicleInsurance: 'insurance',
+    photo: 'photo',
 
     drivingLicense: 'license',
 
+    vehicleInsurance: 'insurance',
+
+    chequeBook: 'chequeBook'
+
   };
  
-  Object.keys(this.uploadedFiles).forEach((key) => {
+  Object.keys(fileMap).forEach(key => {
 
-    const file = this.uploadedFiles[key].file;
+    const file = this.uploadedFiles[key]?.file;
 
     if (file) {
 
-      formData.append(keyMapping[key], file);
+      formData.append(fileMap[key], file);
 
     }
 
@@ -201,13 +313,20 @@ onSubmit(): void {
  
   this.http.post(this.apiUrl, formData, { headers }).subscribe({
 
-    next: () => alert('Delivery Partner registered successfully!'),
+    next: () => alert('Delivery Partner registered successfully'),
 
-    error: () => alert('Failed to register Delivery Partner.'),
+    error: (err) => {
+
+      console.error(err);
+
+      alert('Registration failed');
+
+    }
 
   });
 
 }
+ 
 
  
  

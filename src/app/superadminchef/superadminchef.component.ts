@@ -33,11 +33,12 @@ export class SuperadminchefComponent {
       email: ['', [Validators.required, Validators.email]],
       dateOfBirth: ['', Validators.required],
       phone: ['', Validators.required],
+      ifsc  : ['', Validators.required],
       kitchenCode: ['', Validators.required],
-      bankAccount: ['', Validators.required],
-      chefSpecialization: ['', Validators.required],
-      permAddress: ['', Validators.required],
-      currAddress: ['', Validators.required],
+      bankAccountNum: ['', Validators.required],
+      specialization: ['', Validators.required],
+      permanentAddress: ['', Validators.required],
+      currentAddress: ['', Validators.required],
     });
 
   }

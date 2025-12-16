@@ -26,14 +26,14 @@ export class CategoryComponent implements OnInit {
   constructor(public api: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.getByCategory('Regional');
+    this.getByCategory('category');
   }
 
   getByCategory(category: string): void {
     this.api.getmealbycaterogy(category).subscribe((res: any) => { 
       this.cuisines = res;
       console.log(this.cuisines);
-    });67
+    });
   }
 
   filterCuisine(option: string): void {

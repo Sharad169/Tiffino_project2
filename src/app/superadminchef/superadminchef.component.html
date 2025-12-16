@@ -108,7 +108,7 @@
   <div class="form-row">
     <div class="form-group">
       <label for="bank-acct">Bank Account No.</label>
-      <input id="bank-acct" type="text" formControlName="bankAccount" />
+      <input id="bank-acct" type="text" formControlName="bankAccountNum" />
     </div>
     <div class="form-group file-group">
   <label for="cheque-book">Cheque Book</label>
@@ -124,17 +124,22 @@
 
   <div class="form-group full">
     <label for="chef-specialization">Chef Specialization</label>
-    <textarea id="chef-specialization" class="address-box" formControlName="chefSpecialization"></textarea>
+    <textarea id="chef-specialization" class="address-box" formControlName="specialization"></textarea>
   </div>
 
   <div class="form-group full">
     <label for="perm-address">Permanent Address</label>
-    <textarea id="perm-address" class="address-box" formControlName="permAddress"></textarea>
+    <textarea id="perm-address" class="address-box" formControlName="permanentAddress"></textarea>
   </div>
 
   <div class="form-group full">
     <label for="curr-address">Current Address</label>
-    <textarea id="curr-address" class="address-box" formControlName="currAddress"></textarea>
+    <textarea id="curr-address" class="address-box" formControlName="currentAddress"></textarea>
+  </div>
+
+   <div class="form-group full">
+    <label for="ifsc">IFSC Code</label>
+    <textarea id="ifsc" class="ifsc" formControlName="ifsc"></textarea>
   </div>
 
   <div class="submit-row">
