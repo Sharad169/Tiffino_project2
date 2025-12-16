@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';  
 
 @Component({
@@ -12,21 +12,29 @@ import { AuthService } from '../service/auth.service';
 })
 export class CategoryComponent implements OnInit {
   cuisines: any[] = [];
-  cuisineOptions: string[] = [
-    'North Indian',
-    'South Indian',
-    'Punjabi',
-    'Gujarati',
-    'Rajasthani',
-    'Maharashtrian',
-    'Bengali',
-    'Kashmiri'
-  ];
+  // cuisineOptions: string[] = [
+  //   'North Indian',
+  //   'South Indian',
+  //   'Punjabi',
+  //   'Gujarati',
+  //   'Rajasthani',
+  //   'Maharashtrian',
+  //   'Bengali',
+  //   'Kashmiri'
+  // ];
 
-  constructor(public api: AuthService, private router: Router) {}
+  constructor(public api: AuthService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.getByCategory('category');
+
+      this.route.paramMap.subscribe(params => {
+    const category = params.get('category');
+
+    if (category) {
+      console.log(category); 
+      this.getByCategory(category);
+    }
+  });
   }
 
   getByCategory(category: string): void {

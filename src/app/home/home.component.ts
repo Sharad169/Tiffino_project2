@@ -45,6 +45,8 @@ constructor(public api :AuthService, public router : Router) { }
       this.regionalCuisines = this.cuisines.filter(c => c.category === 'Regional');
       this.internationalCuisines = this.cuisines.filter(c => c.category === 'International');
       this.specialCuisines = this.cuisines.filter(c => c.category === 'Special');
+      console.log(this.internationalCuisines);
+      
     });
   }
 
@@ -52,7 +54,9 @@ constructor(public api :AuthService, public router : Router) { }
   this.router.navigate(['/cuisine-detail', id]); // cuisineId pass karenge
 }
 
-goToCategoryPage(category: string) {
+Explorebtn(category: string) {
+  console.log(category);
+  
   this.router.navigate(['/category', category]); // cuisineId pass karenge  
 }
 

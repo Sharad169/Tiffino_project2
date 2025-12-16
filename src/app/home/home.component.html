@@ -86,50 +86,88 @@
 <!-- Regional Cuisines-->
 
 <section class="cuisines-section">
-  <h2 class="section-title">Regional Cuisines:</h2> 
+  <h2 class="section-title">Regional Cuisines:</h2>
+
   <div class="cuisine-scroller">
-    <div class="cuisine-card" *ngFor="let item of cuisines" (click)="goToCuisine(item.cuisineId)">
-      <img [src]="item.imageUrl" [alt]="item.name">
-      <div class="cuisine-name">{{ item.name }}</div>
-      <div class="cuisine-category">{{ item.category }}</div>
-      <div class="cuisine-desc">{{ item.description }}</div>
-    </div>
-    <button class="explore-btn" (click)="goToCategoryPage(cuisines[0].category)">Explore</button>
+    <ng-container *ngFor="let item of cuisines">
+      <div
+        class="cuisine-card"
+        *ngIf="item.category === 'REGIONAL'"
+        (click)="goToCuisine(item.cuisineId)"
+      >
+        <img [src]="item.imageUrl" [alt]="item.name">
+        <div class="cuisine-name">{{ item.name }}</div>
+        <div class="cuisine-category">{{ item.category }}</div>
+        <div class="cuisine-desc">{{ item.description }}</div>
+      </div>
+    </ng-container>
+
+    <button
+      class="explore-btn"
+      (click)="Explorebtn('REGIONAL')"
+    >
+      Explore
+    </button>
   </div>
-  
 </section>
 
+
+<section class="cuisines-section">
+  <h2 class="section-title">International Cuisines:</h2>
+
+  <div class="cuisine-scroller">
+    <ng-container *ngFor="let item of cuisines">
+      <div
+        class="cuisine-card"
+        *ngIf="item.category === 'INTERNATIONAL'"
+        (click)="goToCuisine(item.cuisineId)"
+      >
+        <img [src]="item.imageUrl" [alt]="item.name">
+        <div class="cuisine-name">{{ item.name }}</div>
+        <div class="cuisine-category">{{ item.category }}</div>
+        <div class="cuisine-desc">{{ item.description }}</div>
+      </div>
+    </ng-container>
+
+    <button
+      class="explore-btn"
+      (click)="Explorebtn('INTERNATIONAL')"
+    >
+      Explore
+    </button>
+  </div>
+</section>
 
 
 
 
 <!-- International -->
-<section class="cuisines-section">
-  <h2 class="section-title">International Cuisines:</h2>
-  <div class="row cuisine-scroller">
-    <div class="cuisine-container" style="display:flex; gap:14px;">
-      <div class="col cuisine-card" *ngFor="let item of internationalCuisines">
-        <img [src]="item.imageUrl" [alt]="item.name">
-        <div class="cuisine-name">{{ item.name }}</div>
-        <div class="cuisine-category">{{ item.category }}</div>
-        <div class="cuisine-desc">{{ item.description }}</div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- Special -->
 <section class="cuisines-section">
   <h2 class="section-title">Special Cuisines:</h2>
-  <div class="row cuisine-scroller">
-    <div class="cuisine-container" style="display:flex; gap:14px;">
-      <div class="col cuisine-card" *ngFor="let item of specialCuisines">
-        <img [src]="item.imageUrl" [alt]="item.name">
+
+  <div class="cuisine-scroller">
+    <ng-container *ngFor="let item of cuisines">
+      <div
+        class="cuisine-card"
+        *ngIf="item.category === 'SPECIAL'"
+        (click)="goToCuisine(item.cuisineId)"
+      >
+        <img [src]="item.imageUrl" [alt]="item.name" (click)="Explorebtn(item.category)">
         <div class="cuisine-name">{{ item.name }}</div>
         <div class="cuisine-category">{{ item.category }}</div>
         <div class="cuisine-desc">{{ item.description }}</div>
       </div>
-    </div>
+    </ng-container>
+
+    <button
+      class="explore-btn"
+      (click)="Explorebtn('REGIONAL')"
+    >
+      Explore
+    </button>
   </div>
 </section>
 
