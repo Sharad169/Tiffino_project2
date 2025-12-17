@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../service/auth.service';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-add-card',
@@ -14,20 +15,22 @@ export class AddCardComponent implements OnInit {
 
   cartItems: any[] = [];
   recommendedItems: any[] = [];
+  addresses: any[] = [];
 
   couponCode: string = '';
   discount: number = 0;
-  deliveryAddress = {
-    address: '5, MG Road, Indiranagar, Bengaluru, Karnataka – 560038',
-    name: 'Aarav Sharma',
-    phone: '1234567899'
-  };
+  // deliveryAddress = {
+  //   address: '5, MG Road, Indiranagar, Bengaluru, Karnataka – 560038',
+  //   name: 'Aarav Sharma',
+  //   phone: '1234567899'
+  // };
 
-  constructor(public api: AuthService) {}
+  constructor(public api: AuthService, public api1: UserService) {}
 
   ngOnInit(): void {
     this.loadCart();
     this.loadRecommendedItems();
+    this.loadAddresses();
   }
 
   // ===== Load cart from localStorage =====
@@ -139,5 +142,22 @@ export class AddCardComponent implements OnInit {
   // ===== Cancel Order =====
   cancelOrder() {
     alert('Order cancelled successfully.');
+  }
+
+    loadAddresses() {
+    const userIdStr = sessionStorage.getItem('userId');
+    if (!userIdStr) {
+      console.error('User ID not found in session storage.');
+      return;
+    }
+    const userId = Number(userIdStr);
+    if (Number.isNaN(userId)) {
+      console.error('User ID in session storage is not a valid number:', userIdStr);
+      return;
+    }
+    this.api1.getAddressesByUserId(userId).subscribe((data) => {
+      console.log(data);
+      this.addresses = data;
+    });
   }
 }

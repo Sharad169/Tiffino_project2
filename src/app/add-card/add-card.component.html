@@ -75,11 +75,11 @@
         <button (click)="applyCoupon()">Apply</button>
       </div>
 
-      <div class="deliver">
+      <div class="deliver" *ngFor="let item of addresses">
         <h4>Deliver at:</h4>
-        <p>{{ deliveryAddress.address }}</p>
-        <p>{{ deliveryAddress.name }}</p>
-        <p>{{ deliveryAddress.phone }}</p>
+        <p>{{ item.address }}</p>
+        <p>{{ item.name }}</p>
+        <p>{{ item.secondaryPhone }}</p>
         <button>➡</button>
       </div>
 
