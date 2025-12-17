@@ -6,12 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ManagerService {
-  private baseUrl = 'http://localhost:8081/api/admins';
+  private adminBaseUrl = 'http://localhost:8081/api/admins';
   private loginBaseUrl = 'http://localhost:8081/api/admins/login-manager';
+  private editBaseUrl = 'http://localhost:8081/edit';
 
   constructor(private http: HttpClient) {}
 
-  // ✅ LOGIN API
+  // =========================
+  // LOGIN / SET PASSWORD
+  // =========================
   login(
     managerCode: string,
     password: string,
@@ -26,14 +29,35 @@ export class ManagerService {
     return this.http.post<any>(url, {});
   }
 
-  // ✅ OTHER API (keep if needed)
+  // =========================
+  // GET MANAGER DETAILS
+  // =========================
   getManagerByCode(managerCode: string): Observable<any> {
+    return this.http.get<any>(`${this.adminBaseUrl}/manager/${managerCode}`, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+
+  // =========================
+  // UPDATE MANAGER DETAILS
+  // =========================
+  updateManagerDetails(
+    managerCode: string,
+    formData: FormData
+  ): Observable<any> {
+    return this.http.post(`${this.editBaseUrl}/${managerCode}`, formData, {
+      headers: this.getAuthHeaders(),
+      responseType: 'text',
+    });
+  }
+
+  // =========================
+  // AUTH HEADER
+  // =========================
+  private getAuthHeaders(): HttpHeaders {
     const token = sessionStorage.getItem('token');
-
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-    return this.http.get<any>(`${this.baseUrl}/manager/${managerCode}`, {
-      headers,
+    return new HttpHeaders({
+      Authorization: `Bearer ${token}`,
     });
   }
 }

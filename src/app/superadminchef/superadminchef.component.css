@@ -234,6 +234,18 @@ label {
   outline: none;
   resize: none;
 }
+.ifsc {
+  width: 815px;
+  height: 70px;
+  border: 1px solid rgba(162, 161, 161, 1);
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-size: 24px;
+  color: rgba(162, 161, 161, 1);
+  outline: none;
+  resize: none;
+  font-family: "Poppins", sans-serif;
+}
 
 /* --- Submit Button --- */
 .submit-row {

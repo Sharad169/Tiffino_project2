@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SuperadminSidebarComponent } from '../superadmin-sidebar/superadmin-sidebar.component';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { AdminService } from '../admin.service';
 @Component({
   selector: 'app-superadminchef',
@@ -11,21 +16,20 @@ import { AdminService } from '../admin.service';
   templateUrl: './superadminchef.component.html',
   styleUrls: ['./superadminchef.component.css'],
 })
-
 export class SuperadminchefComponent {
   chefForm!: FormGroup;
   uploadedFiles: any = {
     photo: { uploaded: false, file: null, name: '' },
     aadhar: { uploaded: false, file: null, name: '' },
     panCard: { uploaded: false, file: null, name: '' }, // we'll map this to "pan"
-    chequeBook: { uploaded: false, file: null, name: '' }
+    chequeBook: { uploaded: false, file: null, name: '' },
   };
 
   constructor(
     private router: Router,
     private fb: FormBuilder,
     public api: AdminService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.chefForm = this.fb.group({
@@ -33,13 +37,13 @@ export class SuperadminchefComponent {
       email: ['', [Validators.required, Validators.email]],
       dateOfBirth: ['', Validators.required],
       phone: ['', Validators.required],
+      ifsc: ['', Validators.required],
       kitchenCode: ['', Validators.required],
-      bankAccount: ['', Validators.required],
-      chefSpecialization: ['', Validators.required],
-      permAddress: ['', Validators.required],
-      currAddress: ['', Validators.required],
+      bankAccountNum: ['', Validators.required],
+      specialization: ['', Validators.required],
+      permanentAddress: ['', Validators.required],
+      currentAddress: ['', Validators.required],
     });
-
   }
 
   onRoleChangeCustom(role: string) {
@@ -78,17 +82,15 @@ export class SuperadminchefComponent {
       photo: 'photo',
       aadhar: 'aadhar',
       panCard: 'pan', // backend expects 'pan', not 'panCard'
-      chequeBook: 'chequeBook'
-
+      chequeBook: 'chequeBook',
     };
     // ✅ Append files
 
-    Object.keys(this.uploadedFiles).forEach(key => {
+    Object.keys(this.uploadedFiles).forEach((key) => {
       const fileData = this.uploadedFiles[key];
       if (fileData.file) {
         formData.append(keyMapping[key], fileData.file);
       }
-
     });
 
     // ✅ Send request
@@ -97,7 +99,7 @@ export class SuperadminchefComponent {
         console.log('✅ Chef registered successfully:', res);
         alert('Chef registered successfully!');
         this.chefForm.reset();
-        Object.keys(this.uploadedFiles).forEach(k => {
+        Object.keys(this.uploadedFiles).forEach((k) => {
           this.uploadedFiles[k] = { uploaded: false, file: null, name: '' };
         });
       },
@@ -109,4 +111,3 @@ export class SuperadminchefComponent {
     });
   }
 }
-

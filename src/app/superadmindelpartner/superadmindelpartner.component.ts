@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SuperadminSidebarComponent } from '../superadmin-sidebar/superadmin-sidebar.component';
 import { CommonModule } from '@angular/common';
@@ -32,25 +37,35 @@ export class SuperadmindelpartnerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-this.delPartnerForm = this.fb.group({
-  name: [''],
-  email: [''],
-  phone: [''],
-  dateOfBirth: [''],
-  kitchenCode: [''],
-  bankAccountNum: [''],
-  vehicleNumber: [''],  // added field
-  ifsc: [''],                  // fixed
-  permanentAddress: [''],      // fixed
-  currentAddress: [''],        // fixed
+    this.delPartnerForm = this.fb.group({
+      name: ['', Validators.required],
 
-  aadhar: [null],
-  panCard: [null],
-  vehicleInsurance: [null],
-  drivingLicense: [null],
-  photo: [null],
-  chequeBook: [null],
-});
+      email: ['', [Validators.required, Validators.email]],
+
+      phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+
+      dateOfBirth: ['', Validators.required],
+
+      currentAddress: ['', Validators.required],
+
+      permanentAddress: ['', Validators.required],
+
+      vehicleNumber: ['', Validators.required],
+
+      bankAccountNum: ['', Validators.required],
+
+      ifsc: ['', Validators.required],
+
+      kitchenCode: [''],
+
+      // file placeholders (no validators here)
+      aadhar: [null],
+      panCard: [null],
+      vehicleInsurance: [null],
+      drivingLicense: [null],
+      photo: [null],
+      chequeBook: [null],
+    });
   }
 
   // 📁 Handle file input
@@ -68,197 +83,272 @@ this.delPartnerForm = this.fb.group({
   }
 
   // 🚀 Submit form with token + FormData + JSON
-//  onSubmit(): void {
-//   if (this.delPartnerForm.invalid) {
-//     alert('Please fill out all required fields before submitting.');
-//     return;
-//   }
+  //  onSubmit(): void {
+  //   if (this.delPartnerForm.invalid) {
+  //     alert('Please fill out all required fields before submitting.');
+  //     return;
+  //   }
 
-//   const raw = this.delPartnerForm.value;
+  //   const raw = this.delPartnerForm.value;
 
-//   // ⭐ FIX EMPTY FIELD ISSUE
-//   const DelInfo = {
-//     ...raw,
-//     permanentAddress: raw.permanentAddress?.trim() || '',
-//     currentAddress: raw.currentAddress?.trim() || '',
-//     ifsc: raw.ifsc?.trim() || ''
-//   };
+  //   // ⭐ FIX EMPTY FIELD ISSUE
+  //   const DelInfo = {
+  //     ...raw,
+  //     permanentAddress: raw.permanentAddress?.trim() || '',
+  //     currentAddress: raw.currentAddress?.trim() || '',
+  //     ifsc: raw.ifsc?.trim() || ''
+  //   };
 
-//   console.log("📌 Sending JSON:", DelInfo);
+  //   console.log("📌 Sending JSON:", DelInfo);
 
-//   const formData = new FormData();
+  //   const formData = new FormData();
 
-//   // Append JSON as Blob
-//   formData.append(
-//     'DelInfo',
-//     new Blob([JSON.stringify(DelInfo)], { type: 'application/json' })
-//   );
+  //   // Append JSON as Blob
+  //   formData.append(
+  //     'DelInfo',
+  //     new Blob([JSON.stringify(DelInfo)], { type: 'application/json' })
+  //   );
 
-//   // ⭐ Correct file key mapping
-//  const keyMapping: any = {
-//   photo: 'photo',
-//   aadhar: 'aadhar',
-//   panCard: 'pan',
-//   chequeBook: 'chequeBook',
-//   vehicleInsurance: 'insurance',
-//   drivingLicense: 'license',   // ⭐⭐ MAIN FIX ⭐⭐
-// };
+  //   // ⭐ Correct file key mapping
+  //  const keyMapping: any = {
+  //   photo: 'photo',
+  //   aadhar: 'aadhar',
+  //   panCard: 'pan',
+  //   chequeBook: 'chequeBook',
+  //   vehicleInsurance: 'insurance',
+  //   drivingLicense: 'license',   // ⭐⭐ MAIN FIX ⭐⭐
+  // };
 
-//   // Append files properly
-//   Object.keys(this.uploadedFiles).forEach((key) => {
-//     const fileData = this.uploadedFiles[key];
-//     if (fileData.file) {
-//       formData.append(keyMapping[key] || key, fileData.file);
-//     }
-//   });
+  //   // Append files properly
+  //   Object.keys(this.uploadedFiles).forEach((key) => {
+  //     const fileData = this.uploadedFiles[key];
+  //     if (fileData.file) {
+  //       formData.append(keyMapping[key] || key, fileData.file);
+  //     }
+  //   });
 
-//   // Token
-//   const token = sessionStorage.getItem('token');
-//   if (!token) {
-//     alert('User not authenticated! Please log in again.');
-//     return;
-//   }
+  //   // Token
+  //   const token = sessionStorage.getItem('token');
+  //   if (!token) {
+  //     alert('User not authenticated! Please log in again.');
+  //     return;
+  //   }
 
-//   const headers = new HttpHeaders({
-//     Authorization: `Bearer ${token}`,
-//   });
+  //   const headers = new HttpHeaders({
+  //     Authorization: `Bearer ${token}`,
+  //   });
 
-//   console.log("📎 Files:", this.uploadedFiles);
+  //   console.log("📎 Files:", this.uploadedFiles);
 
-//   // API call
-//   this.http.post(this.apiUrl, formData, { headers }).subscribe({
-//     next: (res) => {
-//       console.log("✅ Registered Successfully:", res);
-//       alert('Delivery Partner registered successfully!');
-//       this.delPartnerForm.reset();
+  //   // API call
+  //   this.http.post(this.apiUrl, formData, { headers }).subscribe({
+  //     next: (res) => {
+  //       console.log("✅ Registered Successfully:", res);
+  //       alert('Delivery Partner registered successfully!');
+  //       this.delPartnerForm.reset();
 
-//       Object.keys(this.uploadedFiles).forEach((k) => {
-//         this.uploadedFiles[k] = { uploaded: false, file: null, name: '' };
-//       });
-//     },
-//     error: (err) => {
-//       console.error("❌ Error:", err);
-//       alert('Failed to register Delivery Partner. Check console.');
-//     }
-//   });
-// }
+  //       Object.keys(this.uploadedFiles).forEach((k) => {
+  //         this.uploadedFiles[k] = { uploaded: false, file: null, name: '' };
+  //       });
+  //     },
+  //     error: (err) => {
+  //       console.error("❌ Error:", err);
+  //       alert('Failed to register Delivery Partner. Check console.');
+  //     }
+  //   });
+  // }
 
-onSubmit(): void {
+  // onSubmit(): void {
 
-  if (this.delPartnerForm.invalid) {
+  //   if (this.delPartnerForm.invalid) {
 
-    alert('Please fill out all required fields before submitting.');
+  //     alert('Please fill out all required fields before submitting.');
 
-    return;
+  //     return;
 
-  }
- 
-  const DelInfo = this.delPartnerForm.value;
- 
-  const formData = new FormData();
+  //   }
 
-  formData.append(
+  //   const DelInfo = this.delPartnerForm.value;
 
-    'DelInfo',
+  //   const formData = new FormData();
 
-    new Blob([JSON.stringify(DelInfo)], { type: 'application/json' })
+  //   formData.append(
 
-  );
- 
-  const keyMapping: any = {
-    
-    photo: 'photo',
+  //     'DelInfo',
 
-    aadhar: 'aadhar',
+  //     new Blob([JSON.stringify(DelInfo)], { type: 'application/json' })
 
-    panCard: 'pan',
+  //   );
 
-    chequeBook: 'chequeBook',
+  //   const keyMapping: any = {
 
-    vehicleInsurance: 'insurance',
+  //     photo: 'photo',
 
-    drivingLicense: 'license',
+  //     aadhar: 'aadhar',
 
-  };
- 
-  Object.keys(this.uploadedFiles).forEach((key) => {
+  //     panCard: 'pan',
 
-    const file = this.uploadedFiles[key].file;
+  //     chequeBook: 'chequeBook',
 
-    if (file) {
+  //     vehicleInsurance: 'insurance',
 
-      formData.append(keyMapping[key], file);
+  //     drivingLicense: 'license',
 
+  //   };
+
+  //   Object.keys(this.uploadedFiles).forEach((key) => {
+
+  //     const file = this.uploadedFiles[key].file;
+
+  //     if (file) {
+
+  //       formData.append(keyMapping[key], file);
+
+  //     }
+
+  //   });
+
+  //   const headers = new HttpHeaders({
+
+  //     Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+
+  //   });
+
+  //   this.http.post(this.apiUrl, formData, { headers }).subscribe({
+
+  //     next: () => alert('Delivery Partner registered successfully!'),
+
+  //     error: () => alert('Failed to register Delivery Partner.'),
+
+  //   });
+
+  // }
+
+  onSubmit(): void {
+    console.log(this.delPartnerForm.value);
+
+    if (this.delPartnerForm.invalid) {
+      alert('Please fill all required fields');
+
+      return;
     }
 
-  });
- 
-  const headers = new HttpHeaders({
+    const raw = this.delPartnerForm.value;
 
-    Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+    // ✅ ONLY DTO FIELDS
 
-  });
- 
-  this.http.post(this.apiUrl, formData, { headers }).subscribe({
+    const DelInfo = {
+      name: raw.name,
 
-    next: () => alert('Delivery Partner registered successfully!'),
+      email: raw.email,
 
-    error: () => alert('Failed to register Delivery Partner.'),
+      phone: raw.phone,
 
-  });
+      dateOfBirth: raw.dateOfBirth,
 
-}
+      currentAddress: raw.currentAddress,
 
- 
- 
-// onSubmit(): void {
-//   if (this.delPartnerForm.invalid) {
-//     alert('Please fill out all required fields before submitting.');
-//     return;
-//   }
+      permanentAddress: raw.permanentAddress,
 
-//   const DelInfo = this.delPartnerForm.value;
+      vehicleNumber: raw.vehicleNumber,
 
-//   const formData = new FormData();
-//   formData.append(
-//     'DelInfo',
-//     new Blob([JSON.stringify(DelInfo)], { type: 'application/json' })
-//   );
+      bankAccountNum: raw.bankAccountNum,
 
-//   const keyMapping: any = {
-//     photo: 'photo',
-//     aadhar: 'aadhar',
-//     panCard: 'pan',
-//     chequeBook: 'chequeBook',
-//     vehicleInsurance: 'insurance',
-//     drivingLicense: 'license',
-//   };
+      ifsc: raw.ifsc,
 
-//   Object.keys(this.uploadedFiles).forEach((key) => {
-//     const file = this.uploadedFiles[key].file;
-//     if (file) {
-//       formData.append(keyMapping[key], file);
-//     }
-//   });
+      kitchenCode: raw.kitchenCode,
+    };
 
-//   const headers = new HttpHeaders({
-//     Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-//   });
+    const formData = new FormData();
 
-//   this.http.post(this.apiUrl, formData, { headers }).subscribe({
-//     next: (res) => {
-//       alert('Delivery Partner registered successfully!');
-//       this.delPartnerForm.reset();
-//     },
-//     error: (err) => {
-//       console.error(err);
-//       alert('Failed to register Delivery Partner.');
-//     },
-//   });
-// }
+    formData.append(
+      'DelInfo',
 
+      new Blob([JSON.stringify(DelInfo)], { type: 'application/json' })
+    );
 
+    const fileMap: any = {
+      aadhar: 'aadhar',
 
+      panCard: 'pan',
+
+      photo: 'photo',
+
+      drivingLicense: 'license',
+
+      vehicleInsurance: 'insurance',
+
+      chequeBook: 'chequeBook',
+    };
+
+    Object.keys(fileMap).forEach((key) => {
+      const file = this.uploadedFiles[key]?.file;
+
+      if (file) {
+        formData.append(fileMap[key], file);
+      }
+    });
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+    });
+
+    this.http.post(this.apiUrl, formData, { headers }).subscribe({
+      next: () => alert('Delivery Partner registered successfully'),
+
+      error: (err) => {
+        console.error(err);
+
+        alert('Registration failed');
+      },
+    });
+  }
+
+  // onSubmit(): void {
+  //   if (this.delPartnerForm.invalid) {
+  //     alert('Please fill out all required fields before submitting.');
+  //     return;
+  //   }
+
+  //   const DelInfo = this.delPartnerForm.value;
+
+  //   const formData = new FormData();
+  //   formData.append(
+  //     'DelInfo',
+  //     new Blob([JSON.stringify(DelInfo)], { type: 'application/json' })
+  //   );
+
+  //   const keyMapping: any = {
+  //     photo: 'photo',
+  //     aadhar: 'aadhar',
+  //     panCard: 'pan',
+  //     chequeBook: 'chequeBook',
+  //     vehicleInsurance: 'insurance',
+  //     drivingLicense: 'license',
+  //   };
+
+  //   Object.keys(this.uploadedFiles).forEach((key) => {
+  //     const file = this.uploadedFiles[key].file;
+  //     if (file) {
+  //       formData.append(keyMapping[key], file);
+  //     }
+  //   });
+
+  //   const headers = new HttpHeaders({
+  //     Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+  //   });
+
+  //   this.http.post(this.apiUrl, formData, { headers }).subscribe({
+  //     next: (res) => {
+  //       alert('Delivery Partner registered successfully!');
+  //       this.delPartnerForm.reset();
+  //     },
+  //     error: (err) => {
+  //       console.error(err);
+  //       alert('Failed to register Delivery Partner.');
+  //     },
+  //   });
+  // }
 
   // 🔁 Role Navigation
   onRoleChangeCustom(role: string) {

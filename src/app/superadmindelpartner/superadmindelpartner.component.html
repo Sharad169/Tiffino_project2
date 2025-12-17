@@ -108,11 +108,11 @@
         <label>PAN Card</label>
         <input
           type="file"
-          (change)="onFileSelected($event, 'pan')"
+          (change)="onFileSelected($event, 'panCard')"
           accept=".pdf,image/*"
         />
-        <span *ngIf="uploadedFiles.pan.uploaded"
-          >✔ {{ uploadedFiles.pan.name }}</span
+        <span *ngIf="uploadedFiles.panCard.uploaded"
+          >✔ {{ uploadedFiles.panCard.name }}</span
         >
       </div>
     </div>
@@ -125,7 +125,7 @@
           (change)="onFileSelected($event, 'vehicleInsurance')"
           accept=".pdf,image/*"
         />
-        <span *ngIf="uploadedFiles.insurance.uploaded"
+        <span *ngIf="uploadedFiles.vehicleInsurance.uploaded"
           >✔ {{ uploadedFiles.vehicleInsurance.name }}</span
         >
       </div>
@@ -137,7 +137,7 @@
           (change)="onFileSelected($event, 'drivingLicense')"
           accept=".pdf,image/*"
         />
-        <span *ngIf="uploadedFiles.license.uploaded"
+        <span *ngIf="uploadedFiles.drivingLicense.uploaded"
           >✔ {{ uploadedFiles.drivingLicense.name }}</span
         >
       </div>

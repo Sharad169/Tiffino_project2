@@ -23,7 +23,7 @@ export class ManagersidebarComponent {
   helpCenterRoutes = ['/managerhelpsupportpage'];
   yourDetailsPageRoutes = [
     '/manager-yourdetailspage',
-    '/manager-yourdetailseditrequestpage',
+    '/manageryourdetailseditrequestpage',
     '/manager-yourdetailssubmitpage',
   ];
 

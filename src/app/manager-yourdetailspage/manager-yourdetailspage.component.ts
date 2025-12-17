@@ -13,9 +13,10 @@ import { ManagerService } from '../manager.service';
   styleUrls: ['./manager-yourdetailspage.component.css'],
 })
 export class ManagerYourdetailspageComponent implements OnInit {
-  managerCode = 'MAN002';
+  // ✅ TAKE MANAGER CODE FROM LOGIN SESSION
+  managerCode = '';
 
-  // ✅ SAFE DEFAULT OBJECT (prevents undefined crash)
+  // ✅ SAFE DEFAULT OBJECT
   manager: any = {
     name: '',
     email: '',
@@ -26,6 +27,7 @@ export class ManagerYourdetailspageComponent implements OnInit {
     ifsc: '',
     permanentAddress: '',
     currentAddress: '',
+    photo: '',
   };
 
   loading = false;
@@ -34,6 +36,14 @@ export class ManagerYourdetailspageComponent implements OnInit {
   constructor(private router: Router, private managerService: ManagerService) {}
 
   ngOnInit(): void {
+    // ✅ DO NOT TOUCH INTEGRATION – JUST CHANGE SOURCE
+    this.managerCode = sessionStorage.getItem('managerCode') || '';
+
+    if (!this.managerCode) {
+      this.errorMsg = 'Manager not logged in';
+      return;
+    }
+
     this.loadManagerDetails();
   }
 
@@ -42,7 +52,7 @@ export class ManagerYourdetailspageComponent implements OnInit {
 
     this.managerService.getManagerByCode(this.managerCode).subscribe({
       next: (res) => {
-        this.manager = res; // ✅ API data binds safely
+        this.manager = res; // ✅ SAME API RESPONSE
         this.loading = false;
       },
       error: (err) => {
@@ -54,9 +64,7 @@ export class ManagerYourdetailspageComponent implements OnInit {
     });
   }
 
-  // ✅ EDIT ICON NAVIGATION
   goToEditPage() {
-    console.log('Edit icon clicked');
     this.router.navigate(['/manageryourdetailseditrequestpage']);
   }
 }

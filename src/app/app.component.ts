@@ -90,6 +90,8 @@ export class AppComponent implements OnDestroy {
       '/welcome',
       '/superAdminLogin',
       '/superadminsetpassword',
+      '/manager-setpassword',
+      '/manager-login',
     ];
 
     const hideFragments = ['registration-section'];

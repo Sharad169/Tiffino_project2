@@ -68,7 +68,10 @@ import { SuperadminmealComponent } from './superadminmeal/superadminmeal.compone
 import { ManagerYourdetailspageComponent } from './manager-yourdetailspage/manager-yourdetailspage.component';
 import { ManagerLoginComponent } from './manager-login/manager-login.component';
 import { ManagerYourdetailseditrequestpageComponent } from './manageryourdetailseditrequestpage/manageryourdetailseditrequestpage.component';
-
+import { ManagerYourdetailssubmitpageComponent } from './manager-yourdetailssubmitpage/manager-yourdetailssubmitpage.component';
+import { ManagerSetpasswordComponent } from './manager-setpassword/manager-setpassword.component';
+import { SuperadmineditlistComponent } from './superadmineditlist/superadmineditlist.component';
+import { SuperadiminmanagereditpageComponent } from './superadiminmanagereditpage/superadiminmanagereditpage.component';
 export const routes: Routes = [
   // Default page
 
@@ -205,6 +208,11 @@ export const routes: Routes = [
 
   { path: 'superadminsetpassword', component: SuperadminsetpasswordComponent },
   { path: 'superAdminLogin', component: SuperadminLoginComponent },
+  { path: 'superadmineditlist', component: SuperadmineditlistComponent },
+  {
+    path: 'superadminmanagereditpage',
+    component: SuperadiminmanagereditpageComponent,
+  },
 
   {
     path: 'superadmincloudkitchen',
@@ -238,7 +246,12 @@ export const routes: Routes = [
     path: 'manageryourdetailseditrequestpage',
     component: ManagerYourdetailseditrequestpageComponent,
   },
+  {
+    path: 'manager-yourdetailssubmitpage',
+    component: ManagerYourdetailssubmitpageComponent,
+  },
   { path: 'manager-login', component: ManagerLoginComponent },
+  { path: 'manager-setpassword', component: ManagerSetpasswordComponent },
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },

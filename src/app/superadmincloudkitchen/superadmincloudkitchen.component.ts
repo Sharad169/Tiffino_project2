@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { SuperadminSidebarComponent } from '../superadmin-sidebar/superadmin-sidebar.component';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AdminService } from '../admin.service';
 import { Router } from '@angular/router';
@@ -8,27 +13,29 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-superadmincloudkitchen',
   standalone: true,
-  imports: [SuperadminSidebarComponent,CommonModule,ReactiveFormsModule],
+  imports: [SuperadminSidebarComponent, CommonModule, ReactiveFormsModule],
   templateUrl: './superadmincloudkitchen.component.html',
-  styleUrls: ['./superadmincloudkitchen.component.css']
+  styleUrls: ['./superadmincloudkitchen.component.css'],
 })
 export class SuperadmincloudkitchenComponent {
-   addressForm!: FormGroup;
+  addressForm!: FormGroup;
 
-    constructor(private fb: FormBuilder, private api: AdminService, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private api: AdminService,
+    private router: Router
+  ) {
     this.addressForm = this.fb.group({
       name: ['', Validators.required],
       city: ['', Validators.required],
-      pin: ['', [Validators.required, Validators.pattern(/^[0-9]{6}$/)]],
+      pinCode: ['', [Validators.required, Validators.pattern(/^[0-9]{6}$/)]],
       state: ['', Validators.required],
       region: ['', Validators.required],
       address: ['', Validators.required],
     });
   }
 
-
- 
-   onSubmit() {
+  onSubmit() {
     // ✅ Check if form invalid
     if (this.addressForm.invalid) {
       this.addressForm.markAllAsTouched();
@@ -46,8 +53,7 @@ export class SuperadmincloudkitchenComponent {
       error: (err) => {
         console.error('Error adding kitchen:', err);
         alert('Something went wrong!');
-      }
+      },
     });
   }
-
 }

@@ -189,6 +189,19 @@
   cursor: pointer;
   margin-left: 80px;
 }
+/* 🔴 RED DOT (LEFT SIDE – CENTERED) */
+.notification-circle::after {
+  content: "";
+  position: absolute;
+
+  /* LEFT SIDE POSITION */
+  left: 1267px;
+  top: 51%;
+  width: 10px;
+  height: 10px;
+  background-color: #ff0000;
+  border-radius: 50%;
+}
 
 .search-row {
   display: flex;
