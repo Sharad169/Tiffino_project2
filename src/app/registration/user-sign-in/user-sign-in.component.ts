@@ -173,4 +173,8 @@ export class UserSignInComponent {
   home() { 
     
      }
+
+     navigateTo(route: string) {
+    this.route.navigate([route]);
+  }
 }

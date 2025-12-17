@@ -227,5 +227,114 @@
     font-size: 0.8rem;
   }
 }
+
+.manager-content {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+/* Wrapper */
+.dropdown-wrapper {
+  position: relative;
+  width: 260px;
+  outline: none;
+}
+
+/* Button (fake select) */
+.fake-select {
+  width: 100%;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fake-select:hover {
+  border-color: #667085;
+}
+
+.dropdown-wrapper:focus-within .fake-select {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* Label */
+.fake-select .label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #344054;
+}
+
+/* Chevron */
+.chev {
+  display: flex;
+  align-items: center;
+  transition: transform 0.25s ease;
+}
+
+.dropdown-wrapper:focus-within .chev {
+  transform: rotate(180deg);
+}
+
+.dropdown-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Dropdown panel */
+.dropdown-panel {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+  padding: 6px 0;
+  box-shadow: 0 12px 30px rgba(16, 24, 40, 0.15);
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+/* Show dropdown */
+.dropdown-wrapper:focus-within .dropdown-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Dropdown items */
+.dropdown-item {
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #344054;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: #f9fafb;
+  color: #4f46e5;
+}
+
+/* Divider style (optional) */
+.dropdown-item:not(:last-child) {
+  border-bottom: 1px solid #f2f4f7;
+}
+
  
  
