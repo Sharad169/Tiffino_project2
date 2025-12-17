@@ -36,5 +36,9 @@ export class HeaderComponent implements OnInit {
     } 
   
 
+    testRoute(){
+         this.router.navigate(['/add-card']);
+    }
+
 
 }

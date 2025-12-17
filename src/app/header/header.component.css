@@ -230,3 +230,20 @@
   }
  
 }
+
+.cart-icon {
+  color: #ffffff; /* white */
+}
+
+.nav-link.cart-icon {
+  color: #ffffff;              /* FORCE WHITE */
+  display: inline-flex;        /* IMPORTANT */
+  align-items: center;
+}
+
+.cart-svg {
+  width: 24px;
+  height: 24px;
+  display: block;              /* IMPORTANT */
+  fill: currentColor;
+}
