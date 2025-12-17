@@ -549,5 +549,47 @@
   line-height: 1.6;
   margin: 0;
 }
+.address-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.arrow-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 18px;
+}
+
+.address-popup {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  width: 260px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  padding: 10px;
+  display: none;
+  z-index: 100;
+}
+
+.address-hover:hover .address-popup {
+  display: block;
+}
+
+.address-item {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.address-item:last-child {
+  border-bottom: none;
+}
+
+.address-item:hover {
+  background: #f5f5f5;
+}
 
  

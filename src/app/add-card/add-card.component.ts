@@ -160,4 +160,15 @@ export class AddCardComponent implements OnInit {
       this.addresses = data;
     });
   }
+
+  selectAddress(selected: any) {
+  const index = this.addresses.indexOf(selected);
+
+  if (index > -1) {
+    // swap selected address with first address
+    const temp = this.addresses[0];
+    this.addresses[0] = selected;
+    this.addresses[index] = temp;
+  }
+}
 }
