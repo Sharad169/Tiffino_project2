@@ -89,6 +89,18 @@
       <label for="name">Name</label>
       <input id="name" type="text" formControlName="name" />
       <small *ngIf="isInvalid('name')" class="error">Name is required (min 3 characters)</small>
+      <!-- <small *ngIf="addressForm.get('name')?.errors?.['required']">
+  Name is required
+</small> -->
+
+<small *ngIf="addressForm.get('name')?.errors?.['minlength']" class="error">
+  Minimum 3 characters required
+</small>
+
+<small *ngIf="addressForm.get('name')?.errors?.['pattern']" class="error"> 
+  Only alphabets allowed (no space, number, special character)
+</small>
+
     </div>
 
     <div class="form-group">
@@ -105,12 +117,22 @@
       <label for="city">City</label>
       <input id="city" type="text" formControlName="city" />
       <small *ngIf="isInvalid('city')" class="error">City is required</small>
+      <!-- <small *ngIf="addressForm.get('city')?.errors?.['required']" class="error">
+  City is required
+</small> -->
+
+<small *ngIf="addressForm.get('city')?.errors?.['pattern']" class="error">
+  Only alphabets allowed (no space or special characters)
+</small>
     </div>
 
     <div class="form-group">
       <label for="state">State</label>
       <input id="state" type="text" formControlName="state" />
       <small *ngIf="isInvalid('state')" class="error">State is required</small>
+      <small *ngIf="addressForm.get('state')?.errors?.['pattern']" class="error">
+  Only alphabets allowed (no space, number, or special characters)
+</small>
     </div>
   </div>
 
@@ -120,6 +142,16 @@
     <small *ngIf="isInvalid('address')" class="error">
       Address must be at least 10 characters
     </small>
+    
+
+<small *ngIf="addressForm.get('address')?.errors?.['minlength']" class="error">
+  Address must be at least 10 characters
+</small>
+
+<small *ngIf="addressForm.get('address')?.errors?.['pattern']" class="error">
+  Invalid address format
+</small>
+
   </div>
 
   <div class="form-group full">
@@ -128,6 +160,9 @@
     <small *ngIf="isInvalid('pincode')" class="error">
       Enter valid 6-digit pincode
     </small>
+    <small *ngIf="addressForm.get('pincode')?.errors?.['required']" class="error">
+  Pincode is required
+</small>
   </div>
 
   <div class="submit-row">

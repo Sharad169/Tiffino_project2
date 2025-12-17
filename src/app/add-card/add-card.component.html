@@ -77,29 +77,32 @@
 
      <div class="deliver" *ngFor="let item of addresses; let i = index">
   <ng-container *ngIf="i === 0">
-    <h4>Deliver at: <div class="address-hover">
-      <button class="arrow-btn">➡</button>
+    <div class="deliver-header">
+      <h4>Deliver at:</h4>
+      
+      <!-- Hover container -->
+      <div class="address-hover">
+        <button class="arrow-btn">➡</button>
 
-      <!-- All address list -->
-      <div class="address-popup">
-        <div
-          class="address-item"
-          *ngFor="let addr of addresses"
-          (click)="selectAddress(addr)"
-        >
-          <p>{{ addr.address }}</p>
-          <small>{{ addr.name }} • {{ addr.secondaryPhone }}</small>
+        <!-- All address list -->
+        <div class="address-popup">
+          <div
+            class="address-item"
+            *ngFor="let addr of addresses"
+            (click)="selectAddress(addr)"
+          >
+            <p>{{ addr.address }}</p>
+            <small>{{ addr.name }} • {{ addr.secondaryPhone }}</small>
+          </div>
         </div>
       </div>
-    </div></h4>
-    <p>{{ item.address }}</p>
-    <p>{{ item.name }}</p>
+    </div>
+     <p>{{ item.name }}</p>
+    <p>{{ item.address }} , {{ item.city }} , {{ item.state }}</p>    
     <p>{{ item.secondaryPhone }}</p>
-
-    <!-- Hover container -->
-    
   </ng-container>
 </div>
+
 
 
 

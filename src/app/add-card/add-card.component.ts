@@ -170,5 +170,12 @@ export class AddCardComponent implements OnInit {
     this.addresses[0] = selected;
     this.addresses[index] = temp;
   }
+
+  
 }
+
+
+
+
+
 }

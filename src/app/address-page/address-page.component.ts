@@ -28,12 +28,29 @@ isAddressPage: boolean = true;
   ngOnInit(): void {  
     this.loadAddresses()
        this.addressForm = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      name: new FormControl('',  [
+  Validators.required,
+  Validators.minLength(3),
+  Validators.pattern('^[A-Za-z]{3,}$')
+]),
       secondaryPhone: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10}$')]),
-      city: new FormControl('', Validators.required),
-      state: new FormControl('', Validators.required),
-      address: new FormControl('', Validators.required),
-      pincode: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{6}$')])
+      city: new FormControl('', [
+  Validators.required,
+  Validators.pattern('^[A-Za-z]+$')
+]),
+      state: new FormControl('', [
+  Validators.required,
+  Validators.pattern('^[A-Za-z]+$')
+]),
+      address: new FormControl('', [
+  Validators.required,
+  Validators.minLength(10),
+  Validators.pattern('^(?!.*\\s{2,})[A-Za-z0-9.,/#-\\s]+$')
+]),
+     pincode: new FormControl('', [
+  Validators.required,
+  Validators.pattern('^[1-9][0-9]{5}$')
+])
     });
     
     
