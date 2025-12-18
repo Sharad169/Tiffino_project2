@@ -28,6 +28,7 @@ export class ManagerService {
 
     return this.http.post<any>(url, {});
   }
+  //http://localhost:8081/api/admins/chef-login?ChefCode&Password&temp
 
   // =========================
   // GET MANAGER DETAILS
