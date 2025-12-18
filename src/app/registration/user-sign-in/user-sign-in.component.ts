@@ -174,7 +174,4 @@ export class UserSignInComponent {
     
      }
 
-     navigateTo(route: string) {
-    this.route.navigate([route]);
-  }
-}
+    }

@@ -2,48 +2,100 @@
 
 <div class="form-wrapper">
   <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
-    <div class="row">
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" formControlName="name" />
-        <small *ngIf="addressForm.get('name')?.touched && addressForm.get('name')?.invalid" class="error">Name is required</small>
-      </div>
 
-      <div class="form-group">
-        <label>City</label>
-        <input type="text" formControlName="city" />
-        <small *ngIf="addressForm.get('city')?.touched && addressForm.get('city')?.invalid" class="error">City is required</small>
-      </div>
+  <!-- Row 1 -->
+  <div class="row">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" formControlName="name" />
+
+      <small *ngIf="addressForm.get('name')?.touched && addressForm.get('name')?.errors?.['required']" class="error">
+        Name is required
+      </small>
+      <small *ngIf="addressForm.get('name')?.touched && addressForm.get('name')?.errors?.['pattern']" class="error">
+        Only alphabets allowed and space not allowed at start or end
+      </small>
+      <small *ngIf="addressForm.get('name')?.touched && addressForm.get('name')?.errors?.['minlength']" class="error">
+        Minimum 3 characters required
+      </small>
     </div>
 
-    <div class="row">
-      <div class="form-group">
-        <label>Pin</label>
-        <input type="text" formControlName="pin" />
-        <small *ngIf="addressForm.get('pin')?.touched && addressForm.get('pin')?.invalid" class="error">Valid 6-digit PIN required</small>
-      </div>
+    <div class="form-group">
+      <label>City</label>
+      <input type="text" formControlName="city" />
 
-      <div class="form-group">
-        <label>State</label>
-        <input type="text" formControlName="state" />
-        <small *ngIf="addressForm.get('state')?.touched && addressForm.get('state')?.invalid" class="error">State is required</small>
-      </div>
+      <small *ngIf="addressForm.get('city')?.touched && addressForm.get('city')?.errors?.['required']" class="error">
+        City is required
+      </small>
+      <small *ngIf="addressForm.get('city')?.touched && addressForm.get('city')?.errors?.['pattern']" class="error">
+        Only alphabets allowed and space not allowed at start or end
+      </small>
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="row">
+    <div class="form-group">
+      <label>Pin Code</label>
+      <input type="text" maxlength="6" inputmode="numeric" formControlName="pin" />
+
+      <small *ngIf="addressForm.get('pin')?.touched && addressForm.get('pin')?.errors?.['required']" class="error">
+        PIN is required
+      </small>
+      <small *ngIf="addressForm.get('pin')?.touched && addressForm.get('pin')?.errors?.['pattern']" class="error">
+        Enter valid 6-digit PIN
+      </small>
     </div>
 
-    <div class="form-group full-width">
-      <label>Region</label>
-      <input type="text" formControlName="region" />
-      <small *ngIf="addressForm.get('region')?.touched && addressForm.get('region')?.invalid" class="error">Region is required</small>
-    </div>
+    <div class="form-group">
+      <label>State</label>
+      <input type="text" formControlName="state" />
 
-    <div class="form-group full-width">
-      <label>Permanent Address</label>
-      <input type="text" formControlName="address" />
-      <small *ngIf="addressForm.get('address')?.touched && addressForm.get('address')?.invalid" class="error">Address is required</small>
+      <small *ngIf="addressForm.get('state')?.touched && addressForm.get('state')?.errors?.['required']" class="error">
+        State is required
+      </small>
+      <small *ngIf="addressForm.get('state')?.touched && addressForm.get('state')?.errors?.['pattern']" class="error">
+        Only alphabets allowed and space not allowed at start or end
+      </small>
     </div>
+  </div>
 
-    <div class="btn-wrapper">
-      <button type="submit">Submit</button>
-    </div>
-  </form>
+  <!-- Region -->
+  <div class="form-group full-width">
+    <label>Region</label>
+    <input type="text" formControlName="region" />
+
+    <small *ngIf="addressForm.get('region')?.touched && addressForm.get('region')?.errors?.['required']" class="error">
+      Region is required
+    </small>
+    <small *ngIf="addressForm.get('region')?.touched && addressForm.get('region')?.errors?.['pattern']" class="error">
+      Only alphabets allowed and space not allowed at start or end
+    </small>
+  </div>
+
+  <!-- Address -->
+  <div class="form-group full-width">
+    <label>Permanent Address</label>
+    <input type="text" formControlName="address" />
+
+    <small *ngIf="addressForm.get('address')?.touched && addressForm.get('address')?.errors?.['required']" class="error">
+      Address is required
+    </small>
+    <small *ngIf="addressForm.get('address')?.touched && addressForm.get('address')?.errors?.['minlength']" class="error">
+      Address must be at least 10 characters
+    </small>
+    <small *ngIf="addressForm.get('address')?.touched && addressForm.get('address')?.errors?.['pattern']" class="error">
+      Invalid address format
+    </small>
+  </div>
+
+  <!-- Submit -->
+  <div class="btn-wrapper">
+    <button type="submit" [disabled]="addressForm.invalid">
+      Submit
+    </button>
+  </div>
+
+</form>
+
 </div>

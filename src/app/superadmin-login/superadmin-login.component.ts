@@ -47,8 +47,6 @@ export class SuperadminLoginComponent {
   });
 }
 
-   navigateTo(route: string) {
-    this.router.navigate([route]);
-  }
+
 
 }

@@ -65,6 +65,7 @@ export class AddressPageComponent implements OnInit {
     const formData = this.addressForm.value;
     const formName = String(formData.name).trim();
     const formMobile = String(formData.secondaryPhone).trim();
+    const formaddress = String(formData.address).trim();
     const editId = this.editingAddressId ? Number(this.editingAddressId) : null;
 
     // 🔍 DUPLICATE MOBILE CHECK
@@ -85,6 +86,16 @@ export class AddressPageComponent implements OnInit {
 
     if (isDuplicateName) {
       alert('Name already exists!');
+      return;
+    }
+
+     const isDuplicateAdress = this.addresses.some(addr =>
+      String(addr.address).trim() === formaddress &&
+      addr.id !== editId
+    );
+
+    if (isDuplicateAdress) {
+      alert('Address already exists!');
       return;
     }
 

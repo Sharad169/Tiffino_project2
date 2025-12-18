@@ -16,14 +16,58 @@ export class SuperadmincloudkitchenComponent {
    addressForm!: FormGroup;
 
     constructor(private fb: FormBuilder, private api: AdminService, private router: Router) {
-    this.addressForm = this.fb.group({
-      name: ['', Validators.required],
-      city: ['', Validators.required],
-      pin: ['', [Validators.required, Validators.pattern(/^[0-9]{6}$/)]],
-      state: ['', Validators.required],
-      region: ['', Validators.required],
-      address: ['', Validators.required],
-    });
+   this.addressForm = this.fb.group({
+  name: [
+    '',
+    [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.pattern(/^[A-Za-z]+$/)
+    ]
+  ],
+
+  city: [
+    '',
+    [
+      Validators.required,
+      Validators.pattern(/^[A-Za-z]+$/)
+    ]
+  ],
+
+  pin: [
+    '',
+    [
+      Validators.required,
+      Validators.pattern(/^[1-9][0-9]{5}$/)
+    ]
+  ],
+
+  state: [
+    '',
+    [
+      Validators.required,
+      Validators.pattern(/^[A-Za-z]+$/)
+    ]
+  ],
+
+  region: [
+    '',
+    [
+      Validators.required,
+      Validators.pattern(/^[A-Za-z]+$/)
+    ]
+  ],
+
+  address: [
+    '',
+    [
+      Validators.required,
+      Validators.minLength(10),
+      Validators.pattern(/^(?!.*\s{2,})[A-Za-z0-9.,/#-\s]+$/)
+    ]
+  ]
+});
+
   }
 
 
