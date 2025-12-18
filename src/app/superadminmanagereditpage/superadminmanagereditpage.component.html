@@ -1,0 +1,198 @@
+<app-superadmin-sidebar></app-superadmin-sidebar>
+
+<div class="managerinfo-wrapper">
+  <!-- Tab Selection Bar -->
+  <div class="tab-container">
+    <!-- Tab Bar (same width as form) -->
+    <div class="tab-bar">
+      <div
+        class="tab"
+        [class.active]="activeTab === 'info'"
+        (click)="setActiveTab('info')"
+      >
+        Employee Information
+      </div>
+
+      <div
+        class="tab"
+        [class.active]="activeTab === 'blank'"
+        (click)="setActiveTab('blank')"
+      >
+        Changes Requested by Employee
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="tab-content">
+      <!-- Employee Info Form -->
+      <div *ngIf="activeTab === 'info'">
+        <form class="manager-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input id="name" type="text" [value]="employee.name" readonly />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                type="email"
+                [value]="employee.email"
+                readonly
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="dob">DOB</label>
+              <input id="dob" type="text" [value]="employee.date" readonly />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone No.</label>
+              <input id="phone" type="text" [value]="employee.phone" readonly />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="kitchen-id">Kitchen ID</label>
+              <input
+                id="kitchen-id"
+                type="text"
+                [value]="employee.kitchenCode"
+                readonly
+              />
+            </div>
+            <div class="form-group file-group">
+              <label for="photo">Photo</label>
+              <div class="custom-file-input">
+                <a
+                  *ngIf="employee.photo"
+                  [href]="employee.photo"
+                  target="_blank"
+                  class="view-file"
+                >
+                  View File
+                </a>
+                <span *ngIf="!employee.photo">Not Uploaded</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group file-group">
+              <label>Aadhar</label>
+              <div class="custom-file-input">
+                <a
+                  *ngIf="employee.aadhar"
+                  [href]="employee.aadhar"
+                  target="_blank"
+                  class="view-file"
+                >
+                  View File
+                </a>
+                <span *ngIf="!employee.aadhar">Not Uploaded</span>
+              </div>
+            </div>
+            <div class="form-group file-group">
+              <label>PAN Card</label>
+              <div class="custom-file-input">
+                <a
+                  *ngIf="employee.pan"
+                  [href]="employee.pan"
+                  target="_blank"
+                  class="view-file"
+                >
+                  View File
+                </a>
+                <span *ngIf="!employee.pan">Not Uploaded</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bank-acct">Bank Account No.</label>
+              <input
+                id="bank-acct"
+                type="text"
+                [value]="employee.bankAccountNum"
+                readonly
+              />
+            </div>
+            <div class="form-group file-group">
+              <label>Cheque Book</label>
+              <div class="custom-file-input">
+                <a
+                  *ngIf="employee.chequeBook"
+                  [href]="employee.chequeBook"
+                  target="_blank"
+                  class="view-file"
+                >
+                  View File
+                </a>
+                <span *ngIf="!employee.chequeBook">Not Uploaded</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ifsc">IFSC Code</label>
+              <input id="ifsc" type="text" [value]="employee.ifsc" readonly />
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label for="perm-address">Permanent Address</label>
+            <textarea class="address-box" readonly>
+  {{ employee.permanentAddress }}
+</textarea
+            >
+          </div>
+
+          <div class="form-group full">
+            <label for="curr-address">Current Address</label>
+            <textarea class="address-box" readonly>
+  {{ employee.currentAddress }}
+</textarea
+            >
+          </div>
+        </form>
+      </div>
+
+      <div *ngIf="activeTab === 'blank'" class="blank-page">
+        <div class="action-box">
+          <div class="changes-table">
+            <div class="table-header">
+              <div>Field</div>
+              <div>Current Value</div>
+              <div>Requested Value</div>
+            </div>
+
+            <div class="table-row" *ngFor="let change of changeRequests">
+              <div class="field-name">{{ change.fieldName }}</div>
+
+              <div class="old-value">
+                {{ change.currentValue }}
+              </div>
+
+              <div class="new-value">
+                {{ change.requestedValue }}
+              </div>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="approve-btn" (click)="approveRequest()">
+              Approve
+            </button>
+
+            <button class="reject-btn" (click)="rejectRequest()">Reject</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

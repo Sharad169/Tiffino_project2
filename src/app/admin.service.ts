@@ -106,7 +106,7 @@ export class AdminService {
     });
   }
 
-  getEmloyeeById(code: string): Observable<any> {
+  getManagerById(code: string): Observable<any> {
     const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(`${this.apiUrl4}/manager/${code}`, { headers });
@@ -124,6 +124,12 @@ export class AdminService {
     return this.http.get(`${this.baseUrl3}/delivery-partner/${code}`, {
       headers,
     });
+  }
+
+  getEmployeeById(code: string): Observable<any> {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get(`${this.apiUrl4}/EmployeeCode/${code}`, { headers });
   }
 
   addCuisine(data: any): Observable<any> {
@@ -159,5 +165,47 @@ export class AdminService {
     return new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
+  }
+  // ================= EDIT DIFFERENCES (SUPER ADMIN) =================
+  // GET /edit/differences/{employeeCode}
+  getEditDifferences(employeeCode: string): Observable<any[]> {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.get<any[]>(
+      `http://localhost:8081/edit/differences/${employeeCode}`,
+      { headers }
+    );
+  }
+  // ================= APPROVE EDIT REQUEST =================
+  approveEditRequest(employeeCode: string): Observable<string> {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.post(
+      `${this.editApi}/approve/${employeeCode}`,
+      {},
+      {
+        headers,
+        responseType: 'text', // ✅ backend returns STRING
+      }
+    );
+  }
+
+  // ================= REJECT EDIT REQUEST =================
+  rejectEditRequest(employeeCode: string): Observable<string> {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.post(
+      `${this.editApi}/reject/${employeeCode}`,
+      {},
+      {
+        headers,
+        responseType: 'text', // ✅ backend returns STRING
+      }
+    );
   }
 }

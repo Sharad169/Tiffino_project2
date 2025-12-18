@@ -71,7 +71,9 @@ import { ManagerYourdetailseditrequestpageComponent } from './manageryourdetails
 import { ManagerYourdetailssubmitpageComponent } from './manager-yourdetailssubmitpage/manager-yourdetailssubmitpage.component';
 import { ManagerSetpasswordComponent } from './manager-setpassword/manager-setpassword.component';
 import { SuperadmineditlistComponent } from './superadmineditlist/superadmineditlist.component';
-import { SuperadiminmanagereditpageComponent } from './superadiminmanagereditpage/superadiminmanagereditpage.component';
+import { SuperadminmanagereditpageComponent } from './superadminmanagereditpage/superadminmanagereditpage.component';
+import { SuperadminchefeditpageComponent } from './superadminchefeditpage/superadminchefeditpage.component';
+import { SuperadmindelpartnereditpageComponent } from './superadmindelpartnereditpage/superadmindelpartnereditpage.component';
 export const routes: Routes = [
   // Default page
 
@@ -210,8 +212,8 @@ export const routes: Routes = [
   { path: 'superAdminLogin', component: SuperadminLoginComponent },
   { path: 'superadmineditlist', component: SuperadmineditlistComponent },
   {
-    path: 'superadminmanagereditpage',
-    component: SuperadiminmanagereditpageComponent,
+    path: 'superadminmanagereditpage/:employeeCode',
+    component: SuperadminmanagereditpageComponent,
   },
 
   {
@@ -238,6 +240,15 @@ export const routes: Routes = [
   { path: 'managerinfo', component: ManagerinfoComponent },
   { path: 'superadminchef', component: SuperadminchefComponent },
   { path: 'superadmindelpartner', component: SuperadmindelpartnerComponent },
+  {
+    path: 'superadminchefeditpage/:employeeCode',
+    component: SuperadminchefeditpageComponent,
+  },
+  {
+    path: 'superadmindelpartnereditpage/:employeeCode',
+    component: SuperadmindelpartnereditpageComponent,
+  },
+
   {
     path: 'manager-yourdetailspage',
     component: ManagerYourdetailspageComponent,

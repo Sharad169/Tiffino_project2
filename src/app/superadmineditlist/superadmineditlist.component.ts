@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SuperadminSidebarComponent } from '../superadmin-sidebar/superadmin-sidebar.component';
 import { AdminService } from '../admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listemployee',
@@ -20,7 +21,7 @@ export class SuperadmineditlistComponent implements OnInit {
   employees: any[] = []; // full list
   filteredEmployees: any[] = []; // filtered list
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadEditRequests();
@@ -70,5 +71,26 @@ export class SuperadmineditlistComponent implements OnInit {
   @HostListener('document:click')
   closeDropdown() {
     this.dropdownOpen = false;
+  }
+  openEditPage(emp: any) {
+    const employeeCode = emp.employeeId;
+    const role = emp.position; // MANAGER | CHEF | DELIVERY_PARTNER
+
+    switch (role) {
+      case 'MANAGER':
+        this.router.navigate(['/superadminmanagereditpage', employeeCode]);
+        break;
+
+      case 'CHEF':
+        this.router.navigate(['/superadminchefeditpage', employeeCode]);
+        break;
+
+      case 'DELIVERY_PARTNER':
+        this.router.navigate(['/superadmindelpartnereditpage', employeeCode]);
+        break;
+
+      default:
+        console.error('Unknown role:', role);
+    }
   }
 }
