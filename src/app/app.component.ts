@@ -83,6 +83,7 @@ export class AppComponent implements OnDestroy {
       '/superAdminLogin',
       '/superadminsetpassword',
       '/chef-login',
+      '/chef-setpassword',
 
     ];
 

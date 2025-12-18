@@ -19,7 +19,7 @@ export class SuperadmincloudkitchenComponent {
     this.addressForm = this.fb.group({
       name: ['', Validators.required],
       city: ['', Validators.required],
-      pin: ['', [Validators.required, Validators.pattern(/^[0-9]{6}$/)]],
+      pinCode: ['', [Validators.required, Validators.pattern(/^[0-9]{6}$/)]],
       state: ['', Validators.required],
       region: ['', Validators.required],
       address: ['', Validators.required],

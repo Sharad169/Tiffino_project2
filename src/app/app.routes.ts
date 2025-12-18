@@ -77,6 +77,7 @@ import { ChefDashboardComponent } from './chef-dashboard/chef-dashboard.componen
 import { ChefEditdetailspageComponent } from './chef-editdetailspage/chef-editdetailspage.component';
 import { ChefHelpsupportpageComponent } from './chef-helpsupportpage/chef-helpsupportpage.component';
 import { ChefYourdetailspageComponent } from './chef-yourdetailspage/chef-yourdetailspage.component';
+import { ChefSetpasswordComponent } from './chef-setpassword/chef-setpassword.component';
 
 
 
@@ -215,6 +216,8 @@ export const routes: Routes = [
    { path: 'chef-helpsupportpage', component: ChefHelpsupportpageComponent },
 
    { path: 'chef-yourdetailspage', component: ChefYourdetailspageComponent },
+
+     { path: 'chef-setpassword', component: ChefSetpasswordComponent },
 
 
 //Add-card

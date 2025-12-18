@@ -7,46 +7,45 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  apiUrl="http://localhost:8080/api/auth"
-    private baseUrl = 'http://localhost:8080/api/auth/login';
+  apiUrl = "http://localhost:8080/api/auth";
+  private baseUrl = 'http://localhost:8080/api/auth/login';
+  private baseUrl1 = "http://localhost:8082/api/cuisines/all";
+  private Url = 'http://localhost:8083/api/cart';
 
-    private baseUrl1= "http://localhost:8082/api/cuisines/all"
+  constructor(private http: HttpClient) { }
 
-    private Url = 'http://localhost:8083/api/cart';
-
-  constructor(private http :HttpClient) { }
-
-  
- signup(data: any): Observable<string> {
-  return this.http.post(`${this.apiUrl}/register`, data, { responseType: 'text' });
-}
+  signup(data: any): Observable<string> {
+    return this.http.post(`${this.apiUrl}/register`, data, { responseType: 'text' });
+  }
 
   sendOtp(email: string): Observable<any> {
-  return this.http.post(
-    `${this.baseUrl}/request-otp?email=${email}`,{}, { responseType: 'text' }
-  );
-}
+    return this.http.post(
+      `${this.baseUrl}/request-otp?email=${email}`, {},
+      { responseType: 'text' }
+    );
+  }
 
   // Verify OTP
   verifyOtp(payload: { email: string; otp: string }): Observable<any> {
-    // example: if backend has /verify-otp endpoint
     return this.http.post(`${this.baseUrl}/verify-otp`, payload);
   }
 
-  homeData(){
+  homeData() {
     const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(`${this.baseUrl1}`, { headers });
   }
 
-  getmealbycaterogy(category: string){
-     
- const token = sessionStorage.getItem('token');
+  getmealbycaterogy(category: string) {
+    const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get(`http://localhost:8082/api/cuisines/category/${category}/with-meals`, { headers });
+    return this.http.get(
+      `http://localhost:8082/api/cuisines/category/${category}/with-meals`,
+      { headers }
+    );
   }
 
-   getCartByUserId(userId: number) {
+  getCartByUserId(userId: number) {
     const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(`${this.Url}/${userId}`, { headers });
@@ -55,10 +54,64 @@ export class AuthService {
   addToCart(userId: number, item: any) {
     const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
- return this.http.post(`${this.Url}/${userId}/add`, item, { headers });
+    return this.http.post(`${this.Url}/${userId}/add`, item, { headers });
   }
 
+ // ✅ CHEF LOGIN (same API as set-password)
+  chefLogin(payload: {
+    ChefCode: string;
+    Password: string;
+  }): Observable<any> {
 
+    const params = {
+      ChefCode: payload.ChefCode,
+      Password: payload.Password
+    };
+
+    return this.http.post(
+      'http://localhost:8081/api/admins/chef-login',
+      null,
+      { params }
+    );
+  }
+
+  // ✅ ADD THIS METHOD AT THE BOTTOM
+
+// chefSetPassword(payload: {
+//   ChefCode: string;
+//   Password: string;
+// }): Observable<any> {
+
+//   const params = {
+//     ChefCode: payload.ChefCode, 
+//     Password: payload.Password
+//   };
+
+//   return this.http.post(
+    
+//     `http:localhost:8081/api/admins/chef-login?ChefCode=${ChefCode}&Password=${Password}&temp=${temp}`
  
+//     null,
+//     { params }
+//   );
+// }
+
+// chefSetPassword(ChefCode : string, Password: string  , temp : string): Observable<any> {
+//   const url = `http://localhost:8081/api/admins/chef-login?ChefCode=${ChefCode}&Password=${Password}&temp=${temp}`;
+//   return this.http.post(url, null);
+
+// }
+
+chefSetPassword(data: {
+  ChefCode: string;
+  Password: string;
+  temp: string;
+}): Observable<any> {
+
+  const url = `http://localhost:8081/api/admins/chef-login?ChefCode=${data.ChefCode}&Password=${data.Password}&temp=${data.temp}`;
+  return this.http.post(url, null);
+}
+
+
 
 }
