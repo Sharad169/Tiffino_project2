@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SuperadminSidebarComponent } from '../superadmin-sidebar/superadmin-sidebar.component';
 import { CommonModule } from '@angular/common';
@@ -33,198 +33,132 @@ export class SuperadmindelpartnerComponent implements OnInit {
 
   ngOnInit(): void {
 this.delPartnerForm = this.fb.group({
-    name: ['', Validators.required],
+    name: ['', [
+  Validators.required,
+  Validators.pattern(/^[A-Za-z]+$/)
+]],
  
-    email: ['', [
-      Validators.required,
-      Validators.email
-    ]],
+   email: ['', [
+  Validators.required,
+  Validators.email
+]],
  
     phone: ['', [
-      Validators.required,
-      Validators.pattern(/^\d{10}$/)
-    ]],
+  Validators.required,
+  Validators.pattern(/^[6-9]\d{9}$/)
+]],
  
-    dateOfBirth: ['', Validators.required],
+    dateOfBirth: ['', [
+  Validators.required,
+  Validators.pattern(/^\d{4}-\d{2}-\d{2}$/),
+  this.validDobValidator,
+  this.age18Validator
+]],
  
-    currentAddress: ['', Validators.required],
+    currentAddress: ['', [
+  Validators.required,
+  Validators.minLength(10),
+  Validators.pattern(/^[a-zA-Z0-9\s,./-]+$/)
+]],
  
-    permanentAddress: ['', Validators.required],
+  permanentAddress: ['', [
+  Validators.required,
+  Validators.minLength(10),
+  Validators.pattern(/^[a-zA-Z0-9\s,./-]+$/)
+]],
+
  
-    vehicleNumber: ['', Validators.required],
+    vehicleNumber: ['', [
+  Validators.required,
+  Validators.pattern(/^[A-Z]{2}[0-9]{1,2}[A-Z]{1,2}[0-9]{4}$/)
+]],
  
-    bankAccountNum: ['', Validators.required],
+   bankAccountNum: ['', [
+  Validators.required,
+  Validators.pattern(/^\d{9,18}$/)
+]],
  
-    ifsc: ['', Validators.required],
+   ifsc: ['', [
+  Validators.required,
+  Validators.pattern(/^[A-Z]{4}0[A-Z0-9]{6}$/)
+]],
  
-    kitchenCode: [''],
+ kitchenCode: ['', [
+  Validators.required,
+  Validators.pattern(/^[A-Za-z0-9]+$/)
+]],
  
     // file placeholders (no validators here)
-    aadhar: [null],
+    aadhar: [null, Validators.required],
     panCard: [null],
     vehicleInsurance: [null],
     drivingLicense: [null],
-    photo: [null],
+    photo: [null, Validators.required],
     chequeBook: [null],
   });
 
   }
 
   // 📁 Handle file input
-  onFileSelected(event: any, fieldName: string): void {
-    const file = event.target.files[0];
-    if (file) {
-      this.uploadedFiles[fieldName] = {
-        uploaded: true,
-        file,
-        name: file.name,
-      };
-      this.delPartnerForm.patchValue({ [fieldName]: file });
-      this.delPartnerForm.get(fieldName)?.updateValueAndValidity();
-    }
+  // onFileSelected(event: any, fieldName: string): void {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     this.uploadedFiles[fieldName] = {
+  //       uploaded: true,
+  //       file,
+  //       name: file.name,
+  //     };
+  //     this.delPartnerForm.patchValue({ [fieldName]: file });
+  //     this.delPartnerForm.get(fieldName)?.updateValueAndValidity();
+  //   }
+  // }
+
+onFileSelected(event: any, controlName: string) {
+  const file: File = event.target.files[0];
+
+  if (!file) return;
+
+  const allowedTypes = [
+    'image/png',
+    'image/jpeg',
+    'image/jpg',
+    'application/pdf'
+  ];
+
+  const maxSize = 2 * 1024 * 1024; // 2MB
+
+  // ❌ File type validation
+  if (!allowedTypes.includes(file.type)) {
+    alert('Only PDF or Image files are allowed');
+    event.target.value = '';
+    this.delPartnerForm.get(controlName)?.setValue(null);
+    return;
   }
 
-  // 🚀 Submit form with token + FormData + JSON
-//  onSubmit(): void {
-//   if (this.delPartnerForm.invalid) {
-//     alert('Please fill out all required fields before submitting.');
-//     return;
-//   }
+  // ❌ File size validation
+  if (file.size > maxSize) {
+    alert('File size must be less than 2MB');
+    event.target.value = '';
+    this.delPartnerForm.get(controlName)?.setValue(null);
+    return;
+  }
 
-//   const raw = this.delPartnerForm.value;
+  // ✅ Valid file
+  this.delPartnerForm.patchValue({
+    [controlName]: file
+  });
 
-//   // ⭐ FIX EMPTY FIELD ISSUE
-//   const DelInfo = {
-//     ...raw,
-//     permanentAddress: raw.permanentAddress?.trim() || '',
-//     currentAddress: raw.currentAddress?.trim() || '',
-//     ifsc: raw.ifsc?.trim() || ''
-//   };
+  this.delPartnerForm.get(controlName)?.updateValueAndValidity();
 
-//   console.log("📌 Sending JSON:", DelInfo);
+  // UI status
+  this.uploadedFiles[controlName] = {
+    uploaded: true,
+    name: file.name
+  };
+}
 
-//   const formData = new FormData();
 
-//   // Append JSON as Blob
-//   formData.append(
-//     'DelInfo',
-//     new Blob([JSON.stringify(DelInfo)], { type: 'application/json' })
-//   );
 
-//   // ⭐ Correct file key mapping
-//  const keyMapping: any = {
-//   photo: 'photo',
-//   aadhar: 'aadhar',
-//   panCard: 'pan',
-//   chequeBook: 'chequeBook',
-//   vehicleInsurance: 'insurance',
-//   drivingLicense: 'license',   // ⭐⭐ MAIN FIX ⭐⭐
-// };
-
-//   // Append files properly
-//   Object.keys(this.uploadedFiles).forEach((key) => {
-//     const fileData = this.uploadedFiles[key];
-//     if (fileData.file) {
-//       formData.append(keyMapping[key] || key, fileData.file);
-//     }
-//   });
-
-//   // Token
-//   const token = sessionStorage.getItem('token');
-//   if (!token) {
-//     alert('User not authenticated! Please log in again.');
-//     return;
-//   }
-
-//   const headers = new HttpHeaders({
-//     Authorization: `Bearer ${token}`,
-//   });
-
-//   console.log("📎 Files:", this.uploadedFiles);
-
-//   // API call
-//   this.http.post(this.apiUrl, formData, { headers }).subscribe({
-//     next: (res) => {
-//       console.log("✅ Registered Successfully:", res);
-//       alert('Delivery Partner registered successfully!');
-//       this.delPartnerForm.reset();
-
-//       Object.keys(this.uploadedFiles).forEach((k) => {
-//         this.uploadedFiles[k] = { uploaded: false, file: null, name: '' };
-//       });
-//     },
-//     error: (err) => {
-//       console.error("❌ Error:", err);
-//       alert('Failed to register Delivery Partner. Check console.');
-//     }
-//   });
-// }
-
-// onSubmit(): void {
-
-//   if (this.delPartnerForm.invalid) {
-
-//     alert('Please fill out all required fields before submitting.');
-
-//     return;
-
-//   }
- 
-//   const DelInfo = this.delPartnerForm.value;
- 
-//   const formData = new FormData();
-
-//   formData.append(
-
-//     'DelInfo',
-
-//     new Blob([JSON.stringify(DelInfo)], { type: 'application/json' })
-
-//   );
- 
-//   const keyMapping: any = {
-    
-//     photo: 'photo',
-
-//     aadhar: 'aadhar',
-
-//     panCard: 'pan',
-
-//     chequeBook: 'chequeBook',
-
-//     vehicleInsurance: 'insurance',
-
-//     drivingLicense: 'license',
-
-//   };
- 
-//   Object.keys(this.uploadedFiles).forEach((key) => {
-
-//     const file = this.uploadedFiles[key].file;
-
-//     if (file) {
-
-//       formData.append(keyMapping[key], file);
-
-//     }
-
-//   });
- 
-//   const headers = new HttpHeaders({
-
-//     Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-
-//   });
- 
-//   this.http.post(this.apiUrl, formData, { headers }).subscribe({
-
-//     next: () => alert('Delivery Partner registered successfully!'),
-
-//     error: () => alert('Failed to register Delivery Partner.'),
-
-//   });
-
-// }
 
 onSubmit(): void {
 
@@ -330,7 +264,6 @@ onSubmit(): void {
 
  
  
-// onSubmit(): void {
 //   if (this.delPartnerForm.invalid) {
 //     alert('Please fill out all required fields before submitting.');
 //     return;
@@ -389,4 +322,39 @@ onSubmit(): void {
       this.router.navigate(['/superadmindelpartner']);
     }
   }
+
+  validDobValidator(control: AbstractControl) {
+  if (!control.value) return null;
+
+  const [year, month, day] = control.value.split('-').map(Number);
+  const date = new Date(year, month - 1, day);
+
+  const isValid =
+    date.getFullYear() === year &&
+    date.getMonth() === month - 1 &&
+    date.getDate() === day;
+
+  return isValid ? null : { invalidDate: true };
+}
+
+age18Validator(control: AbstractControl) {
+  if (!control.value) return null;
+
+  const [year, month, day] = control.value.split('-').map(Number);
+  const dob = new Date(year, month - 1, day);
+  const today = new Date();
+
+  if (dob > today) {
+    return { futureDate: true };
+  }
+
+  let age = today.getFullYear() - dob.getFullYear();
+  const m = today.getMonth() - dob.getMonth();
+
+  if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+    age--;
+  }
+
+  return age >= 18 ? null : { underAge: true };
+}
 }

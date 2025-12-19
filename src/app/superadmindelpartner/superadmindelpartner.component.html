@@ -50,35 +50,86 @@
     <div class="form-row">
       <div class="form-group">
         <label>Name</label>
-        <input type="text" formControlName="name" />
+       <input type="text" formControlName="name" />
+
+<small *ngIf="delPartnerForm.get('name')?.touched && delPartnerForm.get('name')?.invalid" class="error">
+  Name is required and must contain only letters (no spaces or numbers)
+</small>
       </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" formControlName="email" />
-      </div>
+     <div class="form-group">
+  <label>Email</label>
+  <input type="email" formControlName="email" />
+
+  <small *ngIf="delPartnerForm.get('email')?.touched && delPartnerForm.get('email')?.errors" class="error">
+    <span *ngIf="delPartnerForm.get('email')?.errors?.['required']">
+      Email is required
+    </span>
+    <span *ngIf="delPartnerForm.get('email')?.errors?.['email']" class="error">
+      Enter a valid email address
+    </span>
+  </small>
+</div>
+
     </div>
 
     <div class="form-row">
       <div class="form-group">
-        <label for="dob">DOB</label>
-        <input
-          id="dob"
-          type="text"
-          placeholder="YYYY/MM/DD"
-          formControlName="dateOfBirth"
-        />
-      </div>
+  <label for="dob">DOB</label>
+  <input
+    id="dob"
+    type="text"
+    placeholder="YYYY-MM-DD"
+    formControlName="dateOfBirth"
+  />
+  <small *ngIf="delPartnerForm.get('dateOfBirth')?.touched && delPartnerForm.get('dateOfBirth')?.errors" class="error">
+  <span *ngIf="delPartnerForm.get('dateOfBirth')?.errors?.['required']">
+    DOB is required
+  </span>
+  <span *ngIf="delPartnerForm.get('dateOfBirth')?.errors?.['pattern']">
+    Format must be YYYY-MM-DD
+  </span>
+  <span *ngIf="delPartnerForm.get('dateOfBirth')?.errors?.['invalidDate']">
+    Invalid date
+  </span>
+  <span *ngIf="delPartnerForm.get('dateOfBirth')?.errors?.['futureDate']">
+    Future date not allowed
+  </span>
+  <span *ngIf="delPartnerForm.get('dateOfBirth')?.errors?.['underAge']">
+    Age must be 18+
+  </span>
+</small>
+
+</div>
       <div class="form-group">
-        <label>Phone No.</label>
-        <input type="text" formControlName="phone" />
-      </div>
+  <label>Phone No.</label>
+  <input type="text" formControlName="phone" />
+
+  <small *ngIf="delPartnerForm.get('phone')?.touched && delPartnerForm.get('phone')?.errors" class="error">
+    <span *ngIf="delPartnerForm.get('phone')?.errors?.['required']">
+      Phone number is required
+    </span>
+    <span *ngIf="delPartnerForm.get('phone')?.errors?.['pattern']">
+      Enter a valid 10-digit mobile number
+    </span>
+  </small>
+</div>
+
     </div>
 
     <div class="form-row">
       <div class="form-group">
-        <label>Kitchen Code</label>
-        <input type="text" formControlName="kitchenCode" />
-      </div>
+  <label>Kitchen Code</label>
+  <input type="text" formControlName="kitchenCode" />
+
+  <small *ngIf="delPartnerForm.get('kitchenCode')?.touched && delPartnerForm.get('kitchenCode')?.errors" class="error">
+    <span *ngIf="delPartnerForm.get('kitchenCode')?.errors?.['required']">
+      Kitchen Code is required
+    </span>
+    <span *ngIf="delPartnerForm.get('kitchenCode')?.errors?.['pattern']">
+      Only letters and numbers allowed (no spaces or special characters)
+    </span>
+  </small>
+</div>
       <div class="form-group file-group">
         <label>Photo (PDF/Image)</label>
         <input
@@ -89,6 +140,9 @@
         <span *ngIf="uploadedFiles.photo.uploaded"
           >✔ {{ uploadedFiles.photo.name }}</span
         >
+        <small *ngIf="delPartnerForm.get('photo')?.touched && delPartnerForm.get('photo')?.errors?.['required']">
+  Photo is required
+</small>
       </div>
     </div>
 
@@ -103,6 +157,9 @@
         <span *ngIf="uploadedFiles.aadhar.uploaded"
           >✔ {{ uploadedFiles.aadhar.name }}</span
         >
+        <small *ngIf="delPartnerForm.get('aadhar')?.touched && delPartnerForm.get('aadhar')?.errors?.['required']">
+  Aadhar document is required
+</small>
       </div>
       <div class="form-group file-group">
         <label>PAN Card</label>
@@ -145,13 +202,32 @@
 
     <div class="form-row">
       <div class="form-group">
-        <label>Bank Account No.</label>
-        <input type="text" formControlName="bankAccountNum" />
-      </div>
+  <label>Bank Account No.</label>
+  <input type="text" formControlName="bankAccountNum" />
+
+  <small *ngIf="delPartnerForm.get('bankAccountNum')?.touched && delPartnerForm.get('bankAccountNum')?.errors" class="error">
+    <span *ngIf="delPartnerForm.get('bankAccountNum')?.errors?.['required']">
+      Bank account number is required
+    </span>
+    <span *ngIf="delPartnerForm.get('bankAccountNum')?.errors?.['pattern']">
+      Enter a valid account number (9–18 digits)
+    </span>
+  </small>
+</div>
       <div class="form-group">
-        <label>IFSC Code</label>
-        <input type="text" formControlName="ifsc" />
-      </div>
+  <label>IFSC Code</label>
+  <input type="text" formControlName="ifsc" />
+
+  <small *ngIf="delPartnerForm.get('ifsc')?.touched && delPartnerForm.get('ifsc')?.errors" class="error">
+    <span *ngIf="delPartnerForm.get('ifsc')?.errors?.['required']">
+      IFSC code is required
+    </span>
+    <span *ngIf="delPartnerForm.get('ifsc')?.errors?.['pattern']">
+      Enter a valid IFSC code (e.g. SBIN0001234)
+    </span>
+  </small>
+</div>
+
     </div>
 
     <div class="form-row">
@@ -167,20 +243,56 @@
         >
       </div>
       <div class="form-group">
-        <label>Vehial No</label>
-        <input type="text" formControlName="vehicleNumber" />
-      </div>
+  <label>Vehicle No</label>
+  <input type="text" formControlName="vehicleNumber" />
+
+  <small *ngIf="delPartnerForm.get('vehicleNumber')?.touched && delPartnerForm.get('vehicleNumber')?.errors" class="error">
+    <span *ngIf="delPartnerForm.get('vehicleNumber')?.errors?.['required']">
+      Vehicle number is required
+    </span>
+    <span *ngIf="delPartnerForm.get('vehicleNumber')?.errors?.['pattern']">
+      Enter valid vehicle number (e.g. MH12AB1234)
+    </span>
+  </small>
+</div>
+
     </div>
 
     <div class="form-group full">
-      <label>Permanent Address</label>
-      <input type="text" formControlName="permanentAddress" />
-    </div>
+  <label>Permanent Address</label>
+  <input type="text" formControlName="permanentAddress" />
 
-    <div class="form-group full">
-      <label>Current Address</label>
-      <textarea formControlName="currentAddress"></textarea>
-    </div>
+  <small *ngIf="delPartnerForm.get('permanentAddress')?.touched && delPartnerForm.get('permanentAddress')?.errors" class="error">
+    <span *ngIf="delPartnerForm.get('permanentAddress')?.errors?.['required']">
+      Permanent address is required
+    </span>
+    <span *ngIf="delPartnerForm.get('permanentAddress')?.errors?.['minlength']">
+      Address must be at least 10 characters
+    </span>
+    <span *ngIf="delPartnerForm.get('permanentAddress')?.errors?.['pattern']">
+      Invalid characters in address
+    </span>
+  </small>
+</div>
+
+
+  <div class="form-group full">
+  <label>Current Address</label>
+  <textarea formControlName="currentAddress"></textarea>
+
+  <small *ngIf="delPartnerForm.get('currentAddress')?.touched && delPartnerForm.get('currentAddress')?.errors" class="error">
+    <span *ngIf="delPartnerForm.get('currentAddress')?.errors?.['required']">
+      Current address is required
+    </span>
+    <span *ngIf="delPartnerForm.get('currentAddress')?.errors?.['minlength']">
+      Address must be at least 10 characters
+    </span>
+    <span *ngIf="delPartnerForm.get('currentAddress')?.errors?.['pattern']">
+      Invalid characters in address
+    </span>
+  </small>
+</div>
+
     
 
     <div class="submit-row">

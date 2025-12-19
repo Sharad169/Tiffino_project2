@@ -250,3 +250,8 @@ button[type="submit"] {
 .form-row.address-row {
   justify-content: center;
 }
+
+.error{
+  color: red;
+  font-size: 14px;
+}
