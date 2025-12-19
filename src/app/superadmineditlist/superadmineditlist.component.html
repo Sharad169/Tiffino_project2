@@ -1,0 +1,53 @@
+<app-superadmin-sidebar></app-superadmin-sidebar>
+ 
+<div class="listemployee-wrapper">
+  <!-- Dropdown -->
+  <div class="dropdown-row">
+    <div class="dropdown-selected" (click)="toggleDropdown($event)">
+      {{ selectedOption }}
+      <span class="arrow">▾</span>
+    </div>
+ 
+    <ul class="dropdown-list" *ngIf="dropdownOpen">
+      <li
+        class="dropdown-item"
+        *ngFor="let role of roles"
+        (click)="selectRole(role)"
+      >
+        {{ role }}
+      </li>
+    </ul>
+  </div>
+ 
+  <!-- Employee List -->
+  <div class="employee-list">
+    <div
+      class="employee-card"
+      *ngFor="let emp of filteredEmployees"
+      (click)="openEditPage(emp)"
+    >
+      <div
+        class="employee-photo"
+        [style.backgroundImage]="'url(' + emp.image + ')'"
+      ></div>
+ 
+      <div class="employee-details">
+        <div class="employee-name-row">
+          <h3 class="employee-name">{{ emp.name }}</h3>
+ 
+          <span class="status-badge" [ngClass]="emp.status.toLowerCase()">
+            {{ emp.status }}
+          </span>
+        </div>
+        <p class="employee-role">{{ emp.position }}</p>
+ 
+        <div class="employee-id-row">
+          <p class="kitchen-id">Kitchen ID: {{ emp.kitchenId }}</p>
+          <p class="employee-id">Employee ID: {{ emp.employeeId }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ 

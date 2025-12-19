@@ -66,6 +66,7 @@ import { SuperadminkitchendetailsComponent } from './superadminkitchendetails/su
 import { SuperadminemployeedetailsComponent } from './superadminemployeedetails/superadminemployeedetails.component';
 import { SuperadminmealComponent } from './superadminmeal/superadminmeal.component';
 import { ManagerLoginComponent } from './manager-login/manager-login.component';
+import { SuperadmineditlistComponent } from './superadmineditlist/superadmineditlist.component';
 
 
 
@@ -213,6 +214,8 @@ export const routes: Routes = [
     path: 'superadmincloudkitchen',
     component: SuperadmincloudkitchenComponent,
   },
+
+  { path: 'superAdminEditList', component: SuperadmineditlistComponent },
 
   { path: 'superadminkitchen', component: SuperadminkitchenComponent },
 

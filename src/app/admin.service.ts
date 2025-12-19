@@ -21,6 +21,8 @@ export class AdminService {
   private baseUrl7 = 'http://localhost:8082/api/cuisines';
   private apiUrl8 = 'http://localhost:8082/api';
   private apiUrl9 = "http://localhost:8082/api/cuisines/all";
+  private editApi = 'http://localhost:8081/edit';
+ 
 
 
 
@@ -150,6 +152,12 @@ export class AdminService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(this.apiUrl9, { headers });
 
+  }
+
+    getAllEditRequests(): Observable<any[]> {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<any[]>(`${this.editApi}/all-requests`, {headers});
   }
 
 }

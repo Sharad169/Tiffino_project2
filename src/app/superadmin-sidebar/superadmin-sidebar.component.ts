@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { Location, CommonModule } from '@angular/common';
-
+ 
 @Component({
   selector: 'app-superadmin-sidebar',
   standalone: true,
@@ -19,10 +19,10 @@ export class SuperadminSidebarComponent {
   ];
   //Cloud Kitchen registration route
   cloudKitchenRoutes = ['/superadmincloudkitchen'];
-
+ 
   // ✅ List of Kitchen group
   kitchenRoutes = ['/superadminkitchen', '/superadminkitchendetails'];
-
+ 
   // ✅ List of Employee group
   employeeRoutes = [
     '/listemployee',
@@ -33,7 +33,7 @@ export class SuperadminSidebarComponent {
     '/superadmincheflist',
     '/superadmindelpartnerlist',
   ];
-
+ 
   // ✅ Edit Employee route
   editEmployeeRoutes = [
     '/superadmineditlist',
@@ -43,19 +43,19 @@ export class SuperadminSidebarComponent {
   ];
   //Subscriber route
   subscriberListRoutes = ['/superadminsubscriberlist'];
-
+ 
   //Superadminaddingmeal route
   superadminaddingmeal = ['/superadminmeal'];
-
+ 
   //Superadmincoupanpage route
   superadmincoupanpage = ['/superadmincoupanpage'];
-
+ 
   constructor(private location: Location, private router: Router) {}
-
+ 
   goBack(): void {
     this.location.back();
   }
-
+ 
   // ✅ Registration Form active
   isRegistrationActive(): boolean {
     const currentUrl = this.router.url;
@@ -75,13 +75,13 @@ export class SuperadminSidebarComponent {
     const currentUrl = this.router.url;
     return this.kitchenRoutes.some((route) => currentUrl.startsWith(route));
   }
-
+ 
   // ✅ List of Employee active
   isEmployeeActive(): boolean {
     const currentUrl = this.router.url;
     return this.employeeRoutes.some((route) => currentUrl.startsWith(route));
   }
-
+ 
   // ✅ Edit Employee active
   isEditEmployeeActive(): boolean {
     const currentUrl = this.router.url;
@@ -93,7 +93,7 @@ export class SuperadminSidebarComponent {
     const currentUrl = this.router.url;
     return this.subscriberListRoutes.some((r) => currentUrl.startsWith(r));
   }
-
+ 
   isSuperadminaddingmealActive(): boolean {
     const currentUrl = this.router.url;
     return this.superadminaddingmeal.some((r) => currentUrl.startsWith(r));
@@ -103,3 +103,5 @@ export class SuperadminSidebarComponent {
     return this.superadmincoupanpage.some((r) => currentUrl.startsWith(r));
   }
 }
+ 
+ 
