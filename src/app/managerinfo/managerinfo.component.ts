@@ -49,11 +49,30 @@ export class ManagerinfoComponent {
     Validators.pattern(/^[6-9]\d{9}$/)
   ]
 ],
-      kitchenCode: ['', Validators.required],
-      bankAccountNum: ['', Validators.required],
-      currentAddress: ['', Validators.required],
-      permanentAddress: ['', Validators.required],
-      ifsc: ['', Validators.required]
+      kitchenCode: ['', [
+  Validators.required,
+  Validators.pattern(/^[A-Za-z0-9]+$/)
+]],
+
+      bankAccountNum: ['', [
+  Validators.required,
+  Validators.pattern(/^\d{9,18}$/)
+]],
+    currentAddress: ['', [
+  Validators.required,
+  Validators.minLength(10),
+  Validators.pattern(/^[a-zA-Z0-9\s,./-]+$/)
+]],
+   permanentAddress: ['', [
+  Validators.required,
+  Validators.minLength(10),
+  Validators.pattern(/^[a-zA-Z0-9\s,./-]+$/)
+]],
+     ifsc: ['', [
+  Validators.required,
+  Validators.pattern(/^[A-Z]{4}0[A-Z0-9]{6}$/)
+]],
+
     });
 
   }

@@ -172,9 +172,19 @@
     <!-- Kitchen ID & Photo -->
     <div class="form-row">
       <div class="form-group">
-        <label for="kitchen-id">Kitchen Code</label>
-        <input id="kitchen-id" type="text" formControlName="kitchenCode" />
-      </div>
+  <label for="kitchen-id">Kitchen Code</label>
+  <input id="kitchen-id" type="text" formControlName="kitchenCode" />
+
+  <small *ngIf="managerForm.get('kitchenCode')?.touched && managerForm.get('kitchenCode')?.errors" class="error">
+    <span *ngIf="managerForm.get('kitchenCode')?.errors?.['required']">
+      Kitchen Code is required
+    </span>
+    <span *ngIf="managerForm.get('kitchenCode')?.errors?.['pattern']">
+      Only letters and numbers allowed (no spaces or special characters)
+    </span>
+  </small>
+</div>
+
       <div class="form-group file-group">
         <label for="photo">Photo (PDF/Image) </label>
         <input
@@ -220,15 +230,35 @@
 
     <!-- Bank & Cheque -->
     <div class="form-row">
-      <div class="form-group">
-        <label for="bank-acct">Bank Account No.</label>
-        <input id="bank-acct" type="text" formControlName="bankAccountNum" />
-      </div>
+     <div class="form-group">
+  <label for="bank-acct">Bank Account No.</label>
+  <input id="bank-acct" type="text" formControlName="bankAccountNum" />
+
+  <small *ngIf="managerForm.get('bankAccountNum')?.touched && managerForm.get('bankAccountNum')?.errors" class="error">
+    <span *ngIf="managerForm.get('bankAccountNum')?.errors?.['required']">
+      Bank account number is required
+    </span>
+    <span *ngIf="managerForm.get('bankAccountNum')?.errors?.['pattern']">
+      Enter a valid account number (9–18 digits)
+    </span>
+  </small>
+</div>
+
 
       <div class="form-group">
-        <label for="ifsc">IFSC Code</label>
-        <input id="ifsc" type="text" formControlName="ifsc" />
-      </div>
+  <label for="ifsc">IFSC Code</label>
+  <input id="ifsc" type="text" formControlName="ifsc" />
+
+  <small *ngIf="managerForm.get('ifsc')?.touched && managerForm.get('ifsc')?.errors" class="error">
+    <span *ngIf="managerForm.get('ifsc')?.errors?.['required']">
+      IFSC code is required
+    </span>
+    <span *ngIf="managerForm.get('ifsc')?.errors?.['pattern']">
+      Enter a valid IFSC code (e.g. SBIN0001234)
+    </span>
+  </small>
+</div>
+
     </div>
 
     <div class="form-row">
@@ -247,15 +277,41 @@
     </div>
 
     <!-- Addresses -->
-    <div class="form-group full">
-      <label for="perm-address">Permanent Address</label>
-      <textarea id="perm-address" formControlName="permanentAddress"></textarea>
-    </div>
+   <div class="form-group full">
+  <label for="perm-address">Permanent Address</label>
+  <textarea id="perm-address" formControlName="permanentAddress"></textarea>
+
+  <small *ngIf="managerForm.get('permanentAddress')?.touched && managerForm.get('permanentAddress')?.errors" class="error">
+    <span *ngIf="managerForm.get('permanentAddress')?.errors?.['required']">
+      Permanent address is required
+    </span>
+    <span *ngIf="managerForm.get('permanentAddress')?.errors?.['minlength']">
+      Address must be at least 10 characters
+    </span>
+    <span *ngIf="managerForm.get('permanentAddress')?.errors?.['pattern']">
+      Invalid characters in address
+    </span>
+  </small>
+</div>
+
 
     <div class="form-group full">
-      <label for="curr-address">Current Address</label>
-      <textarea id="curr-address" formControlName="currentAddress"></textarea>
-    </div>
+  <label for="curr-address">Current Address</label>
+  <textarea id="curr-address" formControlName="currentAddress"></textarea>
+
+  <small *ngIf="managerForm.get('currentAddress')?.touched && managerForm.get('currentAddress')?.errors" class="error">
+    <span *ngIf="managerForm.get('currentAddress')?.errors?.['required']">
+      Current address is required
+    </span>
+    <span *ngIf="managerForm.get('currentAddress')?.errors?.['minlength']">
+      Address must be at least 10 characters
+    </span>
+    <span *ngIf="managerForm.get('currentAddress')?.errors?.['pattern']">
+      Invalid characters in address
+    </span>
+  </small>
+</div>
+
 
     <div class="submit-row">
       <button type="submit">Submit</button>
