@@ -1,0 +1,90 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+<div class="main-layout-wrapper">
+  <!-- CONTENT PANEL FIRST (TOP) -->
+  <div class="content-panel">
+    <div class="top-header-row">
+      <p class="greeting">Good Morning, Aaditya</p>
+
+      <div class="action-icons">
+        <div class="help-large-box">
+          <div class="help-small-box">?</div>
+        </div>
+
+        <div class="notification-circle">
+          <i class="fas fa-bell notify"></i>
+          <img src="/assets/aaditya.jpg" alt="user" class="profile-pic" />
+        </div>
+      </div>
+    </div>
+
+    <div class="search-row">
+      <div class="search-box">
+        <input type="text" placeholder="Search" />
+        <button class="menu-btn">☰</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR PANEL BELOW -->
+  <div class="sidebar-panel">
+    <div class="inactive-status">
+      <span class="inactive-text">Inactive</span>
+      <div class="inactive-dot"></div>
+    </div>
+
+    <div class="location-row"></div>
+
+    <div class="profile-section">
+      <span class="back-link" (click)="goBack()">
+        <i class="fa-solid fa-angle-left"></i> Back
+      </span>
+    </div>
+
+    <div class="sidebar-nav">
+      <ul class="nav-list">
+        <li class="nav-item highlight" [class.active]="isActive(homeRoutes)">
+          <a routerLink="/applyleavemanager" class="nav-link">Home</a>
+        </li>
+
+        <li
+          class="nav-item highlight"
+          [class.active]="isActive(currenttOrderRoutes)"
+        >
+          <a routerLink="/managerapproveorder" class="nav-link"
+            >Your current Order</a
+          >
+        </li>
+
+        <li
+          class="nav-item highlight"
+          [class.active]="isActive(ordersDeliverRoutes)"
+        >
+          <a routerLink="/managerorderdeliverbyyou" class="nav-link"
+            >Orders delivered by you</a
+          >
+        </li>
+
+        <li
+          class="nav-item highlight"
+          [class.active]="isActive(helpCenterRoutes)"
+        >
+          <a routerLink="/managerhelpsupportpage" class="nav-link"
+            >Help Center</a
+          >
+        </li>
+
+        <li
+          class="nav-item highlight"
+          [class.active]="isActive(yourDetailsPageRoutes)"
+        >
+          <a routerLink="/manager-yourdetailspage" class="nav-link"
+            >Your Details</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

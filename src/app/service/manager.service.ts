@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -11,6 +11,7 @@ export class ManagerService {
 
   private baseUrl = 'http://localhost:8081/api/admins/login-manager';
    private loginBaseUrl = 'http://localhost:8081/api/admins/login-manager';
+   private adminBaseUrl = 'http://localhost:8081/api/admins';
 
 
   ManagerLogin(managerCode: string, password: string) {
@@ -32,6 +33,13 @@ export class ManagerService {
       `&tempPass=${tempPass || ''}`;
  
     return this.http.post<any>(url, {});
+  }
+
+  getManagerByCode(managerCode: string): Observable<any> {
+     const token = sessionStorage.getItem('token');
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.get<any>(`${this.adminBaseUrl}/manager/${managerCode}`, {headers});
   }
 
 

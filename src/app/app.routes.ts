@@ -68,6 +68,7 @@ import { SuperadminmealComponent } from './superadminmeal/superadminmeal.compone
 import { ManagerLoginComponent } from './manager-login/manager-login.component';
 import { SuperadmineditlistComponent } from './superadmineditlist/superadmineditlist.component';
 import { ManagerSetpasswordComponent } from './manager-setpassword/manager-setpassword.component';
+import { ManagerYourdetailspageComponent } from './manager-yourdetailspage/manager-yourdetailspage.component';
 
 
 
@@ -237,6 +238,11 @@ export const routes: Routes = [
    {path : 'manager-login', component : ManagerLoginComponent}, 
 
    { path: 'manager-setpassword', component: ManagerSetpasswordComponent },
+
+   {
+    path: 'manager-yourdetailspage',
+    component: ManagerYourdetailspageComponent,
+  },
  
  
 

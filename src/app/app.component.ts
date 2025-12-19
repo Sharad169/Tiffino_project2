@@ -7,11 +7,13 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SuperadminSidebarComponent } from './superadmin-sidebar/superadmin-sidebar.component';
+import { ManagersidebarComponent } from './managersidebar/managersidebar.component';
+ 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, SidebarComponent, SuperadminSidebarComponent, ManagersidebarComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
