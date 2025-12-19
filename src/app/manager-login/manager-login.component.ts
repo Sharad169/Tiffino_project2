@@ -1,42 +1,45 @@
 import { Component } from '@angular/core';
-import { ManagerService } from '../service/manager.service';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ManagerService } from '../service/manager.service';
 
 @Component({
   selector: 'app-manager-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './manager-login.component.html',
-  styleUrl: './manager-login.component.css'
+  styleUrls: ['./manager-login.component.css'],
 })
 export class ManagerLoginComponent {
-  email: string = '';
+  email: string = ''; // actually managerCode
   password: string = '';
-  tempPass: string = '';
- 
+  tempPass: string = ''; // optional (ACTIVE manager)
+
   constructor(private managerService: ManagerService) {}
- 
-  loginUser() {
-    alert('Button clicked!');
- 
+
+  loginUser(): void {
     if (!this.email || !this.password) {
-      alert('Please enter email and password');
+      alert('Please enter employee code and password');
       return;
     }
- 
+
     const managerCode = this.email;
- 
+
     this.managerService
-      .ManagerLogin(managerCode, this.password, this.tempPass)
+      .login(managerCode, this.password, this.tempPass)
       .subscribe({
-        next: (res) => {
-          console.log('Login success:', res);
-          alert('Login successful');
+        next: (res: any) => {
+          // ✅ CLEAR OLD DATA FIRST
+          sessionStorage.clear();
+
+          // ✅ STORE ONLY MANAGER DATA
+          sessionStorage.setItem('token', res.token);
+          sessionStorage.setItem('managerCode', res.managerCode);
+          sessionStorage.setItem('role', 'MANAGER');
+
+          alert(res.message || 'Manager login successful');
         },
-        error: (err) => {
-          console.error('Login error:', err);
-          alert('Invalid login details');
+        error: (err: any) => {
+          alert(err?.error?.message || 'Invalid login details');
         },
       });
   }
