@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SuperadminSidebarComponent } from '../superadmin-sidebar/superadmin-sidebar.component';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { AdminService } from '../admin.service';
 @Component({
   selector: 'app-superadminchef',
@@ -29,16 +29,55 @@ export class SuperadminchefComponent {
 
   ngOnInit(): void {
     this.chefForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      dateOfBirth: ['', Validators.required],
-      phone: ['', Validators.required],
-      ifsc  : ['', Validators.required],
-      kitchenCode: ['', Validators.required],
-      bankAccountNum: ['', Validators.required],
-      specialization: ['', Validators.required],
-      permanentAddress: ['', Validators.required],
-      currentAddress: ['', Validators.required],
+      name: ['', [
+  Validators.required,
+  Validators.pattern(/^[A-Za-z]+$/)
+]],
+     email: ['', [
+  Validators.required,
+  Validators.email,
+  Validators.pattern(/^\S+@\S+\.\S+$/) // optional strict check: no spaces
+]],
+      dateOfBirth: ['', [
+  Validators.required,
+  Validators.pattern(/^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/),
+  this.minimumAgeValidator(18)
+]],
+      phone: ['', [
+  Validators.required,
+  Validators.pattern(/^[6-9]\d{9}$/)
+]],
+      ifsc: ['', [
+  Validators.required,
+  Validators.pattern(/^[A-Z]{4}0[A-Z0-9]{6}$/)
+]],
+      kitchenCode: ['', [
+  Validators.required,
+  Validators.pattern(/^[A-Za-z0-9]+$/)
+]],
+
+    bankAccountNum: ['', [
+  Validators.required,
+  Validators.pattern(/^\d{9,18}$/)
+]],
+     specialization: ['', [
+  Validators.required,
+  Validators.minLength(5),
+  Validators.maxLength(100),
+  Validators.pattern(/^[a-zA-Z0-9\s,.-]+$/)
+]],
+      permanentAddress: ['', [
+  Validators.required,
+  Validators.minLength(10),
+  Validators.maxLength(200),
+  Validators.pattern(/^[a-zA-Z0-9\s,.-]+$/)
+]],
+      currentAddress: ['', [
+  Validators.required,
+  Validators.minLength(10),
+  Validators.maxLength(200),
+  Validators.pattern(/^[a-zA-Z0-9\s,.-]+$/)
+]],
     });
 
   }
@@ -108,6 +147,25 @@ export class SuperadminchefComponent {
         alert('Failed to register chef. Please try again.');
       },
     });
+  }
+
+  minimumAgeValidator(minAge: number): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = control.value;
+      if (!value) return null;
+
+      const dob = new Date(value);
+      if (isNaN(dob.getTime())) return { invalidDate: true };
+
+      const today = new Date();
+      let age = today.getFullYear() - dob.getFullYear();
+      const monthDiff = today.getMonth() - dob.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+        age--;
+      }
+
+      return age >= minAge ? null : { minAge: { requiredAge: minAge, actualAge: age } };
+    };
   }
 }
 

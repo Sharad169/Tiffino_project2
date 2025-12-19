@@ -291,3 +291,8 @@ button[type="submit"]:hover {
     font-weight: bold;
   }
 }
+
+.error{
+  color: red;
+  font-size: 14px;
+}

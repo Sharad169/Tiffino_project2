@@ -45,31 +45,87 @@
   <form class="manager-form" [formGroup]="chefForm" (ngSubmit)="onSubmit()">
   <div class="form-row">
     <div class="form-group">
-      <label for="name">Name</label>
-      <input id="name" type="text" formControlName="name" />
-    </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input id="email" type="email" formControlName="email" />
-    </div>
+  <label for="name">Name</label>
+  <input id="name" type="text" formControlName="name" />
+
+  <small *ngIf="chefForm.get('name')?.touched && chefForm.get('name')?.errors" class="error">
+    <span *ngIf="chefForm.get('name')?.errors?.['required']">
+      Name is required
+    </span>
+    <span *ngIf="chefForm.get('name')?.errors?.['pattern']">
+      Only letters allowed, no spaces or numbers
+    </span>
+  </small>
+</div>
+
+  <div class="form-group">
+  <label for="email">Email</label>
+  <input id="email" type="email" formControlName="email" />
+
+  <small *ngIf="chefForm.get('email')?.touched && chefForm.get('email')?.errors" class="error">
+    <span *ngIf="chefForm.get('email')?.errors?.['required']">
+      Email is required
+    </span>
+    <span *ngIf="chefForm.get('email')?.errors?.['email'] || chefForm.get('email')?.errors?.['pattern']">
+      Enter a valid email address
+    </span>
+  </small>
+</div>
+
+  </div>
+
+  <div class="form-row">
+   <div class="form-group">
+  <label for="dob">DOB</label>
+  <input id="dob" type="text" placeholder="YYYY-MM-DD" formControlName="dateOfBirth" />
+
+  <small *ngIf="chefForm.get('dateOfBirth')?.touched && chefForm.get('dateOfBirth')?.errors" class="error">
+    <span *ngIf="chefForm.get('dateOfBirth')?.errors?.['required']">
+      Date of Birth is required
+    </span>
+    <span *ngIf="chefForm.get('dateOfBirth')?.errors?.['pattern']">
+      Enter valid DOB in YYYY-MM-DD format
+    </span>
+    <span *ngIf="chefForm.get('dateOfBirth')?.errors?.['minAge']">
+      Minimum age must be 18 years
+    </span>
+    <span *ngIf="chefForm.get('dateOfBirth')?.errors?.['invalidDate']">
+      Invalid date
+    </span>
+  </small>
+</div>
+
+   <div class="form-group">
+  <label for="phone">Phone No.</label>
+  <input id="phone" type="text" formControlName="phone" />
+
+  <small *ngIf="chefForm.get('phone')?.touched && chefForm.get('phone')?.errors" class="error">
+    <span *ngIf="chefForm.get('phone')?.errors?.['required']">
+      Phone number is required
+    </span>
+    <span *ngIf="chefForm.get('phone')?.errors?.['pattern']">
+      Enter a valid 10-digit phone number
+    </span>
+  </small>
+</div>
+
   </div>
 
   <div class="form-row">
     <div class="form-group">
-      <label for="dob">DOB</label>
-      <input id="dob" type="text" placeholder="YYYY/MM/DD" formControlName="dateOfBirth" />
-    </div>
-    <div class="form-group">
-      <label for="phone">Phone No.</label>
-      <input id="phone" type="text" formControlName="phone" />
-    </div>
-  </div>
+  <label for="kitchen-id">Kitchen ID</label>
+  <input id="kitchen-id" type="text" formControlName="kitchenCode" />
 
-  <div class="form-row">
-    <div class="form-group">
-      <label for="kitchen-id">Kitchen ID</label>
-      <input id="kitchen-id" type="text" formControlName="kitchenCode" />
-    </div>
+  <small *ngIf="chefForm.get('kitchenCode')?.touched && chefForm.get('kitchenCode')?.errors" class="error">
+    <span *ngIf="chefForm.get('kitchenCode')?.errors?.['required']">
+      Kitchen Code is required
+    </span>
+    <span *ngIf="chefForm.get('kitchenCode')?.errors?.['pattern']">
+      Only letters and numbers allowed (no spaces or special characters)
+    </span>
+  </small>
+</div>
+
     <div class="form-group file-group">
   <label for="photo">Photo</label>
   <div class="custom-file-input">
@@ -106,10 +162,20 @@
   </div>
 
   <div class="form-row">
-    <div class="form-group">
-      <label for="bank-acct">Bank Account No.</label>
-      <input id="bank-acct" type="text" formControlName="bankAccountNum" />
-    </div>
+   <div class="form-group">
+  <label for="bank-acct">Bank Account No.</label>
+  <input id="bank-acct" type="text" formControlName="bankAccountNum" />
+
+  <small *ngIf="chefForm.get('bankAccountNum')?.touched && chefForm.get('bankAccountNum')?.errors" class="error">
+    <span *ngIf="chefForm.get('bankAccountNum')?.errors?.['required']">
+      Bank account number is required
+    </span>
+    <span *ngIf="chefForm.get('bankAccountNum')?.errors?.['pattern']">
+      Enter a valid account number (9–18 digits)
+    </span>
+  </small>
+</div>
+
     <div class="form-group file-group">
   <label for="cheque-book">Cheque Book</label>
   <div class="custom-file-input">
@@ -123,24 +189,82 @@
   </div>
 
   <div class="form-group full">
-    <label for="chef-specialization">Chef Specialization</label>
-    <textarea id="chef-specialization" class="address-box" formControlName="specialization"></textarea>
-  </div>
+  <label for="chef-specialization">Chef Specialization</label>
+  <textarea id="chef-specialization" class="address-box" formControlName="specialization"></textarea>
+
+  <small *ngIf="chefForm.get('specialization')?.touched && chefForm.get('specialization')?.errors" class="error">
+    <span *ngIf="chefForm.get('specialization')?.errors?.['required']">
+      Specialization is required
+    </span>
+    <span *ngIf="chefForm.get('specialization')?.errors?.['minlength']">
+      Minimum 5 characters required
+    </span>
+    <span *ngIf="chefForm.get('specialization')?.errors?.['maxlength']">
+      Maximum 100 characters allowed
+    </span>
+    <span *ngIf="chefForm.get('specialization')?.errors?.['pattern']">
+      Only letters, numbers, spaces, commas, periods, hyphens allowed
+    </span>
+  </small>
+</div>
+
+
+ <div class="form-group full">
+  <label for="perm-address">Permanent Address</label>
+  <textarea id="perm-address" class="address-box" formControlName="permanentAddress"></textarea>
+
+  <small *ngIf="chefForm.get('permanentAddress')?.touched && chefForm.get('permanentAddress')?.errors" class="error">
+    <span *ngIf="chefForm.get('permanentAddress')?.errors?.['required']">
+      Permanent address is required
+    </span>
+    <span *ngIf="chefForm.get('permanentAddress')?.errors?.['minlength']">
+      Minimum 10 characters required
+    </span>
+    <span *ngIf="chefForm.get('permanentAddress')?.errors?.['maxlength']">
+      Maximum 200 characters allowed
+    </span>
+    <span *ngIf="chefForm.get('permanentAddress')?.errors?.['pattern']">
+      Only letters, numbers, spaces, comma, period, hyphen allowed
+    </span>
+  </small>
+</div>
+
 
   <div class="form-group full">
-    <label for="perm-address">Permanent Address</label>
-    <textarea id="perm-address" class="address-box" formControlName="permanentAddress"></textarea>
-  </div>
+  <label for="curr-address">Current Address</label>
+  <textarea id="curr-address" class="address-box" formControlName="currentAddress"></textarea>
+
+  <small *ngIf="chefForm.get('currentAddress')?.touched && chefForm.get('currentAddress')?.errors" class="error">
+    <span *ngIf="chefForm.get('currentAddress')?.errors?.['required']">
+      Current address is required
+    </span>
+    <span *ngIf="chefForm.get('currentAddress')?.errors?.['minlength']">
+      Minimum 10 characters required
+    </span>
+    <span *ngIf="chefForm.get('currentAddress')?.errors?.['maxlength']">
+      Maximum 200 characters allowed
+    </span>
+    <span *ngIf="chefForm.get('currentAddress')?.errors?.['pattern']">
+      Only letters, numbers, spaces, comma, period, hyphen allowed
+    </span>
+  </small>
+</div>
+
 
   <div class="form-group full">
-    <label for="curr-address">Current Address</label>
-    <textarea id="curr-address" class="address-box" formControlName="currentAddress"></textarea>
-  </div>
+  <label for="ifsc">IFSC Code</label>
+  <textarea id="ifsc" class="ifsc" formControlName="ifsc"></textarea>
 
-   <div class="form-group full">
-    <label for="ifsc">IFSC Code</label>
-    <textarea id="ifsc" class="ifsc" formControlName="ifsc"></textarea>
-  </div>
+  <small *ngIf="chefForm.get('ifsc')?.touched && chefForm.get('ifsc')?.errors" class="error">
+    <span *ngIf="chefForm.get('ifsc')?.errors?.['required']">
+      IFSC Code is required
+    </span>
+    <span *ngIf="chefForm.get('ifsc')?.errors?.['pattern']">
+      Enter valid IFSC Code (e.g., HDFC0123456)
+    </span>
+  </small>
+</div>
+
 
   <div class="submit-row">
     <button type="submit">Submit</button>
