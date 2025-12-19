@@ -33,7 +33,7 @@ getEmloyeeDetails(empId: string | null, role?: string) {
     let request$;
   // Role ke basis pe service call
   if (role.toLowerCase() === 'manager') {
-    request$ = this.api.getEmloyeeById(empId);
+    request$ = this.api.getManagerById(empId);
   } else if (role.toLowerCase() === 'chef') {
     request$ = this.api.getChefById(empId);
   }else if (role.toLowerCase() === 'delivery partner') {

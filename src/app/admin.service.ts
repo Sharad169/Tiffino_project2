@@ -112,7 +112,7 @@ export class AdminService {
 
   }
 
-  getEmloyeeById(code: string): Observable<any> {
+  getManagerById(code: string): Observable<any> {
     const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(`${this.apiUrl4}/manager/${code}`, { headers });

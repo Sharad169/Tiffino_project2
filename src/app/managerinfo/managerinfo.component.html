@@ -44,25 +44,129 @@
     <!-- Name & Email -->
     <div class="form-row">
       <div class="form-group">
-        <label for="name">Name</label>
-        <input id="name" type="text" formControlName="managerName" />
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input id="email" type="email" formControlName="email" />
-      </div>
+  <label for="managerName">Manager Name</label>
+
+  <input
+    id="managerName"
+    type="text"
+    formControlName="managerName"
+    placeholder="Enter Manager Name"
+  />
+
+  <!-- Required -->
+  <small
+    class="error"
+    *ngIf="
+      managerForm.get('managerName')?.touched &&
+      managerForm.get('managerName')?.errors?.['required']
+    "
+  >
+    Manager name is required
+  </small>
+
+  <!-- Min Length -->
+  <small
+    class="error"
+    *ngIf="
+      managerForm.get('managerName')?.touched &&
+      managerForm.get('managerName')?.errors?.['minlength']
+    "
+  >
+    Minimum 3 characters required
+  </small>
+
+  <!-- Pattern -->
+  <small
+    class="error"
+    *ngIf="
+      managerForm.get('managerName')?.touched &&
+      managerForm.get('managerName')?.errors?.['pattern']
+    "
+  >
+    Only alphabets allowed (no numbers, spaces, or special characters)
+  </small>
+</div>
+
+    <div class="form-group">
+  <label for="email">Email</label>
+
+  <input
+    id="email"
+    type="email"
+    formControlName="email"
+    placeholder="example@mail.com"
+    autocomplete="off"
+  />
+
+  <small
+    class="error"
+    *ngIf="managerForm.get('email')?.touched && managerForm.get('email')?.invalid"
+  >
+    <span *ngIf="managerForm.get('email')?.errors?.['required']">
+      Email is required
+    </span>
+
+    <span *ngIf="managerForm.get('email')?.errors?.['pattern']">
+      Email must be valid and must not contain spaces
+    </span>
+  </small>
+</div>
+
+
     </div>
 
     <!-- DOB & Phone -->
     <div class="form-row">
+   <div class="form-group">
+  <label for="dob">Date of Birth</label>
+
+  <input
+    id="dob"
+    type="date"
+    formControlName="dateOfBirth"
+    [max]="maxDob"
+  />
+
+  <small
+    class="error"
+    *ngIf="managerForm.get('dateOfBirth')?.touched && managerForm.get('dateOfBirth')?.invalid"
+  >
+    <span *ngIf="managerForm.get('dateOfBirth')?.errors?.['required']">
+      Date of birth is required
+    </span>
+
+    <span *ngIf="managerForm.get('dateOfBirth')?.errors?.['underAge']">
+      Age must be at least 18 years
+    </span>
+  </small>
+</div>
+
       <div class="form-group">
-        <label for="dob">DOB</label>
-        <input id="dob" type="date" formControlName="dateOfBirth" />
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone No.</label>
-        <input id="phone" type="text" formControlName="phone" />
-      </div>
+  <label for="phone">Phone No.</label>
+
+  <input
+    id="phone"
+    type="text"
+    formControlName="phone"
+    placeholder="Enter 10-digit mobile number"
+    maxlength="10"
+    autocomplete="off"
+  />
+
+  <small
+    class="error"
+    *ngIf="managerForm.get('phone')?.touched && managerForm.get('phone')?.invalid"
+  >
+    <span *ngIf="managerForm.get('phone')?.errors?.['required']">
+      Phone number is required
+    </span>
+
+    <span *ngIf="managerForm.get('phone')?.errors?.['pattern']">
+      Enter a valid 10-digit mobile number
+    </span>
+  </small>
+</div>
+
     </div>
 
     <!-- Kitchen ID & Photo -->
