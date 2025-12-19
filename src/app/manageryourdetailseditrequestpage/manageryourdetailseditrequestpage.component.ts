@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { ManagersidebarComponent } from '../managersidebar/managersidebar.component';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ManagersidebarComponent } from '../managersidebar/managersidebar.component';
 import { ManagerService } from '../service/manager.service';
 
-@Component({
-  selector: 'app-manager-yourdetailspage',
-  standalone: true,
-  imports: [ManagersidebarComponent, CommonModule, FormsModule],
-  templateUrl: './manager-yourdetailspage.component.html',
-  styleUrls: ['./manager-yourdetailspage.component.css'],
-})
-export class ManagerYourdetailspageComponent implements OnInit {
-  // ✅ TAKE MANAGER CODE FROM LOGIN SESSION
 
+@Component({
+  selector: 'app-manageryourdetailseditrequestpage',
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule, ManagersidebarComponent],
+  templateUrl: './manageryourdetailseditrequestpage.component.html',
+  styleUrls: ['./manageryourdetailseditrequestpage.component.css'],
+})
+export class ManagerYourdetailseditrequestpageComponent implements OnInit {
+  // ✅ SESSION BASED
   managerCode = '';
 
-
-  // ✅ SAFE DEFAULT OBJECT
   manager: any = {
     name: '',
     email: '',
@@ -38,7 +37,6 @@ export class ManagerYourdetailspageComponent implements OnInit {
   constructor(private router: Router, private managerService: ManagerService) {}
 
   ngOnInit(): void {
-    // ✅ DO NOT TOUCH INTEGRATION – JUST CHANGE SOURCE
     this.managerCode = sessionStorage.getItem('managerCode') || '';
 
     if (!this.managerCode) {
@@ -49,17 +47,17 @@ export class ManagerYourdetailspageComponent implements OnInit {
     this.loadManagerDetails();
   }
 
-  loadManagerDetails() {
+  loadManagerDetails(): void {
     this.loading = true;
 
     this.managerService.getManagerByCode(this.managerCode).subscribe({
-      next: (res) => {
-        this.manager = res; // ✅ SAME API RESPONSE
-        this.loading = false;
+      next: (res: any) => {
+        this.manager = res; // ✅ SAME API
         console.log(this.manager);
         
+        this.loading = false;
       },
-      error: (err) => {
+      error: (err: any) => {
         console.error('API Error:', err);
         this.errorMsg =
           'Unable to load manager details. Access denied or server error.';
@@ -68,8 +66,7 @@ export class ManagerYourdetailspageComponent implements OnInit {
     });
   }
 
-
-  goToEditPage() {
-    this.router.navigate(['/manageryourdetailseditrequestpage']);
+  goBack(): void {
+    this.router.navigate(['/manager-yourdetailspage']);
   }
 }
