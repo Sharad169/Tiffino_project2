@@ -86,6 +86,7 @@ export class UserSignInComponent {
         const jwtToken = (res as any).token; // Adjust based on actual response structure
         if (jwtToken) {
           sessionStorage.setItem('token', jwtToken);
+          sessionStorage.setItem('loginTime', Date.now().toString());
         }
         
         this.userEmail =  sessionStorage.setItem('emailForOtp', payload.email);
@@ -122,6 +123,7 @@ export class UserSignInComponent {
         // Store the token from the response
         if (res.token) {
           localStorage.setItem('accessToken', res.token); 
+          sessionStorage.setItem('loginTime', Date.now().toString());
         }
         
         // Store other data from the response for later use if needed
@@ -152,6 +154,7 @@ export class UserSignInComponent {
         const jwtToken = (res as any).token; // Adjust based on actual response structure
         if (jwtToken) {
           sessionStorage.setItem('token', jwtToken);
+          sessionStorage.setItem('loginTime', Date.now().toString());
         }
         console.log('OTP Verified:===', res);
           sessionStorage.setItem('userId', res.userId);
