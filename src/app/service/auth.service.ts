@@ -3,61 +3,88 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  apiUrl = 'http://localhost:8080/api/auth';
+  private baseUrl = 'http://localhost:8080/api/auth/login';
+  private baseUrl1 = 'http://localhost:8082/api/cuisines/all';
 
-  apiUrl="http://localhost:8080/api/auth"
-    private baseUrl = 'http://localhost:8080/api/auth/login';
+  // ✅ CORRECT CART BASE URL
+  private cartUrl = 'http://localhost:8083/api/cart';
 
-    private baseUrl1= "http://localhost:8082/api/cuisines/all"
+  constructor(private http: HttpClient) {}
 
-    private Url = 'http://localhost:8083/api/cart';
+  // ================= COMMON HEADER =================
+  private getAuthHeaders(): HttpHeaders {
+    const token = sessionStorage.getItem('token');
+    return new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  }
 
-  constructor(private http :HttpClient) { }
-
-  
- signup(data: any): Observable<string> {
-  return this.http.post(`${this.apiUrl}/register`, data, { responseType: 'text' });
-}
+  // ================= AUTH =================
+  signup(data: any): Observable<string> {
+    return this.http.post(`${this.apiUrl}/register`, data, {
+      responseType: 'text',
+    });
+  }
 
   sendOtp(email: string): Observable<any> {
-  return this.http.post(
-    `${this.baseUrl}/request-otp?email=${email}`,{}, { responseType: 'text' }
-  );
-}
+    return this.http.post(
+      `${this.baseUrl}/request-otp?email=${email}`,
+      {},
+      { responseType: 'text' }
+    );
+  }
 
-  // Verify OTP
   verifyOtp(payload: { email: string; otp: string }): Observable<any> {
-    // example: if backend has /verify-otp endpoint
     return this.http.post(`${this.baseUrl}/verify-otp`, payload);
   }
 
-  homeData(){
-    const token = sessionStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get(`${this.baseUrl1}`, { headers });
+  // ================= HOME =================
+  homeData() {
+    return this.http.get(`${this.baseUrl1}`, {
+      headers: this.getAuthHeaders(),
+    });
   }
 
-  getmealbycaterogy(category: string){     
-    const token = sessionStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get(`http://localhost:8082/api/cuisines/category/${category}/with-meals`, { headers });
+  getmealbycaterogy(category: string) {
+    return this.http.get(
+      `http://localhost:8082/api/cuisines/category/${category}/with-meals`,
+      { headers: this.getAuthHeaders() }
+    );
   }
 
-   getCartByUserId(userId: number) {
-    const token = sessionStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get(`${this.Url}/${userId}`, { headers });
+  // =====================================================
+  // ================= CART APIs =========================
+  // =====================================================
+
+  // ✅ VIEW CART
+  getCartByUserId(userId: number): Observable<any> {
+    return this.http.get(`${this.cartUrl}/${userId}`, {
+      headers: this.getAuthHeaders(),
+    });
   }
 
-  addToCart(userId: number, item: any) {
-    const token = sessionStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
- return this.http.post(`${this.Url}/${userId}/add`, item, { headers });
+  // ✅ ADD ITEM (Add button & PLUS icon)
+  addToCart(userId: number, mealId: number, quantity: number): Observable<any> {
+    const body = { mealId, quantity };
+
+    return this.http.post(`${this.cartUrl}/${userId}/add`, body, {
+      headers: this.getAuthHeaders(),
+    });
   }
 
+  // ✅ REMOVE ITEM (MINUS icon)
+  removeFromCart(userId: number, mealId: number): Observable<any> {
+    return this.http.delete(`${this.cartUrl}/${userId}/remove/${mealId}`, {
+      headers: this.getAuthHeaders(),
+    });
+  }
 
- 
-
+  // ✅ CLEAR CART
+  clearCart(userId: number): Observable<any> {
+    return this.http.delete(`${this.cartUrl}/${userId}/clear`, {
+      headers: this.getAuthHeaders(),
+    });
+  }
 }

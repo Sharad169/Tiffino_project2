@@ -1,8 +1,6 @@
 <div class="shopping-page">
-
   <!-- Shopping Bag + Sidebar Wrapper -->
   <div class="shopping-bag-wrapper">
-
     <!-- Left Side: Shopping Bag -->
     <div class="shopping-bag">
       <div class="bag-header">
@@ -21,98 +19,91 @@
         <span>Total Price</span>
       </div>
 
-      <!-- Cart Items -->
-      <div class="cart-items">
-        <div class="cart-row" *ngFor="let item of cartItems">
-          
-          <!-- Product -->
-          <div class="cart-col product">
-            <div class="product-info">
-              <img [src]="item.image" alt="{{ item.name }}" class="cart-img" />
-              <div>
-                <h3>{{ item.name }}</h3>
-                <p>{{ item.description }}</p>
-                <div class="stars">
-                  <span *ngFor="let star of [1,2,3,4,5]">☆</span>
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <h4>{{ item.mealName }}</h4>
+
+        <div class="qty">
+          <button (click)="decreaseQty(item)">−</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="increaseQty(item)">+</button>
+        </div>
+
+        <p>Rs {{ item.price * item.quantity }}</p>
+      </div>
+
+      <!-- Right Side: Sidebar -->
+      <div class="shopping-bag-sidebar">
+        <div class="coupon">
+          <h4>Coupon Code</h4>
+          <input
+            type="text"
+            placeholder="Coupon Code"
+            [(ngModel)]="couponCode"
+          />
+          <button disabled>Apply</button>
+        </div>
+      </div>
+
+      <div class="deliver" *ngFor="let item of addresses; let i = index">
+        <ng-container *ngIf="i === 0">
+          <div class="deliver-header">
+            <h4>Deliver at:</h4>
+
+            <!-- Hover container -->
+            <div class="address-hover">
+              <button class="arrow-btn">➡</button>
+
+              <!-- All address list -->
+              <div class="address-popup">
+                <div
+                  class="address-item"
+                  *ngFor="let addr of addresses"
+                  (click)="selectAddress(addr)"
+                >
+                  <p>{{ addr.address }}</p>
+                  <small>{{ addr.name }} • {{ addr.secondaryPhone }}</small>
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- Price -->
-          <div class="cart-col price">
-            <p>Rs {{ item.price }}</p>
-          </div>
-
-          <!-- Quantity -->
-          <div class="cart-col quantity">
-            <div class="quantity-control">
-              <button (click)="decreaseQty(item)">-</button>
-              <span>{{ item.quantity }}</span>
-              <button (click)="increaseQty(item)">+</button>
-            </div>
-          </div>
-
-          <!-- Total Price -->
-          <div class="cart-col total">
-            <p>Rs {{ item.price * item.quantity }}</p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Right Side: Sidebar -->
-    <div class="shopping-bag-sidebar">
-
-      <div class="coupon">
-        <h4>Coupon Code</h4>
-        <input
-          type="text"
-          placeholder="Coupon Code"
-          [(ngModel)]="couponCode"
-        />
-        <button (click)="applyCoupon()">Apply</button>
+          <p>{{ item.name }}</p>
+          <p>{{ item.address }} , {{ item.city }} , {{ item.state }}</p>
+          <p>{{ item.secondaryPhone }}</p>
+        </ng-container>
       </div>
 
-     <div class="deliver" *ngFor="let item of addresses; let i = index">
-  <ng-container *ngIf="i === 0">
-    <div class="deliver-header">
-      <h4>Deliver at:</h4>
-      
-      <!-- Hover container -->
-      <div class="address-hover">
-        <button class="arrow-btn">➡</button>
-
-        <!-- All address list -->
-        <div class="address-popup">
-          <div
-            class="address-item"
-            *ngFor="let addr of addresses"
-            (click)="selectAddress(addr)"
-          >
-            <p>{{ addr.address }}</p>
-            <small>{{ addr.name }} • {{ addr.secondaryPhone }}</small>
-          </div>
-        </div>
-      </div>
-    </div>
-     <p>{{ item.name }}</p>
-    <p>{{ item.address }} , {{ item.city }} , {{ item.state }}</p>    
-    <p>{{ item.secondaryPhone }}</p>
-  </ng-container>
-</div>
-
-
-
-
-      <div class="cart-total">
-        <p>Cart total <span>Rs {{ getCartTotal() }}</span></p>
+      <!-- <div class="cart-total">
+        <p>
+          Cart total <span>Rs {{ getCartTotal() }}</span>
+        </p>
         <p>Delivery Charge <span>Free</span></p>
-        <p>Discount <span>Rs {{ discount }}</span></p>
+        <p>
+          Discount <span>Rs {{ discount }}</span>
+        </p>
         <hr />
-        <p>Total <span>Rs {{ getCartTotal() - discount }}</span></p>
+        <p>
+          Total <span>Rs {{ getCartTotal() - discount }}</span>
+        </p>
         <button class="checkout" (click)="checkout()">Checkout</button>
+      </div> -->
+
+      <div class="bill">
+        <p>
+          Item Total <span>Rs {{ cartSummary?.total }}</span>
+        </p>
+        <p>
+          Delivery Fee <span>Rs {{ cartSummary?.deliveryFee }}</span>
+        </p>
+        <p>
+          Discount <span>Rs {{ cartSummary?.discount }}</span>
+        </p>
+
+        <hr />
+
+        <h3>
+          Total Payable
+          <span>Rs {{ cartSummary?.finalAmount }}</span>
+        </h3>
       </div>
 
       <div class="cancel-policy">
@@ -137,7 +128,7 @@
           <div class="food-header">
             <h3>{{ food.title }}</h3>
             <div class="stars">
-              <span *ngFor="let s of [1,2,3,4,]">☆</span>
+              <span *ngFor="let s of [1, 2, 3, 4]">☆</span>
             </div>
           </div>
 
@@ -145,7 +136,9 @@
 
           <div class="food-footer">
             <p class="food-price">Rs {{ food.price }}</p>
-            <button class="add-btn" (click)="addRecommendedToCart(food)">+ Add</button>
+            <button class="add-btn" (click)="addRecommendedToCart(food)">
+              + Add
+            </button>
           </div>
         </div>
       </div>
@@ -167,7 +160,17 @@
         <h3>Donate to feeding India</h3>
         <div class="donation-actions">
           <button class="donation-amount">Rs 4</button>
-          <button class="donation-add" (click)="addRecommendedToCart({ title: 'Donate', description: 'Feeding India Donation', price: 4, image: 'assets/images/donation.jpg' })">
+          <button
+            class="donation-add"
+            (click)="
+              addRecommendedToCart({
+                title: 'Donate',
+                description: 'Feeding India Donation',
+                price: 4,
+                image: 'assets/images/donation.jpg'
+              })
+            "
+          >
             Add to Cart
           </button>
         </div>
@@ -184,5 +187,4 @@
       </div>
     </div>
   </div>
-
 </div>
