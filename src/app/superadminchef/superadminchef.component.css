@@ -4,7 +4,7 @@
 .managerinfo-wrapper {
   font-family: "Poppins", sans-serif;
   margin-left: 380px; /* positions it to the right of your sidebar */
-  margin-top: -490px;
+  margin-top: -560px;
   margin-left: 450px;
   padding-right: 100px;
   max-width: 900px;
@@ -234,7 +234,15 @@ label {
   outline: none;
   resize: none;
 }
-
+/* ✅ IFSC SAME AS ADDRESS */
+.ifsc-box {
+  width: 400px;
+  height: 51px;
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-size: 20px;
+  resize: none;
+}
 /* --- Submit Button --- */
 .submit-row {
   text-align: left;

@@ -6,7 +6,7 @@
 .managerinfo-wrapper {
   font-family: "Poppins", sans-serif;
   max-width: 900px;
-  margin-top: -505px;
+  margin-top: -580px;
   margin-left: 450px;
   padding: 20px;
   box-sizing: border-box;
@@ -249,4 +249,28 @@ button[type="submit"] {
 /* Centered rows for addresses */
 .form-row.address-row {
   justify-content: center;
+}
+
+/* =====================================================
+   ✅ MAKE PERMANENT ADDRESS LOOK LIKE CURRENT ADDRESS
+   (CSS ONLY – NO HTML CHANGE)
+===================================================== */
+
+/* Target ONLY the Permanent Address input */
+.form-group.full input[type="text"][formcontrolname="permanentAddress"] {
+  width: 820px; /* same as textarea */
+  height: 80px; /* same height */
+  border: 1px solid #a2a1a1;
+  border-radius: 20px;
+  padding: 14px 18px;
+  font-size: 20px;
+  color: #000;
+
+  /* Make it feel like textarea */
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-align: left;
+
+  /* Disable single-line behavior */
+  line-height: 1.4;
 }

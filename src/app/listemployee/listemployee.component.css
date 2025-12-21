@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-.listemployee-wrapper {
+.main-content {
   font-family: "Poppins", sans-serif;
   margin-left: 480px;
-  margin-top: -485px;
+  margin-top: -560px;
   padding-right: 100px;
   max-width: 900px;
+  height: 1000px;
 }
 
 /* --- Dropdown Section --- */
@@ -147,7 +148,3 @@
 .employee-id {
   text-align: right;
 }
-
-
-
-

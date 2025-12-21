@@ -1,191 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* ================= MAIN SECTION ================= */
 .form-section {
   flex: 1;
   padding: 40px 60px;
-  margin-top: -680px;
+  margin-top: -600px;
   margin-left: 410px;
   height: 750px;
+  font-family: "Poppins", sans-serif;
+  height: 1000px;
 }
- 
+
+/* ================= TOP BUTTONS ================= */
 .top-buttons {
   display: flex;
   gap: 32px;
   margin-bottom: 40px;
 }
- 
-.btn-filled,
-.btn-outline {
-  width: 420px;
-  height: 42px;
-  border-radius: 5px;
-  font-size: 20px;
-  font-weight: 400;
-  cursor: pointer;
-}
- 
-.btn-filled {
-  background-color: #386341;
-  border: 3px solid #386341;
-  color: #ffffff;
-}
- 
-.btn-outline {
-  background-color: white;
-  color: #000000;
-  border: 2px solid #345c3c;
-}
- 
-.form-wrapper {
-  display: flex;
-  justify-content: flex-start;
-}
- 
-.cuisine-form {
-  width: 100%;
-  max-width: 900px;
-}
- 
-.form-row {
-  display: flex;
-  gap: 31px;
-  margin-bottom: 24px;
-}
- 
-.form-group {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
- 
-label {
-  font-size: 20px;
-  color: #000;
-  margin-bottom: 6px;
-}
- 
-input {
-  width: 100%;
-  height: 51px;
-  border: 1px solid #a2a1a1;
-  border-radius: 20px;
-  padding: 0 12px;
-  font-size: 14px;
-  outline: none;
-}
- 
-input:focus {
-  border-color: #2f5631;
-}
- 
-.file-upload {
-  width: 427px;
-  height: 51px;
-  display: flex;
-  align-items: center;
-  border: 1px solid #a2a1a1;
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: #fff;
-  position: relative;
-}
- 
-.file-upload input[type="file"] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
- 
-.choose-btn {
-  background-color: #d9d9d9;
-  border: none;
-  height: 56px;
-  padding: 18px 30px;
-  font-size: 16px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
- 
-.file-name {
-  flex: 1;
-  text-align: center;
-  font-size: 16px;
-  color: #000;
-}
- 
-.dropdown-wrapper {
-  position: relative;
-  width: 100%;
-  outline: none;
-}
- 
-.fake-select {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 51px;
-  width: 100%;
-  border: 1px solid #a2a1a1;
-  border-radius: 20px;
-  background: #fff;
-  cursor: pointer;
-}
- 
-.dropdown-panel {
-  display: none;
-  position: absolute;
-  top: 55px;
-  left: 0;
-  width: 240px;
-  background: #fff;
-  border: 1px solid #a2a1a1;
-  border-radius: 4px;
-  list-style: none;
-  padding: 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-left: 185px;
-}
- 
-.dropdown-wrapper:focus-within .dropdown-panel {
-  display: block;
-}
- 
-.dropdown-item {
-  padding: 10px 14px;
-  cursor: pointer;
-  font-size: 16px;
-}
- 
-.dropdown-item:hover {
-  background-color: #e0fee4;
-}
- 
-#description {
-  width: 100%;
-  height: 80px;
-  border-radius: 20px;
-  border: 1px solid #a2a1a1;
-}
- 
-.submit-row {
-  text-align: center;
-  margin-top: 20px;
-}
- 
-.submit-btn {
-  width: 150px;
-  height: 45px;
-  background-color: #345c3c;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 56px;
-}
- 
-.submit-btn:hover {
-  background-color: #2f5631;
-}
- 
-/* ===== Active Button Highlight ===== */
+
 .btn {
   width: 420px;
   height: 42px;
@@ -198,254 +30,232 @@ input:focus {
   border: 2px solid #345c3c;
   transition: all 0.2s ease-in-out;
 }
- 
+
 .btn:hover {
   background-color: #e8f5ea;
 }
- 
-/* Active state when selected */
+
 .btn-active {
   background-color: #386341 !important;
   color: #ffffff !important;
   border: 3px solid #386341 !important;
 }
- 
-/*****************************************************
-     RESPONSIVE DESIGN — CUISINE FORM PAGE
-*****************************************************/
- 
-/* ---------- LARGE LAPTOPS (max 1440px) ---------- */
-@media (max-width: 1440px) {
-  .form-section {
-    margin-left: 330px;
-    margin-top: -600px;
-  }
- 
-  .btn-filled,
-  .btn-outline,
-  .btn {
-    width: 360px;
-  }
- 
-  .cuisine-form {
-    max-width: 820px;
-  }
-}
- 
-/* ---------- SMALL LAPTOPS (max 1200px) ---------- */
-@media (max-width: 1200px) {
-  .form-section {
-    margin-left: 250px;
-    margin-top: -540px;
-    padding: 35px 40px;
-  }
- 
-  .btn-filled,
-  .btn-outline,
-  .btn {
-    width: 320px;
-    height: 42px;
-  }
- 
-  .form-row {
-    gap: 20px;
-  }
- 
-  .cuisine-form {
-    max-width: 720px;
-  }
- 
-  label {
-    font-size: 18px;
-  }
- 
-  input,
-  .fake-select,
-  .file-upload {
-    height: 48px;
-  }
- 
-  .dropdown-panel {
-    margin-left: 150px;
-  }
-}
- 
-/* ---------- TABLETS (max 992px) ---------- */
-@media (max-width: 992px) {
-  .form-section {
-    margin: 20px auto;
-    padding: 25px 25px;
-    height: auto;
-    max-width: 100%;
-  }
- 
-  .top-buttons {
-    flex-direction: column;
-    gap: 15px;
-  }
- 
-  .btn-filled,
-  .btn-outline,
-  .btn {
-    width: 100%;
-    height: 45px;
-    font-size: 18px;
-  }
- 
-  .form-row {
-    flex-direction: column;
-    gap: 16px;
-  }
- 
-  .file-upload {
-    width: 100%;
-  }
- 
-  .dropdown-panel {
-    margin-left: 0;
-    width: 100%;
-  }
- 
-  .cuisine-form {
-    max-width: 100%;
-  }
-}
- 
-/* ---------- MOBILE LARGE (max 768px) ---------- */
-@media (max-width: 768px) {
-  .form-section {
-    padding: 20px;
-  }
- 
-  label {
-    font-size: 16px;
-  }
- 
-  input {
-    height: 46px;
-    font-size: 14px;
-  }
- 
-  #description {
-    height: 70px;
-  }
- 
-  .submit-btn {
-    width: 140px;
-    height: 42px;
-    font-size: 16px;
-  }
- 
-  .btn-filled,
-  .btn-outline,
-  .btn {
-    font-size: 16px;
-  }
-}
- 
-/* ---------- MOBILE SMALL (max 480px) ---------- */
-@media (max-width: 480px) {
-  .form-section {
-    padding: 15px;
-  }
- 
-  .btn-filled,
-  .btn-outline,
-  .btn {
-    font-size: 15px;
-    height: 40px;
-    border-radius: 6px;
-  }
- 
-  label {
-    font-size: 14px;
-  }
- 
-  input,
-  .fake-select,
-  .file-upload {
-    height: 42px;
-    border-radius: 14px;
-  }
- 
-  .file-name,
-  .choose-btn {
-    font-size: 14px;
-  }
- 
-  #description {
-    height: 60px;
-  }
- 
-  .submit-btn {
-    width: 120px;
-    height: 40px;
-    font-size: 15px;
-  }
 
-  
-}
-
-.multi-select {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 5px 8px;
-  position: relative;
-  min-height: 40px;
+/* ================= FORM WRAPPER ================= */
+.form-wrapper {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  cursor: pointer;
+  justify-content: flex-start;
+}
+
+.cuisine-form {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* ================= FORM LAYOUT ================= */
+.form-row {
+  display: flex;
+  gap: 31px;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full {
+  width: 100%;
+}
+
+/* ===== DIET TYPE WIDTH FIX ===== */
+.form-group select {
+  width: 420px; /* 🔥 same as Choose File */
+}
+
+/* ===== SPACE BETWEEN DIET TYPE & IMAGE ===== */
+.form-group + .form-row {
+  margin-top: 24px;
+}
+
+/* ================= LABEL ================= */
+label {
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 6px;
+}
+
+/* ================= INPUTS ================= */
+input,
+select {
+  width: 100%;
+  height: 51px;
+  border: 1px solid #a2a1a1;
+  border-radius: 20px;
+  padding: 0 12px;
+  font-size: 14px;
+  outline: none;
   background: #fff;
 }
 
-.multi-select.open {
-  border-color: #007bff;
+input:focus,
+select:focus {
+  border-color: #2f5631;
 }
 
-.selected-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  flex: 1;
+/* ================= DESCRIPTION ================= */
+#description {
+  width: 100%;
+  height: 80px;
+  border-radius: 20px;
+  border: 1px solid #a2a1a1;
+  padding: 10px 12px;
 }
 
-.tag {
-  background: #007bff;
-  color: #fff;
-  padding: 3px 8px;
-  border-radius: 12px;
-  font-size: 13px;
+/* ================= FILE UPLOAD ================= */
+/* ===== CUISINE IMAGE (ORIGINAL WORKING STYLE) ===== */
+.file-upload {
+  width: 427px; /* ✅ original width */
+  height: 51px;
   display: flex;
   align-items: center;
+  border: 1px solid #a2a1a1;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #fff;
+  position: relative;
 }
 
-.tag .remove {
-  margin-left: 5px;
-  font-weight: bold;
+/* Hide real input */
+.file-upload input[type="file"] {
+  position: absolute;
+  opacity: 0;
   cursor: pointer;
 }
 
+/* Choose File button (LEFT GREY PART) */
+.choose-btn {
+  background-color: #d9d9d9;
+  border: none;
+  height: 100%;
+  margin-top: 5px;
+  padding: 0 30px;
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* File name text (RIGHT PART) */
+.file-name {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  color: #000;
+}
+
+/* ================= CATEGORY DROPDOWN ================= */
+.dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.fake-select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 51px;
+  width: 100%;
+  border: 1px solid #a2a1a1;
+  border-radius: 20px;
+  background: #fff;
+  cursor: pointer;
+  padding: 0 12px;
+}
+
+.dropdown-panel {
+  display: none;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 240px;
+  background: #fff;
+  border: 1px solid #a2a1a1;
+  border-radius: 6px;
+  list-style: none;
+  padding: 0;
+  z-index: 10;
+  margin-left: 185px;
+}
+
+.dropdown-wrapper:focus-within .dropdown-panel {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dropdown-item:hover {
+  background-color: #e0fee4;
+}
+
+/* ===== MULTI SELECT (NO COLOR, CLEAN) ===== */
+.multi-select {
+  width: 100%;
+  height: 51px;
+  border: 1px solid #a2a1a1;
+  border-radius: 20px;
+  background: #ffffff; /* ✅ plain white */
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Inner content – NO background */
+.selected-tags {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  background: transparent; /* ❌ no color */
+}
+
+/* Placeholder text */
 .placeholder {
-  color: #aaa;
+  color: #8c8c8c;
   font-size: 14px;
 }
 
-.dropdown {
+/* Selected text */
+.tag {
+  background: transparent; /* ❌ no color */
+  color: #000;
+  font-size: 13px;
+  padding: 0;
+}
+
+/* Dropdown list */
+.multi-select .dropdown {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 56px;
   left: 0;
   width: 100%;
-  max-height: 200px;
-  overflow-y: auto;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  max-height: 220px;
+  border: 1px solid #a2a1a1;
+  border-radius: 10px;
   background: #fff;
-  z-index: 10;
-  margin-top: 2px;
-  padding: 0;
-  list-style: none;
+  overflow-y: auto;
+  z-index: 20;
 }
 
 .multi-select.open .dropdown {
@@ -453,11 +263,11 @@ input:focus {
 }
 
 .dropdown li {
-  padding: 5px 10px;
+  padding: 8px 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
 }
 
 .dropdown li:hover {
@@ -468,5 +278,90 @@ input:focus {
   pointer-events: none;
 }
 
- 
- 
+/* ================= SUBMIT ================= */
+.submit-row {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.submit-btn {
+  width: 150px;
+  height: 45px;
+  background-color: #345c3c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 56px;
+}
+
+.submit-btn:hover {
+  background-color: #2f5631;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 992px) {
+  .form-section {
+    margin: 20px auto;
+    padding: 25px;
+    height: auto;
+  }
+
+  .top-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  label {
+    font-size: 14px;
+  }
+
+  input,
+  select,
+  .fake-select,
+  .multi-select,
+  .file-upload {
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .submit-btn {
+    width: 120px;
+    height: 40px;
+  }
+}
+
+/* ================= FORCE REMOVE ALL GREY FROM MULTI-SELECT ================= */
+/* =====================================================
+   🔥 FINAL FIX — REMOVE ALL GREY VISUALS COMPLETELY
+===================================================== */
+
+/* 🔥 GLOBAL HARD RESET FOR MULTI-SELECT GREY ISSUE */
+
+.multi-select,
+.multi-select *,
+.multi-select:focus,
+.multi-select:focus-within,
+.multi-select:active {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.multi-select .selected-tags,
+.multi-select .tag {
+  background: transparent !important;
+}

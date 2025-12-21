@@ -1,12 +1,12 @@
 /* superadminemployeedetails.component.css */
- 
+
 .employee-details-wrapper {
   background: #f7f8fa;
-  margin-top: -635px;
+  margin-top: -560px;
   margin-left: 460px;
   margin-right: 70px;
 }
- 
+
 .employee-card {
   position: relative;
   display: flex;
@@ -19,7 +19,7 @@
   font-family: "Poppins", sans-serif;
   overflow: hidden;
 }
- 
+
 .employee-card::before {
   content: "";
   position: absolute;
@@ -31,32 +31,32 @@
   border-radius: 20px;
   pointer-events: none;
 }
- 
+
 .employee-left {
   display: flex;
   flex-direction: column;
 }
- 
+
 /* Image and Name beside each other */
 .employee-top {
   display: flex;
   align-items: center;
   gap: 30px;
 }
- 
+
 .employee-img {
   width: 143px;
   height: 141px;
   border-radius: 50%;
   object-fit: cover;
 }
- 
+
 .employee-name {
   font-size: 20px;
   font-weight: 500;
   color: #000000;
 }
- 
+
 /* Info below image */
 .employee-info {
   margin-top: 25px;
@@ -64,11 +64,11 @@
   font-size: 20px;
   font-weight: 500;
 }
- 
+
 .employee-info p {
   margin-bottom: 12px;
 }
- 
+
 /* Illustration image at bottom right (absolute position) */
 .employee-illustration {
   position: absolute;
@@ -76,20 +76,20 @@
   left: 379px;
   bottom: 0;
 }
- 
+
 .employee-illustration img {
   width: 612px;
   height: 408px;
   display: block;
   margin-bottom: 14px; /* ensures it touches the bottom edge */
 }
- 
+
 /* Delivery Section */
 .delivery-section {
   margin-top: 24px;
   font-family: "Poppins", sans-serif;
 }
- 
+
 .delivery-card {
   background: #fff;
   border-radius: 15px;
@@ -98,14 +98,14 @@
   margin-bottom: 20px;
   transition: transform 0.2s ease-in-out;
 }
- 
+
 .delivery-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
 }
- 
+
 .delivery-number {
   font-size: 24px;
   font-weight: 400;
@@ -117,28 +117,28 @@
   font-weight: 600;
   color: #000000;
 }
- 
+
 .status {
   font-weight: 600;
   font-size: 20px;
   text-transform: capitalize;
 }
- 
+
 .delivered-text {
   color: #2ae484;
 }
- 
+
 .non-delivered-text {
   color: #ff0000;
 }
- 
+
 /* Label part bold */
 .label {
   font-size: 20px;
   font-weight: 600;
   color: #000000;
 }
- 
+
 /* Details */
 .delivery-details p {
   font-size: 20px;
@@ -146,5 +146,3 @@
   margin: 5px 0;
   color: #000000;
 }
- 
- 
