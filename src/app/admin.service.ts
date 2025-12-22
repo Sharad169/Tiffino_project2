@@ -160,4 +160,28 @@ export class AdminService {
     return this.http.get<any[]>(`${this.editApi}/all-requests`, {headers});
   }
 
+  getEmployeeById(code: string): Observable<any> {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get(`${this.apiUrl4}/EmployeeCode/${code}`, { headers });
+  }
+
+ getEditDifferences(employeeCode: string): Observable<any[]> {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`); 
+    return this.http.get<any[]>(`http://localhost:8081/edit/differences/${employeeCode}`,{ headers });
+  }
+
+  approveEditRequest(employeeCode: string): Observable<string> {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+        return this.http.post(`${this.editApi}/approve/${employeeCode}`, {},{headers,responseType: 'text' }); 
+  }
+
+  rejectEditRequest(employeeCode: string): Observable<string> {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`); 
+    return this.http.post(`${this.editApi}/reject/${employeeCode}`,{},{headers,responseType: 'text'});
+  }
+
 }

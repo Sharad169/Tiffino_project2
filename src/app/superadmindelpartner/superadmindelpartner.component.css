@@ -255,3 +255,66 @@ button[type="submit"] {
   color: red;
   font-size: 14px;
 }
+
+.file-success {
+  margin-top: 8px;
+  padding-left: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2e7d32; /* ✅ GREEN */
+  display: block;
+  line-height: 1.2;
+      margin-right: 103px;
+
+}
+
+
+.file-input{
+  color: green;
+}
+
+.custom-file-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space out "Choose File" area and "PDF" area */
+  width: 400px;
+  height: 51px;
+  border: 1px solid rgba(162, 161, 161, 1); /* 1px #A2A1A1 */
+  border-radius: 900px; /* This creates the circular/pill shape */
+
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.custom-file-input::before {
+  /* 🎯 MODIFICATION: Ensure "Choose File" is positioned correctly and remove left border */
+  content: "Choose File";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  height: 100%;
+
+  /* Calculate width for "Choose File" part, e.g., half the container width minus some padding */
+  width: 30%;
+
+  padding: 0; /* Remove padding */
+  background-color: rgba(
+    230,
+    230,
+    230,
+    1
+  ); /* Add a slight background for the button part */
+
+  /* Remove the conflicting border left */
+  border-left: none;
+
+  /* 🎯 NEW: Add a right border to separate "Choose File" from "PDF" */
+  border-right: 1px solid rgba(162, 161, 161, 1);
+}
+
+ .custom-file-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
