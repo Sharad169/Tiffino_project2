@@ -77,51 +77,58 @@
       </div>
       <div class="form-group file-group">
         <label for="photo">Photo</label>
+
         <div class="custom-file-input">
-          <span class="file-placeholder">
-            {{ uploadedFiles.photo || "PDF" }}
-          </span>
+          <span class="file-placeholder">PDF</span>
           <input
             id="photo"
             type="file"
             (change)="onFileSelected($event, 'photo')"
             accept=".pdf,image/*"
           />
-          <span *ngIf="uploadedFiles.photo" class="tick-mark">✔️</span>
         </div>
+
+        <!-- ✅ BELOW INPUT -->
+        <span *ngIf="uploadedFiles.photo.uploaded" class="file-success">
+          ✔️ {{ uploadedFiles.photo.name }}
+        </span>
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group file-group">
         <label for="aadhar">Aadhar No.</label>
+
         <div class="custom-file-input">
-          <span class="file-placeholder">
-            {{ uploadedFiles.aadhar || "PDF" }}
-          </span>
+          <span class="file-placeholder">PDF</span>
           <input
             id="aadhar"
             type="file"
             (change)="onFileSelected($event, 'aadhar')"
             accept=".pdf,image/*"
           />
-          <span *ngIf="uploadedFiles.aadhar" class="tick-mark">✔️</span>
         </div>
+
+        <span *ngIf="uploadedFiles.aadhar.uploaded" class="file-success">
+          ✔️ {{ uploadedFiles.aadhar.name }}
+        </span>
       </div>
       <div class="form-group file-group">
         <label for="pan-card">PAN card No.</label>
+
         <div class="custom-file-input">
-          <span class="file-placeholder">
-            {{ uploadedFiles.panCard || "PDF" }}
-          </span>
+          <span class="file-placeholder">PDF</span>
           <input
             id="pan-card"
             type="file"
             (change)="onFileSelected($event, 'panCard')"
             accept=".pdf,image/*"
           />
-          <span *ngIf="uploadedFiles.panCard" class="tick-mark">✔️</span>
         </div>
+
+        <span *ngIf="uploadedFiles.panCard.uploaded" class="file-success">
+          ✔️ {{ uploadedFiles.panCard.name }}
+        </span>
       </div>
     </div>
 
@@ -132,18 +139,20 @@
       </div>
       <div class="form-group file-group">
         <label for="cheque-book">Cheque Book</label>
+
         <div class="custom-file-input">
-          <span class="file-placeholder">
-            {{ uploadedFiles.chequeBook || "PDF" }}
-          </span>
+          <span class="file-placeholder">PDF</span>
           <input
             id="cheque-book"
             type="file"
             (change)="onFileSelected($event, 'chequeBook')"
             accept=".pdf,image/*"
           />
-          <span *ngIf="uploadedFiles.chequeBook" class="tick-mark">✔️</span>
         </div>
+
+        <span *ngIf="uploadedFiles.chequeBook.uploaded" class="file-success">
+          ✔️ {{ uploadedFiles.chequeBook.name }}
+        </span>
       </div>
     </div>
     <div class="form-row">

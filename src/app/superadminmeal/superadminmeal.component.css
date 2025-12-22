@@ -126,6 +126,7 @@ select:focus {
   background-color: #fff;
   position: relative;
 }
+/* ================= FILE SUCCESS (GREEN) ================= */
 
 /* Hide real input */
 .file-upload input[type="file"] {
