@@ -86,7 +86,7 @@
           (change)="onFileSelected($event, 'photo')"
           accept=".pdf,image/*"
         />
-        <span *ngIf="uploadedFiles.photo.uploaded"
+        <span *ngIf="uploadedFiles.photo.uploaded" class="file-success"
           >✔ {{ uploadedFiles.photo.name }}</span
         >
       </div>
@@ -100,7 +100,7 @@
           (change)="onFileSelected($event, 'aadhar')"
           accept=".pdf,image/*"
         />
-        <span *ngIf="uploadedFiles.aadhar.uploaded"
+        <span *ngIf="uploadedFiles.aadhar.uploaded" class="file-success"
           >✔ {{ uploadedFiles.aadhar.name }}</span
         >
       </div>
@@ -111,7 +111,7 @@
           (change)="onFileSelected($event, 'panCard')"
           accept=".pdf,image/*"
         />
-        <span *ngIf="uploadedFiles.panCard.uploaded"
+        <span *ngIf="uploadedFiles.panCard.uploaded" class="file-success"
           >✔ {{ uploadedFiles.panCard.name }}</span
         >
       </div>
@@ -125,7 +125,9 @@
           (change)="onFileSelected($event, 'vehicleInsurance')"
           accept=".pdf,image/*"
         />
-        <span *ngIf="uploadedFiles.vehicleInsurance.uploaded"
+        <span
+          *ngIf="uploadedFiles.vehicleInsurance.uploaded"
+          class="file-success"
           >✔ {{ uploadedFiles.vehicleInsurance.name }}</span
         >
       </div>
@@ -137,7 +139,7 @@
           (change)="onFileSelected($event, 'drivingLicense')"
           accept=".pdf,image/*"
         />
-        <span *ngIf="uploadedFiles.drivingLicense.uploaded"
+        <span *ngIf="uploadedFiles.drivingLicense.uploaded" class="file-success"
           >✔ {{ uploadedFiles.drivingLicense.name }}</span
         >
       </div>
@@ -162,7 +164,7 @@
           (change)="onFileSelected($event, 'chequeBook')"
           accept=".pdf,image/*"
         />
-        <span *ngIf="uploadedFiles.chequeBook.uploaded"
+        <span *ngIf="uploadedFiles.chequeBook.uploaded" class="file-success"
           >✔ {{ uploadedFiles.chequeBook.name }}</span
         >
       </div>
@@ -174,7 +176,7 @@
 
     <div class="form-group full">
       <label>Permanent Address</label>
-      <input type="text" formControlName="permanentAddress" />
+      <textarea formControlName="permanentAddress"></textarea>
     </div>
 
     <div class="form-group full">

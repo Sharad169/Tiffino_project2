@@ -6,7 +6,7 @@
 .managerinfo-wrapper {
   font-family: "Poppins", sans-serif;
   max-width: 900px;
-  margin-top: -505px;
+  margin-top: -580px;
   margin-left: 450px;
   padding: 20px;
   box-sizing: border-box;
@@ -202,8 +202,8 @@ input::placeholder {
 /* -------------------- */
 .tick-mark {
   color: green;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 500;
   margin-top: 4px;
 }
 

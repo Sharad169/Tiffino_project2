@@ -6,7 +6,7 @@
 .managerinfo-wrapper {
   font-family: "Poppins", sans-serif;
   max-width: 900px;
-  margin-top: -505px;
+  margin-top: -580px;
   margin-left: 450px;
   padding: 20px;
   box-sizing: border-box;
@@ -196,7 +196,24 @@ input::placeholder {
   font-weight: bold;
   margin-top: 4px;
 }
+/* ============================== */
+/* FILE UPLOAD SUCCESS (GREEN)    */
+/* ============================== */
+.file-success {
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2e7d32;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 
+/* Optional: make tick bolder */
+.file-success::before {
+  color: #2e7d32;
+  font-weight: 700;
+}
 /* -------------------- */
 /* ADDRESS BOXES        */
 /* -------------------- */

@@ -4,7 +4,7 @@
 .managerinfo-wrapper {
   font-family: "Poppins", sans-serif;
   margin-left: 380px; /* positions it to the right of your sidebar */
-  margin-top: -490px;
+  margin-top: -560px;
   margin-left: 450px;
   padding-right: 100px;
   max-width: 900px;
@@ -272,6 +272,24 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background: rgba(56, 99, 65, 1);
 }
+/* -------------------- */
+/* FILE SUCCESS (GREEN) */
+/* -------------------- */
+.file-success {
+  margin-top: 8px;
+  padding-left: 8px;
+  font-size: 15px;
+  font-weight: 500;
+
+  /* ✅ FORCE GREEN COLOR */
+  color: #2e7d32; /* material green */
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  line-height: 1.2;
+}
 
 /* --- Responsive --- */
 @media (max-width: 1024px) {
@@ -295,11 +313,5 @@ button[type="submit"]:hover {
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 14px;
-  }
-
-  .tick-mark {
-    color: green;
-    font-size: 18px;
-    font-weight: bold;
   }
 }

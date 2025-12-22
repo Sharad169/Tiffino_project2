@@ -182,7 +182,15 @@ input:disabled {
   color: #9b9b9b !important;
   opacity: 0.6;
 }
-
+.file-success {
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2e7d32; /* ✅ GREEN */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 /* POPUP OVERLAY */
 .popup-overlay {
   position: fixed;
