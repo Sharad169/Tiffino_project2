@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ManagerService } from '../service/manager.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manager-login',
@@ -14,7 +15,7 @@ export class ManagerLoginComponent {
   password: string = '';
   tempPass: string = ''; // optional (ACTIVE manager)
 
-  constructor(private managerService: ManagerService) {}
+  constructor(private managerService: ManagerService ,   private route: Router) {}
 
   loginUser(): void {
     if (!this.email || !this.password) {
@@ -37,6 +38,9 @@ export class ManagerLoginComponent {
           sessionStorage.setItem('role', 'MANAGER');
 
           alert(res.message || 'Manager login successful');
+          this.route.navigate(['/manager-yourdetailspage']);
+          
+
         },
         error: (err: any) => {
           alert(err?.error?.message || 'Invalid login details');

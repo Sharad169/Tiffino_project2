@@ -70,6 +70,7 @@ import { SuperadmineditlistComponent } from './superadmineditlist/superadminedit
 import { ManagerSetpasswordComponent } from './manager-setpassword/manager-setpassword.component';
 import { ManagerYourdetailspageComponent } from './manager-yourdetailspage/manager-yourdetailspage.component';
 import { ManagerYourdetailseditrequestpageComponent } from './manageryourdetailseditrequestpage/manageryourdetailseditrequestpage.component';
+import { ManagerYourdetailssubmitpageComponent } from './manager-yourdetailssubmitpage/manager-yourdetailssubmitpage.component';
 
 
 
@@ -243,6 +244,11 @@ export const routes: Routes = [
    {
     path: 'manager-yourdetailspage',
     component: ManagerYourdetailspageComponent,
+  },
+
+  {
+    path: 'manager-yourdetailssubmitpage',
+    component: ManagerYourdetailssubmitpageComponent,
   },
  
   {

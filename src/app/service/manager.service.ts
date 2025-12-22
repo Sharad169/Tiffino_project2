@@ -12,6 +12,7 @@ export class ManagerService {
   private baseUrl = 'http://localhost:8081/api/admins/login-manager';
    private loginBaseUrl = 'http://localhost:8081/api/admins/login-manager';
    private adminBaseUrl = 'http://localhost:8081/api/admins';
+   private editBaseUrl = 'http://localhost:8081/edit';
 
 
   ManagerLogin(managerCode: string, password: string) {
@@ -40,6 +41,12 @@ export class ManagerService {
         const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     return this.http.get<any>(`${this.adminBaseUrl}/manager/${managerCode}`, {headers});
+  }
+
+  updateManagerDetails(managerCode: string, formData: FormData): Observable<any> {
+    const token = sessionStorage.getItem('token');
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post(`${this.editBaseUrl}/${managerCode}`, formData, { headers    });
   }
 
 
