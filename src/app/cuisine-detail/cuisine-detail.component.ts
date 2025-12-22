@@ -4,83 +4,100 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
-
+ 
 @Component({
   selector: 'app-cuisine-detail',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './cuisine-detail.component.html',
-  styleUrl: './cuisine-detail.component.css'
+  styleUrls: ['./cuisine-detail.component.css'],
 })
 export class CuisineDetailComponent implements OnInit {
   cuisineId!: number;
   cuisineName: string = '';
   meals: any[] = [];
-
+  userId!: number;
+ 
   constructor(
     private route: ActivatedRoute,
     public api: AuthService,
     private http: HttpClient,
-    public router: Router
+    private router: Router
   ) {}
-
+ 
   ngOnInit(): void {
+    // ================= USER ID =================
+    const userIdStr = sessionStorage.getItem('userId');
+    if (!userIdStr) {
+      alert('User not logged in');
+      return;
+    }
+    this.userId = Number(userIdStr);
+ 
+    // ================= CUISINE ID =================
     this.cuisineId = Number(this.route.snapshot.paramMap.get('id'));
-
+ 
     const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-    this.http.get<any>(`http://localhost:8082/api/meals/cuisine/${this.cuisineId}`, { headers })
+ 
+    // ================= LOAD MEALS =================
+    this.http
+      .get<any>(`http://localhost:8082/api/meals/cuisine/${this.cuisineId}`, {
+        headers,
+      })
       .subscribe({
         next: (data) => {
-          console.log('Fetched meals data:', data);
-
-          if (data && data.meals) {
+          if (data?.meals) {
             this.meals = Array.isArray(data.meals) ? data.meals : [data.meals];
-            this.cuisineName =  data.CuisineName || 'Cuisine' ;
-            
+            this.cuisineName = data.cuisineName || 'Cuisine';
           } else if (Array.isArray(data)) {
             this.meals = data;
-            this.cuisineName = data.length > 0 ? data[0].cuisineName || 'Cuisine' : 'Cuisine';
+            this.cuisineName =
+              data.length > 0 ? data[0].cuisineName : 'Cuisine';
           } else {
             this.meals = [];
             this.cuisineName = 'Cuisine';
           }
         },
-        error: (error) => {
-          console.error('Error fetching meals:', error);
-          this.meals = [];
-          this.cuisineName = 'Cuisine';
-        }
+        error: (err) => {
+          console.error('Error loading meals', err);
+        },
       });
   }
-
-  addToCart(meal: any) {
-    console.log('Adding to cart:', meal);
-
-    // Get current cart
-    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-
-    // Check if this meal already exists in the cart
-    const existing = cart.find((item: any) => item.name === meal.name);
-
-    if (existing) {
-      existing.quantity++;
-    } else {
-      cart.push({
-        id: meal.mealId || meal.id || meal.name, // unique identifier
-        name: meal.name,
-        description: meal.description,
-        price: meal.price,
-        quantity: 1,
-        image: meal.imageUrl
-      });
+ 
+  // ================= ADD TO CART (BACKEND) =================
+  addToCart(meal: any): void {
+     if (meal.adding) return; // ⛔ prevent double click
+ 
+  meal.adding = true; // 🔒 lock button
+    const mealId = meal.mealId ?? meal.id; // SAFE
+    const quantity = 1;
+ 
+    if (!mealId) {
+      alert('Invalid meal');
+       meal.adding = false;
+      return;
     }
-
-    // Save back to localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    alert(`${meal.name} added to cart!`);
-    this.router.navigate(['/add-card']);
+ 
+    this.api.addToCart(this.userId, mealId, quantity).subscribe({
+      next: (res) => {
+        alert('Meal added successfully ✅');
+        // optional navigation
+        // this.router.navigate(['/add-cart']);
+      },
+      error: (err) => {
+        console.error('Add to cart error', err);
+        alert('Failed to add meal');
+        meal.adding = false; // 🔓 unlock on error
+      },
+      complete: () => {
+      // optional delay for UX smoothness
+      setTimeout(() => {
+        meal.adding = false; // 🔓 unlock
+      }, 500);
+    },
+    });
   }
 }
+ 
+ 

@@ -253,7 +253,7 @@ export const routes: Routes = [
  
   {
     path: 'manageryourdetailseditrequestpage',
-    component: ManagerYourdetailseditrequestpageComponent,
+    component: ManagerYourdetailseditrequestpageComponent
   },
  
 

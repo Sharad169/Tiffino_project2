@@ -1,18 +1,18 @@
 <div class="shopping-page">
-
+ 
   <!-- Shopping Bag + Sidebar Wrapper -->
   <div class="shopping-bag-wrapper">
-
+ 
     <!-- Left Side: Shopping Bag -->
     <div class="shopping-bag">
       <div class="bag-header">
         <div>
           <h2>Shopping Bag</h2>
-          <p>{{ cartItems.length }} items in your Cart</p>
+        <p>{{ getTotalItemCount() }} items in your Cart</p>
         </div>
         <button class="clear-btn" (click)="clearCart()">Clear Cart</button>
       </div>
-
+ 
       <!-- Table Header -->
       <div class="bag-table-header">
         <span>Product</span>
@@ -20,11 +20,11 @@
         <span>Quality</span>
         <span>Total Price</span>
       </div>
-
+ 
       <!-- Cart Items -->
       <div class="cart-items">
         <div class="cart-row" *ngFor="let item of cartItems">
-          
+         
           <!-- Product -->
           <div class="cart-col product">
             <div class="product-info">
@@ -38,12 +38,12 @@
               </div>
             </div>
           </div>
-
+ 
           <!-- Price -->
           <div class="cart-col price">
-            <p>Rs {{ item.price }}</p>
+            <p>Rs {{ item.individualUnitPrice }}</p>
           </div>
-
+ 
           <!-- Quantity -->
           <div class="cart-col quantity">
             <div class="quantity-control">
@@ -52,84 +52,123 @@
               <button (click)="increaseQty(item)">+</button>
             </div>
           </div>
-
+ 
           <!-- Total Price -->
           <div class="cart-col total">
-            <p>Rs {{ item.price * item.quantity }}</p>
+            <p>Rs {{ item.price }}</p>
           </div>
-
+ 
         </div>
       </div>
     </div>
-
+ 
     <!-- Right Side: Sidebar -->
     <div class="shopping-bag-sidebar">
-
+ 
       <div class="coupon">
-        <h4>Coupon Code</h4>
-        <input
-          type="text"
-          placeholder="Coupon Code"
-          [(ngModel)]="couponCode"
-        />
-        <button (click)="applyCoupon()">Apply</button>
-      </div>
-
-     <div class="deliver" *ngFor="let item of addresses; let i = index">
-  <ng-container *ngIf="i === 0">
-    <div class="deliver-header">
-      <h4>Deliver at:</h4>
-      
-      <!-- Hover container -->
-      <div class="address-hover">
-        <button class="arrow-btn">➡</button>
-
-        <!-- All address list -->
-        <div class="address-popup">
-          <div
-            class="address-item"
-            *ngFor="let addr of addresses"
-            (click)="selectAddress(addr)"
-          >
-            <p>{{ addr.address }}</p>
-            <small>{{ addr.name }} • {{ addr.secondaryPhone }}</small>
-          </div>
-        </div>
-      </div>
-    </div>
-     <p>{{ item.name }}</p>
-    <p>{{ item.address }} , {{ item.city }} , {{ item.state }}</p>    
-    <p>{{ item.secondaryPhone }}</p>
-  </ng-container>
+  <h4>Coupon Code</h4>
+  <input
+    type="text"
+    placeholder="Coupon Code"
+    [(ngModel)]="couponCode"
+    [disabled]="cartSummary?.couponCode"
+  />
+   <button
+    *ngIf="!cartSummary?.couponCode"
+    (click)="applyCouponCode()">
+    Apply
+  </button>
+   <button
+    *ngIf="cartSummary?.couponCode"
+    class="remove-btn"
+    (click)="removeCouponCode()">
+    Remove
+     </button>
 </div>
-
-
-
-
-      <div class="cart-total">
-        <p>Cart total <span>Rs {{ getCartTotal() }}</span></p>
-        <p>Delivery Charge <span>Free</span></p>
-        <p>Discount <span>Rs {{ discount }}</span></p>
-        <hr />
-        <p>Total <span>Rs {{ getCartTotal() - discount }}</span></p>
-        <button class="checkout" (click)="checkout()">Checkout</button>
-      </div>
-
-      <div class="cancel-policy">
+ 
+      <div class="deliver">
+  <h4>Deliver at:</h4>
+ 
+  <!-- ✅ ADDRESS EXISTS -->
+  <ng-container *ngIf="deliveryAddress; else noAddress">
+    <p>{{ deliveryAddress.address }}</p>
+    <p>{{ deliveryAddress.name }}</p>
+    <p>{{ deliveryAddress.phone }}</p>
+ 
+    <button (click)="openAddressSelector()">➡</button>
+  </ng-container>
+ 
+  <!-- ❌ NO ADDRESS -->
+  <ng-template #noAddress>
+    <p>No delivery address found</p>
+ 
+    <button
+      class="add-address-btn"
+      (click)="goToAddAddress()">
+      ➕ Add Address
+    </button>
+  </ng-template>
+</div>
+ 
+ 
+      <!-- Overlay -->
+<div class="overlay" *ngIf="showAddressSelector" (click)="showAddressSelector = false">
+ 
+  <!-- Popup -->
+  <div class="address-selector" (click)="$event.stopPropagation()">
+    <h3>Select Delivery Address</h3>
+ 
+    <div
+      class="address-card"
+      *ngFor="let addr of addresses"
+      (click)="selectAddress(addr)"
+    >
+      <p><strong>{{ addr.name }}</strong></p>
+      <p>{{ addr.address }}</p>
+      <p>{{ addr.phone }}</p>
+    </div>
+ 
+    <button
+    class="add-address-popup-btn"
+    (click)="goToAddAddress()">
+    ➕ Add New Address
+  </button>
+ 
+    <button class="close-btn" (click)="showAddressSelector = false">
+      Cancel
+    </button>
+  </div>
+</div>
+ 
+     <div class="cart-total">
+  <p>Cart total <span>Rs {{ cartSummary?.total }}</span></p>
+  <p>Delivery Charge <span>Rs {{ cartSummary?.deliveryFee }}</span></p>
+  <p>Discount <span>Rs {{ cartSummary?.discount }}</span></p>
+  <hr />
+  <p>Total <span>Rs {{ cartSummary?.finalAmount }}</span></p>
+  <button
+  class="checkout"
+  [disabled]="!deliveryAddress || cartItems.length === 0"
+  (click)="checkoutOrder()">
+  Checkout
+</button>
+</div>
+ 
+      <!-- add
         <h4>Cancellation Policy:</h4>
         <p>
           Save big on your meals with exclusive coupons—apply your code at
           checkout and enjoy instant discounts on your favorite dishes.
         </p>
         <button class="cancel" (click)="cancelOrder()">Cancel</button>
-      </div>
+      </div> -->
     </div>
   </div>
-
+ 
   <!-- Recommended or Add More Section -->
   <div class="recommended-section">
     <h2>Recommended for You</h2>
-
+ 
     <div class="scroll-container">
       <div class="food-card" *ngFor="let food of recommendedItems">
         <img [src]="food.image" alt="{{ food.title }}" class="food-img" />
@@ -140,18 +179,23 @@
               <span *ngFor="let s of [1,2,3,4,]">☆</span>
             </div>
           </div>
-
+ 
           <p class="food-desc">{{ food.description }}</p>
-
+ 
           <div class="food-footer">
             <p class="food-price">Rs {{ food.price }}</p>
-            <button class="add-btn" (click)="addRecommendedToCart(food)">+ Add</button>
+           <button
+  class="add-btn"
+  [disabled]="food.adding"
+  (click)="addRecommendedToCart(food)">
+  {{ food.adding ? 'Adding...' : '+ Add' }}
+</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-
+ 
   <!-- Donate + Cancellation Section -->
   <div class="donation-container">
     <div class="donation-card">
@@ -162,7 +206,7 @@
           empower young minds for greatness.
         </p>
       </div>
-
+ 
       <div class="donation-content">
         <h3>Donate to feeding India</h3>
         <div class="donation-actions">
@@ -172,7 +216,7 @@
           </button>
         </div>
       </div>
-
+ 
       <div class="cancellation-section">
         <h4>CANCELLATION POLICY</h4>
         <p>
@@ -184,5 +228,7 @@
       </div>
     </div>
   </div>
-
+ 
+ 
 </div>
+ 

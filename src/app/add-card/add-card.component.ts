@@ -3,148 +3,144 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../service/auth.service';
 import { UserService } from '../service/user.service';
-
+import { Router } from '@angular/router';
+ 
+ 
 @Component({
   selector: 'app-add-card',
   standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './add-card.component.html',
-  styleUrls: ['./add-card.component.css']
+  styleUrls: ['./add-card.component.css'],
 })
 export class AddCardComponent implements OnInit {
-
   cartItems: any[] = [];
   recommendedItems: any[] = [];
   addresses: any[] = [];
-
+  deliveryAddress: any = null;
+  showAddressSelector = false;
   couponCode: string = '';
-  discount: number = 0;
-  // deliveryAddress = {
-  //   address: '5, MG Road, Indiranagar, Bengaluru, Karnataka – 560038',
-  //   name: 'Aarav Sharma',
-  //   phone: '1234567899'
-  // };
-
-  constructor(public api: AuthService, public api1: UserService) {}
-
+  cartSummary: any;
+ 
+ 
+  constructor(public api: AuthService, public api1: UserService,private router: Router) {}
+ 
   ngOnInit(): void {
-    this.loadCart();
+    this.loadCartFromAPI();
     this.loadRecommendedItems();
     this.loadAddresses();
   }
-
-  // ===== Load cart from localStorage =====
-  loadCart() {
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    this.cartItems = Array.isArray(cart) ? cart : [];
-  }
-
-  // ===== Recommended static items =====
-  loadRecommendedItems() {
-    this.recommendedItems = [
-      {
-        title: 'Butter Naan',
-        description: 'Soft, fluffy Indian flatbread baked in tandoor, perfect with curries.',
-        price: 45,
-        image: 'assets/images/butter-naan.jpg'
-      },
-      {
-        title: 'Paneer Masala',
-        description: 'Rich creamy paneer curry cooked in tomato-cashew gravy.',
-        price: 350,
-        image: 'assets/images/paneer-masala.jpg'
-      }
-    ];
-  }
-
-  // ===== Quantity Controls =====
-  increaseQty(item: any) {
-    item.quantity++;
-    this.syncCart();
-  }
-
-  decreaseQty(item: any) {
-    if (item.quantity > 1) {
-      item.quantity--;
-      this.syncCart();
+ 
+  loadCartFromAPI() {
+    const userIdStr = sessionStorage.getItem('userId');
+    if (!userIdStr) {
+      console.error('User not logged in');
+      return;
     }
+ 
+    const userId = Number(userIdStr);
+ 
+    this.api.getCartByUserId(userId).subscribe({
+      next: (res: any) => {
+        console.log('Cart Response:', res);
+ 
+        this.cartSummary = res;
+      this.couponCode = res.couponCode || '';
+        // map backend items → UI format
+        this.cartItems = res.items.map((item: any) => ({
+        mealId: item.mealId,
+        name: item.mealName,
+        price: item.price,
+        individualUnitPrice: item.individualUnitPrice,
+        quantity: item.quantity,
+        image: item.mealImg,
+        description: item.mealDesc
+ 
+      }));
+      },
+      error: (err) => {
+        console.error('Failed to load cart', err);
+      },
+    });
   }
-
-  // ===== Remove a single item =====
-  removeItem(item: any) {
-    this.cartItems = this.cartItems.filter(i => i !== item);
-    this.syncCart();
+ 
+  increaseQty(item: any) {
+    const userId = Number(sessionStorage.getItem('userId'));
+ 
+    this.api.addToCart(userId, item.mealId, 1).subscribe(() => {
+      this.loadCartFromAPI(); // refresh cart
+    });
   }
-
-  // ===== Clear entire cart =====
+ 
+  decreaseQty(item: any) {
+    const userId = Number(sessionStorage.getItem('userId'));
+ 
+    this.api.removeFromCart(userId, item.mealId).subscribe(() => {
+      this.loadCartFromAPI();
+    });
+  }
+ 
   clearCart() {
-    this.cartItems = [];
-    this.syncCart();
+    const userId = Number(sessionStorage.getItem('userId'));
+ 
+    this.api.clearCart(userId).subscribe(() => {
+      this.cartItems = [];
+      this.cartSummary = null;
+    });
   }
-
+ 
+  getTotalItemCount(): number {
+  return this.cartItems.reduce((sum, item) => sum + item.quantity, 0);
+}
+ 
+ loadRecommendedItems() {
+  this.api.getAllMeals().subscribe({
+    next: (res) => {
+      this.recommendedItems = res.map((meal: any) => ({
+        mealId: meal.mealId,
+        title: meal.name,
+        description: meal.description,
+        price: meal.price,
+        image: meal.imageUrl
+      }));
+    },
+    error: (err) => {
+      console.error('Failed to load meals', err);
+    }
+  });
+}
   // ===== Add from Recommended Section =====
   addRecommendedToCart(food: any) {
-    const existing = this.cartItems.find(item => item.name === food.title);
-    if (existing) {
-      existing.quantity++;
-    } else {
-      this.cartItems.push({
-        name: food.title,
-        description: food.description,
-        price: food.price,
-        quantity: 1,
-        image: food.image
-      });
-    }
-    this.syncCart();
-  }
-
-  // ===== Sync cart to localStorage =====
-  syncCart() {
-    localStorage.setItem('cart', JSON.stringify(this.cartItems));
-    this.updateCartTotal();
-  }
-
-  // ===== Cart Total =====
-  getCartTotal(): number {
-    return this.cartItems.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
-    );
-  }
-
-  updateCartTotal() {
-    this.discount = this.calculateDiscount();
-  }
-
-  // ===== Coupon Code =====
-  applyCoupon() {
-    if (this.couponCode.trim().toLowerCase() === 'save50') {
-      this.discount = 50;
-      alert('Coupon applied! You saved ₹50');
-    } else {
-      this.discount = 0;
-      alert('Invalid coupon code');
-    }
-    this.updateCartTotal();
-  }
-
-  calculateDiscount(): number {
-    return this.discount;
-  }
-
-  // ===== Checkout =====
-  checkout() {
-    alert('Checkout successful! Total: ₹' + (this.getCartTotal() - this.discount));
-    this.clearCart();
-  }
-
-  // ===== Cancel Order =====
+  if (food.adding) return; // ⛔ prevent double click
+ 
+  const userId = Number(sessionStorage.getItem('userId'));
+  if (!userId || !food.mealId) return;
+ 
+  food.adding = true; // 🔒 lock button
+ 
+  this.api.addToCart(userId, food.mealId, 1).subscribe({
+    next: () => {
+      this.loadCartFromAPI(); // ✅ refresh cart
+    },
+    error: (err) => {
+      console.error('Failed to add item', err);
+      food.adding = false; // 🔓 unlock on error
+    },
+    complete: () => {
+      setTimeout(() => {
+        food.adding = false; // 🔓 unlock after 500ms
+      }, 500);
+    },
+  });
+}
+ 
+ 
+ 
   cancelOrder() {
     alert('Order cancelled successfully.');
   }
-
-    loadAddresses() {
+ 
+  loadAddresses() {
     const userIdStr = sessionStorage.getItem('userId');
     if (!userIdStr) {
       console.error('User ID not found in session storage.');
@@ -152,30 +148,101 @@ export class AddCardComponent implements OnInit {
     }
     const userId = Number(userIdStr);
     if (Number.isNaN(userId)) {
-      console.error('User ID in session storage is not a valid number:', userIdStr);
+      console.error(
+        'User ID in session storage is not a valid number:',
+        userIdStr
+      );
       return;
     }
     this.api1.getAddressesByUserId(userId).subscribe((data) => {
       console.log(data);
-      this.addresses = data;
+      this.addresses = data || [];
+ 
+    if (this.addresses.length > 0) {
+    this.deliveryAddress = this.deliveryAddress ?? this.addresses[0];
+  } else {
+    this.deliveryAddress = null;
+  }
     });
   }
-
-  selectAddress(selected: any) {
-  const index = this.addresses.indexOf(selected);
-
-  if (index > -1) {
-    // swap selected address with first address
-    const temp = this.addresses[0];
-    this.addresses[0] = selected;
-    this.addresses[index] = temp;
+ 
+  openAddressSelector() {
+  this.showAddressSelector = true;
+}
+ 
+ selectAddress(address: any) {
+  this.deliveryAddress = address;
+  this.showAddressSelector = false;
+}
+goToAddAddress() {
+  this.router.navigate(['/address-page']);
+}
+ 
+applyCouponCode() {
+  const userId = Number(sessionStorage.getItem('userId'));
+  if (!userId || !this.couponCode) return;
+ 
+  this.api.applyCoupon(userId, this.couponCode).subscribe({
+    next: (res: any) => {
+       alert(res)
+      this.loadCartFromAPI(); // refresh cart totals
+    },
+    error: (err) => {
+      console.error('Failed to apply coupon', err);
+      alert('Invalid or expired coupon!');
+    },
+  });
+}
+ 
+removeCouponCode() {
+  const userId = Number(sessionStorage.getItem('userId'));
+  if (!userId) return;
+ 
+   this.api.removeCoupon(userId).subscribe({
+    next: (res: string) => {
+      alert(res);
+      this.couponCode = '';
+      this.loadCartFromAPI();
+    },
+    error: (err) => {
+      alert(err.error || 'Failed to remove coupon!');
+    }
+  });
+}
+ 
+checkoutOrder() {
+  const userId = Number(sessionStorage.getItem('userId'));
+ 
+  if (!userId) {
+    alert('User not logged in');
+    return;
   }
-
-  
+ 
+  if (!this.cartItems || this.cartItems.length === 0) {
+    alert('Your cart is empty');
+    return;
+  }
+ 
+  if (!this.deliveryAddress) {
+    alert('Please add or select a delivery address');
+    return;
+  }
+ 
+  const addressId = this.deliveryAddress.id;
+ 
+  this.api.checkout(userId, addressId).subscribe({
+    next: (res) => {
+      alert('Order placed successfully 🎉');
+      console.log('Order response:', res);
+ 
+    },
+    error: (err) => {
+      console.error(err);
+      alert(err.error?.message || 'Checkout failed');
+    }
+  });
 }
-
-
-
-
-
+ 
 }
+ 
+ 
