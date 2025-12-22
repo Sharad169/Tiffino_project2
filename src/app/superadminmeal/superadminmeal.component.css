@@ -278,6 +278,15 @@ select:focus {
 .dropdown input[type="checkbox"] {
   pointer-events: none;
 }
+/* ================= FILE SUCCESS (GREEN) ================= */
+.file-success {
+  display: block; /* ✅ forces new line */
+  width: 100%; /* ✅ full width under input */
+  margin-top: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2e7d32; /* green */
+}
 
 /* ================= SUBMIT ================= */
 .submit-row {

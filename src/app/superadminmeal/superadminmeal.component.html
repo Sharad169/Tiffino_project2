@@ -71,6 +71,9 @@
             <label for="cuisineImage" class="choose-btn">Choose File</label>
             <span class="file-name">{{ fileName || "No file chosen" }}</span>
           </div>
+          <span *ngIf="selectedFile" class="file-success">
+            ✔️ {{ selectedFile.name }}
+          </span>
         </div>
       </div>
 
@@ -271,6 +274,9 @@
             <label for="cuisineImage" class="choose-btn">Choose File</label>
             <span class="file-name">{{ fileName1 || "No file chosen" }}</span>
           </div>
+          <span *ngIf="selectedFile" class="file-success">
+            ✔️ {{ selectedFile.name }}
+          </span>
         </div>
       </div>
 
