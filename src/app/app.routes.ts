@@ -74,6 +74,7 @@ import { SuperadmineditlistComponent } from './superadmineditlist/superadminedit
 import { SuperadminmanagereditpageComponent } from './superadminmanagereditpage/superadminmanagereditpage.component';
 import { SuperadminchefeditpageComponent } from './superadminchefeditpage/superadminchefeditpage.component';
 import { SuperadmindelpartnereditpageComponent } from './superadmindelpartnereditpage/superadmindelpartnereditpage.component';
+import { ManagerapproveorderComponent } from './managerapproveorder/managerapproveorder.component';
 export const routes: Routes = [
   // Default page
 
@@ -248,7 +249,7 @@ export const routes: Routes = [
     path: 'superadmindelpartnereditpage/:employeeCode',
     component: SuperadmindelpartnereditpageComponent,
   },
-
+  { path: 'managerapproveorder', component: ManagerapproveorderComponent },
   {
     path: 'manager-yourdetailspage',
     component: ManagerYourdetailspageComponent,

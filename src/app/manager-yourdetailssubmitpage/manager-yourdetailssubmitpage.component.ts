@@ -22,6 +22,7 @@ export class ManagerYourdetailssubmitpageComponent implements OnInit {
   showPopup = false;
   popupTitle = '';
   popupMessage = '';
+  isSuccessPopup = false;
 
   // ===== FORM FIELDS (INTENTIONALLY EMPTY) =====
   name = '';
@@ -114,12 +115,14 @@ export class ManagerYourdetailssubmitpageComponent implements OnInit {
   }
 
   showSuccess(message?: string) {
+    this.isSuccessPopup = true;
     this.popupTitle = 'Success';
     this.popupMessage = message || 'Your request is successfully sent';
     this.openPopup();
   }
 
   showError(message?: string) {
+    this.isSuccessPopup = false;
     this.popupTitle = 'Oops!';
     this.popupMessage = message || 'Request not sent. Please try again later.';
     this.openPopup();
@@ -131,5 +134,9 @@ export class ManagerYourdetailssubmitpageComponent implements OnInit {
   }
   closePopup() {
     this.showPopup = false;
+  }
+  goToDashboard() {
+    this.closePopup();
+    window.location.href = '/manager-dashboard';
   }
 }

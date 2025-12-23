@@ -141,5 +141,14 @@
     <span class="popup-close" (click)="closePopup()">✕</span>
     <h2>{{ popupTitle }}</h2>
     <p>{{ popupMessage }}</p>
+
+    <!-- ✅ ONLY FOR SUCCESS -->
+    <button
+      *ngIf="isSuccessPopup"
+      class="dashboard-btn"
+      (click)="goToDashboard()"
+    >
+      Go to Dashboard
+    </button>
   </div>
 </div>

@@ -246,7 +246,22 @@ input:disabled {
   transform: scale(1.1);
   opacity: 0.8;
 }
+.dashboard-btn {
+  margin-top: 40px;
+  width: 260px;
+  height: 52px;
+  background: #ffffff;
+  color: #386341;
+  border-radius: 12px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
 
+.dashboard-btn:hover {
+  background-color: #e8f5ea;
+}
 /* ===================================================
       RESPONSIVE LAPTOP
 =================================================== */
