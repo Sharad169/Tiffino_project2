@@ -1,0 +1,348 @@
+/* ---------------------- */
+
+/* MAIN DESKTOP STYLES    */
+
+/* ---------------------- */
+ 
+.subscription-wrapper {
+
+  width: 100%;
+
+  max-width: 380px;
+
+  margin-left: 480px;
+
+  margin-top: -420px;
+
+  font-family: "Poppins", sans-serif;
+
+}
+ 
+.order-title {
+
+  font-size: 24px;
+
+  font-weight: 600;
+
+  color: #000000;
+
+  margin-bottom: 20px;
+
+}
+ 
+.cards-scroll-area {
+
+  max-height: 650px;
+
+  width: 866px;
+
+  overflow-y: auto;
+
+  scrollbar-width: none;
+
+}
+
+.cards-scroll-area::-webkit-scrollbar {
+
+  display: none;
+
+}
+ 
+.card {
+
+  width: 866px;
+
+  height: 324px;
+
+  background: #ffffff;
+
+  border-radius: 40px;
+
+  padding: 20px;
+
+  margin-top: 40px;
+
+  margin-bottom: 14px;
+
+  border: none;
+
+}
+ 
+.card-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  border: none;
+
+}
+ 
+.delivery-info {
+
+  font-size: 24px;
+
+  margin: 0;
+
+  color: #000000;
+
+}
+ 
+.date-info {
+
+  font-size: 20px;
+
+  margin: 0;
+
+  color: #000;
+
+}
+ 
+.card-body p {
+
+  font-size: 20px;
+
+  color: #000;
+
+  margin-bottom: 12px;
+
+}
+ 
+.rating-row {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-top: 12px;
+
+}
+ 
+.approve-btn {
+
+  width: 166px;
+
+  height: 49px;
+
+  background: #386341;
+
+  color: #ffffff;
+
+  border: none;
+
+  padding: 10px 22px;
+
+  border-radius: 10px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+}
+ 
+/* ------------------------------------------------------ */
+
+/* RESPONSIVENESS — Tablet + Mobile (NO UI BREAKING)      */
+
+/* ------------------------------------------------------ */
+ 
+/* ---------- Large Laptops (1400px ↓) ---------- */
+
+@media (max-width: 1400px) {
+
+  .subscription-wrapper {
+
+    margin-left: 350px;
+
+  }
+
+}
+ 
+/* ---------- Small Laptops (1200px ↓) ---------- */
+
+@media (max-width: 1200px) {
+
+  .subscription-wrapper {
+
+    margin-left: 250px;
+
+  }
+ 
+  .cards-scroll-area,
+
+  .card {
+
+    width: 750px;
+
+  }
+
+}
+ 
+/* ---------- Tablets (992px ↓) ---------- */
+
+@media (max-width: 992px) {
+
+  .subscription-wrapper {
+
+    margin-left: 0;
+
+    margin-top: 20px;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    padding: 0 20px;
+
+  }
+ 
+  .cards-scroll-area,
+
+  .card {
+
+    width: 100%;
+
+  }
+ 
+  .delivery-info {
+
+    font-size: 22px;
+
+  }
+ 
+  .date-info,
+
+  .card-body p,
+
+  .rating-text {
+
+    font-size: 18px;
+
+  }
+ 
+  .approve-btn {
+
+    width: 150px;
+
+    height: 45px;
+
+    font-size: 14px;
+
+  }
+
+}
+ 
+/* ---------- Mobile (768px ↓) ---------- */
+
+@media (max-width: 768px) {
+
+  .subscription-wrapper {
+
+    margin-top: 20px;
+
+    padding: 0 15px;
+
+  }
+ 
+  .order-title {
+
+    font-size: 20px;
+
+    text-align: center;
+
+  }
+ 
+  .card {
+
+    height: auto;
+
+    padding: 18px;
+
+  }
+ 
+  .card-header {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 6px;
+
+  }
+ 
+  .delivery-info {
+
+    font-size: 20px;
+
+  }
+ 
+  .date-info {
+
+    font-size: 16px;
+
+  }
+ 
+  .card-body p {
+
+    font-size: 16px;
+
+  }
+ 
+  .rating-row {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+  }
+ 
+  .approve-btn {
+
+    width: 100%;
+
+  }
+
+}
+ 
+/* ---------- Small Mobile (480px ↓) ---------- */
+
+@media (max-width: 480px) {
+
+  .card {
+
+    border-radius: 25px;
+
+  }
+ 
+  .delivery-info {
+
+    font-size: 18px;
+
+  }
+ 
+  .date-info,
+
+  .card-body p,
+
+  .rating-text {
+
+    font-size: 15px;
+
+  }
+ 
+  .approve-btn {
+
+    height: 44px;
+
+    font-size: 14px;
+
+  }
+
+}
+ 
