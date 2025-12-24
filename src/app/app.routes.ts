@@ -224,7 +224,7 @@ export const routes: Routes = [
   { path: 'managerapproveorder', component: ManagerapproveorderComponent },
  
   {
-    path: 'managerstartordersubscriber',
+    path: 'managerstartordersubscriber/:orderId',
     component: ManagerstartordersubscriberComponent,
   },
 

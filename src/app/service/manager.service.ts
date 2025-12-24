@@ -49,6 +49,13 @@ export class ManagerService {
     return this.http.post(`${this.editBaseUrl}/${managerCode}`, formData, { headers    });
   }
 
+  
+  
+  getPendingOrders(kitchenCode: string): Observable<any> {
+    const token = sessionStorage.getItem('token');
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<any>(`http://localhost:8083/api/orders/Kitchen/PENDING?KitchenCode=${kitchenCode}`, { headers });
+  }
 
 
 }

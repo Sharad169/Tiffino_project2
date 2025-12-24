@@ -54,6 +54,7 @@ export class ManagerYourdetailseditrequestpageComponent implements OnInit {
       next: (res: any) => {
         this.manager = res; // ✅ SAME API
         console.log(this.manager);
+       
         
         this.loading = false;
       },

@@ -56,7 +56,8 @@ export class ManagerYourdetailspageComponent implements OnInit {
       next: (res) => {
         this.manager = res; // ✅ SAME API RESPONSE
         this.loading = false;
-        console.log(this.manager);
+        console.log("manager Data", this.manager);
+         sessionStorage.setItem('kitchenCode', this.manager.kitchenCode || '');
         
       },
       error: (err) => {
