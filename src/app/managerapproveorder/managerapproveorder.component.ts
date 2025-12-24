@@ -44,6 +44,10 @@ export class ManagerapproveorderComponent implements OnInit {
   // yaha routing ya modal open kar sakta hai
 
 
+openOrder(orderId: number) {
+    this.router.navigate(['/managerstartordersubscriber', orderId]);
+  }
+
 
     loadPendingOrders() {
     this.api.getPendingOrders(this.kitchenCode)

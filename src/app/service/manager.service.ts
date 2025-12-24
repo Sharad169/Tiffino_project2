@@ -57,5 +57,18 @@ export class ManagerService {
     return this.http.get<any>(`http://localhost:8083/api/orders/Kitchen/PENDING?KitchenCode=${kitchenCode}`, { headers });
   }
 
+  getOrderById(orderId: string) {
+  const token = sessionStorage.getItem('token');
+  const headers = new HttpHeaders().set(
+    'Authorization',
+    `Bearer ${token}`
+  );
+
+  return this.http.get(
+    `http://localhost:8083/api/orders/${orderId}`,
+    { headers }
+  );
+}
+
 
 }

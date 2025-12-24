@@ -10,11 +10,11 @@
 </div>
  
     <!-- Customer Info -->
-<div class="customer-info">
+<div class="customer-info" *ngIf="orderDetails">
 <p class="row-flex">
 
-        Name:– <span>Rajesh</span>
-<span class="subscriber-badge">Subscriber</span>
+        Name:– <span>{{orderDetails.name}}</span>
+<span class="subscriber-badge">{{orderDetails.isSubscriber ? 'Subscriber' : 'Non-Subscriber'}}</span>
 </p>
  
       <p>Phone:– <span> 12345678997</span></p>
@@ -38,14 +38,16 @@
  
     <!-- Food Card -->
 <div class="food-card">
-<img src="/assets/btnaan.png" alt="Butter Naan" />
+<img
+  *ngIf="orderDetails?.items?.length"
+  [src]="orderDetails.items[0].mealImg"
+  alt="Meal Image"
+/>
 <div class="food-details">
-<h4>Butter Naan</h4>
+<h4>{{orderDetails.items[0].mealName}}</h4>
 <p>
 
-          A soft, fluffy, and slightly chewy Indian flatbread baked in a
-
-          tandoor, perfect for pairing with rich curries and gravies.
+     
 </p>
 </div>
 </div>
