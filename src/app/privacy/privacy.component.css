@@ -1,0 +1,261 @@
+/* Import Poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+ 
+/* General Container */
+.profile-container {
+  font-family: "Poppins", sans-serif;
+  margin: 0 80px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+ 
+/* Top Row */
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px 0 8px 250px;
+}
+ 
+.greeting {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
+ 
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+ 
+.wallet-btn {
+  height: 51px;
+  width: 171px;
+  background: #386341;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+ 
+.notify {
+  height: 48px;
+  width: 47px;
+  font-size: 20px;
+  color: #fff;
+  background: #386341;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+ 
+.profile-pic {
+  height: 48px;
+  width: 47px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+ 
+/* Middle Row */
+.middle-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+ 
+.location {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #386341;
+}
+ 
+.search-box {
+  height: 47px;
+  width: 510px;
+  display: flex;
+  gap: 6px;
+}
+ 
+.search-box input {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid #aaa;
+  font-size: 14px;
+}
+ 
+.menu-btn {
+  height: 47px;
+  width: 47px;
+  border: 2px solid #aaa;
+  background: #f9f9f9;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+/* Outer large box */
+.help-large-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 47px; /* height of large box */
+  width: 47px; /* width of large box */
+  top: 409px;
+  left: 1013px;
+  border: 2px solid rgba(162, 161, 161, 1);
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  padding: 5px; /* space for small box inside */
+  transition: background 0.2s;
+}
+ 
+/* Small box inside the large box */
+.help-small-box {
+  height: 18px;
+  width: 18px;
+  top: 3px;
+  left: 3px;
+  border: 2px solid rgba(145, 145, 145, 1);
+  border-radius: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(145, 145, 145, 1);
+  background-color: #fff;
+  transition: background 0.2s, color 0.2s;
+}
+ 
+/* Bottom Row */
+.bottom-row {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+ 
+.back-icon {
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  margin-top: 120px;
+}
+ 
+.back-link {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  margin-top: 50px;
+}
+ 
+/* Profile Title */
+.profile p {
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
+}
+ 
+/* Profile Section */
+.profile-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 0; /* optional spacing between sidebar and content */
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+ 
+/* Main container */
+.address-page {
+  width: 100%;
+  padding: 40px 80px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f5f5;
+}
+ 
+/* Orders Section */
+.orders-section {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 40px 60px;
+  margin-left: 20px;
+}
+ 
+/* Header */
+.orders-header h3 {
+  color: #386341;
+  font-size: 22px;
+  font-weight: 600;
+  margin-left: -135px;
+  margin-top: -75px;
+}
+ 
+/* Intro paragraph */
+.privacy-policy-intro {
+  width: 138%;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 1);
+  line-height: 1.7;
+  margin: 0 0 25px 0;
+  font-weight: 400;
+  margin-left: -135px;
+  margin-top: 44px;
+}
+ 
+/* Box wrapper for main content */
+.privacy-policy-box {
+  width: 122%;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+ 
+/* Title “Privacy Policy” */
+.policy-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 15px;
+  margin-left: -135px;
+  margin-top: -20px;
+}
+ 
+/* Paragraph text */
+.policy-text {
+  font-size: 20px;
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 1);
+  text-align: left;
+  font-weight: 400;
+  margin-left: -135px;
+  margin-top: -12px;
+  word-spacing: 0rem;
+}
+ 
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .orders-section {
+    padding: 25px;
+  }
+}
+ 
+ 

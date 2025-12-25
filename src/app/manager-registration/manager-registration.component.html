@@ -1,0 +1,45 @@
+<div class="manager-layout">
+  <!-- keep your existing sidebar untouched -->
+  <app-superadmin-sidebar></app-superadmin-sidebar>
+
+  <div class="manager-content">
+    <!-- dropdown container -->
+    <div class="dropdown-wrapper" tabindex="0">
+      <button class="fake-select" aria-haspopup="listbox" aria-expanded="false">
+        <span class="label">Select Employee</span>
+        <span class="chev" aria-hidden="true">
+          <!-- down chevron SVG -->
+          <svg
+            class="dropdown-icon"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 10l5 5 5-5"
+              stroke="rgba(31, 31, 31, 1)"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+      </button>
+
+      <!-- dropdown panel (pure CSS show/hide using :focus-within) -->
+      <ul class="dropdown-panel" role="listbox" aria-label="Employees">
+        <li (click)="navigateTo('/managerinfo')" class="dropdown-item">
+          Manager
+        </li>
+        <li (click)="navigateTo('/superadminchef')" class="dropdown-item">
+          Chef
+        </li>
+        <li (click)="navigateTo('/superadmindelpartner')" class="dropdown-item">
+          Delivery Partner
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="layout">
+
+  <!-- FULL WIDTH TOP BAR -->
+  <header class="topbar">
+
+    <div class="top-left">
+      <span class="back-arrow">&#8592;</span>
+      <span>Back</span>
+    </div>
+
+    <div class="top-center">
+      <p class="gm">Good Morning, Aditya</p>
+      <input type="text" class="search" placeholder="Search" />
+      <div class="inactive">
+        InActive <span class="dot"></span>
+      </div>
+    </div>
+
+    <div class="top-right">
+      <div class="square">□</div>
+      <div class="bell">🔔</div>
+      <div class="profile"></div>
+    </div>
+
+  </header>
+
+  <!-- CONTENT AREA -->
+  <div class="content">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <button class="menu active">Home</button>
+      <button class="menu">Your current Order</button>
+      <button class="menu">Orders delivered by you</button>
+      <button class="menu">Help Center</button>
+      <button class="menu">Your Details</button>
+    </aside>
+
+    <!-- RIGHT SIDE SLOT FOR DASHBOARD CONTENT -->
+    <main class="right-side">
+      <ng-content></ng-content>
+    </main>
+
+  </div>
+
+</div>

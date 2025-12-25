@@ -1,0 +1,75 @@
+<div class="profile-container">
+  <div class="top-row">
+    <div class="top-actions"></div>
+  </div>
+ 
+  <div class="middle-row">
+    <span class="location"> </span>
+    <div class="search-box"></div>
+  </div>
+ 
+  <div class="bottom-row">
+    <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
+      <i class="fa-solid fa-angle-left"></i> Back
+    </div>
+  </div>
+ 
+  <div class="profile">
+    <p>Profile</p>
+  </div>
+ 
+  <!-- Main Section -->
+  <div class="profile-section">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+ 
+    <!-----     Order card     ----->
+    <div class="referral-container">
+      <div class="referral-graphic-area">
+        <div class="illustration-placeholder"></div>
+      </div>
+ 
+      <p class="referral-text">
+        The Invite a Friend feature on Shidori lets you share tasty, home-style
+        meals with your friends and earn rewards at the same time. When your
+        friend signs up using your <br />referral link and places their first
+        order, both of you get exciting benefits like wallet credits or
+        discounts. You can easily invite friends through WhatsApp, SMS, or
+        social media — and the more you invite, the more you earn! Share Shidori
+        with others and enjoy the happiness of good food together.
+      </p>
+ 
+      <div class="referral-actions">
+        <div class="input-copy-group">
+          <input
+            #inputRef
+            type="text"
+            placeholder="Search Number"
+            class="search-input"
+            (input)="updateInput(inputRef.value)"
+            [value]="inputValue"
+          />
+          <button class="copy-link-btn" (click)="copyLink()">Copy Link</button>
+        </div>
+ 
+        <button class="share-btn" (click)="shareNow()">Share</button>
+ 
+        <div
+          class="social-share-box"
+          [style.display]="showIcons ? 'flex' : 'none'"
+        >
+          <img src="/assets/files.png" alt="Files" class="share-icon" />
+          <img src="/assets/drive.png" alt="Google Drive" class="share-icon" />
+          <img src="/assets/google.png" alt="Google" class="share-icon" />
+          <img src="/assets/whatsapp.png" alt="WhatsApp" class="share-icon" />
+          <img src="/assets/telegram.png" alt="Telegram" class="share-icon" />
+          <img src="/assets/instagram.png" alt="Instagram" class="share-icon" />
+          <img src="/assets/snapchat.png" alt="Snapchat" class="share-icon" />
+          <img src="/assets/facebook 1.png" alt="Facebook" class="share-icon" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ 

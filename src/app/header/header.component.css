@@ -5,6 +5,7 @@
   width: calc(100% + 16px);
 }
 
+/* ---------------- Header ---------------- */
 .header {
   background-color: rgba(56, 99, 65, 1);
   color: #ffffff;
@@ -12,34 +13,35 @@
   padding: 14px 0 24px;
 }
 
+/* Container */
 .container {
-  /* max-width: 1200px; */
   margin: 0 auto;
-  padding: 0 0px;
+  padding: 0 20px; /* better padding for mobile */
   margin-left: 90px;
 }
 
-/* TOP ROW */
+/* Top row */
 .top-row {
   display: grid;
   grid-template-columns: 180px 1fr 180px;
   align-items: center;
-  /* margin-bottom: 61px; */
 }
 
+/* Logo */
 .logo img {
   height: 32px;
   display: block;
   margin-top: 10px;
 }
 
-/* center nav links */
+/* Center navigation links */
 .center-nav {
   display: flex;
-  justify-content: last baseline;
+  justify-content: center;
   gap: 100px;
   margin-left: 75px;
 }
+
 .nav-link {
   color: #ffffff;
   text-decoration: none;
@@ -48,32 +50,12 @@
   cursor: pointer;
   margin-top: 20px;
 }
+
 .nav-link:hover {
-  opacity: 1;
+  opacity: 0.8;
 }
 
-/* profile */
-/*.profile {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-self: end;
-}
-.avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #ffffff;
-}
-.avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-/* BOTTOM ROW */
+/* Bottom row */
 .bottom-row {
   margin-top: 16px;
   display: flex;
@@ -82,13 +64,12 @@
 }
 
 .profile-name {
-      font-size: 24px;
-    display: flex;
-    justify-content: flex-end;
+  font-size: 24px;
+  display: flex;
+  justify-content: flex-end;
 }
 
-
-/* location row */
+/* Location row */
 .location {
   display: flex;
   align-items: center;
@@ -96,28 +77,30 @@
   font-size: 20px;
   font-weight: 500;
 }
+
 .location svg {
   color: #ffffff;
 }
 
-/* search block */
+/* Search block */
 .search-block {
   display: flex;
   align-items: center;
   margin-top: 30px;
   margin-bottom: 15px;
   gap: 10px;
+  flex-wrap: wrap; /* allow wrapping on mobile */
 }
 
-/* search pill */
+/* Search pill */
 .search-pill {
   position: relative;
   background: #fff;
   border-radius: 32px;
   padding: 10px 42px 10px 16px;
   height: 52px;
-  width: 100%; /* full width like screenshot */
-  max-width: 900px; /* limit max size */
+  width: 100%;
+  max-width: 900px;
   display: flex;
   align-items: center;
 }
@@ -132,12 +115,13 @@
   color: #111;
   margin-left: 14px;
 }
+
 .search-pill input::placeholder {
   color: rgba(0, 0, 0, 1);
   font-weight: 500;
 }
 
-/* chevron in search */
+/* Chevron in search */
 .chev {
   position: absolute;
   right: 12px;
@@ -149,7 +133,7 @@
   color: #333;
 }
 
-/* filter button */
+/* Filter button */
 .filter-btn {
   display: flex;
   align-items: center;
@@ -165,19 +149,84 @@
   font-weight: 500;
   cursor: pointer;
 }
+
 .filter-btn svg {
   stroke-width: 2;
 }
 
-/* RESPONSIVE */
-@media (max-width: 700px) {
-  .center-nav {
-    display: none;
+/* ---------------- Responsive ---------------- */
+
+/* Tablets & small desktops */
+@media (max-width: 992px) {
+  .container {
+    margin-left: 20px;
+    padding: 0 10px;
   }
+  .center-nav {
+    gap: 50px;
+    margin-left: 20px;
+  }
+  .nav-link {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+  .profile-name {
+    font-size: 20px;
+  }
+  .location {
+    font-size: 18px;
+  }
+  .search-pill {
+    max-width: 100%;
+  }
+}
+
+/* Tablets & mobiles */
+@media (max-width: 768px) {
+  .center-nav {
+    display: none; /* hide nav links */
+  }
+
+  .top-row {
+    grid-template-columns: 1fr auto; /* logo + profile */
+    gap: 10px;
+  }
+
   .bottom-row {
     align-items: stretch;
   }
+
   .search-block {
     width: 100%;
+    flex-direction: column;
+    gap: 10px;
   }
+
+  .filter-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .logo img {
+    height: 28px;
+  }
+  .profile-name {
+    font-size: 18px;
+  }
+  .location {
+    font-size: 16px;
+    gap: 5px;
+  }
+  .search-pill input {
+    font-size: 16px;
+  }
+  .filter-btn {
+    font-size: 16px;
+    height: 48px;
+    padding: 8px 12px;
+  }
+ 
 }

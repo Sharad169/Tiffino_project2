@@ -2,12 +2,18 @@
 
 <div class="row">
   <div class="col-md-4" *ngFor="let meal of meals">
-    <div class="card">
-      <img [src]="meal.imageUrl" class="card-img-top" [alt]="meal.name">
+    <div class="card mb-4 shadow-sm">
+      <img [src]="meal.imageUrl" class="card-img-top" [alt]="meal.name" style="height:200px;object-fit:cover;">
       <div class="card-body">
-        <h5>{{ meal.name }}</h5>
-        <p>{{ meal.description }}</p>
-        <p><b>Price:</b> ₹{{ meal.price }}</p>
+        <h5 class="card-title">{{ meal.name }}</h5>
+        <p class="card-text">{{ meal.description }}</p>
+
+        <!-- ✅ Price & Button in one line -->
+        <div class="price-add-container">
+          <span class="price">₹{{ meal.price }}</span>
+          <button class="btn btn-success add-btn" (click)="addToCart(meal)">Add to Cart</button>
+        </div>
+
       </div>
     </div>
   </div>

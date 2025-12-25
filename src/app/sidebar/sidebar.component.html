@@ -1,0 +1,73 @@
+<div class="header-content-container">
+  <div class="header-details">
+    <p class="greeting">Good Morning, {{userName}}</p>
+    <div class="top-actions">
+      <div class="help-large-box">
+        <div class="help-small-box">?</div>
+      </div>
+      <button class="wallet-btn">Wallet Money</button>
+      <i class="fas fa-bell notify"></i>
+      <img src="/assets/aaditya.jpg" alt="user" class="profile-pic" />
+    </div>
+  </div>
+  <div class="middle-row">
+    <span class="location">
+      <i class="fas fa-map-marker-alt"></i> Pune, Maharashtra
+    </span>
+    <div class="search-box">
+      <input type="text" placeholder="Search" />
+      <button class="menu-btn">☰</button>
+    </div>
+  </div>
+</div>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <ul>
+      <li (click)="navigateProfile()" style="cursor: pointer">
+        <i class="fas fa-angle-right sidebar-arrow"></i> Account Settings
+      </li>
+      <li (click)="navigateOrderHistory()" style="cursor: pointer">
+        <i class="fas fa-angle-right sidebar-arrow"></i> Order History
+      </li>
+      <li (click)="navigateAddress()" style="cursor: pointer">
+        <i class="fas fa-angle-right sidebar-arrow"></i> Addresses
+      </li>
+      <li (click)="navigateHelpCenter()" style="cursor: pointer">
+        <i class="fas fa-angle-right sidebar-arrow"></i> Help Center
+      </li>
+      <li (click)="navigatePromocode()" style="cursor: pointer">
+        <i class="fas fa-angle-right sidebar-arrow"></i> Promocodes & Offers
+      </li>
+      <li>
+        <i class="fas fa-angle-right sidebar-arrow"></i> Meal Plan Subscription
+      </li>
+      <li (click)="navigateInviteFriend()" style="cursor: pointer">
+        <i class="fas fa-angle-right sidebar-arrow"></i> Invite Friends
+      </li>
+      <li (click)="navigatePrivacy()" style="cursor: pointer">
+        <i class="fas fa-angle-right sidebar-arrow"></i> Privacy
+      </li>
+      <li (click)="showLogoutPopup()" style="cursor: pointer">
+        <i class="fas fa-angle-right sidebar-arrow"></i> Logout
+      </li>
+      <li (click)="navigateDeleteAccount()" style="cursor: pointer">
+        <i class="fas fa-angle-right sidebar-arrow"></i> Delete Account
+      </li>
+      <li (click)="navigateSubscriptionPlan()" style="cursor: pointer">
+        <i class="fas fa-angle-right sidebar-arrow"></i> Your Subscription Plan
+      </li>
+    </ul>
+  </div>
+</div>
+ 
+<!-- Logout Confirmation Popup -->
+<div class="logout-popup" *ngIf="showPopup">
+  <div class="popup-box">
+    <h3>Logout?</h3>
+    <p>Are you Sure?You Wanted to logout?</p>
+    <div class="popup-actions">
+      <button class="yes-btn" (click)="confirmLogout()">Yes</button>
+      <button class="no-btn" (click)="closePopup()">No</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+<div class="profile-container">
+  <div class="top-row">
+    <div class="top-actions"></div>
+  </div>
+ 
+  <div class="middle-row">
+    <span class="location"> </span>
+    <div class="search-box"></div>
+  </div>
+ 
+  <div class="bottom-row">
+    <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
+      <i class="fa-solid fa-angle-left"></i> Back
+    </div>
+  </div>
+ 
+  <div class="profile">
+    <p>Profile</p>
+  </div>
+ 
+  <!-- Main Section -->
+  <div class="profile-section">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-----     Order card     ----->
+    <div class="order-card">
+      <div class="order-header">
+        <h4>ORDER #1234</h4>
+        <p>23 FEB 2025, 08:28 PM</p>
+      </div>
+ 
+      <div class="order-item">
+        <div class="item-img"></div>
+        <div class="item-details">
+          <h5>Veg Biryani</h5>
+          <p>veg biryani with curd.............</p>
+          <span class="price">Rs 300</span>
+        </div>
+      </div>
+ 
+      <div class="divider"></div>
+ 
+      <div class="order-item">
+        <div class="item-img"></div>
+        <div class="item-details">
+          <h5>Baklava</h5>
+          <p>Dessert with pista and..........</p>
+          <span class="price">Rs 300</span>
+        </div>
+      </div>
+ 
+      <hr />
+ 
+      <div class="order-footer">
+        <div class="footer-left">
+          <p>X2 Items</p>
+          <h4>Rs 600</h4>
+        </div>
+        <button class="status-btn">COMPLETED</button>
+      </div>
+    </div>
+    <!-----     Order card     ----->
+    <div class="order-card">
+      <div class="order-header">
+        <h4>ORDER #1234</h4>
+        <p>23 FEB 2025, 08:28 PM</p>
+      </div>
+ 
+      <div class="order-item">
+        <div class="item-img"></div>
+        <div class="item-details">
+          <h5>Veg Biryani</h5>
+          <p>veg biryani with curd.............</p>
+          <span class="price">Rs 300</span>
+        </div>
+      </div>
+ 
+      <div class="divider"></div>
+ 
+      <div class="order-item">
+        <div class="item-img"></div>
+        <div class="item-details">
+          <h5>Baklava</h5>
+          <p>Dessert with pista and..........</p>
+          <span class="price">Rs 300</span>
+        </div>
+      </div>
+ 
+      <hr />
+ 
+      <div class="order-footer">
+        <div class="footer-left">
+          <p>X2 Items</p>
+          <h4>Rs 600</h4>
+        </div>
+        <button class="status-btn reject">REJECT</button>
+      </div>
+    </div>
+  </div>
+</div>

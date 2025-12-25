@@ -46,8 +46,8 @@ export class VerificationCodeComponent {
       this.http.post('http://localhost:8080/api/auth/verify-otp', payload)
         .subscribe({
           next: (res) => {
-            console.log('OTP verified successfully');
-            this.route.navigate(['/onboarding']);
+            console.log('OTP verified successfully' ,res);
+            this.route.navigate(['']);
           },
           error: (err) => console.error('OTP verification failed', err)
         });

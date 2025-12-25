@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* -------------------- */
+/* MAIN WRAPPER         */
+/* -------------------- */
+.managerinfo-wrapper {
+  font-family: "Poppins", sans-serif;
+  max-width: 900px;
+  margin-top: -505px;
+  margin-left: 450px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* -------------------- */
+/* DROPDOWN STYLING      */
+/* -------------------- */
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+  outline: none;
+  margin-bottom: 25px;
+  width: 470px;
+}
+
+.fake-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: 3px solid rgba(56, 99, 65, 1);
+  background: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+}
+
+.fake-select .label {
+  flex: 1;
+  text-align: center;
+}
+
+.dropdown-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 6px 0;
+  list-style: none;
+  margin-left: 100px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 150ms ease, transform 150ms ease;
+  transform-origin: top center;
+  z-index: 100;
+}
+
+.dropdown-wrapper:focus-within .dropdown-panel,
+.dropdown-wrapper:hover .dropdown-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+  padding: 12px 18px;
+  font-size: 20px;
+  color: rgba(31, 31, 31, 1);
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(224, 254, 228, 1);
+}
+
+.dropdown-item.active {
+  background-color: rgba(224, 254, 228, 1);
+}
+
+/* -------------------- */
+/* FORM STYLING         */
+/* -------------------- */
+.manager-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* -------------------- */
+/* FORM ROWS            */
+/* -------------------- */
+.form-row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Kitchen Code + Photo row fix */
+.form-row:nth-of-type(3) {
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+/* Centered submit row */
+.submit-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+/* -------------------- */
+/* FORM GROUPS          */
+/* -------------------- */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 400px; /* default for normal inputs */
+}
+
+/* Keep addresses wider */
+.form-group.full {
+  width: 800px; /* permanent & current address */
+}
+
+/* -------------------- */
+/* LABELS               */
+/* -------------------- */
+label {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+/* -------------------- */
+/* TEXT INPUTS          */
+/* -------------------- */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+  height: 51px;
+  border: 1px solid #a2a1a1;
+  border-radius: 20px;
+  padding-left: 14px;
+  font-size: 20px;
+  color: #000;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  font-size: 13px;
+  color: #a2a1a1;
+}
+
+/* -------------------- */
+/* FILE INPUTS          */
+/* -------------------- */
+.file-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.file-group input[type="file"] {
+  width: 100%;
+  height: 51px;
+  border: 1px solid #a2a1a1;
+  border-radius: 20px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.file-group input[type="file"]::file-selector-button {
+  background-color: #d9d9d9;
+  width: 40%;
+  height: 100%;
+  border: none;
+  border-right: 1px solid #a2a1a1;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* -------------------- */
+/* TICK MARK            */
+/* -------------------- */
+.tick-mark {
+  color: green;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+/* -------------------- */
+/* ADDRESS BOXES        */
+/* -------------------- */
+.address-box {
+  width: 820px; /* fills parent form-group */
+  height: 80px;
+  border: 1px solid #a2a1a1;
+  border-radius: 20px;
+  padding: 14px 18px;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+/* Textarea inside .form-group.full */
+/* Textarea inside .form-group.full */
+.form-group.full textarea {
+  width: 820px; /* match parent width 800px */
+  height: 80px; /* fixed height */
+  resize: none; /* prevent user resizing */
+  overflow: hidden; /* hide scrollbars */
+  box-sizing: border-box;
+  padding: 14px 18px;
+  border-radius: 20px;
+}
+
+/* -------------------- */
+/* SUBMIT BUTTON        */
+/* -------------------- */
+button[type="submit"] {
+  width: 180px;
+  height: 57px;
+  background: #386341;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}

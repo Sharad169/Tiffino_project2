@@ -1,0 +1,42 @@
+<div class="page-bg">
+  <div class="login-card">
+
+    <!-- LEFT FORM -->
+    <div class="login-form">
+      <h2>Welcome Back to Tiffino</h2>
+      <p class="subtitle">Log in with your chef code</p>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+        <label>Chef Code</label>
+        <input type="text" formControlName="ChefCode" />
+        <small *ngIf="loginForm.get('ChefCode')?.touched && loginForm.get('ChefCode')?.invalid">
+          Chef code is required
+        </small>
+
+        <label>Password</label>
+        <input type="password" formControlName="Password" />
+        <small *ngIf="loginForm.get('Password')?.touched && loginForm.get('Password')?.invalid">
+          Password is required
+        </small>
+
+        <button class="login-btn" type="submit" [disabled]="loginForm.invalid || loading">
+          {{ loading ? 'Logging in...' : 'Login' }}
+        </button>
+
+        <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      </form>
+
+      <p class="help-text">
+        please contact support&#64;shidori.in or use the in-app Help section.
+      </p>
+    </div>
+
+    <!-- RIGHT GLASS -->
+    <div class="glass-section">
+      <h1>Let’s Get Started !</h1>
+    </div>
+
+  </div>
+</div>
