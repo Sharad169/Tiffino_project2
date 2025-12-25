@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 
 export class ManagerstartordersubscriberComponent implements OnInit {
   orderId: number | null = null;
+    isSubscriber: boolean = false;
   userId!: number | null;
   orderDetails: any = null;
   mealDetails: any = null;

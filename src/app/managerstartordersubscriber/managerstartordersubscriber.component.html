@@ -10,33 +10,63 @@
 </div>
  
     <!-- Customer Info -->
-<div class="customer-info" *ngIf="orderDetails || mealDetails">
-<p class="row-flex">
+<div class="customer-info" *ngIf="orderDetails">
 
-        Name:– <span>{{orderDetails.name}}</span>
-<span class="subscriber-badge" *ngIf="mealDetails.status">{{mealDetails.status ? 'Subscriber' : 'Non-Subscriber'}}</span>
-<span class="subscriber-badge" style="color: red; margin-left: 491px;">Non-subcriber</span>
-</p>
- 
-     
-<p *ngIf="mealDetails.dietType">Dietary Preference:– <span>{{ mealDetails.dietType }}</span></p>
+  <p class="row-flex">
+    Name:– <span>{{ orderDetails.name }}</span>
 
-<p *ngIf="mealDetails.spiceLevel">Spice Level:– <span>{{ mealDetails.spiceLevel}}</span></p>
- 
-      <!-- HEALTH & NUTRITION EXACT PATTERN -->
-<p class="nutrition-row" *ngIf="mealDetails.nutritionInfo">
-<span class="label">Health & Nutrition:–</span>
-<span class="value">
+    <!-- Subscriber badge -->
+    <!-- <span
+  class="subscriber-badge"
+  [ngClass]="{
+    'badge-green': orderDetails?.subscriberStatus === 'Subscriber',
+    'badge-red': orderDetails?.subscriberStatus === 'Non_Subscriber'
+  }">
+  {{ orderDetails?.subscriberStatus }}
+</span> -->
 
-          {{ mealDetails.nutritionInfo}}
-</span>
-</p>
+    <!-- Non subscriber badge -->
+    <span
+      class="subscriber-badge"
+        *ngIf="orderDetails?.subscriberStatus === 'Non_Subscriber'"
+        style="color: red;     margin-left: 460px"
+      >
+      Non-Subscriber
+    </span>
+    <span
+      class="subscriber-badge"
+        *ngIf="orderDetails?.subscriberStatus === 'Subscriber'"
+        
+      >
+      Subscriber
+    </span>
+  </p>
 
-      <p *ngIf="mealDetails.allergens">Allergens:– <span>{{ mealDetails.allergens}}</span></p>
 </div>
+<div *ngIf="mealDetails">
+
+  <p *ngIf="mealDetails.dietType">
+    Dietary Preference:– <span>{{ mealDetails.dietType }}</span>
+  </p>
+
+  <p *ngIf="mealDetails.spiceLevel">
+    Spice Level:– <span>{{ mealDetails.spiceLevel }}</span>
+  </p>
+
+  <p class="nutrition-row" *ngIf="mealDetails.nutritionInfo">
+    <span class="label">Health & Nutrition:–</span>
+    <span class="value">{{ mealDetails.nutritionInfo }}</span>
+  </p>
+
+  <p *ngIf="mealDetails.allergens">
+    Allergens:– <span>{{ mealDetails.allergens }}</span>
+  </p>
+
+</div>
+
  
     <!-- Food Card -->
-<div class="food-card">
+<div class="food-card" *ngIf="orderDetails?.items?.length > 0">
 <img
   *ngIf="orderDetails?.items?.length > 0"
   [src]="orderDetails.items[0].mealImg"

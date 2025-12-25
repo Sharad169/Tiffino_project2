@@ -388,5 +388,16 @@
 
   }
 
+
+  .badge-green {
+  color: green;
+  font-weight: 600;
+}
+
+.badge-red {
+  color: red;
+  font-weight: 600;
+}
+
 }
  
