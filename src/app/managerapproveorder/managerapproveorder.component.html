@@ -38,12 +38,28 @@
           </span>
         </td>
 
-        <td class="text-center">
-          <button class="btn btn-view" (click)="openOrder(order.id)">
-            View
-          </button>
-        </td>
-      </tr>
+       <td class="text-center">
+
+  <!-- Non-subscriber → View button -->
+ <!-- Non Subscriber -->
+<button
+  *ngIf="order.subscriberStatus === 'Non_Subscriber'"
+  class="btn btn-view"
+  (click)="openOrder(order.id)">
+  View
+</button>
+
+<!-- Subscriber -->
+<button
+  *ngIf="order.subscriberStatus !== 'Non_Subscriber'"
+  class="btn btn-order"
+  (click)="openOrder(order.id, order.userId)">
+  Order
+</button>
+
+
+</td>
+
 
       <!-- Empty State -->
       <tr *ngIf="pendingOrders?.length === 0">

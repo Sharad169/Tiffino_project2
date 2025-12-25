@@ -15,9 +15,11 @@ import { FormsModule } from '@angular/forms';
 
 export class ManagerstartordersubscriberComponent implements OnInit {
   orderId: number | null = null;
+  userId!: number | null;
   orderDetails: any = null;
+  mealDetails: any = null;
 
-  constructor(private router: Router, private route: ActivatedRoute, public api: ManagerService) { }
+  constructor(private router: Router, private route: ActivatedRoute, public api: ManagerService) {}
 ngOnInit(): void {
   this.route.paramMap.subscribe(params => {
     const id = params.get('orderId');
@@ -28,7 +30,24 @@ ngOnInit(): void {
     }
 
     this.orderId = +id;
+    const userIdParam = this.route.snapshot.queryParamMap.get('userId');
+    const parsedUserId = userIdParam !== null ? Number(userIdParam) : null;
+    this.userId = parsedUserId !== null && !isNaN(parsedUserId) ? parsedUserId : null;
+      if (this.userId) {
+    // Subscriber → subscription API
+    this.getActiveSubscription(this.userId);
+  } else {
+    // Non Subscriber → order API
+    this.getOrderDetails(this.orderId);
+  }
     this.getOrderDetails();
+  });
+}
+
+getActiveSubscription(userId: number) {
+  this.api.getActiveSub(userId).subscribe(res => {
+    console.log('Active Subscription', res);
+    this.mealDetails = res;
   });
 }
 
@@ -39,7 +58,7 @@ ngOnInit(): void {
     
   }
 
-  getOrderDetails() {
+  getOrderDetails(orderId?: number) {
     if (this.orderId == null) {
       console.warn('No orderId available');
       return;

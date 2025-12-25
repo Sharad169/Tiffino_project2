@@ -70,5 +70,14 @@ export class ManagerService {
   );
 }
 
+getActiveSub(userId: number) {
+   const token = sessionStorage.getItem('token');
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  return this.http.get(
+    `http://localhost:8086/api/subscriptions/userId/active-sub/${userId}`
+    , { headers }
+  );
+}
+
 
 }

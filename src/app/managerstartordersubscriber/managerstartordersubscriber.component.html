@@ -10,39 +10,40 @@
 </div>
  
     <!-- Customer Info -->
-<div class="customer-info" *ngIf="orderDetails">
+<div class="customer-info" *ngIf="orderDetails || mealDetails">
 <p class="row-flex">
 
         Name:– <span>{{orderDetails.name}}</span>
-<span class="subscriber-badge">{{orderDetails.isSubscriber ? 'Subscriber' : 'Non-Subscriber'}}</span>
+<span class="subscriber-badge" *ngIf="mealDetails.status">{{mealDetails.status ? 'Subscriber' : 'Non-Subscriber'}}</span>
+<span class="subscriber-badge" style="color: red; margin-left: 491px;">Non-subcriber</span>
 </p>
  
-      <p>Phone:– <span> 12345678997</span></p>
-<p>Dietary Preference:– <span>Veg</span></p>
-<p>Portion:– <span>Small</span></p>
-<p>Spice Level:– <span>Extra Spicy</span></p>
+     
+<p *ngIf="mealDetails.dietType">Dietary Preference:– <span>{{ mealDetails.dietType }}</span></p>
+
+<p *ngIf="mealDetails.spiceLevel">Spice Level:– <span>{{ mealDetails.spiceLevel}}</span></p>
  
       <!-- HEALTH & NUTRITION EXACT PATTERN -->
-<p class="nutrition-row">
+<p class="nutrition-row" *ngIf="mealDetails.nutritionInfo">
 <span class="label">Health & Nutrition:–</span>
 <span class="value">
 
-          Low Calories (200)<br />
-
-          High Fiber (300)
+          {{ mealDetails.nutritionInfo}}
 </span>
 </p>
- 
-      <p>Allergens:– <span>Egg</span></p>
+
+      <p *ngIf="mealDetails.allergens">Allergens:– <span>{{ mealDetails.allergens}}</span></p>
 </div>
  
     <!-- Food Card -->
 <div class="food-card">
 <img
-  *ngIf="orderDetails?.items?.length"
+  *ngIf="orderDetails?.items?.length > 0"
   [src]="orderDetails.items[0].mealImg"
   alt="Meal Image"
 />
+
+
 <div class="food-details">
 <h4>{{orderDetails.items[0].mealName}}</h4>
 <p>
