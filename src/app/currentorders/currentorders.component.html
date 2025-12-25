@@ -27,18 +27,18 @@
     <app-sidebar></app-sidebar>
 
     <!-----     Order card     ----->
-
     <div
       class="order-card"
       *ngFor="let order of orders"
-      (click)="goToOrderDetails(order.id)"
+      (click)="goToTracking(order.id)"
+      style="cursor: pointer"
     >
       <!-- HEADER -->
       <div class="order-header">
         <h4>ORDER #{{ order.id }}</h4>
         <p>{{ order.orderDate | date : "dd MMM yyyy, hh:mm a" }}</p>
       </div>
-      <div class="order-items-scroll"></div>
+
       <div class="order-item" *ngFor="let item of order.items">
         <img class="item-img" [src]="item.mealImg" />
 

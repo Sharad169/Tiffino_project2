@@ -58,13 +58,12 @@ import { ManagerYourdetailssubmitpageComponent } from './manager-yourdetailssubm
 import { SuperadminmanagereditpageComponent } from './superadminmanagereditpage/superadminmanagereditpage.component';
 import { SuperadminchefeditpageComponent } from './superadminchefeditpage/superadminchefeditpage.component';
 import { SuperadmindelpartnereditpageComponent } from './superadmindelpartnereditpage/superadmindelpartnereditpage.component';
-
-
-
+import { CurrentordersComponent } from './currentorders/currentorders.component';
+import { DetailedorderpageComponent } from './detailedorderpage/detailedorderpage.component';
+import { TrackingorderpageComponent } from './trackingorderpage/trackingorderpage.component';
 
 export const routes: Routes = [
   // Default page
-
 
   // Default route → Welcome screen
 
@@ -78,9 +77,7 @@ export const routes: Routes = [
 
   { path: 'verification-otp', component: VerificationCodeComponent },
 
-
   // { path: '', component: VerificationCodeComponent },
- 
 
   // Login / Registration
 
@@ -100,13 +97,11 @@ export const routes: Routes = [
 
   { path: 'meals', component: AddCardComponent },
 
- 
-
   //Recommendation
   { path: 'recommendation', component: RecommendationComponent },
 
   //Profile
- { path: 'profile/:id', component: ProfileComponent },
+  { path: 'profile/:id', component: ProfileComponent },
 
   //Rating
   { path: 'rating', component: RatingComponent },
@@ -115,54 +110,58 @@ export const routes: Routes = [
   { path: 'description', component: DescriptionComponent },
 
   // profile
-   // orderhistory
-   { path: 'orderhistory', component: OrderhistoryComponent },
+  // orderhistory
+  { path: 'orderhistory', component: OrderhistoryComponent },
+  { path: 'currentorders', component: CurrentordersComponent },
+  { path: 'detailedorderpage/:orderId', component: DetailedorderpageComponent },
+  { path: 'trackingorderpage/:orderId', component: TrackingorderpageComponent },
 
-    // address-page 
-   { path: 'address-page', component: AddressPageComponent },
+  // address-page
+  { path: 'address-page', component: AddressPageComponent },
 
-    // HelpCenter
-   { path: 'helpcenter', component: HelpCenterComponent },
+  // HelpCenter
+  { path: 'helpcenter', component: HelpCenterComponent },
 
-    // Promocode
-   { path: 'promocode', component: PromocodeComponent },  
+  // Promocode
+  { path: 'promocode', component: PromocodeComponent },
 
-    // Invitefriend
-    { path: 'invitefriend', component: InvitefriendComponent },
+  // Invitefriend
+  { path: 'invitefriend', component: InvitefriendComponent },
 
-    // Privacy
-    { path: 'privacy', component: PrivacyComponent },
+  // Privacy
+  { path: 'privacy', component: PrivacyComponent },
 
-    // deleteaccount1
-    { path: 'deleteaccount1', component: Deleteaccount1Component },
+  // deleteaccount1
+  { path: 'deleteaccount1', component: Deleteaccount1Component },
 
-   
-
-//Add-card
-{ path: 'add-card', component: AddCardComponent },
+  //Add-card
+  { path: 'add-card', component: AddCardComponent },
 
   //checkout page
   { path: 'checkout-page', component: CheckoutPageComponent },
 
-    //dietary-preference
+  //dietary-preference
   { path: 'dietary-preference', component: DietaryPreferenceComponent },
 
   // Super Admin
-     // cloudkitchen-registration
-    { path: 'cloudkitchen-registration', component: CloudkitchenRegistrationComponent },
+  // cloudkitchen-registration
+  {
+    path: 'cloudkitchen-registration',
+    component: CloudkitchenRegistrationComponent,
+  },
 
-    // superadmin-login
-    { path: 'superadmin-login', component: SuperadminLoginComponent },
+  // superadmin-login
+  { path: 'superadmin-login', component: SuperadminLoginComponent },
 
-    // manager-registration
-     { path: 'manager-registration', component: ManagerRegistrationComponent },
+  // manager-registration
+  { path: 'manager-registration', component: ManagerRegistrationComponent },
 
-     //admin routes can be added here
+  //admin routes can be added here
 
-     { path: 'superadminsetpassword', component: SuperadminsetpasswordComponent },
-     { path: 'superAdminLogin', component: SuperadminLoginComponent },
+  { path: 'superadminsetpassword', component: SuperadminsetpasswordComponent },
+  { path: 'superAdminLogin', component: SuperadminLoginComponent },
 
-       {
+  {
     path: 'superadmincloudkitchen',
     component: SuperadmincloudkitchenComponent,
   },
@@ -175,7 +174,7 @@ export const routes: Routes = [
 
   {
     path: 'superadminkitchendetails/:kitchenCode',
-    component: SuperadminkitchendetailsComponent
+    component: SuperadminkitchendetailsComponent,
   },
 
   {
@@ -183,13 +182,13 @@ export const routes: Routes = [
     component: SuperadminemployeedetailsComponent,
   },
 
-   { path: 'superadminmeal', component: SuperadminmealComponent },
+  { path: 'superadminmeal', component: SuperadminmealComponent },
 
-   {path : 'manager-login', component : ManagerLoginComponent}, 
+  { path: 'manager-login', component: ManagerLoginComponent },
 
-   { path: 'manager-setpassword', component: ManagerSetpasswordComponent },
+  { path: 'manager-setpassword', component: ManagerSetpasswordComponent },
 
-   {
+  {
     path: 'manager-yourdetailspage',
     component: ManagerYourdetailspageComponent,
   },
@@ -198,10 +197,10 @@ export const routes: Routes = [
     path: 'manager-yourdetailssubmitpage',
     component: ManagerYourdetailssubmitpageComponent,
   },
- 
+
   {
     path: 'manageryourdetailseditrequestpage',
-    component: ManagerYourdetailseditrequestpageComponent
+    component: ManagerYourdetailseditrequestpageComponent,
   },
 
   {
@@ -209,26 +208,22 @@ export const routes: Routes = [
     component: SuperadminchefeditpageComponent,
   },
 
-{
+  {
     path: 'superadminmanagereditpage/:employeeCode',
     component: SuperadminmanagereditpageComponent,
-  }, 
+  },
 
   {
     path: 'superadmindelpartnereditpage/:employeeCode',
     component: SuperadmindelpartnereditpageComponent,
   },
 
- 
-
   { path: 'managerinfo', component: ManagerinfoComponent },
   { path: 'superadminchef', component: SuperadminchefComponent },
   { path: 'superadmindelpartner', component: SuperadmindelpartnerComponent },
- 
 
   // Optional: redirect unknown paths to Welcome
   { path: '**', redirectTo: '' },
-
 ];
 
 export function shouldHideLayout(url: string): boolean {
@@ -239,9 +234,8 @@ export function shouldHideLayout(url: string): boolean {
     url.startsWith('/onboarding') ||
     url.startsWith('/verification-otp') ||
     url.startsWith('/welcome') ||
-    url.startsWith('/superadminsetpassword')||
-    url.startsWith('/listemployee')||
+    url.startsWith('/superadminsetpassword') ||
+    url.startsWith('/listemployee') ||
     url.startsWith('/manager-login')
   );
 }
-

@@ -1,21 +1,24 @@
 <div class="profile-container">
   <!-- Bottom Row -->
   <div class="bottom-row">
-    <i class="fa-solid fa-angle-left back-icon"></i>
+    <i class="fas fa-angle-left back-icon"></i>
     <span class="back-link">Back</span>
   </div>
- 
+
   <!-- Profile Title -->
   <div class="profile">
     <p>Profile</p>
   </div>
- 
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
   <!-- Main Section -->
   <div class="profile-section">
     <!-- Sidebar Component -->
     <app-sidebar></app-sidebar>
     <!-- ✅ Sidebar only once -->
- 
+
     <!-- Profile Details -->
     <div class="profile-details">
       <div class="user-info">
@@ -23,7 +26,7 @@
         <h3>{{ userData.name }}</h3>
         <p class="email">{{ userData.email }}</p>
       </div>
- 
+
       <!-- Account Form -->
       <div class="account-form">
         <div class="form-row">
@@ -37,7 +40,7 @@
               readonly
             />
           </div>
- 
+
           <div class="form-group">
             <label for="email">Email</label>
             <input
@@ -49,7 +52,7 @@
             />
           </div>
         </div>
- 
+
         <div class="form-row">
           <div class="form-group">
             <label for="dob">Date of Birth</label>
@@ -60,7 +63,7 @@
               readonly
             />
           </div>
- 
+
           <div class="form-group">
             <label for="phone">Phone No.</label>
             <input
@@ -72,7 +75,7 @@
             />
           </div>
         </div>
- 
+
         <!-- Notifications Section -->
         <div class="notifications">
           <div class="content">
@@ -86,7 +89,7 @@
                 <span class="slider round"></span>
               </label>
             </div>
- 
+
             <div class="notification-item">
               <p>
                 <strong>Push Notification</strong><br />
@@ -97,7 +100,7 @@
                 <span class="slider round"></span>
               </label>
             </div>
- 
+
             <div class="notification-item">
               <p>
                 <strong>Email Notification</strong><br />
@@ -108,7 +111,7 @@
                 <span class="slider round"></span>
               </label>
             </div>
- 
+
             <div class="notification-item">
               <p>
                 <strong>Inapp Notification</strong><br />
@@ -124,12 +127,10 @@
       </div>
     </div>
   </div>
- 
+
   <!-- FontAwesome -->
   <script
     src="https://kit.fontawesome.com/a076d05399.js"
     crossorigin="anonymous"
   ></script>
 </div>
- 
- 

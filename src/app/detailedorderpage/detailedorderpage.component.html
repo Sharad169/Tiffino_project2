@@ -1,0 +1,150 @@
+<div class="profile-container">
+  <div class="top-row">
+    <div class="top-actions"></div>
+  </div>
+
+  <div class="middle-row">
+    <span class="location"> </span>
+    <div class="search-box"></div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
+      <i class="fa-solid fa-angle-left"></i> Back
+    </div>
+  </div>
+
+  <div class="profile">
+    <p>Profile</p>
+  </div>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+  <!-- Main Section -->
+
+  <div class="profile-section">
+    <app-sidebar></app-sidebar>
+
+    <div class="order-container">
+      <!-- HEADER -->
+      <!-- HEADER -->
+      <div class="order-header">
+        <h2>Order #{{ order.id }}</h2>
+        <span class="status delivered">{{ order.status }}</span>
+      </div>
+
+      <!-- META -->
+      <div class="order-meta">
+        <p>
+          <strong>Ordered On:</strong>
+          {{ order.orderDate | date : "dd MMM yyyy, hh:mm a" }}
+        </p>
+        <p><strong>Kitchen Code:</strong> {{ order.kitchenCode }}</p>
+      </div>
+
+      <!-- ADDRESS -->
+      <div class="section">
+        <h3>Delivery Address</h3>
+        <p>
+          {{ order.name }}<br />
+          {{ order.address }}<br />
+          {{ order.city }}, {{ order.state }} - {{ order.pincode }}
+        </p>
+      </div>
+
+      <!-- ITEMS -->
+      <!-- ITEMS -->
+      <div class="section">
+        <h3>Items</h3>
+
+        <div class="item" *ngFor="let item of order.items">
+          <img [src]="item.mealImg" />
+          <div class="item-info">
+            <h4>{{ item.mealName }}</h4>
+            <p>Qty: {{ item.quantity }}</p>
+            <p>₹{{ item.individualUnitPrice }} × {{ item.quantity }}</p>
+          </div>
+          <div class="item-price">₹{{ item.price }}</div>
+        </div>
+      </div>
+      <!-- BILL -->
+      <div class="section bill">
+        <h3>Bill Details</h3>
+        <div class="row">
+          <span>Item Total</span><span>₹{{ order.totalAmount }}</span>
+        </div>
+        <div class="row">
+          <span>Delivery Fee</span><span>₹{{ order.deliveryFee }}</span>
+        </div>
+        <div class="row">
+          <span>Discount</span><span>-₹{{ order.discount }}</span>
+        </div>
+        <div class="row total">
+          <span>Final Amount</span>
+          <span>₹{{ order.finalAmount }}</span>
+        </div>
+      </div>
+
+      <!-- ACTION -->
+      <div class="actions">
+        <button class="invoice-btn" (click)="downloadInvoice()">
+          Download Invoice
+        </button>
+      </div>
+
+      <!-- ORDER HISTORY -->
+      <div class="section order-history">
+        <div class="order-history-header" (click)="toggleHistory()">
+          <h3>Order History</h3>
+          <i
+            class="fa-solid fa-chevron-down arrow"
+            [class.rotate]="showHistory"
+          ></i>
+        </div>
+
+        <div class="timeline-wrapper" *ngIf="showHistory">
+          <div class="timeline">
+            <!-- ✅ ORDER PLACED (STATIC FROM ORDER DETAILS) -->
+            <div class="timeline-item">
+              <span class="dot placed"></span>
+
+              <div class="timeline-text">
+                <p class="status-text">ORDER PLACED</p>
+
+                <small>
+                  {{ order.orderDate | date : "dd MMM yyyy, hh:mm a" }}
+                </small>
+
+                <p class="remarks">Order successfully placed</p>
+              </div>
+            </div>
+
+            <div
+              class="timeline-item"
+              *ngFor="let history of orderHistory; let i = index"
+            >
+              <span class="dot"></span>
+
+              <div class="timeline-text">
+                <p class="status-text">
+                  {{ getStatusLabel(history.oldStatus) }}
+                  →
+                  {{ getStatusLabel(history.newStatus) }}
+                </p>
+
+                <small>
+                  {{ history.updatedAt | date : "dd MMM yyyy, hh:mm a" }}
+                </small>
+
+                <p class="remarks" *ngIf="history.remarks">
+                  {{ history.remarks }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,223 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+<div class="order-container">
+  <!-- Top Summary Bar -->
+  <div class="order-summary-bar" *ngIf="order">
+    <div>
+      <p>ORDER PLACED</p>
+      <h4>{{ order.orderDate | date : "dd MMM, hh:mm a" }}</h4>
+    </div>
+
+    <div>
+      <p>TOTAL</p>
+      <h4>Rs {{ order.finalAmount }}</h4>
+    </div>
+
+    <div>
+      <p>ORDER NUMBER</p>
+      <h4>#{{ order.id }}</h4>
+    </div>
+  </div>
+
+  <!-- Order Status -->
+  <div class="order-status" *ngIf="order">
+    <h3>
+      Order Status:
+      <span>{{ getStatusLabel(order.status) }}</span>
+    </h3>
+
+    <div class="progress-container">
+      <!-- STEP 1 -->
+      <div class="progress-step completed">
+        <div class="circle"><i class="fa-solid fa-check"></i></div>
+        <p>Order Placed</p>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="progress-step" [class.completed]="isCompleted('PREPARING')">
+        <div class="circle"><i class="fa-solid fa-check"></i></div>
+        <p>Preparing</p>
+      </div>
+
+      <!-- STEP 3 -->
+      <div
+        class="progress-step"
+        [class.completed]="isCompleted('READY_TO_DELIVER')"
+      >
+        <div class="circle"><i class="fa-solid fa-check"></i></div>
+        <p>Ready to Deliver</p>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="progress-step" [class.completed]="isCompleted('EN_ROUTE')">
+        <div class="circle"><i class="fa-solid fa-check"></i></div>
+        <p>On the Way</p>
+      </div>
+
+      <!-- STEP 5 -->
+      <div
+        class="progress-step"
+        [class.completed]="order.status === 'DELIVERED'"
+      >
+        <div class="circle"><i class="fa-solid fa-check"></i></div>
+        <p>Delivered</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content" *ngIf="order">
+    <!-- LEFT SECTION -->
+    <div class="left-section">
+      <div class="thank-box">
+        <!-- CONFIRMATION WITH ICON -->
+        <!-- Confirm Header -->
+        <div class="confirm-header">
+          <i class="fa-solid fa-check"></i>
+          <div>
+            <h4>
+              Your Order Status is
+              <span>{{ getStatusLabel(order.status) }}</span>
+            </h4>
+            <p>Thank you {{ order.name }}</p>
+          </div>
+        </div>
+
+        <!-- MAP + CONFIRM BOX -->
+        <div class="map-confirm">
+          <img src="/assets/map1.png" alt="map" />
+
+          <div class="order-confirmed">
+            <h4>
+              {{ isPending() ? "Order Not Confirmed" : "Order Confirmed" }}
+            </h4>
+            <p>
+              {{ getOrderConfirmationMessage() }}
+            </p>
+          </div>
+        </div>
+
+        <!-- DELIVERY PARTNER -->
+        <!-- Delivery Partner -->
+        <div class="delivery-partner" *ngIf="order">
+          <!-- 🔴 PENDING STATE -->
+          <ng-container *ngIf="isPending(); else assignedPartner">
+            <div>
+              <h4>Delivery Partner Not Assigned</h4>
+              <p>{{ order.deliveryPartnerMessage }}</p>
+            </div>
+            <i class="fa-solid fa-clock"></i>
+          </ng-container>
+
+          <!-- 🟢 ASSIGNED STATE -->
+          <ng-template #assignedPartner>
+            <ng-container *ngIf="order.deliveryPartnerName; else noPartner">
+              <div>
+                <h4>
+                  {{ order.deliveryPartnerName }} is your Delivery Partner
+                </h4>
+                <p>Phone: {{ order.deliveryPartnerNum }}</p>
+              </div>
+              <i class="fa-solid fa-phone"></i>
+            </ng-container>
+
+            <ng-template #noPartner>
+              <div>
+                <h4>Delivery Partner Update</h4>
+                <p>{{ order.deliveryPartnerMessage }}</p>
+              </div>
+              <i class="fa-solid fa-clock"></i>
+            </ng-template>
+          </ng-template>
+        </div>
+
+        <!-- CUSTOMER INFO + BILLING + PAYMENT SIDE BY SIDE -->
+        <div class="customer-billing">
+          <!-- LEFT COLUMN -->
+          <div class="left-column">
+            <h4>Customer Information</h4>
+            <p>
+              <strong>{{ order.name }}</strong
+              ><br />
+              {{ order.address }}<br />
+              {{ order.city }}, {{ order.state }} - {{ order.pincode }}
+            </p>
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="right-column">
+            <div class="billing">
+              <p>
+                <strong>Delivery Address</strong><br />
+                {{ order.address }}<br />
+                {{ order.city }}, {{ order.state }} - {{ order.pincode }}
+              </p>
+            </div>
+
+            <div class="payment">
+              <p><strong>Payment Method</strong></p>
+              <p>Online Payment</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="help">Need Help? <span>Contact Us</span></p>
+      </div>
+    </div>
+
+    <!-- RIGHT SECTION -->
+    <div class="right-section">
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <div class="order-item" *ngFor="let item of order?.items">
+          <img [src]="item.mealImg" />
+          <div class="item-info">
+            <h4>{{ item.mealName }}</h4>
+            <p>Qty: {{ item.quantity }}</p>
+            <strong>Rs {{ item.price }}</strong>
+          </div>
+        </div>
+
+        <!-- PRICE DETAILS -->
+        <div class="price-details" *ngIf="order">
+          <!-- ITEM TOTAL -->
+          <p>
+            Item Total
+            <span>Rs {{ order.totalAmount }}</span>
+          </p>
+
+          <!-- DELIVERY FEE -->
+          <p>
+            Delivery Fee
+            <span>Rs {{ order.deliveryFee }}</span>
+          </p>
+
+          <!-- DISCOUNT -->
+          <p class="with-border discount">
+            Discount
+            <span>
+              {{ order.discount > 0 ? "- Rs " + order.discount : "Rs 0" }}
+            </span>
+          </p>
+
+          <!-- COUPON CODE -->
+          <p>
+            Coupon Code
+            <span>
+              {{ order.appliedCoupon ? order.appliedCoupon : "Not Applied" }}
+            </span>
+          </p>
+
+          <!-- FINAL TOTAL -->
+          <p class="total">
+            Order Total
+            <span>Rs {{ order.finalAmount }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

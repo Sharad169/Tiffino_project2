@@ -11,6 +11,8 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
   showPopup: boolean = false;
+  showOrderMenu: boolean = false;
+
   userName: string | null = '';
   userId: string | null = '';
 
@@ -18,21 +20,35 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.userName = sessionStorage.getItem('userName');
-    this.userId = sessionStorage.getItem('userId'); // 👈 make sure userId is stored at login
+    this.userId = sessionStorage.getItem('userId');
   }
 
-  // ✅ Go to profile with logged-in userId
   navigateProfile() {
     if (this.userId) {
       this.router.navigate([`/profile/${this.userId}`]);
     } else {
-      console.error('User ID not found in sessionStorage');
-      this.router.navigate(['/login']); // fallback if no id
+      this.router.navigate(['/login']);
     }
   }
+  // ✅ ONLY TOGGLE (NO NAVIGATION)
+  toggleOrderMenu() {
+    this.showOrderMenu = !this.showOrderMenu;
+  }
 
-  navigateOrderHistory() {
-    this.router.navigate(['/orderhistory']);
+  // ✅ CURRENT ORDERS → orderhistory page (PENDING)
+  navigateCurrentOrders(event: Event) {
+    event.stopPropagation();
+    this.router.navigate(['/currentorders'], {
+      queryParams: { tab: 'current' },
+    });
+  }
+
+  // ✅ ORDER HISTORY → ALL ORDERS PAGE
+  navigatePastOrders(event: Event) {
+    event.stopPropagation();
+    this.router.navigate(['/orderhistory'], {
+      queryParams: { tab: 'history' },
+    });
   }
 
   navigateAddress() {
@@ -63,7 +79,6 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(['/subscriptionplan']);
   }
 
-  // Logout popup functions
   showLogoutPopup() {
     this.showPopup = true;
   }
@@ -74,8 +89,7 @@ export class SidebarComponent implements OnInit {
 
   confirmLogout() {
     this.showPopup = false;
-    sessionStorage.clear(); // clear session
-    console.log('User logged out');
-    this.router.navigate(['/login']); // redirect after logout
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
   }
 }
