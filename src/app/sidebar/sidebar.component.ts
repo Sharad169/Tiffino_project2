@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router } from '@angular/router';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,8 +10,8 @@ import { RouterModule, Router } from '@angular/router';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
-  showPopup: boolean = false;
-  showOrderMenu: boolean = false;
+  showPopup = false;
+  showOrderMenu = false;
 
   userName: string | null = '';
   userId: string | null = '';
@@ -21,34 +21,46 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     this.userName = sessionStorage.getItem('userName');
     this.userId = sessionStorage.getItem('userId');
+
+    // 🔥 SINGLE SOURCE OF TRUTH
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.syncOrderMenuWithRoute(event.urlAfterRedirects);
+      }
+    });
+
+    // handle page refresh
+    this.syncOrderMenuWithRoute(this.router.url);
   }
 
-  navigateProfile() {
-    if (this.userId) {
-      this.router.navigate([`/profile/${this.userId}`]);
-    } else {
-      this.router.navigate(['/login']);
-    }
+  /* 🔑 THIS CONTROLS EVERYTHING */
+  private syncOrderMenuWithRoute(url: string) {
+    this.showOrderMenu =
+      url.includes('/currentorders') || url.includes('/orderhistory');
   }
-  // ✅ ONLY TOGGLE (NO NAVIGATION)
+
+  /* ================= ORDERS ================= */
   toggleOrderMenu() {
     this.showOrderMenu = !this.showOrderMenu;
   }
 
-  // ✅ CURRENT ORDERS → orderhistory page (PENDING)
-  navigateCurrentOrders(event: Event) {
-    event.stopPropagation();
+  navigateCurrentOrders() {
     this.router.navigate(['/currentorders'], {
       queryParams: { tab: 'current' },
     });
   }
 
-  // ✅ ORDER HISTORY → ALL ORDERS PAGE
-  navigatePastOrders(event: Event) {
-    event.stopPropagation();
+  navigatePastOrders() {
     this.router.navigate(['/orderhistory'], {
       queryParams: { tab: 'history' },
     });
+  }
+
+  /* ================= OTHER MENUS ================= */
+  navigateProfile() {
+    this.router.navigate(
+      this.userId ? [`/profile/${this.userId}`] : ['/login']
+    );
   }
 
   navigateAddress() {
@@ -79,6 +91,7 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(['/subscriptionplan']);
   }
 
+  /* ================= LOGOUT ================= */
   showLogoutPopup() {
     this.showPopup = true;
   }
@@ -88,7 +101,6 @@ export class SidebarComponent implements OnInit {
   }
 
   confirmLogout() {
-    this.showPopup = false;
     sessionStorage.clear();
     this.router.navigate(['/login']);
   }

@@ -220,4 +220,56 @@
       </div>
     </div>
   </div>
+
+  <div class="feedback-popup" *ngIf="showPopup">
+    <div class="popup-card">
+      <div class="popup-check"><i class="fa-solid fa-check"></i></div>
+      <h2>Thank You!</h2>
+      <p class="subtitle">You got your food Delivered</p>
+
+      <div class="popup-underline-text">— — — — — — — — — — —</div>
+
+      <div class="rating-section">
+        <p class="q">
+          How would you rate your experience at <strong>Shidori?</strong>:
+        </p>
+        <div class="stars">
+          <i
+            *ngFor="let s of [1, 2, 3, 4, 5]"
+            class="fa-star"
+            [ngClass]="{
+              'fa-solid': experienceRating >= s,
+              'fa-regular': experienceRating < s
+            }"
+            (click)="setExperienceRating(s)"
+          ></i>
+        </div>
+
+        <p class="q">
+          How would you rate our Delivery Partner <strong>Shidori?</strong>
+        </p>
+        <div class="stars">
+          <i
+            *ngFor="let s of [1, 2, 3, 4, 5]"
+            class="fa-star"
+            [ngClass]="{
+              'fa-solid': deliveryRating >= s,
+              'fa-regular': deliveryRating < s
+            }"
+            (click)="setDeliveryRating(s)"
+          ></i>
+        </div>
+      </div>
+
+      <textarea
+        placeholder="Write your comment..."
+        [(ngModel)]="comment"
+      ></textarea>
+      <button class="submit-btn" (click)="submitFeedback()">Submit</button>
+      <p class="note">
+        Your Ratings will help other privilege members in discovering better
+        places.
+      </p>
+    </div>
+  </div>
 </div>

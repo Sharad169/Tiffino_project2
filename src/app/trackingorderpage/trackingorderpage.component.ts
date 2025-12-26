@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../service/auth.service';
-
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-trackingorderpage',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './trackingorderpage.component.html',
   styleUrl: './trackingorderpage.component.css',
 })
@@ -14,11 +14,23 @@ export class TrackingorderpageComponent {
   orderId!: number;
   order: any;
   history: any[] = [];
+  showPopup = false;
+  experienceRating = 0;
+  deliveryRating = 0;
+  comment = '';
 
   constructor(
     private route: ActivatedRoute,
     private authService: AuthService
   ) {}
+
+  setExperienceRating(value: number) {
+    this.experienceRating = value;
+  }
+
+  setDeliveryRating(value: number) {
+    this.deliveryRating = value;
+  }
 
   getStatusLabel(status: string): string {
     const statusMap: { [key: string]: string } = {
@@ -36,6 +48,8 @@ export class TrackingorderpageComponent {
 
     this.loadOrderDetails();
     this.loadTrackingHistory();
+
+    setTimeout(() => (this.showPopup = true), 2000);
   }
 
   loadOrderDetails(): void {
@@ -73,5 +87,28 @@ export class TrackingorderpageComponent {
       return 'Delivery partner will be assigned once the order is approved.';
     }
     return this.order?.deliveryPartnerMessage;
+  }
+  submitFeedback() {
+    if (this.experienceRating === 0 || this.deliveryRating === 0) {
+      alert('Please give both ratings');
+      return;
+    }
+
+    const payload = {
+      deliveryRating: this.deliveryRating,
+      appRating: this.experienceRating,
+      Comment: this.comment,
+    };
+
+    this.authService.rateOrder(this.orderId, payload).subscribe({
+      next: (res: string) => {
+        alert(res); // 🔥 backend TEXT response
+        this.showPopup = false;
+      },
+      error: (err) => {
+        console.error(err);
+        alert('Failed to submit feedback');
+      },
+    });
   }
 }

@@ -1,0 +1,216 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+<!-- ✅ Wrap entire page in a blur container -->
+<div class="order-container" [class.blur]="showPopup">
+  <!-- Top Summary Bar -->
+  <div class="order-summary-bar">
+    <div>
+      <p>ORDER PLACED</p>
+      <h4>11:11 PM</h4>
+    </div>
+    <div>
+      <p>TOTAL</p>
+      <h4>Rs 400</h4>
+    </div>
+    <div>
+      <p>DELIVERY TIME</p>
+      <h4>12:30 PM</h4>
+    </div>
+    <div>
+      <p>ORDER NUMBER</p>
+      <h4>12345</h4>
+    </div>
+  </div>
+
+  <!-- Order Status -->
+  <div class="order-status">
+    <h3>Order Status: <span>Delivered</span></h3>
+    <p class="estimated">Estimated Delivery ~ 12:30 P.M</p>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-line"></div>
+
+      <div class="progress-step completed">
+        <div class="circle"><i class="fa-solid fa-check"></i></div>
+        <p>Order Started</p>
+      </div>
+
+      <div class="progress-step completed">
+        <div class="circle"><i class="fa-solid fa-check"></i></div>
+        <p>At Pickup Point</p>
+      </div>
+
+      <div class="progress-step completed">
+        <div class="circle"><i class="fa-solid fa-check"></i></div>
+        <p>Order Picked</p>
+      </div>
+
+      <div class="progress-step completed">
+        <div class="circle"><i class="fa-solid fa-check"></i></div>
+        <p>On the way</p>
+      </div>
+
+      <div class="progress-step completed">
+        <div class="circle"><i class="fa-solid fa-check"></i></div>
+        <p>DELIVERED</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELIVERY PARTNER -->
+  <div class="delivery-partner">
+    <div>
+      <h4>Rahul is your Delivery Partner</h4>
+      <p>
+        Need quick updates? You can call your delivery partner anytime. Stay
+        connected with just one tap.
+      </p>
+    </div>
+    <i class="fa-solid fa-phone"></i>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    <!-- LEFT SECTION -->
+    <div class="left-section">
+      <div class="thank-box">
+        <!-- MAP + CONFIRM BOX -->
+        <div class="map-confirm">
+          <img src="/assets/delivery1.png" alt="map" />
+          <div class="order-confirmed">
+            <h4>Your Order is Delivered</h4>
+            <p>
+              We’ve accepted your order, it’s getting ready. The confirmation
+              email has been sent to your registered email ID. Come back to this
+              page for updates.
+            </p>
+          </div>
+        </div>
+
+        <!-- CUSTOMER INFO + BILLING + PAYMENT -->
+        <div class="customer-billing">
+          <div class="left-column">
+            <h4>Customer Information</h4>
+            <p>
+              <strong>Customer Information</strong> <br />Aditya Dhanraj
+              <br />2731 DS Bhavana, Lane <br />No. 03, Karnataka <br />
+              1234567891
+            </p>
+          </div>
+
+          <div class="right-column">
+            <div class="billing">
+              <p>
+                <strong>Billing Address</strong><br />Aditya Dhanraj <br />2731
+                DS Bhavana, Lane No. 03, Karnataka <br />
+                1234567891
+              </p>
+            </div>
+
+            <div class="payment">
+              <p><strong>Payment Method</strong></p>
+              <p>Credit Card ending with 4242</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="help">Need Help? <span>Contact Us</span></p>
+      </div>
+    </div>
+
+    <!-- RIGHT SECTION -->
+    <div class="right-section">
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <div class="order-item">
+          <img src="/assets/bklava.jpg" alt="Baklava" />
+          <div class="item-info">
+            <h4>Baklava</h4>
+            <p>Sweet pastry layered with nuts, honey, and phyllo dough.</p>
+            <strong>Rs 372</strong>
+          </div>
+        </div>
+
+        <div class="border-boxes">
+          <div class="box">
+            <p>X1 Jalebi Falooda</p>
+            <span>Rs 100</span>
+          </div>
+          <div class="box">
+            <p>X1 Ras Malai</p>
+            <span>Rs 100</span>
+          </div>
+          <div class="box last-box">
+            <p>X1 Khichadi</p>
+            <span>Rs 100</span>
+          </div>
+
+          <div class="price-details">
+            <p>Delivery <span>Rs 10</span></p>
+            <p class="with-border discount">Discount <span>- Rs 10</span></p>
+            <p>Total <span>Rs 300</span></p>
+            <p class="with-border tax">Tax <span>Rs 72</span></p>
+            <p class="total">Order Total <span>Rs 372</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Feedback Popup -->
+<div class="feedback-popup" *ngIf="showPopup">
+  <div class="popup-card">
+    <div class="popup-check"><i class="fa-solid fa-check"></i></div>
+    <h2>Thank You!</h2>
+    <p class="subtitle">You got your food Delivered</p>
+
+    <div class="popup-underline-text">— — — — — — — — — — —</div>
+
+    <div class="rating-section">
+      <p class="q">
+        How would you rate your experience at <strong>Shidori?</strong>:
+      </p>
+      <div class="stars">
+        <i
+          *ngFor="let s of [1, 2, 3, 4]"
+          class="fa-star"
+          [ngClass]="{
+            'fa-solid': experienceRating >= s,
+            'fa-regular': experienceRating < s
+          }"
+          (click)="setExperienceRating(s)"
+        ></i>
+      </div>
+
+      <p class="q">
+        How would you rate our Delivery Partner <strong>Shidori?</strong>
+      </p>
+      <div class="stars">
+        <i
+          *ngFor="let s of [1, 2, 3, 4]"
+          class="fa-star"
+          [ngClass]="{
+            'fa-solid': deliveryRating >= s,
+            'fa-regular': deliveryRating < s
+          }"
+          (click)="setDeliveryRating(s)"
+        ></i>
+      </div>
+    </div>
+
+    <textarea
+      placeholder="Write your comment..."
+      [(ngModel)]="comment"
+    ></textarea>
+    <button class="submit-btn" (click)="submitFeedback()">Submit</button>
+    <p class="note">
+      Your Ratings will help other privilege members in discovering better
+      places.
+    </p>
+  </div>
+</div>

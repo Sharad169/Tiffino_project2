@@ -2,33 +2,33 @@
   <div class="top-row">
     <div class="top-actions"></div>
   </div>
- 
+
   <div class="middle-row">
     <span class="location"> </span>
     <div class="search-box"></div>
   </div>
- 
+
   <div class="bottom-row">
     <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
-      <i class="fa-solid fa-angle-left"></i> Back
+      <i class="fas fa-angle-left back-icon"></i> Back
     </div>
   </div>
- 
+
   <div class="profile">
     <p>Profile</p>
   </div>
- 
+
   <!-- Main Section -->
   <div class="profile-section">
     <!-- Sidebar -->
     <app-sidebar></app-sidebar>
- 
+
     <!-- Address + Orders + FAQs Section -->
     <div class="address-page">
       <div class="orders-section">
         <div class="faq-section">
           <h3>Delete Account</h3>
- 
+
           <div class="faq-list">
             <div
               class="faq-item question-row"
@@ -40,7 +40,7 @@
             >
               <span>Why did you decide to delete the account?</span>
             </div>
- 
+
             <label class="faq-item">
               <span>I don’t use the app anymore</span>
               <input
@@ -51,7 +51,7 @@
               />
               <span class="custom-radio"></span>
             </label>
- 
+
             <label class="faq-item">
               <span>I’m not satisfied with the food quality or taste</span>
               <input
@@ -62,7 +62,7 @@
               />
               <span class="custom-radio"></span>
             </label>
- 
+
             <label class="faq-item">
               <span>I faced issues with delivery or timing</span>
               <input
@@ -73,7 +73,7 @@
               />
               <span class="custom-radio"></span>
             </label>
- 
+
             <label class="faq-item">
               <span>Prices are too high or offers are not attractive</span>
               <input
@@ -84,7 +84,7 @@
               />
               <span class="custom-radio"></span>
             </label>
- 
+
             <label class="faq-item">
               <span>The app is slow, buggy, or difficult to use</span>
               <input
@@ -95,7 +95,7 @@
               />
               <span class="custom-radio"></span>
             </label>
- 
+
             <label class="faq-item">
               <span>Customer support didn’t resolve my issue</span>
               <input
@@ -106,7 +106,7 @@
               />
               <span class="custom-radio"></span>
             </label>
- 
+
             <label class="faq-item">
               <span>I’m worried about my privacy or personal data</span>
               <input
@@ -117,7 +117,7 @@
               />
               <span class="custom-radio"></span>
             </label>
- 
+
             <label class="faq-item">
               <span>I prefer another food delivery app</span>
               <input
@@ -128,7 +128,7 @@
               />
               <span class="custom-radio"></span>
             </label>
- 
+
             <label class="faq-item">
               <span>I have duplicate or multiple accounts</span>
               <input
@@ -139,7 +139,7 @@
               />
               <span class="custom-radio"></span>
             </label>
- 
+
             <label class="faq-item">
               <span>Other</span>
               <input
@@ -152,7 +152,7 @@
               <span class="custom-radio"></span>
             </label>
           </div>
- 
+
           <!-- Textarea and Submit button (only visible for 'Other') -->
           <div class="text-input-section" *ngIf="isOtherSelected">
             <textarea
@@ -173,5 +173,3 @@
     </div>
   </div>
 </div>
- 
- 

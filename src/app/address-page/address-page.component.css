@@ -1,6 +1,6 @@
 /* Import Poppins font */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
- 
+
 /* General Container */
 .profile-container {
   font-family: "Poppins", sans-serif;
@@ -9,7 +9,7 @@
   flex-direction: column;
   background: #fff;
 }
- 
+
 /* Top Row */
 .top-row {
   display: flex;
@@ -17,7 +17,7 @@
   align-items: center;
   margin: 100px 0 8px 250px;
 }
- 
+
 .greeting {
   flex: 1;
   text-align: center;
@@ -25,13 +25,13 @@
   font-weight: 500;
   color: #000;
 }
- 
+
 .top-actions {
   display: flex;
   align-items: center;
   gap: 12px;
 }
- 
+
 .wallet-btn {
   height: 51px;
   width: 171px;
@@ -42,7 +42,7 @@
   font-size: 16px;
   cursor: pointer;
 }
- 
+
 .notify {
   height: 48px;
   width: 47px;
@@ -55,14 +55,14 @@
   border-radius: 50%;
   cursor: pointer;
 }
- 
+
 .profile-pic {
   height: 48px;
   width: 47px;
   border-radius: 50%;
   border: 2px solid #ccc;
 }
- 
+
 /* Middle Row */
 .middle-row {
   display: flex;
@@ -70,7 +70,7 @@
   justify-content: center;
   position: relative;
 }
- 
+
 .location {
   position: absolute;
   left: 0;
@@ -81,14 +81,14 @@
   font-weight: 500;
   color: #386341;
 }
- 
+
 .search-box {
   height: 47px;
   width: 510px;
   display: flex;
   gap: 6px;
 }
- 
+
 .search-box input {
   flex: 1;
   padding: 8px 14px;
@@ -96,7 +96,7 @@
   border: 2px solid #aaa;
   font-size: 14px;
 }
- 
+
 .menu-btn {
   height: 47px;
   width: 47px;
@@ -122,7 +122,7 @@
   padding: 5px; /* space for small box inside */
   transition: background 0.2s;
 }
- 
+
 /* Small box inside the large box */
 .help-small-box {
   height: 18px;
@@ -140,7 +140,7 @@
   background-color: #fff;
   transition: background 0.2s, color 0.2s;
 }
- 
+
 /* Bottom Row */
 .bottom-row {
   margin: 20px 0;
@@ -148,22 +148,22 @@
   align-items: center;
   gap: 6px;
 }
- 
+
 .back-icon {
   font-size: 16px;
   color: #000;
   cursor: pointer;
-  margin-top: 120px;
+  margin-top: -50px;
 }
- 
+
 .back-link {
   font-size: 18px;
   font-weight: 500;
   color: #000;
   cursor: pointer;
-  margin-top: 50px;
+  margin-top: -50px;
 }
- 
+
 /* Profile Title */
 .profile p {
   font-size: 32px;
@@ -171,7 +171,7 @@
   color: #000;
   margin-bottom: 20px;
 }
- 
+
 /* Profile Section */
 .profile-section {
   display: flex;
@@ -181,20 +181,20 @@
   width: 100%;
   box-sizing: border-box;
 }
- 
+
 /* Order details */
 .address-page {
   width: 100%;
   margin-left: 125px;
   box-sizing: border-box;
 }
- 
+
 .address-btn {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 37px;
 }
- 
+
 .address-btn button {
   width: 266px;
   height: 39px;
@@ -207,7 +207,7 @@
   cursor: pointer;
   transition: background-color 0.3s;
 }
- 
+
 .address-card {
   border-radius: 15px;
   width: 100%;
@@ -220,7 +220,7 @@
   transition: box-shadow 0.3s;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
 }
- 
+
 /* Name, details, phone */
 .address-card__name,
 .address-card__phone {
@@ -228,14 +228,14 @@
   font-weight: 600;
   color: rgba(0, 0, 0, 1);
 }
- 
+
 .address-card__details {
   margin: 12px 0;
   font-size: 20px;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
 }
- 
+
 /* Bottom row with phone and icons */
 .address-card__bottom {
   display: flex;
@@ -244,24 +244,22 @@
   margin-top: auto; /* push bottom row to bottom */
   padding-bottom: 4px; /* smaller gap from bottom border */
 }
- 
+
 .address-card__icons {
   display: flex;
   gap: 16px;
 }
- 
+
 .address-card__icon {
   font-size: 22px;
   cursor: pointer;
   color: rgba(31, 31, 31, 1);
   transition: color 0.3s;
 }
- 
-
 
 /* Base structure aligned with profile-container layout */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
- 
+
 .profile-container {
   font-family: "Poppins", sans-serif;
   margin: 0 80px;
@@ -269,7 +267,7 @@
   flex-direction: column;
   background: #fff;
 }
- 
+
 /* Same as your address page */
 .top-row {
   display: flex;
@@ -277,21 +275,21 @@
   align-items: center;
   margin: 100px 0 8px 250px;
 }
- 
+
 .middle-row {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
- 
+
 .bottom-row {
   margin: 20px 0;
   display: flex;
   align-items: center;
   gap: 8px;
 }
- 
+
 .back-link {
   font-size: 18px;
   font-weight: 500;
@@ -299,7 +297,7 @@
   cursor: pointer;
   margin-top: 94px;
 }
- 
+
 /* Profile Title */
 .profile p {
   font-size: 32px;
@@ -307,7 +305,7 @@
   color: #000;
   margin-bottom: 20px;
 }
- 
+
 /* --- Main section layout --- */
 .profile-section {
   display: flex;
@@ -315,7 +313,7 @@
   width: 100%;
   margin-top: 10px;
 }
- 
+
 /* --- Add Address Page (right section) --- */
 .addaddress-page {
   width: 100%;
@@ -324,13 +322,13 @@
   padding: 40px 60px;
   border-radius: 15px;
 }
- 
+
 .address-btn {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 37px;
 }
- 
+
 .address-btn button {
   width: 266px;
   height: 39px;
@@ -345,7 +343,7 @@
   margin-top: -50px;
   margin-right: 10px;
 }
- 
+
 /* --- Form layout --- */
 .address-form {
   display: flex;
@@ -360,19 +358,19 @@
   width: 961px;
   padding: 24px 15px 22px 22px;
 }
- 
+
 /* Make Pincode input taller */
 #pincode {
   height: 80px !important; /* increase from 48px */
   border-radius: 20px;
   padding: 15px 22px;
 }
- 
+
 .form-row {
   display: flex;
   gap: 40px;
 }
- 
+
 .form-group {
   flex: 1;
   display: flex;
@@ -380,7 +378,7 @@
   border-radius: 30px;
   width: 400px;
 }
- 
+
 .form-group label {
   font-size: 18px;
   font-weight: 500;
@@ -404,40 +402,40 @@
   transition: all 0.3s ease;
   resize: none;
 }
- 
+
 .form-group textarea {
   border-radius: 20px; /* Slightly less rounded for larger box */
   height: 100px;
   width: 700px;
 }
- 
+
 /* On focus - green glow for active field */
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: rgba(56, 99, 65, 1);
   box-shadow: 0 0 10px rgba(56, 99, 65, 0.25);
 }
- 
+
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: rgba(56, 99, 65, 1);
 }
- 
+
 textarea {
   resize: none;
   height: 80px;
 }
- 
+
 .full {
   width: 100%;
 }
- 
+
 /* Submit Button */
 .submit-row {
   display: flex;
   justify-content: center;
 }
- 
+
 .submit-row button {
   margin-top: 30px;
   width: 176px;
@@ -450,11 +448,10 @@ textarea {
   cursor: pointer;
   transition: 0.3s;
 }
- 
+
 .submit-row button:hover {
   background-color: rgba(56, 99, 65, 1);
 }
-
 
 .address-form {
   max-width: 100%;
@@ -513,8 +510,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
   margin-top: 15px;
-      background-color: white;
-
+  background-color: white;
 }
 
 button:disabled {
@@ -522,9 +518,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
-.error{
+.error {
   color: red;
 }
-
- 
- 

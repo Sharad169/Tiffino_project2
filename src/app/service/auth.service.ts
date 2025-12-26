@@ -163,4 +163,14 @@ export class AuthService {
       }
     );
   }
+  rateOrder(orderId: number, payload: any) {
+    return this.http.post(
+      `http://localhost:8085/api/Rate-order/${orderId}`,
+      payload,
+      {
+        headers: this.getAuthHeaders(),
+        responseType: 'text', // 🔥 THIS IS REQUIRED
+      }
+    );
+  }
 }

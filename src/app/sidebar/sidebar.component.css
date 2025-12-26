@@ -163,7 +163,7 @@
   font-size: 32px;
   font-weight: 600;
   color: #000;
-  margin-top: 60px;
+
   margin-bottom: 20px;
 }
 /* ------------------------------------------- */
@@ -172,7 +172,7 @@
 .sidebar {
   width: 399px;
   border: 1px solid rgba(0, 0, 0, 1);
-  height: 1005px;
+  height: 1006px;
 
   border-top-left-radius: 10px; /* ✅ rounded top-left corner */
   border-bottom-left-radius: 10px; /* ✅ rounded bottom-left corner */
@@ -222,6 +222,7 @@
 .submenu-wrapper {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 /* Header row */
@@ -233,7 +234,13 @@
 
 /* Submenu positioning */
 .order-submenu {
-  padding-left: 40px;
+  position: absolute;
+  top: 100%; /* open just below Orders */
+  left: 40px;
+  background: #fff;
+  padding: 10px 0;
+  width: 260px;
+  padding: 10px 0;
 }
 
 .sidebar-arrow {

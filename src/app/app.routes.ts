@@ -61,6 +61,9 @@ import { SuperadmindelpartnereditpageComponent } from './superadmindelpartneredi
 import { CurrentordersComponent } from './currentorders/currentorders.component';
 import { DetailedorderpageComponent } from './detailedorderpage/detailedorderpage.component';
 import { TrackingorderpageComponent } from './trackingorderpage/trackingorderpage.component';
+import { UserCouponpageComponent } from './user-couponpage/user-couponpage.component';
+import { UserRatingpageComponent } from './user-ratingpage/user-ratingpage.component';
+import { UserItemdeliverdpageComponent } from './user-itemdeliverdpage/user-itemdeliverdpage.component';
 
 export const routes: Routes = [
   // Default page
@@ -115,6 +118,9 @@ export const routes: Routes = [
   { path: 'currentorders', component: CurrentordersComponent },
   { path: 'detailedorderpage/:orderId', component: DetailedorderpageComponent },
   { path: 'trackingorderpage/:orderId', component: TrackingorderpageComponent },
+  { path: 'user-couponpage', component: UserCouponpageComponent },
+  { path: 'user-ratingpage', component: UserRatingpageComponent },
+  { path: 'user-itemdeliverdpage', component: UserItemdeliverdpageComponent },
 
   // address-page
   { path: 'address-page', component: AddressPageComponent },

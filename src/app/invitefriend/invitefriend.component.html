@@ -2,33 +2,38 @@
   <div class="top-row">
     <div class="top-actions"></div>
   </div>
- 
+
   <div class="middle-row">
     <span class="location"> </span>
     <div class="search-box"></div>
   </div>
- 
+
   <div class="bottom-row">
     <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
-      <i class="fa-solid fa-angle-left"></i> Back
+      <i class="fas fa-angle-left back-icon"></i> Back
     </div>
   </div>
- 
+
   <div class="profile">
     <p>Profile</p>
   </div>
- 
+
   <!-- Main Section -->
   <div class="profile-section">
     <!-- Sidebar -->
     <app-sidebar></app-sidebar>
- 
+
     <!-----     Order card     ----->
     <div class="referral-container">
       <div class="referral-graphic-area">
+        <img
+          src="/assets/invitef.png"
+          alt="Invite Friend"
+          class="invitef-image"
+        />
         <div class="illustration-placeholder"></div>
       </div>
- 
+
       <p class="referral-text">
         The Invite a Friend feature on Shidori lets you share tasty, home-style
         meals with your friends and earn rewards at the same time. When your
@@ -38,7 +43,7 @@
         social media — and the more you invite, the more you earn! Share Shidori
         with others and enjoy the happiness of good food together.
       </p>
- 
+
       <div class="referral-actions">
         <div class="input-copy-group">
           <input
@@ -51,9 +56,9 @@
           />
           <button class="copy-link-btn" (click)="copyLink()">Copy Link</button>
         </div>
- 
+
         <button class="share-btn" (click)="shareNow()">Share</button>
- 
+
         <div
           class="social-share-box"
           [style.display]="showIcons ? 'flex' : 'none'"
@@ -71,5 +76,3 @@
     </div>
   </div>
 </div>
- 
- 
