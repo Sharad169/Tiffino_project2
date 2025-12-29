@@ -1,0 +1,148 @@
+<!-- Scrollable Options Section -->
+<div class="options-scrollbar" #optionsBar>
+  <div class="options-container">
+    <button
+      class="option-btn"
+      data-section="dietary"
+      [class.active]="activeSection === 'dietary'"
+      (click)="showSection('dietary')"
+    >
+      Dietary Preferences
+    </button>
+
+    <button
+      class="option-btn"
+      data-section="mealType"
+      [class.active]="activeSection === 'mealType'"
+      (click)="showSection('mealType')"
+    >
+      Meal Type
+    </button>
+
+    <button
+      class="option-btn"
+      data-section="spice"
+      [class.active]="activeSection === 'spice'"
+      (click)="showSection('spice')"
+    >
+      Spice Levels
+    </button>
+
+    <button
+      class="option-btn"
+      data-section="healthNutrition"
+      [class.active]="activeSection === 'healthNutrition'"
+      (click)="showSection('healthNutrition')"
+    >
+      Health & Nutrition
+    </button>
+
+    <button
+      class="option-btn"
+      data-section="allergens"
+      [class.active]="activeSection === 'allergens'"
+      (click)="showSection('allergens')"
+    >
+      Allergens
+    </button>
+  </div>
+</div>
+
+<!-- Dietary Preferences Section -->
+<div *ngIf="activeSection === 'dietary'" class="content-section">
+  <div class="option-item" *ngFor="let option of dietaryOptions">
+    <label>
+      <input
+        type="radio"
+        name="dietary"
+        [value]="option"
+        [(ngModel)]="selectedDietary"
+      />
+      {{ option }}
+    </label>
+
+    <input
+      *ngIf="option === 'Other' && selectedDietary === 'Other'"
+      type="text"
+      [(ngModel)]="dietaryOtherText"
+      class="input-box"
+      placeholder="Enter details..."
+    />
+  </div>
+
+  <button class="next-btn" (click)="goNext()">Next</button>
+</div>
+
+<!-- Meal Type Section -->
+<div *ngIf="activeSection === 'mealType'" class="content-section">
+  <div class="option-item" *ngFor="let meal of mealTypeOptions">
+    <label>
+      <input
+        type="checkbox"
+        (change)="toggleCheckbox(meal, selectedMealTypes)"
+        [checked]="selectedMealTypes.includes(meal)"
+      />
+      {{ meal }}
+    </label>
+  </div>
+
+  <button class="next-btn" (click)="goNext()">Next</button>
+</div>
+
+<!-- Portion & Spice Levels Section -->
+<div *ngIf="activeSection === 'spice'" class="content-section">
+  <div class="option-item" *ngFor="let spice of spiceOptions">
+    <label>
+      <input
+        type="radio"
+        name="spice"
+        [value]="spice"
+        [(ngModel)]="selectedSpice"
+      />
+      {{ spice }}
+    </label>
+  </div>
+
+  <button class="next-btn" (click)="goNext()">Next</button>
+</div>
+
+<!-- Health & Nutrition Section -->
+<div *ngIf="activeSection === 'healthNutrition'" class="content-section">
+  <div class="option-item" *ngFor="let health of healthNutritionOptions">
+    <label>
+      <input
+        type="checkbox"
+        (change)="toggleCheckbox(health, selectedHealthNutrition)"
+        [checked]="selectedHealthNutrition.includes(health)"
+      />
+      {{ health }}
+    </label>
+  </div>
+
+  <button class="next-btn" (click)="goNext()">Next</button>
+</div>
+
+<!-- Allergens Section -->
+<div *ngIf="activeSection === 'allergens'" class="content-section">
+  <div class="option-item" *ngFor="let allergen of allergenOptions">
+    <label>
+      <input
+        type="checkbox"
+        (change)="toggleCheckbox(allergen, selectedAllergens)"
+        [checked]="selectedAllergens.includes(allergen)"
+      />
+      {{ allergen }}
+    </label>
+
+    <!-- ✅ INPUT ONLY FOR 'Other' -->
+    <input
+      *ngIf="allergen === 'Other' && selectedAllergens.includes('Other')"
+      type="text"
+      class="input-box"
+      [(ngModel)]="allergenOtherText"
+      placeholder="Enter allergen details..."
+    />
+  </div>
+
+  <button class="next-btn" (click)="goNext()">Finish</button>
+</div>

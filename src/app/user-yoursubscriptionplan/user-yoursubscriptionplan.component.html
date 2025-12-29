@@ -1,0 +1,136 @@
+<div class="profile-container">
+  <div class="top-row">
+    <div class="top-actions"></div>
+  </div>
+
+  <div class="middle-row">
+    <span class="location"> </span>
+    <div class="search-box"></div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
+      <i class="fas fa-angle-left back-icon"></i> Back
+    </div>
+  </div>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  <div class="profile">
+    <p>Profile</p>
+  </div>
+
+  <!-- Main Section -->
+  <div class="profile-section">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+
+    <!-- ================= ACTIVE ================= -->
+    <div *ngIf="subscriptionStatus === 'ACTIVE'" class="content-wrapper">
+      <h2>Your current plan</h2>
+
+      <button
+        class="view-detail-btn"
+        (click)="
+          goToSubscriptionPlanDetails(activeSubscription?.subscriptionId)
+        "
+      >
+        Click to view full detail of plan
+      </button>
+
+      <div class="monthly-plan-box">
+        <h3>{{ activeSubscription?.frequency }} Plan</h3>
+        <ul class="plan-features">
+          <li>Priority delivery and guaranteed freshness</li>
+          <li>Weekly chef specials</li>
+          <li>Nutrition tracking</li>
+          <li>Customizable meals</li>
+          <li>Healthy & balanced diet</li>
+        </ul>
+        <p>Start: {{ activeSubscription?.startDate }}</p>
+        <p>End: {{ activeSubscription?.endDate }}</p>
+        <p>Amount: ₹{{ activeSubscription?.amount }}</p>
+      </div>
+
+      <h3 class="section-title">Previous Plans</h3>
+
+      <table class="subscription-table">
+        <tr>
+          <th>Plan</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+
+        <tr *ngFor="let plan of expiredSubscriptions">
+          <td>{{ plan.frequency }}</td>
+          <td>{{ plan.startDate }}</td>
+          <td>{{ plan.endDate }}</td>
+          <td>{{ plan.amount }}</td>
+          <td class="status-cell">
+            {{ plan.status }}
+
+            <i
+              *ngIf="plan.status === 'Expired'"
+              class="fas fa-chevron-right status-arrow"
+              (click)="goToSubscriptionPlanDetails(plan.subscriptionId)"
+            ></i>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ================= EXPIRED ================= -->
+    <div *ngIf="subscriptionStatus === 'EXPIRED'" class="content-wrapper">
+      <div class="expired-box">
+        <h2>Your subscription has expired</h2>
+        <button class="subscribe-btn" (click)="goToSubscribe()">
+          Get a New Plan
+        </button>
+      </div>
+
+      <h3 class="section-title">Previous Plans</h3>
+
+      <table class="subscription-table">
+        <tr>
+          <th>Plan</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+
+        <tr *ngFor="let plan of expiredSubscriptions">
+          <td>{{ plan.frequency }}</td>
+          <td>{{ plan.startDate }}</td>
+          <td>{{ plan.endDate }}</td>
+          <td>{{ plan.amount }}</td>
+          <!-- 🔽 STATUS WITH ARROW -->
+          <td class="status-cell">
+            {{ plan.status }}
+
+            <i
+              *ngIf="plan.status === 'Expired'"
+              class="fas fa-chevron-right status-arrow"
+              (click)="goToSubscriptionPlanDetails(plan.subscriptionId)"
+            ></i>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ================= NONE ================= -->
+    <div *ngIf="subscriptionStatus === 'NONE'" class="content-wrapper center">
+      <div class="expired-box">
+        <h2>No Active Subscription</h2>
+        <p>Subscribe to enjoy healthy meals delivered daily.</p>
+
+        <button class="subscribe-btn" (click)="goToSubscribe()">
+          Subscribe for New Plan
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

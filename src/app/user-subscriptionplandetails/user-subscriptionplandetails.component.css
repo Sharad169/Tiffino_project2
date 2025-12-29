@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* General Container */
+.profile-container {
+  font-family: "Poppins", sans-serif;
+  margin: 0 80px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+/* --- TOP/MIDDLE/BOTTOM ROW STYLES (Kept for completeness) --- */
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px 0 8px 250px;
+}
+
+.greeting {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wallet-btn {
+  height: 51px;
+  width: 171px;
+  background: #386341;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.notify {
+  height: 48px;
+  width: 47px;
+  font-size: 20px;
+  color: #fff;
+  background: #386341;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile-pic {
+  height: 48px;
+  width: 47px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+.content-wrapper {
+  flex: 1;
+  padding: 20px 40px;
+}
+
+.content-wrapper.center {
+  display: flex;
+  justify-content: center;
+}
+.middle-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.location {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #386341;
+}
+
+.search-box {
+  height: 47px;
+  width: 510px;
+  display: flex;
+  gap: 6px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid #aaa;
+  font-size: 14px;
+}
+
+.menu-btn {
+  height: 47px;
+  width: 47px;
+  border: 2px solid #aaa;
+  background: #f9f9f9;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.help-large-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 47px;
+  width: 47px;
+  top: 409px;
+  left: 1013px;
+  border: 2px solid rgba(162, 161, 161, 1);
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  padding: 5px;
+  transition: background 0.2s;
+}
+
+.help-small-box {
+  height: 18px;
+  width: 18px;
+  top: 3px;
+  left: 3px;
+  border: 2px solid rgba(145, 145, 145, 1);
+  border-radius: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(145, 145, 145, 1);
+  background-color: #fff;
+  transition: background 0.2s, color 0.2s;
+}
+
+.bottom-row {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-icon {
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+
+  margin-top: 30px;
+}
+
+.back-link {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.profile p {
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.profile-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.section-title {
+  margin-left: 30px;
+}
+.plan-detail {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.plan-detail span {
+  min-width: 160px;
+  font-weight: 600;
+  color: #000;
+}
+.monthly-plan-box {
+  border: 3px solid #386341; /* ✅ GREEN BORDER */
+  border-radius: 20px;
+  padding: 20px;
+  width: 857px;
+  background: #fff;
+  margin-top: 24px;
+  margin-left: 30px;
+}
+.plan-detail p {
+  margin: 0;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.status {
+  font-weight: 700;
+}
+
+.status.expired {
+  color: #c0392b;
+}
+
+.plan-detail.amount p {
+  font-size: 20px;
+  font-weight: 700;
+  color: #386341;
+}
+.plan-title {
+  margin-bottom: 20px;
+}

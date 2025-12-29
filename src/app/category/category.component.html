@@ -3,11 +3,11 @@
     {{ option }}
   </button>
 </div> -->
- 
+
 <!-- Cuisine Sections -->
 <div *ngFor="let cuisine of cuisines" class="cuisine-section">
   <h2 class="cuisine-title">{{ cuisine.name }}</h2>
- 
+
   <div class="meal-row-wrapper">
     <!-- Scrollable row -->
     <div class="meal-row" [id]="cuisine.name">
@@ -21,36 +21,37 @@
           <button
             class="heart-btn"
             (click)="toggleLike(meal); $event.stopPropagation()"
-            [class.liked]="meal.liked">
+            [class.liked]="meal.liked"
+          >
             <i class="fa fa-heart"></i>
           </button>
         </div>
- 
+
         <div class="meal-info">
           <h3 class="meal-name">{{ meal.name }}</h3>
-          <div class="meal-rating">
-            ★★★★★
-          </div>
+          <div class="meal-rating">★★★★★</div>
           <p class="meal-desc">{{ meal.description }}</p>
-         
+
           <div class="meal-bottom-row">
             <p class="meal-price">Rs {{ meal.price }}</p>
             <button
-  class="order-btn"
-  [disabled]="meal.adding"
-  (click)="addToCart(meal); $event.stopPropagation()">
-  {{ meal.adding ? 'Adding...' : 'Add to Cart' }}
-</button>
+              class="order-btn"
+              [disabled]="meal.adding"
+              (click)="addToCart(meal); $event.stopPropagation()"
+            >
+              {{ meal.adding ? "Adding..." : "Add to Cart" }}
+            </button>
           </div>
         </div>
       </div>
     </div>
- 
+
     <!-- Right arrow button -->
-    <button class="scroll-btn right" (click)="scrollRight(cuisine.name); $event.stopPropagation()">
+    <button
+      class="scroll-btn right"
+      (click)="scrollRight(cuisine.name); $event.stopPropagation()"
+    >
       <span class="arrow-icon">&#8594;</span>
     </button>
   </div>
 </div>
- 
- 

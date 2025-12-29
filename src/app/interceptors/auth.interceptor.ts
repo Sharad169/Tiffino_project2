@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
-
   console.log('🔥 Auth Interceptor Triggered');
 
   const router = inject(Router);
@@ -12,7 +11,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const loginTime = Number(sessionStorage.getItem('loginTime'));
 
   // ⏱ TEST: 10 seconds
-const SESSION_TIME = 15 * 60 * 1000;
+  const SESSION_TIME = 60 * 60 * 1000;
 
   if (token && loginTime) {
     const elapsed = Date.now() - loginTime;
@@ -30,19 +29,18 @@ const SESSION_TIME = 15 * 60 * 1000;
     // ✅ token valid → attach
     req = req.clone({
       setHeaders: {
-        Authorization: `Bearer ${token}`
-      }
+        Authorization: `Bearer ${token}`,
+      },
     });
   }
 
   return next(req).pipe(
-    catchError(err => {
+    catchError((err) => {
       if (err.status === 401) {
         sessionStorage.clear();
         router.navigate(['/']);
       }
       return throwError(() => err);
     })
-
   );
 };

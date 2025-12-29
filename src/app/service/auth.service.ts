@@ -13,6 +13,8 @@ export class AuthService {
   // ✅ CORRECT CART BASE URL
   private cartUrl = 'http://localhost:8083/api/cart';
   private orderUrl = 'http://localhost:8083/api/orders';
+  private wishlistBaseUrl = 'http://localhost:8082/api/wishlist';
+  private subscriptionUrl = 'http://localhost:8086/api/subscriptions';
 
   constructor(private http: HttpClient) {}
 
@@ -172,5 +174,58 @@ export class AuthService {
         responseType: 'text', // 🔥 THIS IS REQUIRED
       }
     );
+  }
+  viewWishlist(userId: number): Observable<any[]> {
+    const url = `${this.wishlistBaseUrl}/view?userId=${userId}`;
+    return this.http.get<any[]>(url, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+
+  // ==============================
+  // ✅ ADD TO WISHLIST
+  // ==============================
+  addToWishlist(userId: number, mealId: number): Observable<any> {
+    const url = `${this.wishlistBaseUrl}/add?userId=${userId}&mealId=${mealId}`;
+    return this.http.post(
+      url,
+      {},
+      {
+        headers: this.getAuthHeaders(),
+      }
+    );
+  }
+
+  // ==============================
+  // ✅ REMOVE FROM WISHLIST
+  // ==============================
+  removeFromWishlist(userId: number, mealId: number): Observable<any> {
+    const url = `${this.wishlistBaseUrl}/remove?userId=${userId}&mealId=${mealId}`;
+    return this.http.delete(url, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+
+  // 1️⃣ Check active subscription
+  checkActiveSubscription(userId: number): Observable<boolean> {
+    return this.http.get<boolean>(
+      `${this.subscriptionUrl}/checkSubscription?userId=${userId}`
+    );
+  }
+
+  // 2️⃣ Get subscription history
+  getExpiredSubscriptionsByUser(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(
+      `${this.subscriptionUrl}/userId/expired-sub/${userId}`
+    );
+  }
+  getActiveSubscriptionByUser(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(
+      `${this.subscriptionUrl}/userId/active-sub/${userId}`
+    );
+  }
+
+  getSubscriptionById(subscriptionId: number): Observable<any> {
+    return this.http.get<any>(`${this.subscriptionUrl}/${subscriptionId}`);
   }
 }

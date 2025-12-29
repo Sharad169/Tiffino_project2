@@ -93,7 +93,36 @@ h2 {
   background-color: #2e8b57;
   color: #fff;
 }
+.heart-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
 
+.heart-btn i {
+  font-size: 18px;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.heart-btn.liked i {
+  color: #e63946;
+}
+
+.heart-btn:hover {
+  background: #f4f4f4;
+}
 /* Responsive - 2 cards per row on medium screens */
 @media (max-width: 992px) {
   .row {

@@ -64,6 +64,13 @@ import { TrackingorderpageComponent } from './trackingorderpage/trackingorderpag
 import { UserCouponpageComponent } from './user-couponpage/user-couponpage.component';
 import { UserRatingpageComponent } from './user-ratingpage/user-ratingpage.component';
 import { UserItemdeliverdpageComponent } from './user-itemdeliverdpage/user-itemdeliverdpage.component';
+import { UserWishlistpageComponent } from './user-wishlistpage/user-wishlistpage.component';
+import { UserSubscriptionpageComponent } from './user-subscriptionpage/user-subscriptionpage.component';
+
+import { UserYoursubscriptionplanComponent } from './user-yoursubscriptionplan/user-yoursubscriptionplan.component';
+import { UserDietarypreferanceComponent } from './user-dietarypreferance/user-dietarypreferance.component';
+import { UserFinalpageComponent } from './user-finalpage/user-finalpage.component';
+import { UserSubscriptionplandetailsComponent } from './user-subscriptionplandetails/user-subscriptionplandetails.component';
 
 export const routes: Routes = [
   // Default page
@@ -121,7 +128,18 @@ export const routes: Routes = [
   { path: 'user-couponpage', component: UserCouponpageComponent },
   { path: 'user-ratingpage', component: UserRatingpageComponent },
   { path: 'user-itemdeliverdpage', component: UserItemdeliverdpageComponent },
-
+  { path: 'user-wishlistpage', component: UserWishlistpageComponent },
+  {
+    path: 'user-yoursubscriptionplan',
+    component: UserYoursubscriptionplanComponent,
+  },
+  {
+    path: 'user-subscriptionplandetails/:subscriptionId',
+    component: UserSubscriptionplandetailsComponent,
+  },
+  { path: 'user-dietarypreference', component: UserDietarypreferanceComponent },
+  { path: 'user-subscriptionpage', component: UserSubscriptionpageComponent },
+  { path: 'user-finalpage', component: UserFinalpageComponent },
   // address-page
   { path: 'address-page', component: AddressPageComponent },
 

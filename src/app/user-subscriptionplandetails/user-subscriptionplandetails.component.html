@@ -1,0 +1,95 @@
+<div class="profile-container">
+  <!-- TOP ROW -->
+  <div class="top-row">
+    <div class="top-actions"></div>
+  </div>
+
+  <!-- MIDDLE ROW -->
+  <div class="middle-row">
+    <span class="location"></span>
+    <div class="search-box"></div>
+  </div>
+
+  <!-- BACK ROW -->
+  <div class="bottom-row">
+    <div class="back-link" style="cursor: pointer">
+      <i class="fa-solid fa-angle-left"></i> Back
+    </div>
+  </div>
+
+  <!-- PROFILE TITLE -->
+  <div class="profile">
+    <p>Profile</p>
+  </div>
+
+  <!-- MAIN SECTION -->
+  <div class="profile-section">
+    <!-- SIDEBAR -->
+    <app-sidebar></app-sidebar>
+
+    <!-- PLAN DETAILS -->
+    <div class="plan-details-wrapper" *ngIf="subscription">
+      <div class="plan-header-row">
+        <h2 class="section-title">Subscription Plan Details</h2>
+      </div>
+
+      <div class="plan-box monthly-plan-box">
+        <h3 class="plan-title">
+          {{ subscription.frequency }} Subscription Plan
+        </h3>
+
+        <div class="plan-detail">
+          <span>User Name:</span>
+          <p>{{ subscription.userName }}</p>
+        </div>
+
+        <div class="plan-detail">
+          <span>Frequency:</span>
+          <p>{{ subscription.frequency }}</p>
+        </div>
+
+        <div class="plan-detail">
+          <span>Plan Duration:</span>
+          <p>{{ subscription.startDate }} to {{ subscription.endDate }}</p>
+        </div>
+
+        <div class="plan-detail">
+          <span>Status:</span>
+          <p class="status" [class.expired]="subscription.status === 'Expired'">
+            {{ subscription.status }}
+          </p>
+        </div>
+
+        <div class="plan-detail">
+          <span>Meal Types:</span>
+          <p>{{ subscription.mealType.join(", ") }}</p>
+        </div>
+
+        <div class="plan-detail">
+          <span>Diet Type:</span>
+          <p>{{ subscription.dietType }}</p>
+        </div>
+
+        <div class="plan-detail">
+          <span>Spice Level:</span>
+          <p>{{ subscription.spiceLevel }}</p>
+        </div>
+
+        <div class="plan-detail">
+          <span>Nutrition Info:</span>
+          <p>{{ subscription.nutritionInfo.join(", ") }}</p>
+        </div>
+
+        <div class="plan-detail">
+          <span>Allergens:</span>
+          <p>{{ subscription.allergens.join(", ") }}</p>
+        </div>
+
+        <div class="plan-detail amount">
+          <span>Amount Paid:</span>
+          <p>₹ {{ subscription.amount }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
   userName: string | null = null;
-   userId!: number;
-   name: string | null = sessionStorage.getItem('userName');
+  userId!: number;
+  name: string | null = sessionStorage.getItem('userName');
 
-  constructor(private router: Router) {}  
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-     const id = sessionStorage.getItem('userId');
-     const name = sessionStorage.getItem('userName');
+    const id = sessionStorage.getItem('userId');
+    const name = sessionStorage.getItem('userName');
 
-    if (id) this.userId = +id;       // string → number
+    if (id) this.userId = +id; // string → number
     if (name) this.userName = name;
   }
 
@@ -29,16 +29,19 @@ export class HeaderComponent implements OnInit {
     } else {
       console.warn('⚠️ User ID not found in sessionStorage!');
     }
-    }
+  }
 
-    goToHome() {
-      this.router.navigate(['/home']);
-    } 
-  
+  goToHome() {
+    this.router.navigate(['/home']);
+  }
 
-    testRoute(){
-         this.router.navigate(['/add-card']);
-    }
-
-
+  testRoute() {
+    this.router.navigate(['/add-card']);
+  }
+  goToWishlist() {
+    this.router.navigate(['/user-wishlistpage']);
+  }
+  goToSubscriptionplan() {
+    this.router.navigate(['/user-yoursubscriptionplan']);
+  }
 }

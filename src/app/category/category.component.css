@@ -30,7 +30,7 @@
   margin-bottom: 15px;
   border-bottom: 2px solid #eee;
   padding-bottom: 5px;
-  margin-left: 40px; 
+  margin-left: 40px;
 }
 
 .meal-row {
@@ -38,7 +38,7 @@
   flex-wrap: nowrap;
   gap: 20px;
   overflow-x: auto;
-  padding-left: 60px; 
+  padding-left: 60px;
   padding-bottom: 10px;
 }
 
@@ -54,7 +54,7 @@
   flex: 0 0 330px;
   background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   border: 1px solid #2ae83a;
   overflow: hidden;
@@ -164,7 +164,7 @@
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  scrollbar-width: none; 
+  scrollbar-width: none;
 }
 
 .scroll-container::-webkit-scrollbar {
@@ -199,7 +199,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 .scroll-btn:hover {
@@ -233,7 +233,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
 }
 
@@ -245,6 +245,11 @@
 
 .heart-btn.liked i {
   color: #e63946;
+}
+
+.heart-btn:disabled {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .heart-btn:hover {
