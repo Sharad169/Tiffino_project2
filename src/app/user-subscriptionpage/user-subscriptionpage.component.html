@@ -8,7 +8,7 @@
       Subscribe for a week of nutritious, chef-prepared meals tailored to your
       taste and delivered right on time, every day.
     </p>
-    <button class="start-btn black" (click)="goToDietaryPreference()">
+    <button class="start-btn black" (click)="goToDietaryPreference('Weekly')">
       Start
     </button>
   </div>
@@ -20,7 +20,7 @@
       perfect balance of taste and <br />
       convenience.
     </p>
-    <button class="start-btn black" (click)="goToDietaryPreference()">
+    <button class="start-btn black" (click)="goToDietaryPreference('Biweekly')">
       Start
     </button>
   </div>
@@ -31,7 +31,7 @@
       Make meal-time hassle-free for a month long! Freshly cooked dishes,
       delivered every day to keep you happy, full, and stress-free.
     </p>
-    <button class="start-btn black" (click)="goToDietaryPreference()">
+    <button class="start-btn black" (click)="goToDietaryPreference('Monthly')">
       Start
     </button>
   </div>
@@ -42,7 +42,10 @@
       Subscribe quarterly and enjoy 90 days of chef-crafted, hygienic, and
       personalized meals at your doorstep.
     </p>
-    <button class="start-btn black" (click)="goToDietaryPreference()">
+    <button
+      class="start-btn black"
+      (click)="goToDietaryPreference('Quarterly')"
+    >
       Start
     </button>
   </div>

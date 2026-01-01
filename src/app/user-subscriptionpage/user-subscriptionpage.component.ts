@@ -11,7 +11,14 @@ import { Router, RouterModule } from '@angular/router';
 export class UserSubscriptionpageComponent {
   constructor(private router: Router) {}
 
-  goToDietaryPreference(): void {
+  ngOnInit(): void {
+    // ✅ CLEAR OLD SESSION DATA WHEN USER COMES BACK
+    sessionStorage.removeItem('selectedPlan');
+    sessionStorage.removeItem('subscriptionPreferences');
+  }
+
+  goToDietaryPreference(plan: string): void {
+    sessionStorage.setItem('selectedPlan', plan);
     this.router.navigate(['/user-dietarypreference']);
   }
 }

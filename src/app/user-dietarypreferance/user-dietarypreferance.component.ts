@@ -11,6 +11,12 @@ import { Router } from '@angular/router';
   styleUrl: './user-dietarypreferance.component.css',
 })
 export class UserDietarypreferanceComponent {
+  ngOnInit(): void {
+    if (!sessionStorage.getItem('selectedPlan')) {
+      this.router.navigate(['/user-subscriptionpage']);
+    }
+  }
+
   activeSection: string = 'dietary';
 
   @ViewChild('optionsBar') optionsBar!: ElementRef;
@@ -73,11 +79,28 @@ export class UserDietarypreferanceComponent {
 
     // 🔹 Final step → navigate
     if (this.activeSection === 'allergens') {
+      // ✅ SAVE ALL DATA
+      sessionStorage.setItem(
+        'subscriptionPreferences',
+        JSON.stringify({
+          dietType:
+            this.selectedDietary === 'Other'
+              ? this.dietaryOtherText
+              : this.selectedDietary,
+          mealType: this.selectedMealTypes,
+          spiceLevel: this.selectedSpice,
+          nutritionInfo: this.selectedHealthNutrition,
+          allergens: this.selectedAllergens.includes('Other')
+            ? [...this.selectedAllergens, this.allergenOtherText]
+            : this.selectedAllergens,
+        })
+      );
+
       this.router.navigate(['/user-finalpage']);
       return;
     }
-    const currentIndex = steps.indexOf(this.activeSection);
 
+    const currentIndex = steps.indexOf(this.activeSection);
     if (currentIndex < steps.length - 1) {
       this.activeSection = steps[currentIndex + 1];
       this.scrollToActive();
@@ -94,7 +117,7 @@ export class UserDietarypreferanceComponent {
       const btn = this.optionsBar.nativeElement.querySelector(
         `[data-section="${this.activeSection}"]`
       );
-      btn?.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+      btn?.scrollIntoView({ behavior: 'smooth', inline: 'nearest' });
     }, 100);
   }
 }

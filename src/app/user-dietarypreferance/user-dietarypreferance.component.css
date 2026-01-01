@@ -1,7 +1,7 @@
 /* Scrollable options container */
 .options-scrollbar {
   width: 100%;
-  overflow-x: auto;
+  overflow: hidden;
   white-space: nowrap;
   background-color: #f9f9f9;
   padding: 10px 0;
@@ -12,15 +12,17 @@
 
 .options-container {
   display: flex;
-  gap: 60px;
+  gap: 130px;
   padding-left: 10px;
+  max-width: 100%;
+  flex-wrap: nowrap;
 }
 
 .option-btn {
   flex: 0 0 auto;
   min-width: 150px;
   height: 50px;
-  font-size: 14px;
+  font-size: 18px;
   border: none;
   border-radius: 25px;
   background-color: #fff;
@@ -36,12 +38,7 @@
   background-color: #2f5d3f;
   color: #fff;
   transform: scale(1.05);
-}
-
-/* Hide scrollbar but allow scroll */
-.options-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  width: 200px;
 }
 
 .options-scrollbar::-webkit-scrollbar {
@@ -50,11 +47,14 @@
 
 /* Content sections */
 .content-section {
+  width: 100%;
+  max-width: 100%;
   margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 20px 0;
+  overflow-x: hidden;
   gap: 25px; /* Space between points */
   padding-left: 100px; /* Left space for all options */
 }
@@ -64,6 +64,8 @@
   align-items: center;
   gap: 20px; /* Space between radio and textbox */
   width: 100%;
+  max-width: 100%; /* 🔑 IMPORTANT */
+  flex-wrap: wrap;
 }
 
 /* Make option labels bold and neatly aligned */
@@ -83,6 +85,7 @@
   outline: none;
   transition: all 0.3s ease;
   width: 500px; /* Change width here */
+  max-width: 100%;
   /* Optional responsive width: width: 100%; max-width: 300px; */
 }
 
@@ -93,7 +96,7 @@
 /* Next button styling */
 .next-btn {
   margin-top: 20px;
-  margin-left: 100px;
+  margin-left: 590px;
   padding: 6px 20px;
   border: none;
   border-radius: 6px;

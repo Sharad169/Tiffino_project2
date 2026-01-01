@@ -28,29 +28,43 @@
 
     <!-- ================= ACTIVE ================= -->
     <div *ngIf="subscriptionStatus === 'ACTIVE'" class="content-wrapper">
-      <h2>Your current plan</h2>
+      <div class="current-plan-header">
+        <h2>Your current plan</h2>
 
-      <button
-        class="view-detail-btn"
-        (click)="
-          goToSubscriptionPlanDetails(activeSubscription?.subscriptionId)
-        "
-      >
-        Click to view full detail of plan
-      </button>
+        <button
+          class="view-detail-btn"
+          (click)="
+            goToSubscriptionPlanDetails(activeSubscription?.subscriptionId)
+          "
+        >
+          Click To View Full Detail
+        </button>
+      </div>
 
-      <div class="monthly-plan-box">
-        <h3>{{ activeSubscription?.frequency }} Plan</h3>
-        <ul class="plan-features">
-          <li>Priority delivery and guaranteed freshness</li>
-          <li>Weekly chef specials</li>
-          <li>Nutrition tracking</li>
-          <li>Customizable meals</li>
-          <li>Healthy & balanced diet</li>
-        </ul>
-        <p>Start: {{ activeSubscription?.startDate }}</p>
-        <p>End: {{ activeSubscription?.endDate }}</p>
-        <p>Amount: ₹{{ activeSubscription?.amount }}</p>
+      <div class="monthly-plan-box plan-flex">
+        <!-- LEFT SIDE -->
+        <div class="plan-left">
+          <h3>{{ activeSubscription?.frequency }} Plan</h3>
+
+          <ul class="plan-features">
+            <li>Priority delivery and guaranteed freshness</li>
+            <li>Weekly chef specials</li>
+            <li>Nutrition tracking</li>
+            <li>Customizable meals</li>
+            <li>Healthy & balanced diet</li>
+          </ul>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="plan-right">
+          <p>
+            <strong>Start Date:</strong> {{ activeSubscription?.startDate }}
+          </p>
+          <p><strong>End Date:</strong> {{ activeSubscription?.endDate }}</p>
+          <p class="amount-text">
+            <strong>Amount:</strong> ₹{{ activeSubscription?.amount }}
+          </p>
+        </div>
       </div>
 
       <h3 class="section-title">Previous Plans</h3>

@@ -228,4 +228,9 @@ export class AuthService {
   getSubscriptionById(subscriptionId: number): Observable<any> {
     return this.http.get<any>(`${this.subscriptionUrl}/${subscriptionId}`);
   }
+  createSubscription(payload: any) {
+    return this.http.post('http://localhost:8086/api/subscriptions', payload, {
+      headers: this.getAuthHeaders(),
+    });
+  }
 }
