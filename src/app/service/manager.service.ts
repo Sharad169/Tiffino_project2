@@ -3,24 +3,20 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ManagerService {
-
-  constructor(public http : HttpClient) { }
+  constructor(public http: HttpClient) {}
 
   private baseUrl = 'http://localhost:8081/api/admins/login-manager';
-   private loginBaseUrl = 'http://localhost:8081/api/admins/login-manager';
-   private adminBaseUrl = 'http://localhost:8081/api/admins';
-   private editBaseUrl = 'http://localhost:8081/edit';
-
+  private loginBaseUrl = 'http://localhost:8081/api/admins/login-manager';
+  private adminBaseUrl = 'http://localhost:8081/api/admins';
+  private editBaseUrl = 'http://localhost:8081/edit';
 
   ManagerLogin(managerCode: string, password: string) {
-
     const url = `${this.baseUrl}?managerCode=${managerCode}&password=${password}`;
     return this.http.post(url, {});
   }
-
 
   login(
     managerCode: string,
@@ -32,23 +28,27 @@ export class ManagerService {
       `?managerCode=${managerCode}` +
       `&Password=${password}` +
       `&tempPass=${tempPass || ''}`;
- 
+
     return this.http.post<any>(url, {});
   }
 
   getManagerByCode(managerCode: string): Observable<any> {
-     const token = sessionStorage.getItem('token');
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-    return this.http.get<any>(`${this.adminBaseUrl}/manager/${managerCode}`, {headers});
-  }
-
-  updateManagerDetails(managerCode: string, formData: FormData): Observable<any> {
     const token = sessionStorage.getItem('token');
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.post(`${this.editBaseUrl}/${managerCode}`, formData, { headers    });
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.get<any>(`${this.adminBaseUrl}/manager/${managerCode}`, {
+      headers,
+    });
   }
 
-
-
+  updateManagerDetails(
+    managerCode: string,
+    formData: FormData
+  ): Observable<any> {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post(`${this.editBaseUrl}/${managerCode}`, formData, {
+      headers,
+    });
+  }
 }

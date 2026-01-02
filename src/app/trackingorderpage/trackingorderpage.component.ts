@@ -111,4 +111,7 @@ export class TrackingorderpageComponent {
       },
     });
   }
+  closePopup(): void {
+    this.showPopup = false;
+  }
 }

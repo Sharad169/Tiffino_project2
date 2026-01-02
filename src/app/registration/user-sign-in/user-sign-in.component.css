@@ -63,8 +63,8 @@
 /* ===== LOGIN SPECIFIC ===== */
 .login-section {
   max-width: 1300px;
-  margin-left: 335px;
-  margin-right: 335px;
+  margin-left: 300px;
+  margin-right: 300px;
 }
 
 .login-section .login-form-wrapper {
@@ -331,10 +331,6 @@
   .signup-link-wrapper {
     font-size: 0.8rem;
   }
-
-  
-
-  
 }
 
 .manager-content {
@@ -444,4 +440,3 @@
 .dropdown-item:not(:last-child) {
   border-bottom: 1px solid #f2f4f7;
 }
-

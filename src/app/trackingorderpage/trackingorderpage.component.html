@@ -223,6 +223,14 @@
 
   <div class="feedback-popup" *ngIf="showPopup">
     <div class="popup-card">
+      <!-- ❌ CLOSE ICON -->
+      <button
+        class="popup-close"
+        aria-label="Close popup"
+        (click)="closePopup()"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
       <div class="popup-check"><i class="fa-solid fa-check"></i></div>
       <h2>Thank You!</h2>
       <p class="subtitle">You got your food Delivered</p>

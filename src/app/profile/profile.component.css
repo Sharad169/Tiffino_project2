@@ -308,13 +308,13 @@
 .notifications .content {
   margin-top: 34px;
   padding-left: 24px; /* Push content back in */
-  padding-right: 24px; /* Maintain alignment on the right */
+  padding-right: -10px; /* Maintain alignment on the right */
 }
 .notification-item {
   display: flex;
   align-items: center;
   justify-content: space-between; /* text left, toggle right */
-  margin-bottom: 30px; /* same as original p margin */
+  margin-bottom: 20px; /* same as original p margin */
   width: 100%; /* full container width */
 }
 

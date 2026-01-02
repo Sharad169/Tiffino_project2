@@ -81,4 +81,12 @@ export class UserWishlistpageComponent implements OnInit {
       },
     });
   }
+  rateMeal(item: any, rating: number): void {
+    item.rating = rating; // UI update
+
+    console.log(`Rated meal ${item.mealId} with ${rating} stars`);
+
+    // OPTIONAL: send to backend
+    // this.api.rateMeal(this.userId, item.mealId, rating).subscribe();
+  }
 }

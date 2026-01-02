@@ -25,7 +25,14 @@
         </p>
 
         <div class="rating">
-          <span class="stars">☆☆☆☆</span>
+          <span
+            class="star"
+            *ngFor="let star of [1, 2, 3, 4]"
+            [class.filled]="star <= (item.rating || 0)"
+            (click)="rateMeal(item, star)"
+          >
+            ★
+          </span>
         </div>
 
         <div class="price-cart">

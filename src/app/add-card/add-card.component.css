@@ -8,7 +8,7 @@
   flex-wrap: nowrap;
   padding: 0 10px;
 }
- 
+
 /* Shopping Bag */
 .shopping-bag {
   background: #fff;
@@ -18,7 +18,7 @@
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
   flex: 2;
 }
- 
+
 /* Header */
 .bag-header {
   display: flex;
@@ -26,7 +26,7 @@
   align-items: center;
   margin-bottom: 15px;
 }
- 
+
 .clear-btn {
   background-color: #2e5939;
   color: #fff;
@@ -35,7 +35,7 @@
   border-radius: 6px;
   cursor: pointer;
 }
- 
+
 /* Table header */
 .bag-table-header {
   display: grid;
@@ -45,7 +45,7 @@
   font-weight: 600;
   border-bottom: 1px solid #eee;
 }
- 
+
 /* Cart Item */
 .cart-item {
   display: flex;
@@ -53,11 +53,11 @@
   border-bottom: 1px solid #eee;
   gap: 20px;
 }
- 
+
 .cart-item-left {
   flex-shrink: 0;
 }
- 
+
 .cart-img {
   width: 120px;
   height: 170px;
@@ -65,35 +65,35 @@
   object-fit: cover;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
- 
+
 .cart-item-right {
   flex: 1;
 }
- 
+
 .cart-item-right h3 {
   margin: 0;
   font-weight: 700;
 }
- 
+
 .cart-item-right p {
   color: #555;
   margin: 6px 0 10px;
   font-size: 14px;
   line-height: 1.4;
 }
- 
+
 .stars {
   color: #e0b000;
   margin-bottom: 10px;
 }
- 
+
 /* Price, Quantity, Total sections */
 /* Table-style layout for cart items */
 .cart-items {
   display: flex;
   flex-direction: column;
 }
- 
+
 .cart-row {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -101,31 +101,31 @@
   padding: 15px 20px;
   border-bottom: 1px solid #eee;
 }
- 
+
 .cart-row:last-child {
   border-bottom: none;
 }
- 
+
 /* Product section */
 .product-info {
   display: flex;
   align-items: center;
   gap: 15px;
 }
- 
+
 .product-info h3 {
   margin: 0;
   font-size: 15px;
   font-weight: 600;
 }
- 
+
 .product-info p {
   font-size: 13px;
   color: #555;
   margin: 4px 0;
   line-height: 1.3;
 }
- 
+
 /* Quantity buttons */
 .quantity-control {
   display: inline-flex;
@@ -135,7 +135,7 @@
   padding: 6px 10px;
   border-radius: 8px;
 }
- 
+
 .quantity-control button {
   border: none;
   background: #ddd;
@@ -144,25 +144,25 @@
   cursor: pointer;
   font-weight: 600;
 }
- 
+
 .quantity-control span {
   min-width: 20px;
   text-align: center;
   font-weight: 600;
 }
- 
+
 /* Columns */
 .cart-col p {
   font-size: 14px;
   font-weight: 600;
   color: #000;
 }
- 
+
 .cart-col.total p {
   color: #2e5939;
   font-weight: 700;
 }
- 
+
 /* Sidebar (unchanged) */
 /* Sidebar */
 .shopping-bag-sidebar {
@@ -179,9 +179,9 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
- 
+
 /* Coupon Code Card */
 .shopping-bag-sidebar .coupon {
   background: #fafafa;
@@ -189,20 +189,20 @@
   padding: 16px;
   border: 1px solid #eee;
 }
- 
+
 .shopping-bag-sidebar .coupon h4 {
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 6px;
 }
- 
+
 .shopping-bag-sidebar .coupon p {
   font-size: 13px;
   color: #666;
   margin-bottom: 10px;
   line-height: 1.4;
 }
- 
+
 .shopping-bag-sidebar input {
   width: 100%;
   padding: 10px;
@@ -211,7 +211,7 @@
   outline: none;
   font-size: 13px;
 }
- 
+
 .shopping-bag-sidebar .coupon button {
   background: #000;
   color: #fff;
@@ -223,7 +223,7 @@
   cursor: pointer;
   margin-top: 10px;
 }
- 
+
 /* Deliver Section */
 .shopping-bag-sidebar .deliver {
   background: #fff;
@@ -232,20 +232,20 @@
   border: 1px solid #eee;
   position: relative;
 }
- 
+
 .shopping-bag-sidebar .deliver h4 {
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 10px;
 }
- 
+
 .shopping-bag-sidebar .deliver p {
   font-size: 13px;
   color: #444;
   line-height: 1.4;
   margin-bottom: 4px;
 }
- 
+
 .shopping-bag-sidebar .deliver button {
   position: absolute;
   top: 16px;
@@ -259,7 +259,7 @@
   font-size: 14px;
   cursor: pointer;
 }
- 
+
 /* Cart Total Section */
 .shopping-bag-sidebar .cart-total {
   background: #fdf5ea;
@@ -268,20 +268,20 @@
   border: 1px solid #f0d9b5;
   font-size: 14px;
 }
- 
+
 .shopping-bag-sidebar .cart-total p {
   display: flex;
   justify-content: space-between;
   margin: 6px 0;
   color: #444;
 }
- 
+
 .shopping-bag-sidebar .cart-total hr {
   border: none;
   border-top: 1px solid #e0cba3;
   margin: 10px 0;
 }
- 
+
 .shopping-bag-sidebar .cart-total .checkout {
   background: #000;
   color: #fff;
@@ -293,7 +293,7 @@
   cursor: pointer;
   margin-top: 8px;
 }
- 
+
 /* Cancel Policy Section */
 .shopping-bag-sidebar .cancel-policy {
   background: #fff;
@@ -301,20 +301,20 @@
   padding: 16px;
   border: 1px solid #eee;
 }
- 
+
 .shopping-bag-sidebar .cancel-policy h4 {
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 8px;
 }
- 
+
 .shopping-bag-sidebar .cancel-policy p {
   font-size: 13px;
   color: #666;
   line-height: 1.4;
   margin-bottom: 10px;
 }
- 
+
 .shopping-bag-sidebar .cancel-policy .cancel {
   background: #000;
   color: #fff;
@@ -325,7 +325,7 @@
   font-weight: 500;
   cursor: pointer;
 }
- 
+
 /* Scroll Container */
 .scroll-container {
   display: flex;
@@ -334,16 +334,16 @@
   scroll-behavior: smooth;
   padding-bottom: 10px;
 }
- 
+
 .scroll-container::-webkit-scrollbar {
   height: 8px;
 }
- 
+
 .scroll-container::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 10px;
 }
- 
+
 /* Food Card */
 .food-card {
   flex: 0 0 400px;
@@ -356,11 +356,11 @@
   overflow: hidden;
   transition: transform 0.2s;
 }
- 
+
 .food-card:hover {
   transform: translateY(-4px);
 }
- 
+
 /* Food Image */
 .food-img {
   width: 220px;
@@ -368,7 +368,7 @@
   object-fit: cover;
   border-radius: 16px 0 0 16px;
 }
- 
+
 /* Food Details */
 .food-details {
   flex: 1;
@@ -377,43 +377,43 @@
   flex-direction: column;
   justify-content: space-between;
 }
- 
+
 .food-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
- 
+
 .food-header h3 {
   font-size: 16px;
   font-weight: 700;
   margin: 0;
 }
- 
+
 .stars {
   color: #e0b000;
   font-size: 14px;
 }
- 
+
 .food-desc {
   font-size: 13px;
   color: #555;
   margin: 6px 0;
   line-height: 1.4;
 }
- 
+
 /* Price + Add Button */
 .food-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
- 
+
 .food-price {
   font-weight: 600;
   font-size: 15px;
 }
- 
+
 .add-btn {
   background: #000;
   color: #fff;
@@ -424,26 +424,26 @@
   font-size: 14px;
   transition: background 0.2s;
 }
- 
+
 .add-btn:hover {
   background: #2e5939;
 }
 /* Donation + Cancellation Card */
 .donation-container {
-  max-width: 9000px;      
-  margin: 40px auto;    
-  padding: 0 20px;      
+  max-width: 9000px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
- 
+
 .donation-card {
   background: #f8fafb;
   border-radius: 16px;
   overflow: hidden;
   margin-top: 40px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
- 
+
 /* Top green banner */
 .donation-banner {
   background: #2e5939;
@@ -453,7 +453,7 @@
   border-top-right-radius: 16px;
   position: relative;
 }
- 
+
 .donation-banner::after {
   content: "";
   position: absolute;
@@ -465,19 +465,19 @@
   border-top-left-radius: 50% 20px;
   border-top-right-radius: 50% 20px;
 }
- 
+
 .donation-heading {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 6px;
 }
- 
+
 .donation-subtext {
   font-size: 14px;
   line-height: 1.4;
   color: #f2f2f2;
 }
- 
+
 /* Middle white section */
 .donation-content {
   background: #fff;
@@ -487,20 +487,20 @@
   align-items: center;
   flex-wrap: wrap;
 }
- 
+
 .donation-content h3 {
   font-size: 16px;
   font-weight: 600;
   color: #111;
   margin: 0;
 }
- 
+
 .donation-actions {
   display: flex;
   align-items: center;
   gap: 10px;
 }
- 
+
 .donation-amount {
   background: #fff;
   border: 1.5px solid #2e5939;
@@ -510,7 +510,7 @@
   font-weight: 600;
   cursor: pointer;
 }
- 
+
 .donation-add {
   background: #fff;
   border: 1.5px solid #2e5939;
@@ -520,21 +520,21 @@
   font-weight: 500;
   cursor: pointer;
 }
- 
+
 .donation-add:hover,
 .donation-amount:hover {
   background: #2e5939;
   color: #fff;
   transition: 0.3s;
 }
- 
+
 /* Cancellation Policy Section */
 .cancellation-section {
   background: #f0f4f5;
   padding: 20px 24px;
   border-top: 1px solid #e3e7e8;
 }
- 
+
 .cancellation-section h4 {
   font-size: 14px;
   font-weight: 700;
@@ -542,7 +542,7 @@
   margin-bottom: 8px;
   text-transform: uppercase;
 }
- 
+
 .cancellation-section p {
   font-size: 13px;
   color: #444;
@@ -553,14 +553,14 @@
   position: relative;
   display: inline-block;
 }
- 
+
 .arrow-btn {
   cursor: pointer;
   background: none;
   border: none;
   font-size: 18px;
 }
- 
+
 .address-popup {
   position: absolute;
   top: 35px;
@@ -568,26 +568,26 @@
   width: 260px;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   padding: 10px;
   display: none;
   z-index: 100;
 }
- 
+
 .address-hover:hover .address-popup {
   display: block;
 }
- 
+
 .address-item {
   padding: 8px;
   border-bottom: 1px solid #eee;
   cursor: pointer;
 }
- 
+
 .address-item:last-child {
   border-bottom: none;
 }
- 
+
 .address-item:hover {
   background: #f5f5f5;
 }
@@ -596,18 +596,18 @@
   align-items: center;
   justify-content: space-between; /* h4 left, button right */
 }
- 
+
 .address-hover {
   position: relative;
 }
- 
+
 .arrow-btn {
   cursor: pointer;
   background: none;
   border: none;
   font-size: 18px;
 }
- 
+
 .address-popup {
   position: absolute;
   top: 35px;
@@ -615,22 +615,22 @@
   width: 260px;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   padding: 10px;
   display: none;
   z-index: 100;
 }
- 
+
 .address-hover:hover .address-popup {
   display: block;
 }
- 
+
 .address-item {
   padding: 8px;
   border-bottom: 1px solid #eee;
   cursor: pointer;
 }
- 
+
 .address-item:hover {
   background: #f5f5f5;
 }
@@ -647,7 +647,7 @@
   justify-content: center;
   z-index: 999;
 }
- 
+
 /* ===== Address Popup ===== */
 .address-selector {
   background: #fff;
@@ -659,13 +659,13 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
   animation: popupFade 0.25s ease-in-out;
 }
- 
+
 .address-selector h3 {
   margin-top: 0;
   font-size: 18px;
   font-weight: 600;
 }
- 
+
 /* Address card */
 .address-card {
   border: 1px solid #eee;
@@ -675,11 +675,11 @@
   cursor: pointer;
   transition: background 0.2s;
 }
- 
+
 .address-card:hover {
   background: #f8f8f8;
 }
- 
+
 /* Cancel button */
 .close-btn {
   width: 100%;
@@ -691,7 +691,7 @@
   border: none;
   cursor: pointer;
 }
- 
+
 /* Animation */
 @keyframes popupFade {
   from {
@@ -702,7 +702,6 @@
     transform: translateY(0);
     opacity: 1;
   }
- 
 }
 .add-address-btn {
   margin-top: 10px;
@@ -714,11 +713,11 @@
   font-size: 13px;
   cursor: pointer;
 }
- 
+
 .add-address-btn:hover {
   background: #24472e;
 }
- 
+
 .add-address-popup-btn {
   width: 100%;
   margin-top: 10px;
@@ -731,12 +730,12 @@
   font-weight: 500;
   cursor: pointer;
 }
- 
+
 .add-address-popup-btn:hover {
   background: #24472e;
 }
- 
- .toast {
+
+.toast {
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -745,16 +744,25 @@
   padding: 12px 18px;
   border-radius: 6px;
   font-size: 14px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 9999;
   animation: fadeInOut 1.5s ease-in-out;
 }
- 
+
 @keyframes fadeInOut {
-  0% { opacity: 0; transform: translateY(10px); }
-  20% { opacity: 1; transform: translateY(0); }
-  80% { opacity: 1; }
-  100% { opacity: 0; transform: translateY(10px); }
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 }
- 
- 
