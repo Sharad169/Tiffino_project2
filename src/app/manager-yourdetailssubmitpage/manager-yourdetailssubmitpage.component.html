@@ -129,7 +129,9 @@
 <!-- ===== POPUP ===== -->
 <div class="popup-overlay" *ngIf="showPopup">
   <div class="popup-box">
-    <span class="popup-close" (click)="closePopup()">✕</span>
+    <button class="popup-dashboard-btn" type="button" (click)="goToDashboard()">
+      Back to Dashboard
+    </button>
     <h2>{{ popupTitle }}</h2>
     <p>{{ popupMessage }}</p>
   </div>

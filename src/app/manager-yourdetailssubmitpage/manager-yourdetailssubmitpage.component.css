@@ -222,21 +222,27 @@ input:disabled {
   font-size: 36px;
   font-weight: 400;
 }
-/* POPUP CLOSE ICON */
-.popup-close {
+/* BACK TO DASHBOARD BUTTON (replaces close icon) */
+.popup-dashboard-btn {
   position: absolute;
   top: 25px;
   right: 40px;
-  font-size: 32px;
+  background: #ffffff;
+  color: #386341;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
   font-weight: 600;
-  color: red;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
-.popup-close:hover {
-  transform: scale(1.1);
-  opacity: 0.8;
+.popup-dashboard-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 
 /* ===================================================

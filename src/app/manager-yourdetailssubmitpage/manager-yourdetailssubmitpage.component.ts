@@ -92,22 +92,32 @@ export class ManagerYourdetailssubmitpageComponent implements OnInit {
       'request',
       new Blob([JSON.stringify(requestPayload)], {
         type: 'application/json',
-      })
+      }),
     );
 
     if (this.photoFile) fd.append('photo', this.photoFile);
     if (this.aadharFile) fd.append('aadhar', this.aadharFile);
     if (this.chequeBookFile) fd.append('chequeBook', this.chequeBookFile);
-
     this.managerService.updateManagerDetails(this.managerCode, fd).subscribe({
       next: (res: string) => {
+        // ✅ SUCCESS (200)
         this.showSuccess(res);
       },
       error: (err) => {
-        if (err?.error?.message) {
-          this.showError(err.error.message);
-        } else {
-          this.showError();
+        // ✅ Status 500 but responseType is TEXT
+        if (err.status === 500 && err.error) {
+          try {
+            // 🔥 Convert string → JSON
+            const parsedError = JSON.parse(err.error);
+            this.showError(parsedError.message || 'Request already exists.');
+          } catch {
+            // fallback if parsing fails
+            this.showError(err.error);
+          }
+        }
+        // ✅ Fallback
+        else {
+          this.showError('Something went wrong. Please try again later.');
         }
       },
     });
@@ -131,5 +141,9 @@ export class ManagerYourdetailssubmitpageComponent implements OnInit {
   }
   closePopup() {
     this.showPopup = false;
+  }
+  goToDashboard() {
+    this.showPopup = false;
+    window.location.href = '/manager-yourdetailspage'; // change route if needed
   }
 }

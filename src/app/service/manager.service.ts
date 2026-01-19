@@ -21,7 +21,7 @@ export class ManagerService {
   login(
     managerCode: string,
     password: string,
-    tempPass: string
+    tempPass: string,
   ): Observable<any> {
     const url =
       `${this.loginBaseUrl}/login` +
@@ -43,12 +43,13 @@ export class ManagerService {
 
   updateManagerDetails(
     managerCode: string,
-    formData: FormData
+    formData: FormData,
   ): Observable<any> {
     const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.post(`${this.editBaseUrl}/${managerCode}`, formData, {
       headers,
+      responseType: 'text',
     });
   }
 }
