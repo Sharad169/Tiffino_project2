@@ -279,15 +279,15 @@
 
 /* Group icons closer together */
 .center-nav .cart-icon,
-.center-nav .notify,
 .center-nav .wishlist-icon {
-  margin-left: 150px; /* pulls icons closer */
   margin-top: 20px;
+  margin-left: 100px;
 }
 
 /* Optional: fine-tune individual spacing */
 .center-nav .notify {
   margin-left: -20px;
+  margin-top: 28px;
 }
 
 .center-nav .wishlist-icon {

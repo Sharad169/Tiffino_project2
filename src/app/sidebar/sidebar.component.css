@@ -235,12 +235,15 @@
 /* Submenu positioning */
 .order-submenu {
   position: absolute;
-  top: 100%; /* open just below Orders */
-  left: 40px;
+  top: 0;
+  left: 145%; /* ✅ opens to right */
+  margin-left: 10px;
   background: #fff;
+  width: 220px;
   padding: 10px 0;
-  width: 260px;
-  padding: 10px 0;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 100;
 }
 
 .sidebar-arrow {
