@@ -12,7 +12,7 @@ export class ManagersidebarComponent {
   constructor(public router: Router) {}
 
   // --- ROUTE GROUPS FOR HIGHLIGHTING ---
-  homeRoutes = ['/applyleavemanager']; // highlight Home
+  homeRoutes = ['/manager-applyleave']; // highlight Home
   currenttOrderRoutes = [
     '/managerapproveorder',
     '/managerstartordersubscriber',

@@ -71,6 +71,7 @@ import { UserYoursubscriptionplanComponent } from './user-yoursubscriptionplan/u
 import { UserDietarypreferanceComponent } from './user-dietarypreferance/user-dietarypreferance.component';
 import { UserFinalpageComponent } from './user-finalpage/user-finalpage.component';
 import { UserSubscriptionplandetailsComponent } from './user-subscriptionplandetails/user-subscriptionplandetails.component';
+import { ManagerApplyleaveComponent } from './manager-applyleave/manager-applyleave.component';
 
 export const routes: Routes = [
   // Default page
@@ -226,7 +227,7 @@ export const routes: Routes = [
     path: 'manageryourdetailseditrequestpage',
     component: ManagerYourdetailseditrequestpageComponent,
   },
-
+  { path: 'manager-applyleave', component: ManagerApplyleaveComponent },
   {
     path: 'superadminchefeditpage/:employeeCode',
     component: SuperadminchefeditpageComponent,

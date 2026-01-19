@@ -1,0 +1,347 @@
+/* ================= CALENDAR POPUP ================= */
+.calendar-popup {
+  position: absolute;
+  z-index: 9999;
+  width: 320px; /* ✅ SMALL CALENDAR */
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+/* ===== HEADER (COMPACT & FIXED) ===== */
+.calendar-header-wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+/* LEFT & RIGHT GROUPS */
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-group.left {
+  justify-content: left;
+}
+
+.nav-group.right {
+  justify-content: flex-end;
+}
+/* CENTER TITLE */
+.calendar-title {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #2f5538;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+/* ARROW BUTTONS */
+.nav-btn {
+  background: transparent; /* ❌ no box */
+  border: none; /* ❌ no border */
+  color: #2f5538; /* arrow color */
+  font-size: 18px; /* arrow size */
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 6px; /* small click area */
+  line-height: 1;
+  margin-left: -60px;
+  padding: 0; /* ❗ REMOVE padding */
+  margin: 0; /* ❗ REMOVE margin */
+  width: auto; /* ❗ NO fixed width */
+  line-height: 1; /* ❗ tight vertical spacing */
+}
+
+/* WEEK HEADER */
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.calendar-header div {
+  background: #2f5538;
+  color: white;
+  padding: 6px 0;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+/* DAYS GRID */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+/* DAY */
+.calendar-day {
+  width: 34px;
+  height: 34px;
+  background: #d7f8dd;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.calendar-day:hover {
+  background: #386341;
+  color: white;
+}
+
+.apply-wrapper {
+  font-family: "Poppins", sans-serif;
+  padding: 20px 0;
+  max-width: 650px;
+  margin-top: -410px;
+  margin-left: 470px;
+}
+
+.apply-wrapper h2 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 40px;
+}
+
+.input-box,
+.reason-box {
+  width: 373px;
+  height: 48px;
+  background: #f1f1f1;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: 500; /* bold like leave type */
+  outline: none;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+.leave-type {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='23px' height='24px' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10l5 5 5-5' stroke='rgba(31,31,31,1)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 30px;
+  color: #1f1f1f;
+  cursor: pointer;
+}
+
+.small-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 18px;
+}
+.contact-box {
+  width: 373px;
+  height: 48px;
+  background: #f1f1f1;
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* fixed prefix text */
+.prefix {
+  pointer-events: none;
+  color: #000000;
+  font-weight: 500;
+}
+
+/* input field typing after prefix */
+.contact-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  flex: 1;
+  margin-left: 4px;
+}
+.reason-box {
+  width: 866px;
+  height: 190px;
+  background: #f1f1f1;
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* FIXED LABEL */
+.reason-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 8px; /* push textarea down */
+  pointer-events: none;
+}
+
+/* MULTI-LINE INPUT BOX */
+.reason-textarea {
+  width: 100%;
+  min-height: 100px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  resize: none; /* prevent resizing to keep UI clean */
+  line-height: 22px;
+}
+.submit-btn {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 166px;
+  height: 49px;
+  background: #386341;
+  padding: 12px 40px;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 46px;
+  margin-left: 280px;
+}
+
+/* ---------------------------------- */
+/*        ADDED FUNCTIONALITY CSS     */
+/* ---------------------------------- */
+
+.custom-dropdown {
+  width: 300px; /* kept your updated width */
+  background: #f1f1f1;
+  border-radius: 8px;
+  margin-top: 5px;
+  margin-left: 70px;
+  padding: 10px;
+  position: absolute;
+  z-index: 20;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-dropdown p {
+  margin: 0;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 6px;
+}
+
+.custom-dropdown p:hover {
+  background: #e0fee4;
+}
+
+/* Hide date input visually */
+.hidden-date {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+/* ============================================================= */
+/*                      RESPONSIVE SECTION                       */
+/* ============================================================= */
+
+/* ========== LARGE LAPTOPS (≤ 1400px) ========== */
+@media (max-width: 1400px) {
+  .apply-wrapper {
+    margin-left: 350px;
+  }
+}
+
+/* ========== LAPTOPS / TABLETS (≤ 1200px) ========== */
+@media (max-width: 1200px) {
+  .apply-wrapper {
+    margin-left: 250px;
+    margin-top: -350px;
+  }
+
+  .reason-box {
+    width: 550px;
+  }
+}
+
+/* ========== TABLETS (≤ 992px) ========== */
+@media (max-width: 992px) {
+  .apply-wrapper {
+    margin-left: 150px;
+    margin-top: -250px;
+  }
+
+  .reason-box {
+    width: 500px;
+  }
+}
+
+/* ========== MOBILE (≤ 768px) ========== */
+@media (max-width: 768px) {
+  .apply-wrapper {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+
+  .input-box,
+  .contact-box {
+    width: 100%;
+  }
+
+  .reason-box {
+    width: 100%;
+  }
+
+  button {
+    margin-left: 0;
+  }
+}
+
+/* ========== SMALL MOBILE (≤ 480px) ========== */
+@media (max-width: 480px) {
+  .apply-wrapper h2 {
+    font-size: 20px;
+  }
+
+  .reason-textarea {
+    min-height: 110px;
+  }
+
+  button {
+    width: 140px;
+    height: 44px;
+    font-size: 14px;
+  }
+}

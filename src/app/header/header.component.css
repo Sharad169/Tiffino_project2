@@ -272,3 +272,24 @@
   display: block; /* IMPORTANT */
   fill: currentColor;
 }
+/* Reduce gap ONLY between cart, notify & wishlist icons */
+.center-nav {
+  gap: 60px; /* keep normal spacing for text links */
+}
+
+/* Group icons closer together */
+.center-nav .cart-icon,
+.center-nav .notify,
+.center-nav .wishlist-icon {
+  margin-left: 150px; /* pulls icons closer */
+  margin-top: 20px;
+}
+
+/* Optional: fine-tune individual spacing */
+.center-nav .notify {
+  margin-left: -20px;
+}
+
+.center-nav .wishlist-icon {
+  margin-left: -20px;
+}
