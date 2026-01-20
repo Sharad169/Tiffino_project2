@@ -216,8 +216,28 @@
 /* Make submenu vertical */
 .has-submenu {
   display: block;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+/* Remove border spacing effect below Orders */
+.has-submenu:not(:last-child) {
+  border-bottom: none;
 }
 
+/* Keep submenu tight */
+.order-submenu {
+  margin-bottom: 0;
+}
+
+/* Ensure Addresses comes close */
+.has-submenu + li {
+  margin-top: 0;
+}
+.sidebar ul li.has-submenu:not(:last-child) {
+  padding-bottom: 20px !important;
+  margin-bottom: 20px !important;
+  border-bottom: none !important;
+}
 /* Wrapper ensures column layout */
 .submenu-wrapper {
   display: flex;
@@ -231,19 +251,35 @@
   align-items: center;
   cursor: pointer;
 }
+.right-arrow {
+  font-size: 25px;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate to downward arrow */
+.right-arrow.rotate {
+  transform: rotate(90deg);
+}
 
 /* Submenu positioning */
 .order-submenu {
-  position: absolute;
-  top: 0;
-  left: 145%; /* ✅ opens to right */
-  margin-left: 10px;
+  position: relative; /* 🔥 below Orders */
+  left: 0;
+  top: 1px;
   background: #fff;
-  width: 220px;
-  padding: 10px 0;
-  border: 1px solid #eee;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  z-index: 100;
+  width: 100%;
+  padding: 6px 0;
+  border-radius: 6px;
+  box-shadow: none;
+}
+.order-submenu li {
+  margin-bottom: 0; /* 🔥 remove large gap */
+  padding: 10px 16px; /* controlled spacing */
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .sidebar-arrow {
@@ -265,11 +301,15 @@
   margin-bottom: 2px;
   padding-bottom: 36px;
 }
+.sidebar ul li {
+  margin-bottom: 30px;
+  padding: 10px 0;
+}
 
-.sidebar ul li i {
+/* .sidebar ul li i {
   width: 18px;
   text-align: center;
-}
+} */
 /* Logout popup */
 /* Update your existing CSS for a clean, center-aligned popup */
 

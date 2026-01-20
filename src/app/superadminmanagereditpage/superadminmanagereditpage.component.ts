@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SuperadminSidebarComponent } from '../superadmin-sidebar/superadmin-sidebar.component';
 import { AdminService } from '../admin.service';
 import { HttpErrorResponse } from '@angular/common/http';
- 
+
 @Component({
   selector: 'app-superadminmanagereditpage',
   standalone: true,
@@ -15,37 +15,37 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class SuperadminmanagereditpageComponent implements OnInit {
   // ================= ROUTE DATA =================
   employeeCode!: string;
- 
+
   // ================= TAB STATE =================
   activeTab: 'info' | 'blank' = 'info';
- 
+
   // ================= EMPLOYEE INFO =================
   employee: any = {};
- 
+
   // ================= CHANGE REQUESTS =================
   changeRequests: any[] = [];
- 
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private adminService: AdminService
+    private adminService: AdminService,
   ) {}
- 
+
   // ================= INIT =================
   ngOnInit(): void {
     // ✅ STEP 1: READ employeeCode FROM URL
     this.employeeCode = this.route.snapshot.paramMap.get('employeeCode')!;
- 
+
     if (!this.employeeCode) {
       console.error('Employee code missing');
       return;
     }
- 
+
     // ✅ STEP 2: LOAD DATA
     this.loadEmployeeInfo();
     this.loadChangeRequests();
   }
- 
+
   // ================= API: EMPLOYEE INFO =================
   loadEmployeeInfo() {
     this.adminService.getEmployeeById(this.employeeCode).subscribe({
@@ -57,7 +57,7 @@ export class SuperadminmanagereditpageComponent implements OnInit {
       },
     });
   }
- 
+
   // ================= API: EDIT DIFFERENCES =================
   loadChangeRequests() {
     this.adminService.getEditDifferences(this.employeeCode).subscribe({
@@ -69,17 +69,17 @@ export class SuperadminmanagereditpageComponent implements OnInit {
       },
     });
   }
- 
+
   // ================= TAB HANDLER =================
   setActiveTab(tab: 'info' | 'blank') {
     this.activeTab = tab;
   }
- 
+
   // ================= FILE CHECK =================
   isFile(value: string): boolean {
     return value?.startsWith('http');
   }
- 
+
   // ================= NAVIGATION =================
   navigateTo(route: string) {
     this.router.navigate([route]);
@@ -87,36 +87,36 @@ export class SuperadminmanagereditpageComponent implements OnInit {
   // ================= APPROVE =================
   approveRequest() {
     if (!this.employeeCode) return;
- 
+
     this.adminService.approveEditRequest(this.employeeCode).subscribe({
       next: (res: string) => {
         // ✅ SUCCESS MESSAGE FROM BACKEND
         alert(res);
-        this.router.navigate(['/superadmineditlist']); // ✅ redirect
+        this.router.navigate(['/superAdminEditList']); // ✅ redirect
       },
       error: (err) => {
         const msg = this.getBackendErrorMessage(err);
         alert(msg);
-        this.router.navigate(['/superadmineditlist']); // ✅ redirect
+        this.router.navigate(['/superAdminEditList']); // ✅ redirect
         console.error('Approve failed:', err);
       },
     });
   }
- 
+
   // ================= REJECT =================
   rejectRequest() {
     if (!this.employeeCode) return;
- 
+
     this.adminService.rejectEditRequest(this.employeeCode).subscribe({
       next: (res: string) => {
         // ✅ SUCCESS MESSAGE FROM BACKEND
         alert(res);
-        this.router.navigate(['/superadmineditlist']); // ✅ redirect
+        this.router.navigate(['/superAdminEditList']); // ✅ redirect
       },
       error: (err) => {
         const msg = this.getBackendErrorMessage(err);
         alert(msg);
-        this.router.navigate(['/superadmineditlist']); // ✅ redirect
+        this.router.navigate(['/superAdminEditList']); // ✅ redirect
         console.error('Reject failed:', err);
       },
     });
@@ -126,7 +126,7 @@ export class SuperadminmanagereditpageComponent implements OnInit {
     if (err?.error?.message) {
       return err.error.message;
     }
- 
+
     // Case 2: error is JSON string
     if (typeof err?.error === 'string') {
       try {
@@ -136,10 +136,8 @@ export class SuperadminmanagereditpageComponent implements OnInit {
         return err.error; // plain text
       }
     }
- 
+
     // Fallback
     return 'Something went wrong. Please try again.';
   }
 }
- 
- 

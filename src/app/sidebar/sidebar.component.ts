@@ -40,7 +40,8 @@ export class SidebarComponent implements OnInit {
   }
 
   /* ================= ORDERS ================= */
-  toggleOrderMenu() {
+  toggleOrderMenu(event?: Event) {
+    event?.stopPropagation(); // 🔥 THIS IS THE KEY
     this.showOrderMenu = !this.showOrderMenu;
   }
 
@@ -59,7 +60,7 @@ export class SidebarComponent implements OnInit {
   /* ================= OTHER MENUS ================= */
   navigateProfile() {
     this.router.navigate(
-      this.userId ? [`/profile/${this.userId}`] : ['/login']
+      this.userId ? [`/profile/${this.userId}`] : ['/login'],
     );
   }
 
