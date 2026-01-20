@@ -143,14 +143,37 @@
   cursor: pointer;
   font-size: 16px;
 }
+.back-icon {
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  margin-top: 50px;
+  margin-left: -215px;
+}
  
+.back-link {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  margin-top: 60px;
+}
+/* Profile Title */
+.profile p {
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+ 
+  margin-bottom: 20px;
+}
 /* ------------------------------------------- */
 /* SIDEBAR MENU STYLES */
 /* ------------------------------------------- */
 .sidebar {
   width: 399px;
   border: 1px solid rgba(0, 0, 0, 1);
-  height: 1005px;
+  height: 1006px;
+ 
   border-top-left-radius: 10px; /* ✅ rounded top-left corner */
   border-bottom-left-radius: 10px; /* ✅ rounded bottom-left corner */
 }
@@ -188,6 +211,39 @@
 .sidebar ul li.active {
   font-weight: 600;
   color: #198754;
+}
+/* ---------- ORDER HISTORY SUB MENU ---------- */
+/* Make submenu vertical */
+.has-submenu {
+  display: block;
+}
+ 
+/* Wrapper ensures column layout */
+.submenu-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+ 
+/* Header row */
+.menu-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+ 
+/* Submenu positioning */
+.order-submenu {
+  position: absolute;
+  top: 0;
+  left: 145%; /* ✅ opens to right */
+  margin-left: 10px;
+  background: #fff;
+  width: 220px;
+  padding: 10px 0;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 100;
 }
  
 .sidebar-arrow {
@@ -299,4 +355,5 @@
 .popup-actions button:hover {
   opacity: 0.8;
 }
+ 
  

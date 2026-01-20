@@ -60,6 +60,7 @@ import { SuperadminchefeditpageComponent } from './superadminchefeditpage/supera
 import { SuperadmindelpartnereditpageComponent } from './superadmindelpartnereditpage/superadmindelpartnereditpage.component';
 import { ManagerapproveorderComponent } from './managerapproveorder/managerapproveorder.component';
 import { ManagerstartordersubscriberComponent } from './managerstartordersubscriber/managerstartordersubscriber.component';
+import { CurrentordersComponent } from './currentorders/currentorders.component';
 
 
 
@@ -211,6 +212,8 @@ export const routes: Routes = [
     component: SuperadminchefeditpageComponent,
   },
 
+  
+
 {
     path: 'superadminmanagereditpage/:employeeCode',
     component: SuperadminmanagereditpageComponent,
@@ -228,6 +231,8 @@ export const routes: Routes = [
     component: ManagerstartordersubscriberComponent,
   },
 
+  { path: 'currentorders', component: CurrentordersComponent },
+ 
  
 
   { path: 'managerinfo', component: ManagerinfoComponent },

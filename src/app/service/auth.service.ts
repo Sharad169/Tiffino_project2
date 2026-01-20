@@ -9,7 +9,7 @@ export class AuthService {
   apiUrl = 'http://localhost:8080/api/auth';
   private baseUrl = 'http://localhost:8080/api/auth/login';
   private baseUrl1 = 'http://localhost:8082/api/cuisines/all';
- 
+  private orderUrl = 'http://localhost:8083/api/orders';
   // ✅ CORRECT CART BASE URL
   private cartUrl = 'http://localhost:8083/api/cart';
  
@@ -121,6 +121,22 @@ checkout(userId: number, addressId: number): Observable<any> {
     { headers: this.getAuthHeaders() }
   );
 }
+
+getCurrentOrdersByUser(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(
+      `${this.orderUrl}/user/active-orders/${userId}`,
+      {
+        headers: this.getAuthHeaders(),
+      }
+    );
+  }
+
+
+   getCompletedOrdersByUser(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.orderUrl}/user/completed/${userId}`, {
+      headers: this.getAuthHeaders(),
+    });
+  }
 }
  
  

@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, ActivatedRoute } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
- 
 @Component({
-  selector: 'app-orderhistory',
+  selector: 'app-currentorders',
   standalone: true,
   imports: [CommonModule, RouterModule, SidebarComponent],
-  templateUrl: './orderhistory.component.html',
-  styleUrls: ['./orderhistory.component.css'],
+  templateUrl: './currentorders.component.html',
+  styleUrl: './currentorders.component.css',
 })
-export class OrderhistoryComponent implements OnInit {
+export class CurrentordersComponent {
   orders: any[] = [];
   userId!: number;
  
@@ -23,8 +22,9 @@ export class OrderhistoryComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {}
-  goToOrderDetails(orderId: number): void {
-    this.router.navigate(['/detailedorderpage', orderId]);
+ 
+  goToTracking(orderId: number): void {
+    this.router.navigate(['/trackingorderpage', orderId]);
   }
  
   ngOnInit(): void {
@@ -43,7 +43,7 @@ export class OrderhistoryComponent implements OnInit {
  
   // ✅ LOAD BASED ON TAB
   loadOrders(): void {
-    this.authService.getCompletedOrdersByUser(this.userId).subscribe({
+    this.authService.getCurrentOrdersByUser(this.userId).subscribe({
       next: (res: any[]) => {
         this.orders = res;
       },

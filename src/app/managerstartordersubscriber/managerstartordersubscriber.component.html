@@ -4,10 +4,17 @@
 <!-- TOP CONTENT WRAPPER -->
 <div class="order-top">
 <!-- Header -->
-<div class="order-header">
+<div class="order-header" *ngIf="orderDetails">
+<span class="order-date">
+  {{ orderDetails.orderDate | date:'dd/MM/yyyy' }}
+</span>
+<span class="order-time">  {{ orderDetails.orderDate | date:'hh:mm a' }}</span>
+</div>
+
+<!-- <div class="order-header" *ngIf="!orderDetails">
 <span class="order-date">17 Oct 2025</span>
 <span class="order-time">04:50 PM</span>
-</div>
+</div> -->
  
     <!-- Customer Info -->
 <div class="customer-info" *ngIf="orderDetails">
@@ -75,11 +82,25 @@
 
 
 <div class="food-details">
-<h4>{{orderDetails.items[0].mealName}}</h4>
-<p>
+  <h4>{{ orderDetails.items[0].mealName }}</h4>
 
-     
+  <p class="meal-meta" *ngIf="orderDetails?.items?.length > 0 || mealDetails">
+  <span *ngIf="orderDetails.items[0].quantity"> <b>Qty: {{ orderDetails.items[0].quantity }}</b> &nbsp;|&nbsp;</span>
+  
+  <span *ngIf="orderDetails.items[0].individualUnitPrice"> <b>Price: ₹</b>{{ orderDetails.items[0].individualUnitPrice }} &nbsp;|&nbsp;</span>
+
+ <span *ngIf="orderDetails.items[0].quantity && orderDetails.items[0].individualUnitPrice"><b>Total: ₹</b>
+
+    {{ orderDetails.items[0].quantity * orderDetails.items[0].individualUnitPrice }}&nbsp;|&nbsp;
+  </span>
+
+ <span *ngIf="mealDetails?.amount"><b>Total: ₹</b>
+
+    {{ mealDetails?.amount }}
+  </span>
+
 </p>
+
 </div>
 </div>
 </div>

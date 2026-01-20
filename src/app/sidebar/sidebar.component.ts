@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router } from '@angular/router';
-
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
+ 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
@@ -10,72 +10,100 @@ import { RouterModule, Router } from '@angular/router';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
-  showPopup: boolean = false;
+  showPopup = false;
+  showOrderMenu = false;
+ 
   userName: string | null = '';
   userId: string | null = '';
-
+ 
   constructor(private router: Router) {}
-
+ 
   ngOnInit(): void {
     this.userName = sessionStorage.getItem('userName');
-    this.userId = sessionStorage.getItem('userId'); // 👈 make sure userId is stored at login
+    this.userId = sessionStorage.getItem('userId');
+ 
+    // 🔥 SINGLE SOURCE OF TRUTH
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.syncOrderMenuWithRoute(event.urlAfterRedirects);
+      }
+    });
+ 
+    // handle page refresh
+    this.syncOrderMenuWithRoute(this.router.url);
   }
-
-  // ✅ Go to profile with logged-in userId
+ 
+  /* 🔑 THIS CONTROLS EVERYTHING */
+  private syncOrderMenuWithRoute(url: string) {
+    this.showOrderMenu =
+      url.includes('/currentorders') || url.includes('/orderhistory');
+  }
+ 
+  /* ================= ORDERS ================= */
+  toggleOrderMenu() {
+    this.showOrderMenu = !this.showOrderMenu;
+  }
+ 
+  navigateCurrentOrders() {
+    this.router.navigate(['/currentorders'], {
+      queryParams: { tab: 'current' },
+    });
+  }
+ 
+  navigatePastOrders() {
+    this.router.navigate(['/orderhistory'], {
+      queryParams: { tab: 'history' },
+    });
+  }
+ 
+  /* ================= OTHER MENUS ================= */
   navigateProfile() {
-    if (this.userId) {
-      this.router.navigate([`/profile/${this.userId}`]);
-    } else {
-      console.error('User ID not found in sessionStorage');
-      this.router.navigate(['/login']); // fallback if no id
-    }
+    this.router.navigate(
+      this.userId ? [`/profile/${this.userId}`] : ['/login']
+    );
   }
-
-  navigateOrderHistory() {
-    this.router.navigate(['/orderhistory']);
-  }
-
+ 
   navigateAddress() {
     this.router.navigate(['/address-page']);
   }
-
+ 
   navigateHelpCenter() {
     this.router.navigate(['/helpcenter']);
   }
-
+ 
   navigatePromocode() {
     this.router.navigate(['/promocode']);
   }
-
+ 
   navigateInviteFriend() {
     this.router.navigate(['/invitefriend']);
   }
-
+ 
   navigatePrivacy() {
     this.router.navigate(['/privacy']);
   }
-
+ 
   navigateDeleteAccount() {
     this.router.navigate(['/deleteaccount1']);
   }
-
+ 
   navigateSubscriptionPlan() {
     this.router.navigate(['/subscriptionplan']);
   }
-
-  // Logout popup functions
+ 
+  /* ================= LOGOUT ================= */
   showLogoutPopup() {
     this.showPopup = true;
   }
-
+ 
   closePopup() {
     this.showPopup = false;
   }
-
+ 
   confirmLogout() {
-    this.showPopup = false;
-    sessionStorage.clear(); // clear session
-    console.log('User logged out');
-    this.router.navigate(['/login']); // redirect after logout
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
   }
 }
+ 
+ 
