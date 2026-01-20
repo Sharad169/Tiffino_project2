@@ -61,6 +61,8 @@ import { SuperadmindelpartnereditpageComponent } from './superadmindelpartneredi
 import { ManagerapproveorderComponent } from './managerapproveorder/managerapproveorder.component';
 import { ManagerstartordersubscriberComponent } from './managerstartordersubscriber/managerstartordersubscriber.component';
 import { CurrentordersComponent } from './currentorders/currentorders.component';
+import { DetailedorderpageComponent } from './detailedorderpage/detailedorderpage.component';
+import { TrackingorderpageComponent } from './trackingorderpage/trackingorderpage.component';
 
 
 
@@ -212,12 +214,15 @@ export const routes: Routes = [
     component: SuperadminchefeditpageComponent,
   },
 
-  
+  { path: 'detailedorderpage/:orderId', component: DetailedorderpageComponent },
 
 {
     path: 'superadminmanagereditpage/:employeeCode',
     component: SuperadminmanagereditpageComponent,
   }, 
+
+  { path: 'trackingorderpage/:orderId', component: TrackingorderpageComponent },
+ 
 
   {
     path: 'superadmindelpartnereditpage/:employeeCode',

@@ -137,6 +137,46 @@ getCurrentOrdersByUser(userId: number): Observable<any[]> {
       headers: this.getAuthHeaders(),
     });
   }
+
+  getOrderById(Id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.orderUrl}/${Id}`, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+
+  getOrderHistoryByorderId(Id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.orderUrl}/track-order-history/${Id}`, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+
+  downloadInvoice(orderId: number) {
+    return this.http.post(
+      `${this.orderUrl}/download-invoice/${orderId}`,
+      {},
+      {
+        headers: this.getAuthHeaders(), // ✅ AUTH HEADERS
+        responseType: 'blob', // ✅ PDF FILE
+      }
+    );
+  }
+
+   getOrderTrackingPageDetails(orderId: number): Observable<any> {
+    return this.http.get(`${this.orderUrl}/order-Tracking-page/${orderId}`, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+
+   rateOrder(orderId: number, payload: any) {
+    return this.http.post(
+      `http://localhost:8085/api/Rate-order/${orderId}`,
+      payload,
+      {
+        headers: this.getAuthHeaders(),
+        responseType: 'text', // 🔥 THIS IS REQUIRED
+      }
+    );
+  }
 }
  
  
