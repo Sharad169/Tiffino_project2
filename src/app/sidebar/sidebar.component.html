@@ -38,19 +38,16 @@
       <!-- ===== ORDERS MENU ===== -->
       <li class="has-submenu">
         <div class="submenu-wrapper">
-          <div class="menu-item">
-            <i class="fas fa-angle-right sidebar-arrow"></i>
-            <span>Orders</span>
-
-            <span
-              class="right-arrow"
+          <!-- PARENT (TOGGLE ONLY) -->
+          <div class="menu-item" (click)="toggleOrderMenu()">
+            <i
+              class="fas fa-angle-right sidebar-arrow"
               [class.rotate]="showOrderMenu"
-              (click)="toggleOrderMenu($event)"
-            >
-              ▸
-            </span>
+            ></i>
+            <span>Orders</span>
           </div>
 
+          <!-- SUB MENU -->
           <ul class="order-submenu" *ngIf="showOrderMenu">
             <li (click)="navigateCurrentOrders()">Current Orders</li>
             <li (click)="navigatePastOrders()">Order History</li>

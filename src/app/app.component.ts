@@ -8,12 +8,19 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SuperadminSidebarComponent } from './superadmin-sidebar/superadmin-sidebar.component';
 import { ManagersidebarComponent } from './managersidebar/managersidebar.component';
- 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, SidebarComponent, SuperadminSidebarComponent, ManagersidebarComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent,
+    SuperadminSidebarComponent,
+    ManagersidebarComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
@@ -23,7 +30,10 @@ export class AppComponent implements OnDestroy {
   private subs = new Subscription();
   private isBrowser: boolean;
 
-  constructor(private router: Router, @Inject(PLATFORM_ID) platformId: Object) {
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) platformId: Object,
+  ) {
     this.isBrowser = isPlatformBrowser(platformId);
 
     // Initial visibility check
@@ -39,7 +49,7 @@ export class AppComponent implements OnDestroy {
     if (this.isBrowser) {
       window.addEventListener(
         'hashchange',
-        this.updateLayoutVisibility.bind(this)
+        this.updateLayoutVisibility.bind(this),
       );
     }
   }
@@ -49,7 +59,7 @@ export class AppComponent implements OnDestroy {
     if (this.isBrowser) {
       window.removeEventListener(
         'hashchange',
-        this.updateLayoutVisibility.bind(this)
+        this.updateLayoutVisibility.bind(this),
       );
     }
   }
@@ -82,11 +92,10 @@ export class AppComponent implements OnDestroy {
       '/verification-otp',
       '/onboarding',
       '/welcome',
-      '/superAdminLogin',
+      '/superadmin-login',
       '/superadminsetpassword',
       '/manager-login',
       '/manager-setpassword',
-
     ];
 
     const hideFragments = ['registration-section'];

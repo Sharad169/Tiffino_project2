@@ -3,7 +3,7 @@
 .listkitchen-wrapper {
   font-family: "Poppins", sans-serif;
   margin-left: 450px;
-  margin-top: -480px;
+  margin-top: -560px;
   padding-right: 100px;
   max-width: 960px;
   height: 650px;
@@ -160,7 +160,9 @@
   box-shadow: 0 2px 6px #40985399;
   padding: 15px 25px;
   position: relative;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .kitchen-card:hover {
