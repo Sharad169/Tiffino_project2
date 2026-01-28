@@ -20,7 +20,7 @@ export class CurrentordersComponent {
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {}
 
   goToTracking(orderId: number): void {

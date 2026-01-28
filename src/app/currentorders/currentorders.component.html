@@ -36,7 +36,7 @@
       <!-- HEADER -->
       <div class="order-header">
         <h4>ORDER #{{ order.id }}</h4>
-        <p>{{ order.orderDate | date : "dd MMM yyyy, hh:mm a" }}</p>
+        <p>{{ order.orderDate | date: "dd MMM yyyy, hh:mm a" }}</p>
       </div>
 
       <div class="order-item" *ngFor="let item of order.items">
@@ -64,7 +64,7 @@
           [ngClass]="{
             completed: order.status === 'COMPLETED',
             reject: order.status === 'REJECT',
-            pending: order.status === 'PENDING'
+            pending: order.status === 'PENDING',
           }"
         >
           {{ order.status }}

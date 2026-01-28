@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   background: #fff;
+  height: 1400px;
 } /* Top Row */
 .top-row {
   display: flex;
@@ -157,7 +158,6 @@
   background: #fff;
   margin-top: 10px;
   height: calc(100vh - 320px); /* prevents footer overlap */
-  overflow: hidden;
 } /* Individual cards */
 .empty-card {
   height: 102px;
@@ -306,7 +306,7 @@
 }
 .profile-section::after {
   content: "";
-  grid-column: 2 / -1;
+  grid-column: 2/ -1;
   height: 0;
 }
 .profile-section {
@@ -320,16 +320,15 @@
 .profile-section app-sidebar {
   grid-column: 1;
   height: 100%;
+  grid-row: 5 / -1;
   overflow: hidden;
 }
 .profile-section > .order-card {
   grid-column: auto;
   width: 267px;
   height: 343px;
-  overflow-y: auto;
 }
 .profile-section {
-  overflow-y: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE */
 } /* Chrome, Safari, Edge */
