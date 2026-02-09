@@ -1,0 +1,57 @@
+<app-chef-sidebar></app-chef-sidebar>
+
+<!-- PAGE 1: SUBSCRIPTION LIST -->
+<div class="subscription-wrapper" *ngIf="!showOrdersPage">
+  <!-- TOGGLE BUTTONS -->
+  <div class="toggle-container">
+    <button
+      class="toggle-btn"
+      [ngClass]="{ active: selectedType === 'subscriber' }"
+      (click)="selectType('subscriber')"
+    >
+      Subscriber
+    </button>
+
+    <button
+      class="toggle-btn"
+      [ngClass]="{ active: selectedType === 'non-subscriber' }"
+      (click)="selectType('non-subscriber')"
+    >
+      Non-Subscriber
+    </button>
+  </div>
+
+  <!-- SCROLL AREA -->
+  <div class="cards-scroll-area">
+    <!-- CLICK TO OPEN PAGE -->
+    <div class="card" *ngFor="let order of orders" (click)="openOrdersPage()">
+      <!-- HEADER -->
+      <div class="card-header">
+        <p class="delivery-number">
+          <strong>Delivery Number: {{ order.deliveryNo }}</strong>
+        </p>
+        <p class="date-info"><strong>Date:</strong> {{ order.date }}</p>
+      </div>
+
+      <!-- BODY -->
+      <div class="card-body">
+        <p class="diet-gap">
+          <strong class="black">Dietary Preference:</strong> {{ order.diet }}
+        </p>
+
+        <p><strong class="yellow">Portion:</strong> {{ order.portion }}</p>
+        <p><strong class="yellow">Spice Level:</strong> {{ order.spice }}</p>
+        <p><strong class="yellow">Allergens:</strong> {{ order.allergens }}</p>
+
+        <p class="health-text">
+          <strong class="black">Health & Nutrition:</strong> {{ order.health }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2: SUBSCRIPTION ORDER DETAILS -->
+<div *ngIf="showOrdersPage">
+  <app-chef-subscriptionorders></app-chef-subscriptionorders>
+</div>

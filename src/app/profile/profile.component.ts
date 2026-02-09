@@ -1,39 +1,42 @@
+// import { Component } from '@angular/core';
+// import { CommonModule } from '@angular/common';
+// import { RouterModule } from '@angular/router'; // ✅ import this
+
+// @Component({
+//   selector: 'app-profile',
+//   standalone: true,
+//   imports: [CommonModule, RouterModule], // ✅ include here
+//   templateUrl: './profile.component.html',
+//   styleUrls: ['./profile.component.css'],
+// })
+// export class ProfileComponent {}
+
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule, SidebarComponent],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
   userEmail: string = 'aditya@gmail.com';
-  userData: any = {}; 
+  userData: any = {};
   selectedTabName: string = 'Account Settings';
 
-  sideBarItems = [
-    'Account Settings',
-    'Order History',
-    'Payment Method',
-    'Addresses',
-    'Help Center',
-    'Promocodes & Offers',
-    'Meal Plan Subscription',
-    'Invite Friends',
-    'Privacy',
-    'Logout',
-    'Delete Account'
-  ];
+  sideBarItems = [];
 
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
-    @Inject(PLATFORM_ID) private platformId: Object  // ✅ Detects Browser
+    @Inject(PLATFORM_ID) private platformId: Object // ✅ Detects Browser
   ) {}
 
   ngOnInit(): void {
@@ -56,7 +59,7 @@ export class ProfileComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error fetching user:', err);
-      }
+      },
     });
   }
 

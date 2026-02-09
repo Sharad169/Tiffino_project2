@@ -1,149 +1,133 @@
 <div class="profile-container">
-  <!-- First Row: Greeting center + actions right -->
-  <div class="top-row">
-    <p class="greeting">Good Morning, {{userData.name}}</p>
-    <div class="top-actions">
-      <button class="wallet-btn">Wallet Money</button>
-      <i class="fas fa-bell notify"></i>
-      <img src="/assets/aaditya.jpg" alt="user" class="profile-pic" />
-    </div>
-  </div>
-
-  <!-- Second Row: Location left + Search center -->
-  <div class="middle-row">
-    <span class="location">
-      <i class="fas fa-map-marker-alt"></i> Pune, Maharashtra
-    </span>
-    <div class="search-box">
-      <input type="text" placeholder="Search" />
-      <button class="menu-btn">☰</button>
-    </div>
-  </div>
-
-  <!-- Third Row: Back Icon + Text -->
+  <!-- Bottom Row -->
   <div class="bottom-row">
     <i class="fa-solid fa-angle-left back-icon"></i>
     <span class="back-link">Back</span>
   </div>
 
+  <!-- Profile Title -->
   <div class="profile">
     <p>Profile</p>
   </div>
 
   <!-- Main Section -->
   <div class="profile-section">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <ul>
-  <li *ngFor="let item of sideBarItems">
-    <p 
-      (click)="selectTab(item)" 
-      [ngStyle]="{'color': selectedTabName === item ? '#386341' : 'black'}"
-    >
-      <i class="fas fa-angle-right sidebar-arrow"></i> {{ item }}
-    </p>
-  </li>
-</ul>
-
-
-      <!-- Two empty boxes -->
-      <div class="empty-boxes">
-        <div class="empty-card"></div>
-        <div class="empty-card"></div>
-      </div>
-    </div>
+    <!-- Sidebar Component -->
+    <app-sidebar></app-sidebar>
+    <!-- ✅ Sidebar only once -->
 
     <!-- Profile Details -->
     <div class="profile-details">
       <div class="user-info">
         <img src="/assets/aaditya.jpg" alt="User" class="user-avatar" />
-        <h3>{{userData.name}}</h3>
-        <p class="email">{{userData.email}}</p>
+        <h3>{{ userData.name }}</h3>
+        <p class="email">{{ userData.email }}</p>
       </div>
 
       <!-- Account Form -->
       <div class="account-form">
-        <h4>Account</h4>
-        <p class="desc">View and Change your account Prefrence</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter your name"
+              [(ngModel)]="userData.name"
+              readonly
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              [(ngModel)]="userData.email"
+              readonly
+            />
+          </div>
+        </div>
 
         <div class="form-row">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" id="name" placeholder="Enter your name" [(ngModel)]="userData.name" readonly />
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" id="email" placeholder="Enter your email" [(ngModel)]="userData.email" readonly/>
-  </div>
-</div>
-
-<div class="form-row">
-  <div class="form-group">
-    <label for="text">Date of Birth</label>
-    <input type="date" id="dob" [(ngModel)]="userData.dateOfBirth" readonly/>
-  </div>
-  <div class="form-group">
-    <label for="phone">Phone No.</label>
-    <input type="tel" id="phone" placeholder="Enter phone number" [(ngModel)]="userData.phone" readonly />
-  </div>
-</div>
-
-
-      <!--    Notification   -->
-
-      <div class="notifications">
-        <div class="content">
-          <!--  <h4>Notifications</h4>
-          <p class="desc">View and change your notification settings</p>  -->
-
-          <div class="notification-item">
-            <p>
-              <strong>Notifications</strong><br />View and change your
-              notification settings
-            </p>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input
+              type="date"
+              id="dob"
+              [(ngModel)]="userData.dateOfBirth"
+              readonly
+            />
           </div>
 
-          <div class="notification-item">
-            <p>
-              <strong>Push Notification</strong><br />Enable push notification
-            </p>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
+          <div class="form-group">
+            <label for="phone">Phone No.</label>
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Enter phone number"
+              [(ngModel)]="userData.phone"
+              readonly
+            />
           </div>
+        </div>
 
-          <div class="notification-item">
-            <p>
-              <strong>Email Notification</strong><br />Enable email notification
-            </p>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
+        <!-- Notifications Section -->
+        <div class="notifications">
+          <div class="content">
+            <div class="notification-item">
+              <p>
+                <strong>Notifications</strong><br />
+                View and change your notification settings
+              </p>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
 
-          <div class="notification-item">
-            <p>
-              <strong>Inapp Notification</strong><br />Enable inapp notification
-            </p>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
+            <div class="notification-item">
+              <p>
+                <strong>Push Notification</strong><br />
+                Enable push notification
+              </p>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+            <div class="notification-item">
+              <p>
+                <strong>Email Notification</strong><br />
+                Enable email notification
+              </p>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+            <div class="notification-item">
+              <p>
+                <strong>Inapp Notification</strong><br />
+                Enable in-app notification
+              </p>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- FontAwesome Free CDN -->
-      <script
-        src="https://kit.fontawesome.com/a076d05399.js"
-        crossorigin="anonymous"
-      ></script>
     </div>
   </div>
+
+  <!-- FontAwesome -->
+  <script
+    src="https://kit.fontawesome.com/a076d05399.js"
+    crossorigin="anonymous"
+  ></script>
 </div>

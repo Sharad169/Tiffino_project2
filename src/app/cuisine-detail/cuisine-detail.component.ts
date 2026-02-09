@@ -10,7 +10,7 @@ import { AuthService } from '../service/auth.service';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './cuisine-detail.component.html',
-  styleUrl: './cuisine-detail.component.css'
+  styleUrls: ['./cuisine-detail.component.css'],
 })
 export class CuisineDetailComponent implements OnInit {
   cuisineId!: number;
@@ -30,18 +30,21 @@ export class CuisineDetailComponent implements OnInit {
     const token = sessionStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    this.http.get<any>(`http://localhost:8082/api/meals/cuisine/${this.cuisineId}`, { headers })
+    this.http
+      .get<any>(`http://localhost:8082/api/meals/cuisine/${this.cuisineId}`, {
+        headers,
+      })
       .subscribe({
         next: (data) => {
           console.log('Fetched meals data:', data);
 
           if (data && data.meals) {
             this.meals = Array.isArray(data.meals) ? data.meals : [data.meals];
-            this.cuisineName = data.cuisineName || 'Cuisine';
-            
+            this.cuisineName = data.CuisineName || 'Cuisine';
           } else if (Array.isArray(data)) {
             this.meals = data;
-            this.cuisineName = data.length > 0 ? data[0].cuisineName || 'Cuisine' : 'Cuisine';
+            this.cuisineName =
+              data.length > 0 ? data[0].cuisineName || 'Cuisine' : 'Cuisine';
           } else {
             this.meals = [];
             this.cuisineName = 'Cuisine';
@@ -51,7 +54,7 @@ export class CuisineDetailComponent implements OnInit {
           console.error('Error fetching meals:', error);
           this.meals = [];
           this.cuisineName = 'Cuisine';
-        }
+        },
       });
   }
 
@@ -73,7 +76,7 @@ export class CuisineDetailComponent implements OnInit {
         description: meal.description,
         price: meal.price,
         quantity: 1,
-        image: meal.imageUrl
+        image: meal.imageUrl,
       });
     }
 

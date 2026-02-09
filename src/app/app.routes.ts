@@ -1,9 +1,14 @@
 import { Routes } from '@angular/router';
 
+// ===== Common Pages =====
 import { HomeComponent } from './home/home.component';
-import { UserSignInComponent } from './registration/user-sign-in/user-sign-in.component';
 import { OnboardingComponent } from './onboarding/onboarding.component';
+import { UserSignInComponent } from './registration/user-sign-in/user-sign-in.component';
 import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
+import { VerificationCodeComponent } from './verification-code/verification-code.component';
+import { Login2Component } from './login2/login2.component';
+
+// ===== Cuisine Pages =====
 import { NorthComponent } from './north/north.component';
 import { SouthComponent } from './south/south.component';
 import { PunjabiComponent } from './punjabi/punjabi.component';
@@ -14,123 +19,314 @@ import { BengaliComponent } from './bengali/bengali.component';
 import { KashmiriComponent } from './kashmiri/kashmiri.component';
 import { HydrabadiComponent } from './hydrabadi/hydrabadi.component';
 import { GoaComponent } from './goa/goa.component';
-import { RecommendationComponent } from './recommendation/recommendation.component';
-import { ProfileComponent } from './profile/profile.component';
-import { RatingComponent } from './rating/rating.component';
-
 import { ChineseMaunComponent } from './chinese-maun/chinese-maun.component';
-
 import { InternationalMenuComponent } from './international-menu/international-menu.component';
-
-import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
-import { VerificationCodeComponent } from './verification-code/verification-code.component';
 import { CuisineDetailComponent } from './cuisine-detail/cuisine-detail.component';
 import { CategoryComponent } from './category/category.component';
 
-import { DescriptionComponent } from './description/description.component';
+// ===== User & Profile Pages =====
+import { ProfileComponent } from './profile/profile.component';
+import { RatingComponent } from './rating/rating.component';
+import { OrderhistoryComponent } from './orderhistory/orderhistory.component';
+import { ItemdeliveredComponent } from './itemdelivered/itemdelivered.component';
+import { Itemdelevered2Component } from './itemdelevered2/itemdelevered2.component';
+import { TrackingpageComponent } from './trackingpage/trackingpage.component';
+import { AddresspageComponent } from './addresspage/addresspage.component';
+import { AddaddressComponent } from './addaddress/addaddress.component';
+import { CoupenpageComponent } from './coupenpage/coupenpage.component';
+import { HelpcenterComponent } from './helpcenter/helpcenter.component';
+import { LogoutComponent } from './logout/logout.component';
+import { Deleteaccount1Component } from './deleteaccount1/deleteaccount1.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { PromocodeComponent } from './promocode/promocode.component';
+import { WalletpageComponent } from './walletpage/walletpage.component';
+import { InvitefriendComponent } from './invitefriend/invitefriend.component';
 
+// ===== Subscription & Plans =====
+import { SubscriptionplanComponent } from './subscriptionplan/subscriptionplan.component';
+import { GetplanComponent } from './getplan/getplan.component';
+import { SubscriptionpageComponent } from './subscriptionpage/subscriptionpage.component';
+import { FinalpageComponent } from './finalpage/finalpage.component';
+import { DietarypreferenceComponent } from './dietarypreference/dietarypreference.component';
+
+// ===== E-commerce Related =====
 import { AddCardComponent } from './add-card/add-card.component';
-
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+import { RecommendationComponent } from './recommendation/recommendation.component';
+import { DescriptionComponent } from './description/description.component';
+import { ExploreSubpageComponent } from './explore/explore-subpage/explore-subpage.component';
+
+// ===== Superadmin Pages =====
+import { ManagerregiComponent } from './managerregi/managerregi.component';
+import { ManagerinfoComponent } from './managerinfo/managerinfo.component';
+import { SuperadminchefComponent } from './superadminchef/superadminchef.component';
+import { SuperadmindelpartnerComponent } from './superadmindelpartner/superadmindelpartner.component';
+import { ListemployeeComponent } from './listemployee/listemployee.component';
+import { SuperadminkitchenComponent } from './superadminkitchen/superadminkitchen.component';
+import { SuperadminsetpassswordComponent } from './superadminsetpasssword/superadminsetpasssword.component';
+import { SuperadminkitchendetailsComponent } from './superadminkitchendetails/superadminkitchendetails.component';
+import { SuperadminmanagerdetailsComponent } from './superadminmanagerdetails/superadminmanagerdetails.component';
+import { SuperadminchefdetailsComponent } from './superadminchefdetails/superadminchefdetails.component';
+import { SuperadmindelpartnerdetailsComponent } from './superadmindelpartnerdetails/superadmindelpartnerdetails.component';
+import { SuperadmineditlistComponent } from './superadmineditlist/superadmineditlist.component';
+import { SuperadminmanagereditpageComponent } from './superadminmanagereditpage/superadminmanagereditpage.component';
+import { SuperadminchefeditpageComponent } from './superadminchefeditpage/superadminchefeditpage.component';
+import { SuperadmindelpartnereditpageComponent } from './superadmindelpartnereditpage/superadmindelpartnereditpage.component';
+import { SuperadmincloudkitchenComponent } from './superadmincloudkitchen/superadmincloudkitchen.component';
+import { SuperadminsubscriberlistComponent } from './superadminsubscriberlist/superadminsubscriberlist.component';
+import { SuperadminmanagerlistComponent } from './superadminmanagerlist/superadminmanagerlist.component';
+import { SuperadmincheflistComponent } from './superadmincheflist/superadmincheflist.component';
+import { SuperadmindelpartnerlistComponent } from './superadmindelpartnerlist/superadmindelpartnerlist.component';
+import { SuperadminmealComponent } from './superadminmeal/superadminmeal.component';
+import { SuperadmincoupanpageComponent } from './superadmincoupanpage/superadmincoupanpage.component';
+import { DelpartnerdashboardComponent } from './delpartnerdashboard/delpartnerdashboard.component';
+import { YourcurrentorderdelpartnerComponent } from './yourcurrentorderdelpartner/yourcurrentorderdelpartner.component';
+import { DelpartnercurrentorderComponent } from './delpartnercurrentorder/delpartnercurrentorder.component';
+import { DelpartnerorderComponent } from './delpartnerorder/delpartnerorder.component';
+import { DelpartnerordercompleteComponent } from './delpartnerordercomplete/delpartnerordercomplete.component';
+import { DelpartnerordersdeliverdbyyouComponent } from './delpartnerordersdeliverdbyyou/delpartnerordersdeliverdbyyou.component';
+import { DelpartneryourdetailsComponent } from './delpartneryourdetails/delpartneryourdetails.component';
+import { DelpartneryourdetailsrequestComponent } from './delpartneryourdetailsrequest/delpartneryourdetailsrequest.component';
+import { DetailsdeliverypartnerComponent } from './detailsdeliverypartner/detailsdeliverypartner.component';
+import { ApplyleavemanagerComponent } from './applyleavemanager/applyleavemanager.component';
+import { ManagerapproveorderComponent } from './managerapproveorder/managerapproveorder.component';
+import { DelpartnerapplyleaveComponent } from './delpartnerapplyleave/delpartnerapplyleave.component';
+import { DelpartnerhelpsupportpageComponent } from './delpartnerhelpsupportpage/delpartnerhelpsupportpage.component';
+import { ManagerorderdeliverbyyouComponent } from './managerorderdeliverbyyou/managerorderdeliverbyyou.component';
+import { ManagerhelpsupportpageComponent } from './managerhelpsupportpage/managerhelpsupportpage.component';
+import { ManagerstartordersubscriberComponent } from './managerstartordersubscriber/managerstartordersubscriber.component';
+import { ManagerOrderdelpartnerdetailsComponent } from './manager-orderdelpartnerdetails/manager-orderdelpartnerdetails.component';
+import { ManagerYourdetailspageComponent } from './manager-yourdetailspage/manager-yourdetailspage.component';
+import { ManagerYourdetailseditrequestpageComponent } from './manager-yourdetailseditrequestpage/manager-yourdetailseditrequestpage.component';
+import { ManagerYourdetailssubmitpageComponent } from './manager-yourdetailssubmitpage/manager-yourdetailssubmitpage.component';
+import { ManagerStatusComponent } from './manager-status/manager-status.component';
+import { ChefDashboardComponent } from './chef-dashboard/chef-dashboard.component';
+import { ChefApplyleaveComponent } from './chef-applyleave/chef-applyleave.component';
+import { ChefHelpsupportpageComponent } from './chef-helpsupportpage/chef-helpsupportpage.component';
+import { ChefYourdetailspageComponent } from './chef-yourdetailspage/chef-yourdetailspage.component';
+import { ChefYourdetailsrequestpageComponent } from './chef-yourdetailsrequestpage/chef-yourdetailsrequestpage.component';
+import { ChefEditdetailspageComponent } from './chef-editdetailspage/chef-editdetailspage.component';
+import { ChefSubscriptioneditdetailsComponent } from './chef-subscriptioneditdetails/chef-subscriptioneditdetails.component';
+import { ChefSubscriptionordersComponent } from './chef-subscriptionorders/chef-subscriptionorders.component';
+import { UseraboutuspageComponent } from './useraboutuspage/useraboutuspage.component';
+import { UserNetworkerrorpageComponent } from './user-networkerrorpage/user-networkerrorpage.component';
+import { UserItemunavailablepageComponent } from './user-itemunavailablepage/user-itemunavailablepage.component';
+import { UserStoreclosedpageComponent } from './user-storeclosedpage/user-storeclosedpage.component';
+import { ManagerLoginComponent } from './manager-login/manager-login.component';
 
 export const routes: Routes = [
-  // Default page
-
-  { path: 'ex', component: ExploreSubpageComponent },
-
-  // Default route → Welcome screen
-
+  // ===== Default Routes =====
+  { path: '', component: UserSignInComponent },
+  { path: 'login', component: UserSignInComponent },
+  { path: 'login2', component: Login2Component },
+  { path: 'onboarding', component: OnboardingComponent },
   { path: 'welcome', component: WelcomeScreenComponent },
-
-  // Home page
-
-  { path: 'home', component: HomeComponent },
-
-  // Verification / OTP page
-
   { path: 'verification-otp', component: VerificationCodeComponent },
 
+  // ===== Home / Explore =====
+  { path: 'home', component: HomeComponent },
+  { path: 'ex', component: ExploreSubpageComponent },
+  { path: 'useraboutuspage', component: UseraboutuspageComponent },
+  { path: 'user-networkerrorpage', component: UserNetworkerrorpageComponent },
+  { path: 'user-storeclosedpage', component: UserStoreclosedpageComponent },
+  {
+    path: 'user-itemunavailablepage',
+    component: UserItemunavailablepageComponent,
+  },
 
-  // { path: '', component: VerificationCodeComponent },
- 
-
-  // Login / Registration
-
-  { path: '', component: UserSignInComponent },
-  
-
-  // North page
-
+  // ===== Cuisine Pages =====
   { path: 'north', component: NorthComponent },
-
-  // Onboarding screen
-
-  { path: 'onboarding', component: OnboardingComponent },
-
-  // Welcome screen (explicit route)
-
-  { path: 'welcome', component: WelcomeScreenComponent },
-
-  // Redirect unknown paths
-
-  //South
   { path: 'south', component: SouthComponent },
-
-  { path: 'cuisine-detail/:id', component: CuisineDetailComponent },
-
-  { path: 'category/:category', component: CategoryComponent },
-
-  { path: 'meals', component: AddCardComponent },
-
-  //Punjabi
   { path: 'punjabi', component: PunjabiComponent },
-
-  //Gujrati
   { path: 'gujrati', component: GujratiComponent },
-
-  //Rajsthani
   { path: 'rajsthani', component: RajsthaniComponent },
-
-  //Maharashtrian
   { path: 'maharashtrian', component: MaharashtrianComponent },
-
-  //Bengali
   { path: 'bengali', component: BengaliComponent },
-
-  //Kashmiri
   { path: 'kashmiri', component: KashmiriComponent },
-
-  //Hydrabadi
   { path: 'hydrabadi', component: HydrabadiComponent },
-
-  //Goan
   { path: 'goa', component: GoaComponent },
-
-  //Recommendation
-  { path: 'recommendation', component: RecommendationComponent },
-
-  //Profile
- { path: 'profile/:id', component: ProfileComponent },
-
-  //Rating
-  { path: 'rating', component: RatingComponent },
-
-  //Chinese Maun
   { path: 'chinese-maun', component: ChineseMaunComponent },
-
-  //international-menu
   { path: 'international-menu', component: InternationalMenuComponent },
+  { path: 'cuisine-detail', component: CuisineDetailComponent },
+  { path: 'category', component: CategoryComponent },
 
-  //description
+  // ===== User & Order Pages =====
+  { path: 'recommendation', component: RecommendationComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'rating', component: RatingComponent },
+  { path: 'orderhistory', component: OrderhistoryComponent },
+  { path: 'itemdelivered', component: ItemdeliveredComponent },
+  { path: 'itemdelevered2', component: Itemdelevered2Component },
+  { path: 'trackingpage', component: TrackingpageComponent },
+  { path: 'addresspage', component: AddresspageComponent },
+  { path: 'addaddress', component: AddaddressComponent },
+  { path: 'coupenpage', component: CoupenpageComponent },
+  { path: 'helpcenter', component: HelpcenterComponent },
+  { path: 'logout', component: LogoutComponent },
+  { path: 'privacy', component: PrivacyComponent },
+  { path: 'deleteaccount1', component: Deleteaccount1Component },
+  { path: 'promocode', component: PromocodeComponent },
+  { path: 'walletpage', component: WalletpageComponent },
+  { path: 'invitefriend', component: InvitefriendComponent },
+
+  // ===== Subscription / Plans =====
+  { path: 'subscriptionplan', component: SubscriptionplanComponent },
+  { path: 'getplan', component: GetplanComponent },
+  { path: 'subscriptionpage', component: SubscriptionpageComponent },
+  { path: 'finalpage', component: FinalpageComponent },
+  { path: 'dietarypreference', component: DietarypreferenceComponent },
+
+  // ===== E-commerce Pages =====
+  { path: 'add-card', component: AddCardComponent },
+  { path: 'checkout-page', component: CheckoutPageComponent },
   { path: 'description', component: DescriptionComponent },
 
-//Add-card
-{ path: 'add-card', component: AddCardComponent },
+  // ===== Superadmin Section =====
+  { path: 'managerregi', component: ManagerregiComponent },
+  { path: 'managerinfo', component: ManagerinfoComponent },
+  { path: 'superadminchef', component: SuperadminchefComponent },
+  { path: 'superadmindelpartner', component: SuperadmindelpartnerComponent },
+  { path: 'listemployee', component: ListemployeeComponent },
+  { path: 'superadminkitchen', component: SuperadminkitchenComponent },
+  {
+    path: 'superadminsetpasssword',
+    component: SuperadminsetpassswordComponent,
+  },
+  {
+    path: 'superadminkitchendetails',
+    component: SuperadminkitchendetailsComponent,
+  },
+  {
+    path: 'superadminmanagerdetails',
+    component: SuperadminmanagerdetailsComponent,
+  },
+  { path: 'superadminchefdetails', component: SuperadminchefdetailsComponent },
+  {
+    path: 'superadmindelpartnerdetails',
+    component: SuperadmindelpartnerdetailsComponent,
+  },
+  { path: 'superadmineditlist', component: SuperadmineditlistComponent },
+  {
+    path: 'superadminmanagereditpage',
+    component: SuperadminmanagereditpageComponent,
+  },
+  {
+    path: 'superadminchefeditpage',
+    component: SuperadminchefeditpageComponent,
+  },
+  {
+    path: 'superadmindelpartnereditpage',
+    component: SuperadmindelpartnereditpageComponent,
+  },
+  {
+    path: 'superadmincloudkitchen',
+    component: SuperadmincloudkitchenComponent,
+  },
+  {
+    path: 'superadminsubscriberlist',
+    component: SuperadminsubscriberlistComponent,
+  },
+  { path: 'superadminmanagerlist', component: SuperadminmanagerlistComponent },
 
-  //checkout page
-  { path: 'checkout-page', component: CheckoutPageComponent },
+  { path: 'superadmincheflist', component: SuperadmincheflistComponent },
+  {
+    path: 'superadmindelpartnerlist',
+    component: SuperadmindelpartnerlistComponent,
+  },
+  { path: 'superadminmeal', component: SuperadminmealComponent },
+  { path: 'superadmincoupanpage', component: SuperadmincoupanpageComponent },
 
-  // Optional: redirect unknown paths to Welcome
+  // Del Partner section
+  { path: 'delpartnerdashboard', component: DelpartnerdashboardComponent },
+  {
+    path: 'yourcurrentorderdelpartner',
+    component: YourcurrentorderdelpartnerComponent,
+  },
+
+  {
+    path: 'delpartnercurrentorder',
+    component: DelpartnercurrentorderComponent,
+  },
+
+  { path: 'delpartnerorder', component: DelpartnerorderComponent },
+  {
+    path: 'delpartnerordercomplete',
+    component: DelpartnerordercompleteComponent,
+  },
+  {
+    path: 'delpartnerordersdeliverdbyyou',
+    component: DelpartnerordersdeliverdbyyouComponent,
+  },
+  {
+    path: 'delpartneryourdetails',
+    component: DelpartneryourdetailsComponent,
+  },
+  {
+    path: 'delpartneryourdetailsrequest',
+    component: DelpartneryourdetailsrequestComponent,
+  },
+  {
+    path: 'detailsdeliverypartner',
+    component: DetailsdeliverypartnerComponent,
+  },
+  { path: 'delpartnerapplyleave', component: DelpartnerapplyleaveComponent },
+  {
+    path: 'delpartnerhelpsupportpage',
+    component: DelpartnerhelpsupportpageComponent,
+  },
+
+  //Manager Section
+  { path: 'manager-login', component: ManagerLoginComponent },
+  { path: 'applyleavemanager', component: ApplyleavemanagerComponent },
+  { path: 'managerapproveorder', component: ManagerapproveorderComponent },
+  {
+    path: 'managerorderdeliverbyyou',
+    component: ManagerorderdeliverbyyouComponent,
+  },
+  {
+    path: 'managerhelpsupportpage',
+    component: ManagerhelpsupportpageComponent,
+  },
+  {
+    path: 'managerstartordersubscriber',
+    component: ManagerstartordersubscriberComponent,
+  },
+  {
+    path: 'manager-orderdelpartnerdetails',
+    component: ManagerOrderdelpartnerdetailsComponent,
+  },
+  {
+    path: 'manager-yourdetailspage',
+    component: ManagerYourdetailspageComponent,
+  },
+  {
+    path: 'manager-yourdetailseditrequestpage',
+    component: ManagerYourdetailseditrequestpageComponent,
+  },
+  {
+    path: 'manager-yourdetailssubmitpage',
+    component: ManagerYourdetailssubmitpageComponent,
+  },
+  { path: 'manager-status', component: ManagerStatusComponent },
+
+  //Chef Section
+  { path: 'chef-dashboard', component: ChefDashboardComponent },
+  { path: 'chef-applyleave', component: ChefApplyleaveComponent },
+  { path: 'chef-helpsupportpage', component: ChefHelpsupportpageComponent },
+  { path: 'chef-yourdetailspage', component: ChefYourdetailspageComponent },
+  {
+    path: 'chef-yourdetailsrequestpage',
+    component: ChefYourdetailsrequestpageComponent,
+  },
+  { path: 'chef-editdetailspage', component: ChefEditdetailspageComponent },
+  {
+    path: 'chef-subscriptioneditdetails',
+    component: ChefSubscriptioneditdetailsComponent,
+  },
+  {
+    path: 'chef-subscriptionorders',
+    component: ChefSubscriptionordersComponent,
+  },
+  // ===== Fallback =====
   { path: '**', redirectTo: '' },
-  
 ];

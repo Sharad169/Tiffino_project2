@@ -1,0 +1,397 @@
+/* Import Poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* Progress Track */
+.progress-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 90px 0 100px 80px;
+  width: 1280px;
+}
+
+.progress-line {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  z-index: 0;
+}
+
+/* green active progress portion */
+.progress-line::before {
+  content: "";
+  position: absolute;
+  height: 8px;
+  left: 0;
+  top: 0;
+  width: 60%; /* covers first 3 steps */
+  background-color: rgba(56, 99, 65, 1);
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.progress-step {
+  position: relative;
+  text-align: center;
+  width: 20%;
+  z-index: 2;
+}
+
+.circle {
+  width: 45px;
+  height: 45px;
+  background-color: #bfbfbf;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+
+.completed .circle {
+  background-color: #3a6b46;
+}
+
+.progress-step p {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  color: rgba(0, 0, 0, 1);
+}
+
+.progress-step span {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+}
+
+/* --- 4. Monthly Plan Details Box --- */
+.monthly-plan-box {
+  border: 3px solid rgba(56, 99, 65, 1);
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 30px;
+  margin-left: 80px;
+  margin-right: 80px;
+  width: 1280px;
+  height: 242px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.plan-title {
+  width: 159px;
+  height: 30px;
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 8px;
+  margin-left: 30px;
+}
+
+.plan-features {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.plan-features li {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 1);
+  position: relative;
+  padding-left: 20px;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: -10px;
+  margin-left: 40px;
+}
+
+.plan-features li::before {
+  content: "•";
+  color: rgba(0, 0, 0, 1);
+  font-weight: bold;
+  font-size: 1.2em;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+
+/* --- 5. Total Amount Paid Box --- */
+.total-amount-box {
+  width: 1280px;
+  height: 140px;
+  background-color: rgba(56, 99, 65, 1);
+  color: rgba(255, 255, 255, 1);
+  padding: 20px 30px;
+  border-radius: 15px;
+  margin-left: 80px;
+  margin-bottom: 30px;
+  text-align: left;
+  box-sizing: border-box;
+  margin-top: 60px;
+}
+
+.total-amount-text {
+  width: 436px;
+  height: 60px;
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: -5px;
+  margin-left: 0;
+}
+
+.paid-amount {
+  font-size: 40px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.plan-type-text {
+  width: 258px;
+  height: 30px;
+  font-size: 20px;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-left: 0;
+  margin-top: -5px;
+  color: rgba(255, 255, 255, 1);
+}
+
+/* --- 6. Bill Details Section --- */
+.bill-section {
+  margin-top: 20px;
+  width: 1300px;
+  max-width: calc(100% - 160px);
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.bill-heading {
+  width: 129px;
+  height: 36px;
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 15px;
+  text-align: center;
+  margin-right: 640px;
+  margin-bottom: 36px;
+  margin-left: 640px;
+}
+
+.order-summary-wrapper {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px 30px;
+  margin-bottom: 20px;
+  max-width: 400px;
+  margin: 0 auto 20px auto;
+  padding-bottom: 5px;
+}
+
+.order-summary h3 {
+  width: 475px;
+  height: 24px;
+  margin-left: -400px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: left;
+  color: rgba(0, 0, 0, 1);
+}
+
+/* --- Updated Border Boxes --- */
+.border-boxes {
+  margin-top: 0;
+}
+
+/* ✅ Flex alignment ensures all prices align perfectly */
+.border-boxes .box {
+  width: 78px;
+  height: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1135px;
+  margin-left: -400px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 8px;
+}
+
+/* ✅ Line under Khichadi row */
+.border-boxes .box.last-item {
+  border-bottom: 1px solid #000;
+
+  margin-bottom: 10px;
+}
+
+/* ✅ Consistent price alignment */
+.border-boxes .box span {
+  margin-right: 0;
+}
+
+/* --- Price Details --- */
+.price-details p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 10px;
+  margin-right: -395px;
+  margin-bottom: 9px;
+  margin-left: -400px;
+}
+
+/* .price-details span {
+  margin-right: 1px;
+} */
+
+/* Lines under Delivery/Discount and Tax */
+.price-details .discount {
+  border-bottom: 1px solid #100101;
+  padding-top: 10px;
+  margin-top: -10px;
+  padding-bottom: 8px;
+  width: 1135px;
+}
+
+/* .price-details .tax {
+  border-top: 1px solid #100101;
+  padding-top: 10px;
+  margin-top: 10px;
+  width: 1135px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+} */
+*/
+/* --- Price Details --- */
+/* .price-details p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 10px;
+  margin-right: -395px;
+  margin-bottom: 4px;
+  margin-left: -400px;
+} */
+
+.price-details span {
+  margin-right: 1px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+}
+
+/* Lines under Delivery/Discount and Tax */
+/* Remove or comment out any old .tax style that adds a border: */
+/*
+.price-details .tax {
+    border-top: 1px solid #100101; 
+    ...
+}
+*/
+
+/* Wrapper for Subtotal and Tax to control the dividing line */
+.subtotal-and-tax-wrapper {
+  /* Aligns with the other lines */
+  margin-left: -400px;
+  width: 1135px;
+
+  /* Adds the horizontal line BELOW the Tax line, matching the screenshot */
+  border-bottom: 1px solid #100101;
+  padding-bottom: 10px; /* Space between tax and the line */
+  margin-top: 10px;
+  margin-bottom: 10px; /* Space between line and Order Total */
+}
+
+/* Correct positioning for the amount in the Tax and Rs 360 lines */
+.subtotal-and-tax-wrapper p {
+  /* Inherit general price-details styles, but override margins */
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 400;
+  margin: 4px 0; /* Minimal margin to stack them closely */
+  width: 100%; /* Use full width of the wrapper */
+}
+
+/* Target the amount spans within the wrapper for perfect right alignment */
+.subtotal-and-tax-wrapper .amount-only {
+  /* Override price-details span style to keep alignment tight */
+  margin-right: 0 !important;
+  color: rgba(0, 0, 0, 1);
+  font-size: 12px;
+  font-weight: 500;
+}
+.subtotal-and-tax-wrapper .tax-line {
+  color: rgba(0, 0, 0, 1);
+  font-size: 12px;
+  font-weight: 500;
+}
+/* --- Payment Button and Total Text --- */
+.payment-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.make-payment-button {
+  width: 1135px;
+  height: 45px;
+  background-color: rgba(70, 214, 37, 0.4);
+  border: 1px solid rgba(70, 214, 37, 1);
+  border-radius: 5px;
+  color: rgba(0, 0, 0, 1);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.total-text {
+  width: 31px;
+  height: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  margin-top: -2px;
+  margin-left: 450px;
+}
+
+/* --- Footer Note --- */
+.note-text {
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 40px;
+  line-height: 1.6;
+  width: 1280px;
+  height: 108px;
+  margin-top: 90px;
+  margin-left: -470px;
+  margin-right: 80px;
+}
+
+.note-text a {
+  color: #386341;
+  text-decoration: none;
+}

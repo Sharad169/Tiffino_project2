@@ -1,0 +1,133 @@
+<app-sidebar2></app-sidebar2>
+
+<div class="form-section">
+  <!-- ===== Top Buttons ===== -->
+  <div class="top-buttons">
+    <button
+      class="btn"
+      [ngClass]="{ 'btn-active': activeForm === 'meal' }"
+      (click)="toggleForm('meal')"
+    >
+      Add Meal
+    </button>
+
+    <button
+      class="btn"
+      [ngClass]="{ 'btn-active': activeForm === 'cuisine' }"
+      (click)="toggleForm('cuisine')"
+    >
+      Add Cuisine
+    </button>
+  </div>
+
+  <!-- ===== Add Meal Form ===== -->
+  <div *ngIf="showMealForm" class="form-wrapper">
+    <form class="cuisine-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cuisineName">Cuisine Name</label>
+          <input type="text" id="cuisineName" />
+        </div>
+
+        <div class="form-group">
+          <label>Category</label>
+          <div class="dropdown-wrapper" tabindex="0">
+            <button type="button" class="fake-select"></button>
+            <ul class="dropdown-panel" role="listbox">
+              <li class="dropdown-item">Regional Cuisine</li>
+              <li class="dropdown-item">International Cuisine</li>
+              <li class="dropdown-item">Special Cuisine</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group full">
+          <label for="cuisineImage">Cuisine Image</label>
+          <div class="file-upload">
+            <input type="file" id="cuisineImage" />
+            <label for="cuisineImage" class="choose-btn">Choose File</label>
+            <span class="file-name">No file chosen</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group full">
+          <label for="description">Description</label>
+          <input type="text" id="description" />
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="submit-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- ===== Add Cuisine Form ===== -->
+  <div *ngIf="showCuisineForm" class="form-wrapper">
+    <form class="cuisine-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="mealName">Meal Name</label>
+          <input type="text" id="mealName" />
+        </div>
+
+        <div class="form-group">
+          <label for="cuisineName">Cuisine Name</label>
+          <input type="text" id="cuisineName" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="healthNutrition">Health & Nutrition</label>
+          <input type="text" id="healthNutrition" />
+        </div>
+
+        <div class="form-group">
+          <label for="allergens">Allergens</label>
+          <input type="text" id="allergens" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="text" id="amount" />
+        </div>
+
+        <div class="form-group">
+          <label for="mealType">Meal Type</label>
+          <div class="dropdown-wrapper" tabindex="0">
+            <button type="button" class="fake-select"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group full">
+          <label for="cuisineImage">Cuisine Image</label>
+          <div class="file-upload">
+            <input type="file" id="cuisineImage" />
+            <label for="cuisineImage" class="choose-btn">Choose File</label>
+            <span class="file-name">No file chosen</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group full">
+          <label for="description">Description</label>
+          <input type="text" id="description" />
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="submit-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

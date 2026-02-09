@@ -1,0 +1,116 @@
+<div class="profile-container">
+  <div class="top-row">
+    <div class="top-actions"></div>
+  </div>
+
+  <div class="middle-row">
+    <span class="location"> </span>
+    <div class="search-box"></div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
+      <i class="fa-solid fa-angle-left"></i> Back
+    </div>
+  </div>
+
+  <div class="profile">
+    <p>Profile</p>
+  </div>
+
+  <!-- Main Section -->
+  <div class="profile-section">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+
+    <!-----   Address + Orders + FAQs Section   ----->
+
+    <div class="address-page">
+      <div class="orders-section">
+        <div class="orders-header">
+          <h3>Get help on orders</h3>
+          <a href="#" class="see-all">See All</a>
+        </div>
+
+        <!-- Order Card 1 -->
+        <div class="order-card">
+          <div class="order-top">
+            <div>
+              <h4>Order delivered</h4>
+              <p>Placed at 1/2/2025, 08:56 pm</p>
+            </div>
+            <div class="price">Rs 400</div>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="order-images">
+            <div
+              class="order-img"
+              style="background-image: url('/assets/im1.png')"
+            ></div>
+            <div
+              class="order-img"
+              style="background-image: url('/assets/im2.jpg')"
+            ></div>
+            <div
+              class="order-img"
+              style="background-image: url('/assets/im3.jpg')"
+            ></div>
+            <div
+              class="order-img"
+              style="background-image: url('/assets/im4.jpg')"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Order Card 2 -->
+        <div class="order-card">
+          <div class="order-top">
+            <div>
+              <h4>Order delivered</h4>
+              <p>Placed at 4/2/2025, 07:56 pm</p>
+            </div>
+            <div class="price">Rs 300</div>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="order-images">
+            <div
+              class="order-img"
+              style="background-image: url('/assets/im5.jpg')"
+            ></div>
+            <div
+              class="order-img"
+              style="background-image: url('/assets/im6.jpg')"
+            ></div>
+            <div
+              class="order-img"
+              style="background-image: url('/assets/im7.jpg')"
+            ></div>
+            <div
+              class="order-img"
+              style="background-image: url('/assets/im8.jpg')"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQs Section -->
+      <div class="faq-section">
+        <h3>FAQs</h3>
+        <div class="faq-list">
+          <div class="faq-item">1. What is Tiffino?</div>
+          <div class="faq-item">2. How does the subscription work?</div>
+          <div class="faq-item">3. Can I pause or cancel my subscription?</div>
+          <div class="faq-item">4. What types of meals can I order?</div>
+          <div class="faq-item">5. Can I customize my meals?</div>
+          <div class="faq-item">6. How do I track my order?</div>
+          <div class="faq-item">7. Is the food hygienic and safe?</div>
+          <div class="faq-item">8. What if I'm not satisfied with my meal?</div>
+          <div class="faq-item">9. What payment methods are accepted?</div>
+          <div class="faq-item">10. Do I get rewards or discounts?</div>
+          <div class="faq-item">11. Can I gift meals to someone?</div>
+          <div class="faq-item">12. How do I contact support?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,50 +4,73 @@
   padding: 40px 80px;
   font-family: "Inter", sans-serif;
   margin-top: 80px;
+  box-sizing: border-box;
 }
 
+/* TOP */
 .footer-top {
   display: flex;
-  justify-content: left;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
   margin-bottom: 36px;
+  justify-content: space-between;
 }
 
 .download-text {
   font-size: 24px;
   font-weight: 700;
+  margin: 0;
+}
+
+/* Store buttons */
+.store-buttons {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
 .store-buttons img {
+  width: 206px;
   height: 50px;
   margin-left: 25px;
   margin-top: 10px;
   cursor: pointer;
+  display: block;
 }
 
+/* MAIN: 6 columns */
 .footer-main {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 40px;
+  grid-template-columns: 200px 145px 145px 145px 145px 145px;
+  column-gap: 48px;
+  justify-content: start;
+  margin-left: 100px;
   margin-bottom: 36px;
+  align-items: start;
+  margin-top: 107px;
 }
 
+/* Column styling */
 .footer-column h2 {
-  font-size: 24px;
+  font-size: 40px;
   font-weight: 700;
   color: rgba(247, 136, 31, 1);
+  margin: 0 0 8px -98px;
 }
 
 .footer-column p {
-  margin-top: 8px;
-  font-size: 14px;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 600;
   color: rgba(124, 124, 124, 1);
+  margin-bottom: 0;
+  margin-left: -98px;
 }
 
 .footer-column h3 {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
   margin-bottom: 12px;
 }
 
@@ -65,7 +88,8 @@
 .footer-column ul li a {
   text-decoration: none;
   color: rgba(124, 124, 124, 1);
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 400;
   transition: color 0.2s;
 }
 
@@ -73,72 +97,111 @@
   color: #000;
 }
 
+/* Legal column */
+.footer-column.legal-column {
+  width: 159px;
+  height: 185px;
+}
+
+/* BOTTOM */
 .footer-bottom {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-end;
+  align-items: flex-end;
   border-top: 1px solid #ddd;
   padding-top: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.city-social-wrapper {
+  display: flex;
+  align-items: center;
   gap: 70px;
   flex-wrap: wrap;
 }
 
+/* City button */
 .city-btn {
-  border: 1px solid #333;
+  border: 1px solid rgba(124, 124, 124, 1);
   background: #fff;
   border-radius: 20px;
   padding: 6px 16px;
   cursor: pointer;
-  font-size: 14px;
-  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-right: 20px;
+  margin-top: -34px;
+  border-color: #777;
+  color: rgba(0, 0, 0, 1);
 }
 
+.city-btn-icon {
+  width: 20px;
+  height: 32px;
+  margin-left: 5px;
+  stroke: currentColor;
+  transform: translateY(1px);
+}
+
+/* Social icons */
 .social-icons a {
-  font-size: 18px;
+  display: inline-block;
   margin-right: 12px;
-  color: rgba(124, 124, 124, 1);
 }
 
 .social-icons img {
   width: 28px;
   height: 28px;
-}
-
-.social-icons a:hover {
-  color: #000;
+  display: block;
 }
 
 /* ---------------- Responsive ---------------- */
-
-/* Tablets */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .footer-main {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 24px;
   }
-
-  .footer-bottom {
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-  }
-
-  .store-buttons img {
-    height: 45px;
-    margin-left: 15px;
+  .footer-top {
+    justify-content: space-between;
   }
 }
 
-/* Mobile */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+  }
+
+  .city-social-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
   .footer {
-    padding: 30px 20px;
+    padding: 24px 20px;
   }
 
   .footer-top {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 30px 20px;
   }
 
   .download-text {
@@ -179,13 +242,21 @@
     padding: 5px 12px;
   }
 
-  .social-icons a {
-    font-size: 16px;
-    margin-right: 8px;
-  }
-
   .social-icons img {
     width: 24px;
     height: 24px;
+  }
+}
+
+@media (max-width: 420px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .store-buttons img {
+    height: 45px;
+    margin-left: 15px;
   }
 }

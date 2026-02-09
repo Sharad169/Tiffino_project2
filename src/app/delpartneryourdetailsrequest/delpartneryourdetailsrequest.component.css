@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* --- Wrapper --- */
+.managerinfo-wrapper {
+  font-family: "Poppins", sans-serif;
+  margin-left: 480px;
+  margin-top: -440px;
+  padding-right: 100px;
+  max-width: 900px;
+}
+
+/* User Info */
+.user-info {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.user-avatar {
+  width: 124px;
+  height: 126px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  margin-top: 27px;
+}
+
+.user-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 6px 0;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 14px;
+  margin-bottom: 8px;
+}
+
+.email {
+  color: rgba(0, 0, 0, 1);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* --- Form Layout --- */
+.manager-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.full {
+  width: 100%;
+}
+
+/* --- Input Styling --- */
+input[type="text"],
+input[type="email"] {
+  width: 430px;
+  height: 51px;
+  border: 1px solid rgba(162, 161, 161, 1);
+  border-radius: 20px;
+  padding: 0 10px;
+  outline: none;
+  font-size: 14px;
+  color: rgba(162, 161, 161, 1);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: rgba(56, 99, 65, 1);
+}
+
+label {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 500;
+}
+
+/* --- File Inputs --- */
+.file-group {
+  position: relative;
+}
+/* The actual file input must remain invisible and sit on top */
+.file-group input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Cover the entire custom input area */
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Base container for the custom file input */
+.custom-file-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space out "Choose File" area and "PDF" area */
+  width: 430px;
+  height: 51px;
+  border: 1px solid rgba(162, 161, 161, 1); /* 1px #A2A1A1 */
+  border-radius: 900px; /* This creates the circular/pill shape */
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+/* The PDF text display area */
+.file-placeholder {
+  flex-grow: 1; /* Allow it to take the remaining space */
+  text-align: center; /* Center "PDF" text */
+  font-size: 13px;
+  color: #000000;
+  padding: 0; /* Remove padding-left from previous setup */
+  margin-right: 10px; /* Optional: Add small margin */
+}
+/* The element that holds the "Choose File" text */
+.custom-file-input::before {
+  content: "Choose File";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  height: 100%;
+  width: 30%;
+  padding: 0; /* Remove padding */
+  background-color: rgba(230, 230, 230, 1);
+  border-left: none;
+  border-right: 1px solid rgba(162, 161, 161, 1);
+}
+/* --- Address Boxes --- */
+.address-box {
+  width: 866px;
+  height: 70px;
+  border: 1px solid rgba(162, 161, 161, 1);
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-size: 24px;
+  color: rgba(162, 161, 161, 1);
+  outline: none;
+  resize: none;
+}
+
+.edit-request-btn {
+  width: 258px;
+  height: 49px;
+  background-color: #386341;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto; /* centers the button */
+}
+
+.edit-request-btn:hover {
+  background-color: #2e5135; /* slightly darker hover */
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .managerinfo-wrapper {
+    margin-left: 320px;
+    max-width: 90%;
+  }
+
+  .role-dropdown {
+    width: 100%;
+  }
+}

@@ -1,0 +1,196 @@
+/* Base structure aligned with profile-container layout */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+.profile-container {
+  font-family: "Poppins", sans-serif;
+  margin: 0 80px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+/* Same as your address page */
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px 0 8px 250px;
+}
+
+.middle-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.bottom-row {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-link {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  margin-top: 94px;
+}
+
+/* Profile Title */
+.profile p {
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+/* --- Main section layout --- */
+.profile-section {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* --- Add Address Page (right section) --- */
+.addaddress-page {
+  width: 100%;
+  margin-left: 37px;
+  background-color: rgba(255, 253, 253, 1);
+  box-sizing: border-box;
+  padding: 40px 60px;
+  border-radius: 15px;
+}
+
+.address-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 37px;
+}
+
+.address-btn button {
+  width: 266px;
+  height: 39px;
+  padding: 8px 16px;
+  background-color: rgba(56, 99, 65, 1);
+  border: none;
+  border-radius: 40px;
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: -50px;
+  margin-right: 10px;
+}
+
+/* --- Form layout --- */
+.address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-left: -60px;
+}
+/* Make Address box smaller */
+#address {
+  display: flex;
+  height: 80px !important; /* decrease from 100px */
+  width: 835px;
+  padding: 24px 15px 22px 22px;
+}
+
+/* Make Pincode input taller */
+#pincode {
+  height: 80px !important; /* increase from 48px */
+  border-radius: 20px;
+  padding: 15px 22px;
+}
+
+.form-row {
+  display: flex;
+  gap: 40px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  width: 400px;
+}
+
+.form-group label {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 8px;
+}
+.form-group full {
+  height: 51px;
+}
+.form-group input,
+.form-group textarea {
+  border: 1.8px solid rgba(162, 161, 161, 1);
+  border-radius: 20px; /* Increased for circular shape */
+  padding: 15px 22px; /* More horizontal space for pill look */
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 1);
+  outline: none;
+  height: 48px; /* Keeps height consistent */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); /* subtle depth */
+  transition: all 0.3s ease;
+  resize: none;
+}
+
+.form-group textarea {
+  border-radius: 20px; /* Slightly less rounded for larger box */
+  height: 100px;
+  width: 700px;
+}
+
+/* On focus - green glow for active field */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: rgba(56, 99, 65, 1);
+  box-shadow: 0 0 10px rgba(56, 99, 65, 0.25);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: rgba(56, 99, 65, 1);
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+.full {
+  width: 100%;
+}
+
+/* Submit Button */
+.submit-row {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-row button {
+  margin-top: 30px;
+  width: 176px;
+  height: 57px;
+  background-color: rgba(56, 99, 65, 1);
+  border: none;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-row button:hover {
+  background-color: rgba(56, 99, 65, 1);
+}

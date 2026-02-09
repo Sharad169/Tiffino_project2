@@ -5,7 +5,7 @@
   width: calc(100% + 16px);
 }
 
-/* ---------------- Header ---------------- */
+/* ---------------- HEADER ---------------- */
 .header {
   background-color: rgba(56, 99, 65, 1);
   color: #ffffff;
@@ -13,18 +13,19 @@
   padding: 14px 0 24px;
 }
 
-/* Container */
+/* ---------------- CONTAINER ---------------- */
 .container {
   margin: 0 auto;
-  padding: 0 20px; /* better padding for mobile */
-  margin-left: 90px;
+  padding: 0 20px;
+  margin-left: 90px; /* adjust for sidebar if needed */
 }
 
-/* Top row */
+/* ---------------- TOP ROW ---------------- */
 .top-row {
   display: grid;
-  grid-template-columns: 180px 1fr 180px;
+  grid-template-columns: auto 1fr auto; /* logo | nav links | profile */
   align-items: center;
+  gap: 30px;
 }
 
 /* Logo */
@@ -34,10 +35,11 @@
   margin-top: 10px;
 }
 
-/* Center navigation links */
+/* ---------------- CENTER NAV LINKS ---------------- */
 .center-nav {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 100px;
   margin-left: 75px;
 }
@@ -48,14 +50,49 @@
   font-size: 22px;
   font-weight: 500;
   cursor: pointer;
-  margin-top: 20px;
+  transition: opacity 0.3s ease;
+  margin: 0;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link:focus {
+  opacity: 0.8;
+  outline: none;
+}
+
+/* ---------------- USER IDENTITY (Right Side) ---------------- */
+.user-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 500;
+  cursor: pointer;
+  justify-content: flex-end;
+  transition: opacity 0.2s ease;
+  margin-right: 20px;
+}
+
+.user-identity:hover,
+.user-identity:focus {
   opacity: 0.8;
 }
 
-/* Bottom row */
+.user-identity .profile-icon {
+  color: rgba(248, 244, 244, 1);
+  stroke-linecap: round;
+  fill: none;
+}
+
+.user-name {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ---------------- BOTTOM ROW ---------------- */
 .bottom-row {
   margin-top: 16px;
   display: flex;
@@ -63,13 +100,13 @@
   gap: 12px;
 }
 
+/* ---------------- LOCATION ---------------- */
 .profile-name {
   font-size: 24px;
   display: flex;
   justify-content: flex-end;
 }
 
-/* Location row */
 .location {
   display: flex;
   align-items: center;
@@ -82,17 +119,17 @@
   color: #ffffff;
 }
 
-/* Search block */
+/* ---------------- SEARCH SECTION ---------------- */
 .search-block {
   display: flex;
   align-items: center;
   margin-top: 30px;
   margin-bottom: 15px;
   gap: 10px;
-  flex-wrap: wrap; /* allow wrapping on mobile */
+  flex-wrap: wrap;
 }
 
-/* Search pill */
+/* Search Pill */
 .search-pill {
   position: relative;
   background: #fff;
@@ -121,7 +158,7 @@
   font-weight: 500;
 }
 
-/* Chevron in search */
+/* Chevron Icon */
 .chev {
   position: absolute;
   right: 12px;
@@ -133,30 +170,38 @@
   color: #333;
 }
 
-/* Filter button */
+/* Filter Button */
 .filter-btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 52px;
   width: 110px;
   gap: 10px;
   background: #fff;
-  color: rgba(0, 0, 0, 1);
+  color: #000;
   border: none;
   border-radius: 20px;
   padding: 10px 14px;
   font-size: 19px;
   font-weight: 500;
   cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.filter-btn:hover,
+.filter-btn:focus {
+  background: #f2f2f2;
+  outline: none;
 }
 
 .filter-btn svg {
   stroke-width: 2;
 }
 
-/* ---------------- Responsive ---------------- */
+/* ---------------- RESPONSIVE ---------------- */
 
-/* Tablets & small desktops */
+/* Tablets & Small Desktops */
 @media (max-width: 992px) {
   .container {
     margin-left: 20px;
@@ -181,7 +226,7 @@
   }
 }
 
-/* Tablets & mobiles */
+/* Tablets & Mobiles */
 @media (max-width: 768px) {
   .center-nav {
     display: none; /* hide nav links */
@@ -204,11 +249,10 @@
 
   .filter-btn {
     width: 100%;
-    justify-content: center;
   }
 }
 
-/* Small mobile */
+/* Small Mobile */
 @media (max-width: 480px) {
   .logo img {
     height: 28px;

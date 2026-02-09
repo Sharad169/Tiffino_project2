@@ -1,0 +1,82 @@
+<app-chef-sidebar></app-chef-sidebar>
+
+<div class="apply-wrapper">
+  <h2>Apply for leave</h2>
+
+  <!-- LEAVE TYPE -->
+  <div class="dropdown-wrapper">
+    <input
+      type="text"
+      class="input-box leave-type"
+      value="Leave type"
+      readonly
+      (click)="toggleLeaveTypeDropdown()"
+    />
+
+    <div class="custom-dropdown" *ngIf="showLeaveType">
+      <p (click)="selectLeaveType('Sick Leave')">Sick Leave</p>
+      <p (click)="selectLeaveType('Casual Leave')">Casual Leave</p>
+      <p (click)="selectLeaveType('Emergency Leave')">Emergency Leave</p>
+    </div>
+  </div>
+
+  <div class="small-fields">
+    <!-- FROM DATE -->
+    <div class="date-wrapper">
+      <input
+        type="text"
+        class="input-box"
+        [value]="fromDate || 'From date'"
+        readonly
+        (click)="openFromDatePicker()"
+      />
+      <input
+        type="date"
+        id="fromPicker"
+        class="hidden-date"
+        (change)="setFromDate($event)"
+      />
+    </div>
+
+    <!-- TO DATE -->
+    <div class="date-wrapper">
+      <input
+        type="text"
+        class="input-box"
+        [value]="toDate || 'To date'"
+        readonly
+        (click)="openToDatePicker()"
+      />
+      <input
+        type="date"
+        id="toPicker"
+        class="hidden-date"
+        (change)="setToDate($event)"
+      />
+    </div>
+
+    <!-- CONTACT DETAILS (looks like leave type) -->
+    <div class="contact-box">
+      <span class="prefix">Contact Details </span>
+      <input
+        type="text"
+        class="contact-input"
+        [(ngModel)]="contactDetails"
+        (input)="onContactInput($event)"
+      />
+    </div>
+    <!-- REASON BOX (text starts on next line) -->
+    <div class="reason-box">
+      <span class="reason-label">Reason</span>
+      <textarea
+        class="reason-textarea"
+        [(ngModel)]="reasonText"
+        (input)="onReasonInput($event)"
+      ></textarea>
+    </div>
+
+    <div class="submit-btn">
+      <button (click)="submitLeave()">Submit</button>
+    </div>
+  </div>
+</div>

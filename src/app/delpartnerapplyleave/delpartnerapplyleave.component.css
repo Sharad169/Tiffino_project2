@@ -1,0 +1,79 @@
+.apply-wrapper {
+  font-family: "Poppins", sans-serif;
+  padding: 20px 0;
+  max-width: 650px;
+  margin-top: -430px;
+  margin-left: 470px; /* beside sidebar */
+}
+
+.apply-wrapper h2 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 40px;
+}
+
+.input-box,
+.reason-box {
+  width: 373px;
+  height: 48px;
+  background: #f1f1f1;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  box-sizing: border-box;
+}
+.leave-type {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='23px' height='24px' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 10l5 5 5-5' stroke='rgba(31,31,31,1)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 30px;
+  color: #1f1f1f;
+  cursor: pointer;
+}
+
+.small-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.reason-input {
+  width: 866px;
+  height: 190px;
+  background: #f1f1f1;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  box-sizing: border-box;
+  overflow-y: auto;
+  color: #000000;
+}
+
+.submit-btn {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 166px;
+  height: 49px;
+  background: #386341;
+  padding: 12px 40px;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 46px;
+  margin-left: 280px;
+}

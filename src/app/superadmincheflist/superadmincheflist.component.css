@@ -1,0 +1,339 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+.listemployee-wrapper {
+  font-family: "Poppins", sans-serif;
+  margin-left: 430px;
+  margin-top: -630px;
+  padding-right: 100px;
+  max-width: 900px;
+}
+
+/* --- Dropdown Section --- */
+.dropdown-row {
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.dropdown-selected {
+  width: 540px;
+  height: 42px;
+  padding: 0 20px;
+  font-size: 20px;
+  font-weight: 400;
+  border: 3px solid #386341;
+  border-radius: 10px;
+  margin-left: 30px;
+  color: #000;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  justify-content: center;
+  /* ✅ Original dropdown icon */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="30" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="rgba(31,31,31,1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 35px;
+}
+
+.arrow {
+  display: none; /* hidden arrow span */
+}
+
+.dropdown-list {
+  position: absolute;
+  left: 325px;
+  top: 45px;
+  width: 245px;
+  background: #fff;
+  border-radius: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* ✅ Custom hover color */
+.dropdown-item:hover {
+  background-color: #e0fee4;
+}
+
+/* ✅ Added Buttons Section */
+.assign-buttons {
+  display: flex;
+  gap: 1px;
+  position: absolute;
+  top: 0;
+  left: 600px; /* tweak this for perfect alignment */
+}
+
+.assign-btn {
+  width: 184px;
+  height: 41px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 30px;
+  padding: 8px 18px;
+  margin-left: 10px;
+  font-size: 18px;
+  color: #000000;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.assign-btn:hover {
+  background-color: #e0fee4;
+}
+
+/* --- Employee List Section --- */
+.employee-list {
+  max-height: 900px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  scrollbar-width: none;
+}
+
+.employee-list::-webkit-scrollbar {
+  display: none;
+}
+
+.employee-list {
+  padding-right: 4px;
+}
+
+.employee-card {
+  display: flex;
+  align-items: center;
+  background-color: rgba(224, 254, 228, 0.4);
+  border: 1px solid rgba(162, 161, 161, 0.3);
+  border-radius: 15px;
+  box-shadow: 0 2px 6px #40985399;
+  padding: 20px;
+  width: 820px;
+  height: 142px;
+  margin-left: 30px;
+}
+
+.employee-photo {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  border: 2px solid #386341;
+  margin-right: 25px;
+  background-size: cover;
+}
+
+.employee-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.employee-name {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.employee-role {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  margin-top: 10px;
+}
+
+.employee-id-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.kitchen-id,
+.employee-id {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  margin-right: 100px;
+  margin-top: -10px;
+}
+
+.employee-id {
+  text-align: right;
+}
+/*********************************************************
+    RESPONSIVE — EMPLOYEE LIST PAGE (FINAL PRODUCTION)
+**********************************************************/
+
+/* ---------- LARGE LAPTOP (max 1440px) ---------- */
+@media (max-width: 1440px) {
+  .listemployee-wrapper {
+    margin-left: 360px;
+    max-width: 850px;
+  }
+
+  .dropdown-selected {
+    width: 500px;
+  }
+
+  .employee-card {
+    width: 750px;
+  }
+}
+
+/* ---------- NORMAL LAPTOP (max 1200px) ---------- */
+@media (max-width: 1200px) {
+  .listemployee-wrapper {
+    margin-left: 250px;
+    margin-top: -580px;
+    max-width: 100%;
+  }
+
+  .dropdown-selected {
+    width: 440px;
+  }
+
+  .assign-buttons {
+    left: 520px;
+  }
+
+  .employee-card {
+    width: 680px;
+  }
+}
+
+/* ---------- TABLETS (max 992px) ---------- */
+@media (max-width: 992px) {
+  .listemployee-wrapper {
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+
+  /* Stack dropdown and assign buttons */
+  .dropdown-row {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .dropdown-selected {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .assign-buttons {
+    position: static;
+    justify-content: center;
+  }
+
+  .assign-btn {
+    width: 160px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  /* Employee card full width */
+  .employee-card {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding: 16px;
+  }
+
+  .employee-photo {
+    width: 110px;
+    height: 110px;
+  }
+
+  .employee-name {
+    font-size: 18px;
+  }
+}
+
+/* ---------- MOBILE LARGE (max 768px) ---------- */
+@media (max-width: 768px) {
+  .dropdown-selected {
+    height: 40px;
+    font-size: 18px;
+    background-size: 26px;
+  }
+
+  .assign-buttons {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .assign-btn {
+    width: 150px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .employee-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .employee-photo {
+    margin-right: 0;
+  }
+
+  .employee-id-row {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .kitchen-id,
+  .employee-id {
+    margin-right: 0;
+    margin-top: 0;
+  }
+}
+
+/* ---------- MOBILE SMALL (max 480px) ---------- */
+@media (max-width: 480px) {
+  .dropdown-selected {
+    font-size: 16px;
+    padding: 0 14px;
+    background-size: 22px;
+  }
+
+  .assign-btn {
+    width: 140px;
+    height: 34px;
+  }
+
+  .employee-photo {
+    width: 90px;
+    height: 90px;
+  }
+
+  .employee-name {
+    font-size: 17px;
+  }
+
+  .employee-role {
+    font-size: 14px;
+  }
+
+  .employee-card {
+    padding: 14px;
+  }
+}

@@ -1,0 +1,76 @@
+<div class="profile-container">
+  <div class="top-row">
+    <div class="top-actions"></div>
+  </div>
+
+  <div class="middle-row">
+    <span class="location"> </span>
+    <div class="search-box"></div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
+      <i class="fa-solid fa-angle-left"></i> Back
+    </div>
+  </div>
+
+  <div class="profile">
+    <p>Profile</p>
+  </div>
+
+  <!-- Main Section -->
+  <div class="profile-section">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+
+    <!-- Address + Orders + FAQs Section -->
+    <div class="wallet-page">
+      <!-- Wallet Balance Card -->
+      <div class="wallet-balance-card">
+        <p class="balance-amount">Rs 5000</p>
+        <p class="balance-text">Current Shidori Wallet Balance</p>
+      </div>
+
+      <!-- Transaction Table -->
+      <h3 class="transaction-title">All transaction details</h3>
+
+      <div class="transaction-table-container">
+        <table class="transaction-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Type</th>
+              <th class="description-header">Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>06/05/2025</td>
+              <td>Rs 120</td>
+              <td class="status-success">Successful</td>
+              <td>Debit</td>
+              <td>Lunch Order #7891</td>
+            </tr>
+            <tr>
+              <td>06/05/2025</td>
+              <td>Rs 120</td>
+              <td class="status-success">Successful</td>
+              <td>Debit</td>
+              <td>Lunch Order #7891</td>
+            </tr>
+            <tr>
+              <td>06/05/2025</td>
+              <td>Rs 120</td>
+              <td class="status-success">Successful</td>
+              <td>Debit</td>
+              <td>Lunch Order #7891</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

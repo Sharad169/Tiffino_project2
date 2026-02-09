@@ -1,0 +1,220 @@
+/* Use Poppins if not already loaded */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* ------------------------------------------------ */
+/* MAIN LAYOUT – DESKTOP UI PRESERVED EXACTLY       */
+/* ------------------------------------------------ */
+.manager-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.manager-content {
+  flex-grow: 1;
+
+  /* ✔ Desktop look preserved */
+  padding-top: 330px;
+  margin-left: -970px;
+  padding-left: 0;
+  margin-top: -20px;
+}
+
+/* ------------------------------------------------ */
+/* DROPDOWN WRAPPER                                 */
+/* ------------------------------------------------ */
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+  outline: none;
+}
+
+/* SELECT-LIKE BOX */
+.fake-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 520px;
+  height: 46px;
+
+  padding: 0 18px;
+  border-radius: 12px;
+  border: 3px solid rgba(56, 99, 65, 1);
+  background: #fff;
+  cursor: pointer;
+
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.95);
+
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* LABEL CENTERED */
+.fake-select .label {
+  flex: 1;
+  text-align: center;
+}
+
+/* CHEVRON */
+.fake-select .chev {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ------------------------------------------------ */
+/* DROPDOWN PANEL                                   */
+/* ------------------------------------------------ */
+.dropdown-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 62%;
+  transform: translateX(-50%);
+
+  width: 260px;
+
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  padding: 6px 0;
+  list-style: none;
+
+  margin-left: 70px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 160ms ease, transform 160ms ease;
+  z-index: 80;
+}
+
+.dropdown-wrapper:hover .dropdown-panel,
+.dropdown-wrapper:focus-within .dropdown-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* MENU ITEM */
+.dropdown-item {
+  padding: 12px 18px;
+  font-size: 15px;
+  color: rgba(31, 31, 31, 1);
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+/* ITEM HOVER */
+.dropdown-item:hover,
+.dropdown-item.active {
+  background-color: rgba(224, 254, 228, 1);
+}
+
+/* FIRST ITEM HIGHLIGHT BAR */
+.dropdown-panel::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 140px;
+  height: 42px;
+  border-radius: 4px;
+  background: rgba(224, 254, 228, 1);
+  pointer-events: none;
+  z-index: 79;
+  opacity: 0.95;
+}
+
+.dropdown-wrapper:not(:hover) .dropdown-panel::before,
+.dropdown-wrapper:not(:focus-within) .dropdown-panel::before {
+  opacity: 0;
+}
+
+/* ------------------------------------------------ */
+/* RESPONSIVE SYSTEM — NO DESKTOP UI BREAKING      */
+/* ------------------------------------------------ */
+
+/* ★ Tablet Large (1024px) */
+@media (max-width: 1200px) {
+  .manager-content {
+    margin-left: -700px;
+  }
+
+  .fake-select {
+    width: 480px;
+  }
+}
+
+/* ★ Tablet Medium (992px) */
+@media (max-width: 992px) {
+  .manager-content {
+    margin-left: -540px;
+    padding-top: 200px;
+  }
+
+  .fake-select {
+    width: 420px;
+    font-size: 16px;
+  }
+
+  .dropdown-panel {
+    width: 240px;
+    left: 60%;
+    margin-left: 40px;
+  }
+}
+
+/* ★ Small Tablets / Landscape Mobiles (768px) */
+@media (max-width: 768px) {
+  .manager-content {
+    margin-left: -50px;
+    padding-top: 140px;
+  }
+
+  .fake-select {
+    width: 100%;
+    max-width: 360px;
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .dropdown-panel {
+    width: 220px;
+    left: 50%;
+    margin-left: 0;
+  }
+}
+
+/* ★ Mobile Portrait (480px) */
+@media (max-width: 480px) {
+  .manager-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .fake-select {
+    width: 100%;
+    max-width: 100%;
+    height: 42px;
+    font-size: 15px;
+  }
+
+  .dropdown-panel {
+    width: 200px;
+    left: 50%;
+    margin-left: 0;
+  }
+
+  .dropdown-item {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}

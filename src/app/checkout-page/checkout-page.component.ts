@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './checkout-page.component.html',
-  styleUrl: './checkout-page.component.css'
+  styleUrl: './checkout-page.component.css',
 })
-export class CheckoutPageComponent {
-
-}
+export class CheckoutPageComponent {}

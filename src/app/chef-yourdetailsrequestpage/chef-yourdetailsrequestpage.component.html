@@ -1,0 +1,113 @@
+<app-chef-sidebar></app-chef-sidebar>
+
+<div class="managerinfo-wrapper">
+  <div class="profile-details">
+    <div class="user-info">
+      <img src="/assets/aaditya.jpg" alt="User" class="user-avatar" />
+
+      <h3>Ravi Sharma</h3>
+      <p class="email">Ravisharma&#64;gmail.com</p>
+    </div>
+
+    <form class="manager-form">
+      <!-- ROW: Name + Email -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" type="text" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="email" />
+        </div>
+      </div>
+
+      <!-- ROW: DOB + Phone -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="dob">DOB</label>
+          <input id="dob" type="text" placeholder="YYYY/MM/DD" />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone No.</label>
+          <input id="phone" type="text" />
+        </div>
+      </div>
+
+      <!-- ROW: Kitchen ID + Photo -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="kitchen-id">Kitchen ID</label>
+          <input id="kitchen-id" type="text" />
+        </div>
+
+        <div class="form-group file-group">
+          <label for="photo">Photo</label>
+          <div class="custom-file-input">
+            <span class="file-placeholder">PDF</span>
+            <input id="photo" type="file" />
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW: Aadhaar + PAN -->
+      <div class="form-row">
+        <div class="form-group file-group">
+          <label for="aadhar">Aadhar No.</label>
+          <div class="custom-file-input">
+            <span class="file-placeholder">PDF</span>
+            <input id="aadhar" type="file" />
+          </div>
+        </div>
+
+        <div class="form-group file-group">
+          <label for="pan-card">PAN card No.</label>
+          <div class="custom-file-input">
+            <span class="file-placeholder">PDF</span>
+            <input id="pan-card" type="file" />
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW: Bank Account + Cheque Book -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="bank-acct">Bank Account No.</label>
+          <input id="bank-acct" type="text" />
+        </div>
+
+        <div class="form-group file-group">
+          <label for="cheque-book">Cheque Book</label>
+          <div class="custom-file-input">
+            <span class="file-placeholder">PDF</span>
+            <input id="cheque-book" type="file" />
+          </div>
+        </div>
+      </div>
+
+      <!-- IFSC BELOW BANK ACCOUNT -->
+      <div class="form-group full">
+        <label for="ifsc">IFSC Code</label>
+        <input id="ifsc" type="text" />
+      </div>
+
+      <!-- Permanent Address -->
+      <div class="form-group full">
+        <label for="perm-address">Permanent Address</label>
+        <textarea id="perm-address" type="text" class="address-box"></textarea>
+      </div>
+
+      <!-- Current Address -->
+      <div class="form-group full">
+        <label for="curr-address">Current Address</label>
+        <textarea id="curr-address" type="text" class="address-box"></textarea>
+      </div>
+
+      <button class="edit-request-btn" routerLink="/chef-editdetailspage">
+        Edit Request
+      </button>
+    </form>
+  </div>
+</div>

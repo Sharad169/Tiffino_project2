@@ -1,0 +1,53 @@
+<app-managersidebar></app-managersidebar>
+
+<div class="order-container">
+  <!-- TOP CONTENT WRAPPER -->
+  <div class="order-top">
+    <!-- Header -->
+    <div class="order-header">
+      <span class="order-date">17 Oct 2025</span>
+      <span class="order-time">04:50 PM</span>
+    </div>
+
+    <!-- Customer Info -->
+    <div class="customer-info">
+      <p class="row-flex">
+        Name:– <span>Rajesh</span>
+        <span class="subscriber-badge">Subscriber</span>
+      </p>
+
+      <p>Phone:– <span> 12345678997</span></p>
+      <p>Dietary Preference:– <span>Veg</span></p>
+      <p>Portion:– <span>Small</span></p>
+      <p>Spice Level:– <span>Extra Spicy</span></p>
+
+      <!-- HEALTH & NUTRITION EXACT PATTERN -->
+      <p class="nutrition-row">
+        <span class="label">Health & Nutrition:–</span>
+        <span class="value">
+          Low Calories (200)<br />
+          High Fiber (300)
+        </span>
+      </p>
+
+      <p>Allergens:– <span>Egg</span></p>
+    </div>
+
+    <!-- Food Card -->
+    <div class="food-card">
+      <img src="/assets/btnaan.png" alt="Butter Naan" />
+      <div class="food-details">
+        <h4>Butter Naan</h4>
+        <p>
+          A soft, fluffy, and slightly chewy Indian flatbread baked in a
+          tandoor, perfect for pairing with rich curries and gravies.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== BUTTON OUTSIDE THE CONTAINER ========== -->
+<div class="order-button-outside">
+  <button class="start-btn" (click)="goToDeliveryPartner()">Start Order</button>
+</div>

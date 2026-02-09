@@ -1,0 +1,299 @@
+/* Import Poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* General Container */
+.profile-container {
+  font-family: "Poppins", sans-serif;
+  margin: 0 80px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+/* Top Row */
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px 0 8px 250px;
+}
+
+.greeting {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wallet-btn {
+  height: 51px;
+  width: 171px;
+  background: #386341;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.notify {
+  height: 48px;
+  width: 47px;
+  font-size: 20px;
+  color: #fff;
+  background: #386341;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile-pic {
+  height: 48px;
+  width: 47px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+/* Middle Row */
+.middle-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.location {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #386341;
+}
+
+.search-box {
+  height: 47px;
+  width: 510px;
+  display: flex;
+  gap: 6px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid #aaa;
+  font-size: 14px;
+}
+
+.menu-btn {
+  height: 47px;
+  width: 47px;
+  border: 2px solid #aaa;
+  background: #f9f9f9;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+/* Outer large box */
+.help-large-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 47px; /* height of large box */
+  width: 47px; /* width of large box */
+  top: 409px;
+  left: 1013px;
+  border: 2px solid rgba(162, 161, 161, 1);
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  padding: 5px; /* space for small box inside */
+  transition: background 0.2s;
+}
+
+/* Small box inside the large box */
+.help-small-box {
+  height: 18px;
+  width: 18px;
+  top: 3px;
+  left: 3px;
+  border: 2px solid rgba(145, 145, 145, 1);
+  border-radius: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(145, 145, 145, 1);
+  background-color: #fff;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Bottom Row */
+.bottom-row {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-icon {
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  margin-top: 120px;
+}
+
+.back-link {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+/* Profile Title */
+.profile p {
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  height: 1004px;
+  border-radius: 15px;
+  background: #fff;
+  margin-top: 10px;
+}
+
+/* Individual cards */
+.empty-card {
+  height: 102px;
+  width: 111px; /* Fixed width */
+  background: rgba(217, 217, 217, 1);
+  border-radius: 20px;
+}
+
+/* Order details */
+.order-card {
+  width: 267px;
+  height: 343px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* stronger shadow */
+  padding: 16px;
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  margin-left: 16px;
+}
+
+.order-header h4 {
+  font-size: 14px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.order-header p {
+  font-size: 12px;
+  color: rgba(149, 149, 149, 1);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.item-img {
+  width: 45px;
+  height: 45px;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-details h5 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.item-details p {
+  font-size: 12px;
+  color: #777;
+  margin: 4px 0;
+}
+
+.price {
+  display: block;
+  font-weight: 500;
+  font-size: 13px;
+  color: #000;
+}
+
+.divider {
+  height: 1px;
+  background-color: rgba(230, 230, 230, 1);
+  margin: 10px 0;
+}
+
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left p {
+  font-size: 13px;
+  margin: 0;
+  color: #777;
+}
+
+.footer-left h4 {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 2px 0 16px;
+}
+
+.status-btn {
+  width: 120px;
+  border: 1px solid #00c851;
+  background: transparent;
+  color: rgba(42, 228, 132, 1);
+  font-size: 15px;
+
+  height: 36px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: default;
+}
+.status-btn.reject {
+  width: 90px;
+  font-size: 15px;
+  height: 36px;
+  border-radius: 6px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 0, 0, 1);
+  color: rgba(255, 0, 0, 1);
+}

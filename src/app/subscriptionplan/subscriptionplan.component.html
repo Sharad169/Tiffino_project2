@@ -1,0 +1,66 @@
+<div class="profile-container">
+  <div class="top-row">
+    <div class="top-actions"></div>
+  </div>
+
+  <div class="middle-row">
+    <span class="location"> </span>
+    <div class="search-box"></div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="back-link" [routerLink]="['/profile']" style="cursor: pointer">
+      <i class="fa-solid fa-angle-left"></i> Back
+    </div>
+  </div>
+
+  <div class="profile">
+    <p>Profile</p>
+  </div>
+
+  <!-- Main Section -->
+  <div class="profile-section">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+
+    <div class="plan-details-wrapper">
+      <div class="plan-header-row">
+        <h2 class="section-title">Your current plan</h2>
+
+        <div class="pause-action">
+          <span class="pause-text">
+            {{ isPaused ? "Resume your plan" : "Pause your plan" }}
+          </span>
+          <button class="pause-btn" (click)="togglePlan()">
+            {{ isPaused ? "Resume" : "Pause" }}
+          </button>
+        </div>
+      </div>
+
+      <div class="plan-box monthly-plan-box">
+        <h3 class="plan-title">Monthly Plan</h3>
+        <ul class="plan-features">
+          <li>Priority delivery and guaranteed freshness</li>
+          <li>Access to weekly chef's specials and regional dishes</li>
+          <li>Option to track calories and view meal nutrition</li>
+          <li>Customizable Meal Options</li>
+          <li>Healthy & Balanced Nutrition</li>
+        </ul>
+      </div>
+
+      <div class="total-amount-box">
+        <p class="total-amount-text">
+          Total Amount Paid <span class="paid-amount"> 5000 Rs</span>
+        </p>
+        <p class="plan-type-text">Your Monthly Plan</p>
+      </div>
+
+      <p class="day-count">
+        Total days covered: <span class="day-value">15 days</span>
+      </p>
+      <p class="day-count">
+        Total days left: <span class="day-value">15 days</span>
+      </p>
+    </div>
+  </div>
+</div>
